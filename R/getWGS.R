@@ -23,25 +23,49 @@
 #' @param sexObserved Sex of child (1 = Male; 2 = Female)
 #' @param firstPart Weight (kg; for WHZ and WAZ) or height (cm; for HAZ)
 #' @param secondPart Age (months; for HAZ and WAZ) or height (cm; for WHZ)
-#' @param index One of "wfh", "hfa", "wfa" (specified the required index)
-#' @return Numeric vector of corresponding z-scores of the anthropometric
-#'     index selected
+#' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
+#' @return z-score of the anthropometric index selected
 #' @examples
-#'   # apply getWGS to sample data anthro1
+#'   # apply getWGS to first child in sample data anthro1
 #'   waz <- getWGS(sexObserved = anthro1$sex[1],
 #'                 firstPart = anthro1$weight[1],
 #'                 secondPart = anthro1$age[1],
 #'                 index = "wfa")
+#'   waz
 #'
 #'   haz <- getWGS(sexObserved = anthro1$sex[1],
 #'                 firstPart = anthro1$height[1],
 #'                 secondPart = anthro1$age[1],
 #'                 index = "hfa")
+#'   haz
 #'
 #'   whz <- getWGS(sexObserved = anthro1$sex[1],
 #'                 firstPart = anthro1$weight[1],
 #'                 secondPart = anthro1$height[1],
 #'                 index = "wfh")
+#'   whz
+#'
+#'   # apply getWGS to all children in sample data anthro1
+#'   wazAll <- mapply(getWGS,
+#'                    sexObserved = anthro1$sex,
+#'                    firstPart = anthro1$weight,
+#'                    secondPart = anthro1$age,
+#'                    index = "wfa")
+#'   wazAll
+#'
+#'   hazAll <- mapply(getWGS,
+#'                    sexObserved = anthro1$sex,
+#'                    firstPart = anthro1$height,
+#'                    secondPart = anthro1$age,
+#'                    index = "hfa")
+#'   hazAll
+#'
+#'   whzAll <- mapply(getWGS,
+#'                    sexObserved = anthro1$sex,
+#'                    firstPart = anthro1$weight,
+#'                    secondPart = anthro1$height,
+#'                    index = "wfh")
+#'   whzAll
 #' @export
 #'
 #

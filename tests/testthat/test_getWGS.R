@@ -21,3 +21,24 @@ test_that("z-score is correct", {
   expect_equal(round(haz, digits = 2), anthro1$haz[1])
   expect_equal(round(whz, digits = 2), anthro1$whz[1])
 })
+
+wazAll <- mapply(getWGS, sexObserved = anthro1$sex, firstPart = anthro1$weight,
+                 secondPart = anthro1$age, index = "wfa")
+
+hazAll <- mapply(getWGS, sexObserved = anthro1$sex, firstPart = anthro1$height,
+                 secondPart = anthro1$age, index = "hfa")
+
+whzAll <- mapply(getWGS, sexObserved = anthro1$sex, firstPart = anthro1$weight,
+                 secondPart = anthro1$height, index = "wfh")
+
+test_that("z-score all is numeric vector", {
+  expect_is(wazAll, "numeric")
+  expect_is(hazAll, "numeric")
+  expect_is(whzAll, "numeric")
+})
+
+test_that("length of z-score vector as long as anthro1", {
+  expect_equal(length(wazAll), nrow(anthro1))
+  expect_equal(length(hazAll), nrow(anthro1))
+  expect_equal(length(whzAll), nrow(anthro1))
+})

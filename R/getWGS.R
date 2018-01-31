@@ -87,13 +87,9 @@ getWGS <- function(sexObserved, firstPart, secondPart, index) {
   SD2neg <- lookupRow$m * (1 + lookupRow$l * lookupRow$s * (-2))^(1 / lookupRow$l)
   SD23neg <- SD2neg - SD3neg
 
-  if(z > 3) {
-    z <- 3 + ((firstPart - SD3pos) / SD23pos)
-  }
+  if(z > 3) { z <- 3 + ((firstPart - SD3pos) / SD23pos) }
 
-  if(z < -3) {
-    z <- -3 + ((firstPart - SD3neg) / SD23neg)
-  }
+  if(z < -3) { z <- -3 + ((firstPart - SD3neg) / SD23neg) }
 
   return(z)
 }

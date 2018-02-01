@@ -1,7 +1,7 @@
 Package: zscorer
 Type: Package
 Title: Child anthropometry z-score calculator
-Version: 0.1.0
+Version: 0.0.0.9000
 Authors@R: c(
     person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
     person("Ernest", "Guevarra", email = "ernestgmd@gmail.com", role = c("aut", "cre")))

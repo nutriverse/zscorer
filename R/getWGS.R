@@ -2,12 +2,18 @@
 #
 #' getWGS
 #'
-#' Function to calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth
-#' Reference (2006) using data and methods from ISBN ISBN 92 4 154693 X.
+#' Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+#' for a single child data.
 #'
-#' The function fails messily when "secondPart" is outside of the range given
-#' in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months for
-#' age). It is up to you to check the ranges of your data.
+#' @param sexObserved Sex of child (1 = Male; 2 = Female)
+#' @param firstPart Weight (kg; for WHZ and WAZ) or height (cm; for HAZ)
+#' @param secondPart Age (months; for HAZ and WAZ) or height (cm; for WHZ)
+#' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
+#' @return z-score of the anthropometric index selected
+#'
+#' The function fails messily when \code{secondPart} is outside of the range
+#' given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months
+#' for age). It is up to you to check the ranges of your data.
 #'
 #' The reference data for W/H assumes supine length is used for children with a
 #' standing height below 85cm
@@ -20,52 +26,27 @@
 #'
 #' The function requires reference data \code{wgsData} included in this package
 #'
-#' @param sexObserved Sex of child (1 = Male; 2 = Female)
-#' @param firstPart Weight (kg; for WHZ and WAZ) or height (cm; for HAZ)
-#' @param secondPart Age (months; for HAZ and WAZ) or height (cm; for WHZ)
-#' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
-#' @return z-score of the anthropometric index selected
 #' @examples
-#'   # apply getWGS to first child in sample data anthro1
-#'   waz <- getWGS(sexObserved = anthro1$sex[1],
-#'                 firstPart = anthro1$weight[1],
-#'                 secondPart = anthro1$age[1],
-#'                 index = "wfa")
+#'   # apply \code{getWGS()} to a make believe 52 month old male child with weight of
+#'   # 14.6 kg and height of 98.0 cm
+#'   waz <- getWGS(sexObserved = 1,     # 1 = Male / 2 = Female
+#'                 firstPart = 14.6,    # Weight in kilograms
+#'                 secondPart = 52,     # Age in whole months
+#'                 index = "wfa")       # Anthropometric index (weight-for-age)
 #'   waz
 #'
-#'   haz <- getWGS(sexObserved = anthro1$sex[1],
-#'                 firstPart = anthro1$height[1],
-#'                 secondPart = anthro1$age[1],
-#'                 index = "hfa")
+#'   haz <- getWGS(sexObserved = 1,
+#'                 firstPart = 98,      # Height in centimetres
+#'                 secondPart = 52,
+#'                 index = "hfa")       # Anthropometric index (height-for-age)
 #'   haz
 #'
-#'   whz <- getWGS(sexObserved = anthro1$sex[1],
-#'                 firstPart = anthro1$weight[1],
-#'                 secondPart = anthro1$height[1],
-#'                 index = "wfh")
+#'   whz <- getWGS(sexObserved = 1,
+#'                 firstPart = 14.6,
+#'                 secondPart = 98,
+#'                 index = "wfh")       # Anthropometric index (weight-for-height)
 #'   whz
 #'
-#'   # apply getWGS to all children in sample data anthro1
-#'   wazAll <- mapply(getWGS,
-#'                    sexObserved = anthro1$sex,
-#'                    firstPart = anthro1$weight,
-#'                    secondPart = anthro1$age,
-#'                    index = "wfa")
-#'   wazAll
-#'
-#'   hazAll <- mapply(getWGS,
-#'                    sexObserved = anthro1$sex,
-#'                    firstPart = anthro1$height,
-#'                    secondPart = anthro1$age,
-#'                    index = "hfa")
-#'   hazAll
-#'
-#'   whzAll <- mapply(getWGS,
-#'                    sexObserved = anthro1$sex,
-#'                    firstPart = anthro1$weight,
-#'                    secondPart = anthro1$height,
-#'                    index = "wfh")
-#'   whzAll
 #' @export
 #'
 #

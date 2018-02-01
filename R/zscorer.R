@@ -7,18 +7,14 @@
 #'
 #' \cite{World Health Organization. WHO Child Growth Standards: Length/Height-for-age,
 #' Weight-for-age, Weight-for-length, Weight-for-height, and Body Mass Index-for age:
-#' Methods and Development. 1st ed. World Health Organization; 2006.}
-#'
-#' ISBN ISBN 92 4 154693 X
+#' Methods and Development. 1st ed. World Health Organization; 2006.
+#' ISBN ISBN 92 4 154693 X}
 #'
 #' @docType package
 #' @name zscorer
 #'
-#'
-#'
-#'
 #
-#
+################################################################################
 NULL
 
 ## quiets concerns of R CMD check re: the variable bindings that appear in bbw

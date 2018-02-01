@@ -37,7 +37,7 @@ You can install `zscorer` from GitHub with:
 
 ```{r gh-installation1, eval = FALSE}
 # install.packages("devtools")
-devtools::install_git("git@git.validmeasures.org:nutriverse/zscorer.git")
+devtools::install_git("nutriverse/zscorer")
 ```
 ```{r gh-installation2, eval = TRUE}
 # load package

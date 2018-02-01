@@ -1,5 +1,5 @@
 library(zscorer)
-("Tests for getWGS")
+context("Tests for getWGS")
 
 waz <- getWGS(sexObserved = anthro1$sex[1],
               firstPart = anthro1$weight[1],

@@ -1,30 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+zscorer: Weight-for-age, height-for-age and weight-for-height z-score calculator
+================================================================================
 
-# zscorer: Weight-for-age, height-for-age and weight-for-height z-score calculator
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/zscorer)](https://cran.r-project.org/package=zscorer) [![Travis-CI Build Status](https://travis-ci.org/nutriverse/zscorer.svg?branch=master)](https://travis-ci.org/nutriverse/zscorer) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&svg=true)](https://ci.appveyor.com/project/nutriverse/zscorer) [![codecov](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer)
 
-[![Travis-CI Build
-Status](https://travis-ci.org/nutriverse/zscorer.svg?branch=master)](https://travis-ci.org/nutriverse/zscorer)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&svg=true)](https://ci.appveyor.com/project/nutriverse/zscorer)
-[![codecov](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer)
+`zscorer` facilitates the calculation of `z-scores` (i.e. the number of standard deviations from the mean) for the three key anthropometric indices used to assess early childhood growth: `weight-for-age (WFA)`, `height-for-age (HFA)` and `weight-for-height (WFH)`. `zscorer` refers to the results of the **WHO Multicentre Growth Reference Study** as standard for calculating the `z-scores` hence it comes packaged with this reference data.
 
-`zscorer` facilitates the calculation of `z-scores` (i.e. the number of
-standard deviations from the mean) for the three key anthropometric
-indices used to assess early childhood growth: `weight-for-age (WFA)`,
-`height-for-age (HFA)` and `weight-for-height (WFH)`. `zscorer` refers
-to the results of the **WHO Multicentre Growth Reference Study** as
-standard for calculating the `z-scores` hence it comes packaged with
-this reference data.
+`zscorer` can be used to calculate the appropriate `z-score` for the corresponding anthropometric index for a single child to assess growth and nutritional status against the standard. It can also be used to calculate the `z-scores` for an entire cohort or sample of children (such as in nutrition surveys) to allow for assessing the nutritional status of the entire child population.
 
-`zscorer` can be used to calculate the appropriate `z-score` for the
-corresponding anthropometric index for a single child to assess growth
-and nutritional status against the standard. It can also be used to
-calculate the `z-scores` for an entire cohort or sample of children
-(such as in nutrition surveys) to allow for assessing the nutritional
-status of the entire child population.
-
-## Installation
+Installation
+------------
 
 You can install `zscorer` from GitHub with:
 
@@ -38,13 +24,12 @@ devtools::install_github("nutriverse/zscorer")
 library(zscorer)
 ```
 
-## Usage
+Usage
+-----
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 
-For this example, we will use the `getWGS()` function and apply it to
-dummy data of a **52 month** old male child with a weight of **14.6 kg**
-and a height of **98.0 cm**.
+For this example, we will use the `getWGS()` function and apply it to dummy data of a **52 month** old male child with a weight of **14.6 kg** and a height of **98.0 cm**.
 
 ``` r
 # weight-for-age z-score
@@ -75,25 +60,20 @@ whz
 #> [1] -0.1790878
 ```
 
-Applying the `getWGS()` function results in a calculated `z-score` for
-one
-child.
+Applying the `getWGS()` function results in a calculated `z-score` for one child.
 
 ### Calculating z-score for each of the three anthropometric indices for a
 
 cohort or sample of children
 
-For this example, we will use the `getCohortWGS()` function and apply it
-to sample data `anthro1` that came with `zscorer`.
+For this example, we will use the `getCohortWGS()` function and apply it to sample data `anthro1` that came with `zscorer`.
 
 ``` r
 # Make a call for the anthro2 dataset
 anthro1
 ```
 
-As you will see, this dataset has the 4 variables you will need to use
-with `getCohortWGS()` to calculate the `z-score` for the corresponding
-anthropometric index. These are `age`, `sex`, `weight` and `height`.
+As you will see, this dataset has the 4 variables you will need to use with `getCohortWGS()` to calculate the `z-score` for the corresponding anthropometric index. These are `age`, `sex`, `weight` and `height`.
 
 ``` r
 head(anthro1)
@@ -106,14 +86,14 @@ head(anthro1)
 #> 6   1  36   2   16.9   93.0  190      2 -0.54  1.49  2.49    0
 ```
 
-To calculate the three anthropometric indices for all the children in
-the sample, we execute the following commands in R:
+To calculate the three anthropometric indices for all the children in the sample, we execute the following commands in R:
 
 ``` r
 # weight-for-age z-score
-waz <- getCohortWGS(sexObserved = anthro1$sex,
-                    firstPart = anthro1$weight,
-                    secondPart = anthro1$age,
+waz <- getCohortWGS(data = anthro1,
+                    sexObserved = "sex",
+                    firstPart = "weight",
+                    secondPart = "age",
                     index = "wfa")
 head(waz, 100)
 #>   [1] -0.75605549 -1.39021503 -1.05597853  1.41575096 -2.67757242
@@ -138,9 +118,10 @@ head(waz, 100)
 #>  [96] -2.80497696 -1.89582784 -1.71342724 -1.87269440 -1.64834830
 
 # height-for-age z-score
-haz <- getCohortWGS(sexObserved = anthro1$sex,
-                    firstPart = anthro1$height,
-                    secondPart = anthro1$age,
+haz <- getCohortWGS(data = anthro1,
+                    sexObserved = "sex",
+                    firstPart = "height",
+                    secondPart = "age",
                     index = "hfa")
 head(haz, 100)
 #>   [1] -1.2258169 -2.3475886 -2.9518041 -0.2812852 -4.2056663 -0.5387678
@@ -162,9 +143,10 @@ head(haz, 100)
 #>  [97] -2.9823031 -3.3465111 -4.0111758 -3.2849746
 
 # weight-for-height z-score
-whz <- getCohortWGS(sexObserved = anthro1$sex,
-                    firstPart = anthro1$weight,
-                    secondPart = anthro1$height,
+whz <- getCohortWGS(data = anthro1,
+                    sexObserved = "sex",
+                    firstPart = "weight",
+                    secondPart = "height",
                     index = "wfh")
 head(whz, 100)
 #>   [1]  0.05572347 -0.01974903  0.57469112  2.06231749 -0.14080044
@@ -189,5 +171,4 @@ head(whz, 100)
 #>  [96] -1.84875292 -0.07768210  0.58570137  1.40004194  0.44765879
 ```
 
-Applying the `getCohortWGS()` function results in a vector of calculated
-`z-scores` for all children in the cohort or sample.
+Applying the `getCohortWGS()` function results in a vector of calculated `z-scores` for all children in the cohort or sample.

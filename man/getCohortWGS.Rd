@@ -4,10 +4,12 @@
 \alias{getCohortWGS}
 \title{getCohortWGS}
 \usage{
-getCohortWGS(FUN = getWGS, sexObserved, firstPart, secondPart, index)
+getCohortWGS(data, FUN = getWGS, sexObserved, firstPart, secondPart, index)
 }
 \arguments{
-\item{FUN}{function to apply; default to \code{getWGS()}}
+\item{data}{Data frame containing the variables needed for calculation}
+
+\item{FUN}{Function to apply; default to \code{getWGS()}}
 
 \item{sexObserved}{Sex of child (1 = Male; 2 = Female)}
 
@@ -41,21 +43,24 @@ for a cohort or sample of children.
 }
 \examples{
   # apply getWGS to first child in sample data anthro1
-  wazAll <- getCohortWGS(sexObserved = anthro1$sex,
-                         firstPart = anthro1$weight,
-                         secondPart = anthro1$age,
+  wazAll <- getCohortWGS(data = anthro1,
+                         sexObserved = "sex",
+                         firstPart = "weight",
+                         secondPart = "age",
                          index = "wfa")
   wazAll
 
-  hazAll <- getCohortWGS(sexObserved = anthro1$sex,
-                         firstPart = anthro1$height,
-                         secondPart = anthro1$age,
+  hazAll <- getCohortWGS(data = anthro1,
+                         sexObserved = "sex",
+                         firstPart = "height",
+                         secondPart = "age",
                          index = "hfa")
   hazAll
 
-  whzAll <- getCohortWGS(sexObserved = anthro1$sex,
-                         firstPart = anthro1$weight,
-                         secondPart = anthro1$height,
+  whzAll <- getCohortWGS(data = anthro1,
+                         sexObserved = "sex",
+                         firstPart = "weight",
+                         secondPart = "height",
                          index = "wfh")
   whzAll
 }

@@ -158,28 +158,28 @@ function(input, output, session) {
     }
   })
   #
-  # Calculate action button - single child
+  # Calculate action button - cohort/sample
   #
-  output$calculate1 <- renderUI({
+  output$calculate2 <- renderUI({
     if(input$dataType == 2 & !is.null(input$file1)){
       #
       #
       #
-      actionButton(inputId = "calculate1",
+      actionButton(inputId = "calculate2",
                    label = "Calculate z-score",
                    class = "btn-primary",
                    icon = icon(name = "calculator", class = "fa-lg"))
     }
   })
   #
-  # Calculate action button - cohort/sample
+  # Calculate action button - single child
   #
-  output$calculate2 <- renderUI({
+  output$calculate1 <- renderUI({
     if(input$dataType == 1){
       #
       #
       #
-      actionButton(inputId = "calculate2",
+      actionButton(inputId = "calculate1",
                    label = "Calculate z-score",
                    class = "btn-primary",
                    icon = icon(name = "calculator", class = "fa-lg"))
@@ -208,17 +208,7 @@ function(input, output, session) {
   #
   #
   output$anthroTable <- DT::renderDataTable(anthroDF(),
-    options = list(pageLength = 20)
-  )
-  #
-  #
-  #
-  output$zScore <- renderText(
-    if(!is.null(zScore())){
-      paste(ifelse(input$indexType == "wfa", "Weight-for-age z-score: ",
-              ifelse(input$indexType == "hfa", "Height-for-age z-score: ", "Weight-for-height z-score: ")),
-            zScore)
-    }
+    options = list(pageLength = 5)
   )
   ##############################################################################
   #
@@ -228,27 +218,68 @@ function(input, output, session) {
   #
   #
   #
-  zScore <- eventReactive(input$calculate1, {
+  observeEvent(input$calculate1, {
     #
     #
     #
-    if(input$indexType == "wfa"){
-      getWGS(sexObserved = input$sex1, firstPart = input$weight1,
-             secondPart = input$age1, index = input$indexType)
-    }
+    req(input$sex1, input$weight1, input$age1, input$indexType == "wfa")
+    zScore <- getWGS(sexObserved = input$sex1, firstPart = input$weight1,
+                     secondPart = input$age1, index = input$indexType)
     #
     #
     #
-    if(input$indexType == "hfa"){
-      getWGS(sexObserved = input$sex1, firstPart = input$height1,
-             secondPart = input$age1, index = input$indexType)
-    }
+    output$zScore <- renderText({
+      paste("Weight-for-age z-score: ", zScore, sep = "")
+    })
+  })
+  #
+  #
+  #
+  observeEvent(input$calculate1, {
     #
     #
     #
-    if(input$indexType == "wfh"){
-      getWGS(sexObserved = input$sex1, firstPart = input$weight1,
-             secondPart = input$height1, index = input$indexType)
-    }
+    req(input$sex1, input$weight1, input$age1, input$indexType == "hfa")
+    zScore <- getWGS(sexObserved = input$sex1, firstPart = input$height1,
+                     secondPart = input$age1, index = input$indexType)
+    #
+    #
+    #
+    output$zScore <- renderText({
+      paste("Height-for-age z-score: ", zScore, sep = "")
+    })
+  })
+  #
+  #
+  #
+  observeEvent(input$calculate1, {
+    #
+    #
+    #
+    req(input$sex1, input$weight1, input$age1, input$indexType == "wfh")
+    zScore <- getWGS(sexObserved = input$sex1, firstPart = input$weight1,
+                     secondPart = input$height1, index = input$indexType)
+    #
+    #
+    #
+    output$zScore <- renderText({
+      paste("Weight-for-height z-score: ", zScore, sep = "")
+    })
+  })
+  #
+  #
+  #
+  observeEvent(input$calculate2, {
+    #
+    #
+    #
+    zScoreDF <- getCohortWGS(sexObserved = input$sex2, firstPart = input$weight2,
+                     secondPart = input$age1, index = input$indexType)
+    #
+    #
+    #
+    output$zScore <- renderText({
+      paste("Weight-for-age z-score: ", zScore, sep = "")
+    })
   })
 }

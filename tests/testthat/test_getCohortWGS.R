@@ -1,22 +1,25 @@
 library(zscorer)
 context("Tests for getCohortWGS")
 
-wazAll <- getCohortWGS(sexObserved = anthro1$sex,
-                       firstPart = anthro1$weight,
-                       secondPart = anthro1$age,
+wazAll <- getCohortWGS(data = anthro1,
+                       sexObserved = "sex",
+                       firstPart = "weight",
+                       secondPart = "age",
                        index = "wfa")
 wazAll
 
-hazAll <- getCohortWGS(sexObserved = anthro1$sex,
-                       firstPart = anthro1$height,
-                       secondPart = anthro1$age,
+hazAll <- getCohortWGS(data = anthro1,
+                       sexObserved = "sex",
+                       firstPart = "height",
+                       secondPart = "age",
                        index = "hfa")
 hazAll
 
-whzAll <- getWGS(sexObserved = anthro1$sex,
-                 firstPart = anthro1$weight,
-                 secondPart = anthro1$height,
-                 index = "wfh")
+whzAll <- getCohortWGS(data = anthro1,
+                       sexObserved = "sex",
+                       firstPart = "weight",
+                       secondPart = "height",
+                       index = "wfh")
 whzAll
 
 test_that("result is numeric vector", {

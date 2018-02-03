@@ -4,10 +4,12 @@
 \alias{getCohortWGS}
 \title{getCohortWGS}
 \usage{
-getCohortWGS(FUN = getWGS, sexObserved, firstPart, secondPart, index)
+getCohortWGS(data, FUN = getWGS, sexObserved, firstPart, secondPart, index)
 }
 \arguments{
-\item{FUN}{function to apply; default to \code{getWGS()}}
+\item{data}{Data frame containing the variables needed for calculation}
+
+\item{FUN}{Function to apply; default to \code{getWGS()}}
 
 \item{sexObserved}{Sex of child (1 = Male; 2 = Female)}
 

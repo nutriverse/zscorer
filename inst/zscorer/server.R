@@ -14,6 +14,17 @@ function(input, output, session) {
   #
   ##############################################################################
   #
+  # Header text for single child input
+  #
+  output$header1 <- renderText({
+    #
+    # If dataType == 1
+    #
+    if(input$dataType == 1){
+      "Enter child's age, sex and anthropometric measurements"
+    }
+  })
+  #
   # Input for sex
   #
   output$sex1 <- renderUI({
@@ -22,8 +33,8 @@ function(input, output, session) {
     #
     if(input$dataType == 1){
       selectInput(inputId = "sex1",
-                   label = "Sex",
-                   choices = list("Select" = ".", "Male" = 1, "Female" = 2),
+                  label = "Sex",
+                  choices = list("Select" = ".", "Male" = 1, "Female" = 2),
                   selected = ".")
     }
   })
@@ -34,7 +45,7 @@ function(input, output, session) {
     #
     # If user selects "wfa" or "wfh" and "Single child" options...
     #
-    if((input$indexType == "wfa" | input$indexType == "wfh") & input$dataType == 1){
+    if(input$dataType == 1){
       numericInput(inputId = "weight1",
                    label = "Weight (kg)",
                    value = 00.0,
@@ -50,7 +61,7 @@ function(input, output, session) {
     #
     # If user selects "hfa" or "wfh" and "Single child" options...
     #
-    if((input$indexType == "hfa" | input$indexType == "wfh") & input$dataType == 1){
+    if(input$dataType == 1){
       numericInput(inputId = "height1",
                    label = "Height (cm)",
                    value = 00.0,
@@ -66,13 +77,24 @@ function(input, output, session) {
     #
     # If user selects "hfa" or "wfa" and "Single child" options...
     #
-    if((input$indexType == "hfa" | input$indexType == "wfa") & input$dataType == 1){
+    if(input$dataType == 1){
       numericInput(inputId = "age1",
                    label = "Age (months)",
                    value = 00,
                    min = 0,
                    max = 60,
                    step = 0)
+    }
+  })
+  #
+  #
+  #
+  output$header2 <- renderText({
+    #
+    # If dataType == 2...
+    #
+    if(input$dataType == 2){
+      "Upload anthropometric data from multiple children"
     }
   })
   #
@@ -96,12 +118,12 @@ function(input, output, session) {
     #
     # If file1 is present...
     #
-    if(!is.null(input$file1)){
+    if(!is.null(input$file1) & input$dataType == 2){
       #
       # Select UI
       #
       selectInput(inputId = "sex2",
-                  label = "Sex",
+                  label = "Select sex variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("sex", "SEX", "Sex", "Gender", "gender", "GENDER")])
     }
@@ -113,7 +135,7 @@ function(input, output, session) {
     #
     # If user selects "wfa" or "wfh" and "Cohort/sample data" and file1 is present...
     #
-    if((input$indexType == "wfa" | input$indexType == "wfh") & input$dataType == 2 & !is.null(input$file1)){
+    if(input$dataType == 2 & !is.null(input$file1)){
       #
       # Select UI
       #
@@ -130,7 +152,7 @@ function(input, output, session) {
     #
     # If user selects "hfa" or "wfh" and "Cohort/sample data" and file1 is present...
     #
-    if((input$indexType == "hfa" | input$indexType == "wfh") & input$dataType == 2 & !is.null(input$file1)){
+    if(input$dataType == 2 & !is.null(input$file1)){
       #
       # Select UI
       #
@@ -147,7 +169,7 @@ function(input, output, session) {
     #
     # If user selects "hfa" or "wfa" and "Cohort/sample data" and file1 is present...
     #
-    if((input$indexType == "hfa" | input$indexType == "wfa") & input$dataType == 2 & !is.null(input$file1)){
+    if(input$dataType == 2 & !is.null(input$file1)){
       #
       # Select UI
       #
@@ -166,7 +188,7 @@ function(input, output, session) {
       #
       #
       actionButton(inputId = "calculate2",
-                   label = "Calculate z-score",
+                   label = "Calculate",
                    class = "btn-primary",
                    icon = icon(name = "calculator", class = "fa-lg"))
     }
@@ -180,7 +202,7 @@ function(input, output, session) {
       #
       #
       actionButton(inputId = "calculate1",
-                   label = "Calculate z-score",
+                   label = "Calculate",
                    class = "btn-primary",
                    icon = icon(name = "calculator", class = "fa-lg"))
     }
@@ -222,49 +244,19 @@ function(input, output, session) {
     #
     #
     #
-    req(input$sex1, input$weight1, input$age1, input$indexType == "wfa")
-    zScore <- getWGS(sexObserved = input$sex1, firstPart = input$weight1,
-                     secondPart = input$age1, index = input$indexType)
+    req(input$sex1, input$weight1, input$age1, input$height1)
+    zScore <- getAllWGS(sex = as.numeric(input$sex1), weight = input$weight1,
+      height = input$height1, age = input$age1, index = "all")
     #
     #
     #
-    output$zScore <- renderText({
-      paste("Weight-for-age z-score: ", zScore, sep = "")
-    })
-  })
-  #
-  #
-  #
-  observeEvent(input$calculate1, {
+    output$waz <- renderText({ zScore[ , "waz"] })
+    output$haz <- renderText({ zScore[ , "haz"] })
+    output$whz <- renderText({ zScore[ , "whz"]})
     #
     #
     #
-    req(input$sex1, input$weight1, input$age1, input$indexType == "hfa")
-    zScore <- getWGS(sexObserved = input$sex1, firstPart = input$height1,
-                     secondPart = input$age1, index = input$indexType)
-    #
-    #
-    #
-    output$zScore <- renderText({
-      paste("Height-for-age z-score: ", zScore, sep = "")
-    })
-  })
-  #
-  #
-  #
-  observeEvent(input$calculate1, {
-    #
-    #
-    #
-    req(input$sex1, input$weight1, input$age1, input$indexType == "wfh")
-    zScore <- getWGS(sexObserved = input$sex1, firstPart = input$weight1,
-                     secondPart = input$height1, index = input$indexType)
-    #
-    #
-    #
-    output$zScore <- renderText({
-      paste("Weight-for-height z-score: ", zScore, sep = "")
-    })
+    output$zScoreTable <- DT::renderDataTable(zScore)
   })
   #
   #
@@ -273,13 +265,16 @@ function(input, output, session) {
     #
     #
     #
-    zScoreDF <- getCohortWGS(sexObserved = input$sex2, firstPart = input$weight2,
-                     secondPart = input$age1, index = input$indexType)
+    zScoreDF <- getAllWGS(data = anthroDF(),
+                          sex = input$sex2,
+                          weight = input$weight2,
+                          height = input$height2,
+                          age = input$age2,
+                          index = "all")
     #
     #
     #
-    output$zScore <- renderText({
-      paste("Weight-for-age z-score: ", zScore, sep = "")
-    })
+    output$zScoreTable <- DT::renderDataTable(zScoreDF,
+      options = list(pageLength = 15))
   })
 }

@@ -13,28 +13,31 @@ library(zscorer)
 #
 #
 #
-navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("cerulean"),
+navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
   tabPanel(title = "", value = 1, icon = icon(name = "home", class = "fa-lg"),
     div(class = "outer",
         tags$head(includeCSS("styles.css"))
     ),
-    sidebarPanel(
-      #
-      # Select type of anthropometric index
-      #
-      radioButtons(inputId = "indexType",
-        label = "Anthropometric index to calculate",
-        choices = list("Weight-for-age" = "wfa",
-                       "Height-for-age" = "hfa",
-                       "Weight-for-height" = "wfh"),
-        selected = "wfa"),
+    sidebarPanel(width = 3,
       #
       # Select type of data
       #
       radioButtons(inputId = "dataType",
-        label = "Type of data to input",
-        choices = list("Single child" = 1, "Cohort/sample of children" = 2),
-        selected = 1),
+                   label = h5("Type of child data to input"),
+                   choices = list("Single child" = 1, "Cohort/sample of children" = 2),
+                   selected = 1),
+      #
+      # Horizontal line
+      #
+      hr(),
+      #
+      # Header 1
+      #
+      h5(textOutput("header1")),
+      #
+      # Age input
+      #
+      uiOutput(outputId = "age1"),
       #
       # Weight input
       #
@@ -48,9 +51,9 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("cerulean"),
       #
       uiOutput(outputId = "height1"),
       #
-      # Age input
+      # Header 2 - input file with anthropometric data (dataType == 2)
       #
-      uiOutput(outputId = "age1"),
+      h5(textOutput("header2")),
       #
       # File input - anthro data
       #
@@ -72,26 +75,40 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("cerulean"),
       #
       uiOutput(outputId = "age2"),
       #
-      #
+      # Action button to calculate single child z-scores
       #
       uiOutput(outputId = "calculate1"),
       #
-      #
+      # Action button to calculate cohort/sample z-scores
       #
       uiOutput(outputId = "calculate2")
     ),
     #
     #
     #
-    mainPanel(
+    mainPanel(width = 9,
       #
       #
       #
-      textOutput("zScore"),
+      #fluidRow(
+      #  column(width = 4, h4("Weight-for-height z-score"),
+      #    wellPanel(textOutput("waz"))
+      #  ),
+      #  column(width = 4, h4("Height-for-age z-score"),
+      #    wellPanel(textOutput("haz"))
+      #  ),
+      #  column(width = 4, h4("Weight-for-height z-score"),
+      #    wellPanel(textOutput("whz"))
+      #  )
+      #),
       #
       # Data table
       #
-      DT::dataTableOutput("anthroTable")
+      DT::dataTableOutput("anthroTable"),
+      #
+      # z-scores table
+      #
+      DT::dataTableOutput("zScoreTable")
     )
   ),
   tabPanel(title = "About", value = 2),

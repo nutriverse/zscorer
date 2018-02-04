@@ -25,7 +25,7 @@ haz <- getAllWGS(data = anthro1,
                  weight = "weight",
                  height = "height",
                  age = "age",
-                 index = "wfa")
+                 index = "hfa")
 
 test_that("haz is a data.frame", {
   expect_is(haz, "data.frame")
@@ -44,7 +44,7 @@ whz <- getAllWGS(data = anthro1,
                  weight = "weight",
                  height = "height",
                  age = "age",
-                 index = "wfa")
+                 index = "wfh")
 
 test_that("whz is a data.frame", {
   expect_is(whz, "data.frame")
@@ -55,7 +55,7 @@ test_that("whz is numeric", {
 })
 
 test_that("names is whz", {
-  expect_equal(names(waz), "whz")
+  expect_equal(names(whz), "whz")
 })
 
 all <- getAllWGS(data = anthro1,

@@ -116,7 +116,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
         #
         # Stop operation
         #
-        stop("sex, weight and age must be numeric. Try again.", call. = TRUE)
+        stop("If data provided, sex, weight and age must be numeric. Try again.", call. = TRUE)
       }
       #
       #
@@ -165,7 +165,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
         #
         # Stop operation
         #
-        stop("sex, height and age must be numeric. Try again.", call. = TRUE)
+        stop("If data provided, sex, height and age must be numeric. Try again.", call. = TRUE)
       }
       #
       #
@@ -214,7 +214,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
         #
         #
         #
-        stop("sex, weight and height must be numeric. Try again.", call. = TRUE)
+        stop("If data provided, sex, weight and height must be numeric. Try again.", call. = TRUE)
       }
       #
       #

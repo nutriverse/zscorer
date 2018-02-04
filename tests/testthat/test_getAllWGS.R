@@ -20,6 +20,43 @@ test_that("names is waz", {
   expect_equal(names(waz), "waz")
 })
 
+haz <- getAllWGS(data = anthro1,
+                 sex = "sex",
+                 weight = "weight",
+                 height = "height",
+                 age = "age",
+                 index = "wfa")
+
+test_that("haz is a data.frame", {
+  expect_is(haz, "data.frame")
+})
+
+test_that("haz is numeric", {
+  expect_true(is.numeric(haz[[1]]))
+})
+
+test_that("names is haz", {
+  expect_equal(names(haz), "haz")
+})
+
+whz <- getAllWGS(data = anthro1,
+                 sex = "sex",
+                 weight = "weight",
+                 height = "height",
+                 age = "age",
+                 index = "wfa")
+
+test_that("whz is a data.frame", {
+  expect_is(whz, "data.frame")
+})
+
+test_that("whz is numeric", {
+  expect_true(is.numeric(whz[[1]]))
+})
+
+test_that("names is whz", {
+  expect_equal(names(waz), "whz")
+})
 
 all <- getAllWGS(data = anthro1,
                  sex = "sex",

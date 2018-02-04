@@ -88,20 +88,6 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
     #
     mainPanel(width = 9,
       #
-      #
-      #
-      #fluidRow(
-      #  column(width = 4, h4("Weight-for-height z-score"),
-      #    wellPanel(textOutput("waz"))
-      #  ),
-      #  column(width = 4, h4("Height-for-age z-score"),
-      #    wellPanel(textOutput("haz"))
-      #  ),
-      #  column(width = 4, h4("Weight-for-height z-score"),
-      #    wellPanel(textOutput("whz"))
-      #  )
-      #),
-      #
       # Data table
       #
       DT::dataTableOutput("anthroTable"),
@@ -111,6 +97,42 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
       DT::dataTableOutput("zScoreTable")
     )
   ),
-  tabPanel(title = "About", value = 2),
-  tabPanel(title = "Help", value = 3)
+  tabPanel(title = "About", value = 2,
+    div(class = "outer",
+        tags$head(includeCSS("styles.css"))
+    ),
+    sidebarPanel(width = 3,
+      HTML("
+        <img src='zscorer.png' />
+        <a href='#HEAD1'>Introduction</a><br/>
+        <a href='#HEAD2'>Acknowledgement</a>
+      ")
+    ),
+    mainPanel(width = 9,
+      HTML("
+        <a id='HEAD1'></a>
+        <h3>zscorer: Weight-for-age, height-for-age and weight-for-height z-score
+        calculator</h3>
+        <br/>
+        <p><code>zscorer</code> facilitates the calculation of <strong>z-scores</strong>
+        (i.e. the number of standard deviations from the mean) for the three key
+        anthropometric indices used to assess early childhood growth: <em>weight-for-age (WFA)</em>,
+        <em>height-for-age (HFA)</em> and <em>weight-for-height (WFH)</em>. <code>zscorer</code>
+        refers to the results of the <strong>WHO Multicentre Growth Reference Study</strong>
+        as standard for calculating the <strong>z-scores</strong> hence it comes
+        packaged with this reference data.</p>
+
+        <p><code>zscorer</code> can be used to calculate the appropriate <strong>z-score</strong>
+        for the corresponding anthropometric index for a single child to assess growth and
+        nutritional status against the standard. It can also be used to calculate
+        the <strong>z-scores</strong> for an entire cohort or sample of children
+        (such as in nutrition surveys) to allow for assessing the nutritional status
+        of the entire child population.</p>
+        <br/>
+        <a id='HEAD2'></a>
+        <h3>Acknowledgements</h3>
+        <p><code>zscorer</code></p>
+      ")
+    )
+  )
 )

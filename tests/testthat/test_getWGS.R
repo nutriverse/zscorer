@@ -42,3 +42,12 @@ test_that("length of z-score vector as long as anthro1", {
   expect_equal(length(hazAll), nrow(anthro1))
   expect_equal(length(whzAll), nrow(anthro1))
 })
+
+waz <- getWGS(sexObserved = NA,
+              firstPart = anthro1$weight[1],
+              secondPart = anthro1$age[1],
+              index = "wfa")
+
+test_that("NA is produced", {
+  expect_equal(waz, NA)
+})

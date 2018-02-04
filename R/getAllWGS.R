@@ -145,7 +145,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
       #
       waz <- mapply(FUN = getWGS,
                     sexObserved = data [, sex],
-                    firstPart = data[ , height],
+                    firstPart = data[ , weight],
                     secondPart = data[ , age],
                     index = "wfa")
     }

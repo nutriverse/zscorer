@@ -1,6 +1,6 @@
 Package: zscorer
 Type: Package
-Title: Child anthropometry z-score calculator
+Title: Child Anthropometry z-Score Calculator
 Version: 0.1.0
 Authors@R: c(
     person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),

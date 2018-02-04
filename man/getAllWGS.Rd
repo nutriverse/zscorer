@@ -11,7 +11,7 @@ getAllWGS(data = NULL, sex, weight, height, age, index)
 \code{weight}, \code{height}, and \code{age} of children. Default is NULL.
 If specified, parameters for \code{sex}, \code{weight}, \code{height} and
 \code{age} should be provided as character values of the names of
-variables in \code{data} corresponding to the paramters required.}
+variables in \code{data} corresponding to the parameters required.}
 
 \item{sex}{Either numeric values (1 = male; 2 = female) indicating sex of
 child (default) or character value (if \code{data} is specified) indicating
@@ -19,7 +19,7 @@ variable name in \code{data} containing information on sex of
 child/children (1 = male; 2 = female).}
 
 \item{weight}{Either numeric values for weight in kg with at least 1 decimal
-place (default) or character value (if \code{data} is specfiied) indicating
+place (default) or character value (if \code{data} is specified) indicating
 variable name in \code{data} containing information on weight of
 child/children.}
 

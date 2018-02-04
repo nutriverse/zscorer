@@ -98,21 +98,23 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
     )
   ),
   tabPanel(title = "About", value = 2,
-    div(class = "outer",
-        tags$head(includeCSS("styles.css"))
-    ),
+    #div(class = "outer",
+    #    tags$head(includeCSS("styles.css"))
+    #),
     sidebarPanel(width = 3,
       HTML("
-        <img src='zscorer.png' />
-        <a href='#HEAD1'>Introduction</a><br/>
-        <a href='#HEAD2'>Acknowledgement</a>
+        <h4>Contents</h4>
+        <h5><a href='#HEAD1'>Introduction</a></h5>
+        <h5><a href='#HEAD2'>Installation</a></h5>
+        <h5><a href='#HEAD3'>Usage</a></h5>
+        <h5><a href='#HEAD4'>Authors</a></h5>
+        <h5><a href='#HEAD5'>License</a></h5>
       ")
     ),
     mainPanel(width = 9,
       HTML("
-        <a id='HEAD1'></a>
-        <h3>zscorer: Weight-for-age, height-for-age and weight-for-height z-score
-        calculator</h3>
+        <a id='HEAD1'></a><h3>zscorer: Weight-for-age, height-for-age and weight-for-height z-score
+        calculator</h3><img src='https://validmeasures.nyc3.digitaloceanspaces.com/logos/zscorer.png' style='float:right; margin-left:auto; margin-right:auto' />
         <br/>
         <p><code>zscorer</code> facilitates the calculation of <strong>z-scores</strong>
         (i.e. the number of standard deviations from the mean) for the three key
@@ -129,9 +131,39 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
         (such as in nutrition surveys) to allow for assessing the nutritional status
         of the entire child population.</p>
         <br/>
-        <a id='HEAD2'></a>
-        <h3>Acknowledgements</h3>
-        <p><code>zscorer</code></p>
+
+        <a id='HEAD2'></a><h3>Installation</h3>
+        <p>You can install <code>zscorer</code> from GitHub with:</p>
+        <blockquote>
+        <code># install.packages('devtools')<br/>
+        devtools::install_github('nutriverse/zscorer')<br/>
+        # load package<br/>
+        library(zscorer)</code>
+        </blockquote>
+        <br/>
+
+        <a id='HEAD3'></a><h3>Usage</h3>
+        <p>To run <code>zscorer</code> Shiny app, use the following command in R:</p><br/>
+
+        <blockquote>
+        <code>> run_zscorer()</code>
+        </blockquote>
+        <br/>
+
+        <a id='HEAD4'></a><h3>Authors</h3>
+        <p>The R scripts on which this package was based on were written by Mark
+        Myatt and Ernest Guevarra on the 20th of December 2012.</p>
+        <p>Additional scripts that expand on previously written scripts to
+        enhance utility and functionality, has been written by Ernest Guevarra</p>
+        <p>Ernest Guevarra has packaged these scripts into an R standard format
+        and is the maintainer of this package</p>
+        <p>The <code>zscorer</code> Shiny app built into the package was created
+        and maintained by Ernest Guevarra</p>
+        <br/>
+
+        <a id='HEAD5'></a><h3>License</h3>
+        <p>This package and the built in Shiny app is licensed under the AGPL-3
+        License.</p>
       ")
     )
   )

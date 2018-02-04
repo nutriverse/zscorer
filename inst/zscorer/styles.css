@@ -9,7 +9,7 @@ div.outer {
 }
 
 /* Customize fonts */
-body, label, input, button, select { 
+body, label, input, button, select {
   font-family: 'Helvetica Neue', Helvetica;
   font-weight: 200;
 }

@@ -83,14 +83,13 @@ whz
 Applying the `getWGS()` function results in a calculated `z-score` for one child.
 
 
-### Calculating z-score for each of the three anthropometric indices for a 
-cohort or sample of children
+### Calculating z-score for each of the three anthropometric indices for a cohort or sample of children
 
 For this example, we will use the `getCohortWGS()` function and apply it to sample 
 data `anthro1` that came with `zscorer`.
 
 ```{r sample-data1, eval = FALSE}
-# Make a call for the anthro2 dataset
+# Make a call for the anthro1 dataset
 anthro1
 ```
 
@@ -137,3 +136,22 @@ head(whz, 100)
 
 Applying the `getCohortWGS()` function results in a vector of calculated `z-scores`
 for all children in the cohort or sample.
+
+### Calculating z-scores for all of the three anthropometric indices in one function
+
+For this example, we will use the `getAllWGS()` function and apply it to sample 
+data `anthro1` that came with `zscorer`.
+
+```{r example3, eval = TRUE}
+# weight-for-age z-score
+zScores <- getAllWGS(data = anthro1,
+                     sex = "sex",
+                     weight = "weight",
+                     height = "height",
+                     age = "age",
+                     index = "all")
+head(zScores, 100)
+```
+
+Applying the `getAllWGS()` function results in a data frame of calculated `z-scores`
+for all children in the cohort or sample for all the anthropometric indices.

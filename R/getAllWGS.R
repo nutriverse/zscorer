@@ -138,7 +138,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
         #
         # Stop operation
         #
-        stop("sex, weight and age must be characer values. Try again", call. = TRUE)
+        stop("If data not provided, sex, weight and age must be character values. Try again", call. = TRUE)
       }
       #
       #
@@ -187,7 +187,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
         #
         #
         #
-        stop("sex, height and age must be character values. Try again.", call. = TRUE)
+        stop("If data not provided, sex, height and age must be character values. Try again.", call. = TRUE)
       }
       #
       #
@@ -236,7 +236,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
         #
         #
         #
-        stop("sex, weight and height must be character values. Try again.", call. = TRUE)
+        stop("If data not provided, sex, weight and height must be character values. Try again.", call. = TRUE)
       }
       #
       #

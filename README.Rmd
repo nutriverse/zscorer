@@ -38,13 +38,21 @@ assessing the nutritional status of the entire child population.
 
 ## Installation
 
-You can install `zscorer` from GitHub with:
-
+You can install `zscorer` from CRAN:
 ```{r gh-installation1, eval = FALSE}
+install.packages("zscorer")
+```
+
+or you can install the development version of `zscorer` from GitHub with:
+
+```{r gh-installation2, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("nutriverse/zscorer")
 ```
-```{r gh-installation2, eval = TRUE}
+
+then load `zscorer`
+
+```{r gh-installation3, eval = TRUE}
 # load package
 library(zscorer)
 ```
@@ -153,7 +161,7 @@ zScores <- getAllWGS(data = anthro1,
                      height = "height",
                      age = "age",
                      index = "all")
-head(zScores, 100)
+head(zScores, 50)
 ```
 
 Applying the `getAllWGS()` function results in a data frame of calculated `z-scores`

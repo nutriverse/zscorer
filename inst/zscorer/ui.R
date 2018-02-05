@@ -8,7 +8,6 @@
 #
 library(shiny)
 library(shinythemes)
-#devtools::install_github("nutriverse/zscorer")
 library(zscorer)
 #
 #

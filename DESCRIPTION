@@ -18,4 +18,6 @@ Suggests: testthat,
     rmarkdown,
     shiny,
     shinythemes
+URL: https://github.com/nutriverse/zscorer
+BugReports: https://github.com/nutriverse/zscorer/issues
 VignetteBuilder: knitr

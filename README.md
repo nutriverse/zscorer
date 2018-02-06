@@ -14,6 +14,7 @@ Status](https://travis-ci.org/nutriverse/zscorer.svg?branch=master)](https://tra
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&svg=true)](https://ci.appveyor.com/project/nutriverse/zscorer)
 [![codecov](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer)
+[![DOI](https://zenodo.org/badge/119683584.svg)](https://zenodo.org/badge/latestdoi/119683584)
 
 `zscorer` facilitates the calculation of `z-scores` (i.e. the number of
 standard deviations from the mean) for the three key anthropometric

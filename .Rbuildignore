@@ -8,3 +8,4 @@
 ^LICENSE$
 ^cran-comments\.md$
 ^CONTRIBUTING\.md$
+^_config\.yml$

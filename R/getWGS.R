@@ -11,7 +11,7 @@
 #' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
 #' @return z-score of the anthropometric index selected
 #'
-#' The function fails messily when \code{secondPart} is outside of the range
+#' @section The function fails messily when \code{secondPart} is outside of the range
 #' given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months
 #' for age). It is up to you to check the ranges of your data.
 #'

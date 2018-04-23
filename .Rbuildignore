@@ -10,3 +10,4 @@
 ^CONTRIBUTING\.md$
 ^_config\.yml$
 ^docs$
+^netlify\.toml$

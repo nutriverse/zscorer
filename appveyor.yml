@@ -10,8 +10,8 @@ init:
 install:
   ps: Bootstrap
 
-cache:
-  - C:\RLibrary
+#cache:
+#  - C:\RLibrary
 
 # Adapt as necessary starting from here
 
@@ -34,14 +34,14 @@ environment:
     - R_VERSION: release
       R_ARCH: x64
 
-    #- R_VERSION: devel
-    #  R_ARCH: x64
+    - R_VERSION: devel
+      R_ARCH: x64
 
     - R_VERSION: release
       R_ARCH: i386
 
-    #- R_VERSION: devel
-    #  R_ARCH: i386
+    - R_VERSION: devel
+      R_ARCH: i386
 
 artifacts:
   - path: '*.Rcheck\**\*.log'

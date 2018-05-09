@@ -12,3 +12,4 @@
 ^docs$
 ^netlify\.toml$
 ^\.github$
+^_pkgdown\.yml$

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/anthro1.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/anthro2.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/getAllWGS.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/getCohortWGS.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/getWGS.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/run_zscorer.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/wgsData.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/zscorer.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/articles/anthropometry.html</loc>
+  </url>
+</urlset>

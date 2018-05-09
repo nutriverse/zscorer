@@ -25,6 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="getWGS — getWGS" />
 
 <meta property="og:description" content="Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
@@ -41,7 +44,15 @@ for a single child data." />
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102485058-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-102485058-6');
+</script>
 
   </head>
 
@@ -110,14 +121,16 @@ for a single child data." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>getWGS</h1>
-    <small>Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/getWGS.R'><code>R/getWGS.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/getWGS.R'><code>R/getWGS.R</code></a></small>
     <div class="hidden name"><code>getWGS.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a single child data.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>getWGS</span>(<span class='no'>sexObserved</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='no'>index</span>)</pre>
     

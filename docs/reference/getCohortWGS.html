@@ -25,6 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="getCohortWGS — getCohortWGS" />
 
 <meta property="og:description" content="Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
@@ -41,7 +44,15 @@ for a cohort or sample of children." />
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102485058-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-102485058-6');
+</script>
 
   </head>
 
@@ -110,14 +121,16 @@ for a cohort or sample of children." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>getCohortWGS</h1>
-    <small>Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/getCohortWGS.R'><code>R/getCohortWGS.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/getCohortWGS.R'><code>R/getCohortWGS.R</code></a></small>
     <div class="hidden name"><code>getCohortWGS.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a cohort or sample of children.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>getCohortWGS</span>(<span class='no'>data</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='no'>getWGS</span>, <span class='no'>sexObserved</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='no'>index</span>)</pre>
     

@@ -17,7 +17,8 @@ Suggests: testthat,
     knitr,
     rmarkdown,
     shiny,
-    shinythemes
+    shinythemes,
+    covr
 URL: https://github.com/nutriverse/zscorer
 BugReports: https://github.com/nutriverse/zscorer/issues
 VignetteBuilder: knitr

@@ -13,3 +13,4 @@
 ^netlify\.toml$
 ^\.github$
 ^_pkgdown\.yml$
+^codecov\.yml$

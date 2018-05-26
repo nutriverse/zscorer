@@ -404,3 +404,16 @@ create_who_tables <- function(baseurl = "http://www.who.int/childgrowth/standard
   #
   return(who_tables[who_tables$indicator %in% index, ])
 }
+
+
+################################################################################
+#
+# Create tables for bfa, acfa, hcfa, ssfa, tsfa
+#
+################################################################################
+
+wgsData <- data.frame(rbind(wgsData,
+                            create_who_tables(index = c("bfa", "acfa", "hcfa",
+                                                        "ssfa", "tsfa"))))
+
+devtools::use_data(wgsData, overwrite = TRUE)

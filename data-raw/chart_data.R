@@ -1,13 +1,16 @@
 ################################################################################
 #
-#
+# Extract BMI data
 #
 ################################################################################
 
 
-url <- "http://www.who.int/childgrowth/standards/"
+main <- "http://www.who.int/childgrowth/standards/"
+#
+# For expanded tables
+#
 
-index <- c("lhfa", "wfa", "wfl", "wfh", "bfa", "acfa", "ssfa", "tsfa")
+index <- c("lhfa", "wfa", "wfl", "wfh", "bfa", "hcfa", "acfa", "ssfa", "tsfa")
 
 gender <- c("boys", "girls")
 

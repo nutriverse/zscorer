@@ -395,7 +395,7 @@ wgsS <- c(00.09182, 00.09176, 00.09170, 00.09164, 00.09159, 00.09153, 00.09147, 
 wgsData <- data.frame(wgsI, wgsX, wgsG, wgsL, wgsM, wgsS)
 names(wgsData) <- c("indicator", "sex", "given", "l", "m", "s")
 write.csv(wgsData, "data-raw/wgsData.csv", row.names = FALSE)
-devtools::use_data(wgsData)
+#devtools::use_data(wgsData)
 #
 # Tidy up ...
 #

@@ -17,7 +17,7 @@
 ################################################################################
 NULL
 
-## quiets concerns of R CMD check re: the variable bindings that appear in bbw
+## quiets concerns of R CMD check re: the variable bindings that appear in zscorer
 if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "indicator",
                                                         "sex", "given"))
 
@@ -27,7 +27,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "indicator",
 #'
 #' World Health Organization (WHO) Growth Reference (2006) data
 #'
-#' @format A data frame with 6 columns and 1746 rows.
+#' @format A data frame with 6 columns and 2338 rows.
 #' \describe{
 #' \item{\code{indicator}}{One of weight-for-age (\code{waz}),
 #'     height-for-age (\code{haz}), or weight-for-height (\code{whz})

@@ -8,7 +8,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "man/figures/README-"
 )
 ```
 
@@ -128,7 +128,7 @@ waz <- getCohortWGS(data = anthro1,
                     firstPart = "weight",
                     secondPart = "age",
                     index = "wfa")
-head(waz, 100)
+head(waz, 50)
 
 # height-for-age z-score
 haz <- getCohortWGS(data = anthro1,
@@ -136,7 +136,7 @@ haz <- getCohortWGS(data = anthro1,
                     firstPart = "height",
                     secondPart = "age",
                     index = "hfa")
-head(haz, 100)
+head(haz, 50)
 
 # weight-for-height z-score
 whz <- getCohortWGS(data = anthro1,
@@ -144,7 +144,7 @@ whz <- getCohortWGS(data = anthro1,
                     firstPart = "weight",
                     secondPart = "height",
                     index = "wfh")
-head(whz, 100)
+head(whz, 50)
 ```
 
 Applying the `getCohortWGS()` function results in a vector of calculated `z-scores`
@@ -163,7 +163,7 @@ zScores <- getAllWGS(data = anthro1,
                      height = "height",
                      age = "age",
                      index = "all")
-head(zScores, 50)
+head(zScores, 20)
 ```
 
 Applying the `getAllWGS()` function results in a data frame of calculated `z-scores`

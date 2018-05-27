@@ -3,6 +3,8 @@
 export(getAllWGS)
 export(getCohortWGS)
 export(getWGS)
+export(get_acfa_pchart)
+export(get_acfa_zchart)
 export(get_bfa_pchart)
 export(get_bfa_zchart)
 export(get_hcfa_pchart)

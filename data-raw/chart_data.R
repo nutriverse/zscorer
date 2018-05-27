@@ -1,6 +1,6 @@
 ################################################################################
 #
-# Extract lhfa data
+# Extract lhfa data - zscore
 #
 ################################################################################
 
@@ -45,33 +45,202 @@ get_lhfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
 }
 
 
+#
+#
+#
 xx <- get_lhfa_zchart()
 
+
+################################################################################
+#
+#
+#
+################################################################################
 
 p <- ggplot(xx[xx$sex == "boys" & xx$month < 24 & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
             aes(x = month, y = sd_value, group = sd_type))
 
-p + geom_line(size = 1.5, aes(colour = sd_type)) +
-    labs(x = "Month", y = "Length/Height (cms)", colour = "z-score") +
-    scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
-    scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
-    theme_gray()
+p + geom_line(size = 1, aes(colour = sd_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "z-score") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
+  theme_gray()
 
+
+################################################################################
+#
+#
+#
+################################################################################
 
 p <- ggplot(xx[xx$sex == "girls" & xx$month < 24 & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
             aes(x = month, y = sd_value, group = sd_type))
 
-p + geom_line(size = 2, aes(colour = sd_type)) + scale_color_manual(values = c("red", "orange", "darkgreen", "yellow", "red"))
+p + geom_line(size = 1, aes(colour = sd_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "z-score") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
+  theme_gray()
 
 
-
+################################################################################
+#
+#
+#
+################################################################################
 
 p <- ggplot(xx[xx$sex == "boys" & xx$month >= 24 & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
             aes(x = month, y = sd_value, group = sd_type))
 
-p + geom_line(size = 2, aes(colour = sd_type)) + scale_color_manual(values = c("red", "yellow", "darkgreen", "yellow", "red"))
+p + geom_line(size = 1, aes(colour = sd_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "z-score") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 24:61) + scale_y_continuous(breaks = seq(75, 125, 5)) +
+  theme_gray()
 
 
+################################################################################
+#
+#
+#
+################################################################################
+
+p <- ggplot(xx[xx$sex == "girls" & xx$month >= 24 & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
+            aes(x = month, y = sd_value, group = sd_type))
+
+p + geom_line(size = 1, aes(colour = sd_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "z-score") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 24:61) + scale_y_continuous(breaks = seq(75, 125, 5)) +
+  theme_gray()
+
+
+################################################################################
+#
+# Extract lhfa data - p
+#
+################################################################################
+
+get_lhfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/",
+                            gender = c("boys", "girls")) {
+  #
+  #
+  #
+  temp <- NULL
+  #
+  #
+  #
+  for(i in gender) {
+    #
+    #
+    #
+    p_data <- read.table(file = paste(baseurl, "lhfa_", i, "_p_exp.txt", sep = ""),
+                         header = TRUE)
+    #
+    #
+    #
+    p_data <- data.frame("sex" = i, "month" = p_data$Day/30.4375, p_data)
+    #
+    #
+    #
+    temp <- data.frame(rbind(temp, p_data))
+  }
+  #
+  #
+  #
+  names(temp) <- c("sex", "month", "day", "l", "m", "s",
+                   "0.10th", "1st", "3rd", "5th", "10th", "15th", "25th", "50th",
+                   "75th", "85th", "90th", "95th", "97th", "99th", "99.9th")
+  #
+  #
+  #
+  lhfa_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value", names(temp)[7]:names(temp)[ncol(temp)])
+  names(lhfa_chart) <- c("sex", "month", "day", "l", "m", "s", "p_type", "p_value")
+  lhfa_chart$p_type <- factor(lhfa_chart$p_type,
+                              levels = c("0.10th", "1st", "3rd", "5th", "10th",
+                                         "15th", "25th", "50th", "75th", "85th",
+                                         "90th", "95th", "97th", "99th", "99.9th"))
+  #
+  #
+  #
+  return(lhfa_chart)
+}
+
+
+#
+#
+#
+xx <- get_lhfa_pchart()
+
+
+################################################################################
+#
+#
+#
+################################################################################
+
+
+labels <- c("3rd", "15th", "50th", "85th", "97th")
+p_xloc   <- rep(24, 5)
+p_yloc   <- c(81, 84, 87, 90, 93)
+
+p_labels <- data.frame(labels, p_xloc, p_yloc)
+
+p <- ggplot(xx[xx$sex == "boys" & xx$month < 24 & xx$p_type %in% c("3rd", "15th", "50th", "85th", "97th"), ],
+            aes(x = month, y = p_value, group = p_type))
+
+p + geom_line(size = 1, aes(colour = p_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "percentile") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
+  theme_gray()
+
+################################################################################
+#
+#
+#
+################################################################################
+
+p <- ggplot(xx[xx$sex == "girls" & xx$month < 24 & xx$p_type %in% c("3rd", "15th", "50th", "85th", "97th"), ],
+            aes(x = month, y = p_value, group = p_type))
+
+p + geom_line(size = 1, aes(colour = p_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "percentile") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
+  theme_gray()
+
+
+################################################################################
+#
+#
+#
+################################################################################
+
+p <- ggplot(xx[xx$sex == "boys" & xx$month >= 24 & xx$p_type %in% c("3rd", "15th", "50th", "85th", "97th"), ],
+            aes(x = month, y = p_value, group = p_type))
+
+p + geom_line(size = 1, aes(colour = p_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "percentile") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 24:61) + scale_y_continuous(breaks = seq(75, 125, 5)) +
+  theme_gray()
+
+
+################################################################################
+#
+#
+#
+################################################################################
+
+p <- ggplot(xx[xx$sex == "girls" & xx$month >= 24 & xx$p_type %in% c("3rd", "15th", "50th", "85th", "97th"), ],
+            aes(x = month, y = p_value, group = p_type))
+
+p + geom_line(size = 1, aes(colour = p_type)) +
+  labs(x = "Month", y = "Length/Height (cms)", colour = "percentile") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 24:61) + scale_y_continuous(breaks = seq(75, 125, 5)) +
+  theme_gray()
 
 
 

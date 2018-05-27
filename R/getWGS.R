@@ -6,7 +6,8 @@
 #' for a single child data.
 #'
 #' @param sexObserved Sex of child (1 = Male; 2 = Female)
-#' @param firstPart Weight (kg; for WHZ and WAZ) or height (cm; for HAZ)
+#' @param firstPart Weight (in kg for WHZ and WAZ) or height (in cm for HAZ) or
+#'     head circumference (in cm for )
 #' @param secondPart Age (months; for HAZ and WAZ) or height (cm; for WHZ)
 #' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
 #' @return z-score of the anthropometric index selected

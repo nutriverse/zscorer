@@ -43,12 +43,11 @@ get_tsfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   return(tsfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_tsfa_zchart()
+tsfa_zchart <- get_tsfa_zchart()
+write.csv(tsfa_zchart, "data-raw/charts/tsfa_zchart.csv", row.names = FALSE)
 
 
 ################################################################################
@@ -166,12 +165,11 @@ get_tsfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   return(tsfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_tsfa_pchart()
+tsfa_pchart <- get_tsfa_pchart()
+write.csv(tsfa_pchart, "data-raw/charts/tsfa_pchart.csv", row.names = FALSE)
 
 
 ################################################################################

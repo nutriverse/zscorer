@@ -31,7 +31,7 @@
 #'
 #' @examples
 #' # Get length/height-for-age z-score expanded tables for charting
-#' get_lhfa_zchart
+#' get_lhfa_zchart()
 #'
 #' @export
 #'
@@ -125,7 +125,7 @@ get_lhfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
 #'
 #' @examples
 #' # Get length/height-for-age percentile expanded tables for charting
-#' get_lhfa_pchart
+#' get_lhfa_pchart()
 #'
 #' @export
 #'

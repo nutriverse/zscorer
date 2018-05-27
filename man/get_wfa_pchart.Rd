@@ -39,7 +39,7 @@ A data frame in tidy format with 8 coloumns and 55710 rows:
 }
 }
 \description{
-Function to extract weight percentile data from the World Health
+Function to extract weight-for-age percentile data from the World Health
 Organization (WHO) website on Child Growth Standards
 \url{http://www.who.int/childgrowth/standards/"} which contains a
 collection of reference data from the WHO Multicentre Growth Reference Study

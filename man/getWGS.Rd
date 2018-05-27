@@ -9,7 +9,8 @@ getWGS(sexObserved, firstPart, secondPart, index)
 \arguments{
 \item{sexObserved}{Sex of child (1 = Male; 2 = Female)}
 
-\item{firstPart}{Weight (kg; for WHZ and WAZ) or height (cm; for HAZ)}
+\item{firstPart}{Weight (in kg for WHZ and WAZ) or height (in cm for HAZ) or
+head circumference (in cm for )}
 
 \item{secondPart}{Age (months; for HAZ and WAZ) or height (cm; for WHZ)}
 

@@ -31,25 +31,27 @@ get_acfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   #
   #
-  names(temp) <- c("sex", "month", "day", "-4SD", "-3SD", "-2SD", "-1SD", "0", "1SD", "2SD", "3SD", "4SD")
+  names(temp) <- c("sex", "month", "day", "-4SD", "-3SD", "-2SD", "-1SD", "0",
+                   "1SD", "2SD", "3SD", "4SD")
   #
   #
   #
-  acfa_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value", names(temp)[4]:names(temp)[ncol(temp)])
+  acfa_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value",
+                              names(temp)[4]:names(temp)[ncol(temp)])
   names(acfa_chart) <- c("sex", "month", "day", "sd_type", "sd_value")
-  acfa_chart$sd_type <- factor(acfa_chart$sd_type, levels = c("4SD", "3SD", "2SD", "1SD", "0", "-1SD", "-2SD", "-3SD", "-4SD"))
+  acfa_chart$sd_type <- factor(acfa_chart$sd_type,
+                               levels = c("4SD", "3SD", "2SD", "1SD", "0", "-1SD",
+                                          "-2SD", "-3SD", "-4SD"))
   #
   #
   #
   return(acfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_acfa_zchart()
-
+acfa_zchart <- get_acfa_zchart()
+write.csv(acfa_zchart, "data-raw/charts/acfa_zchart.csv", row.names = FALSE)
 
 ################################################################################
 #
@@ -155,7 +157,8 @@ get_acfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   #
   #
-  acfa_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value", names(temp)[7]:names(temp)[ncol(temp)])
+  acfa_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value",
+                              names(temp)[7]:names(temp)[ncol(temp)])
   names(acfa_chart) <- c("sex", "month", "day", "l", "m", "s", "p_type", "p_value")
   acfa_chart$p_type <- factor(acfa_chart$p_type,
                               levels = c("0.10th", "1st", "3rd", "5th", "10th",
@@ -166,12 +169,11 @@ get_acfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   return(acfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_acfa_pchart()
+acfa_pchart <- get_acfa_pchart()
+write.csv(acfa_pchart, "data-raw/charts/acfa_pchart.csv", row.names = FALSE)
 
 
 ################################################################################

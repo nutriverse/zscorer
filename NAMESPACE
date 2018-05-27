@@ -3,4 +3,7 @@
 export(getAllWGS)
 export(getCohortWGS)
 export(getWGS)
+export(get_lhfa_pchart)
+export(get_lhfa_zchart)
 export(run_zscorer)
+importFrom(utils,read.table)

@@ -25,10 +25,12 @@ get_wfh_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
     #
     #
     z_data_2 <- data.frame("sex" = i, z_data_2)
-    names(z_data_2) <- c("sex", "lh", "-4SD", "-3SD", "-2SD", "-1SD", "0", "1SD", "2SD", "3SD", "4SD")
+    names(z_data_2) <- c("sex", "lh", "-4SD", "-3SD", "-2SD", "-1SD", "0",
+                         "1SD", "2SD", "3SD", "4SD")
 
     z_data_5 <- data.frame("sex" = i, z_data_5)
-    names(z_data_5) <- c("sex", "lh", "-4SD", "-3SD", "-2SD", "-1SD", "0", "1SD", "2SD", "3SD", "4SD")
+    names(z_data_5) <- c("sex", "lh", "-4SD", "-3SD", "-2SD", "-1SD", "0",
+                         "1SD", "2SD", "3SD", "4SD")
 
     z_data   <- data.frame(rbind(z_data_2, z_data_5))
 
@@ -37,24 +39,27 @@ get_wfh_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   #
   #
-  names(temp) <- c("sex", "lh", "-4SD", "-3SD", "-2SD", "-1SD", "0", "1SD", "2SD", "3SD", "4SD")
+  names(temp) <- c("sex", "lh", "-4SD", "-3SD", "-2SD", "-1SD", "0",
+                   "1SD", "2SD", "3SD", "4SD")
   #
   #
   #
-  wfh_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value", names(temp)[3]:names(temp)[ncol(temp)])
+  wfh_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value",
+                             names(temp)[3]:names(temp)[ncol(temp)])
   names(wfh_chart) <- c("sex", "lh", "sd_type", "sd_value")
-  wfh_chart$sd_type <- factor(wfh_chart$sd_type, levels = c("4SD", "3SD", "2SD", "1SD", "0", "-1SD", "-2SD", "-3SD", "-4SD"))
+  wfh_chart$sd_type <- factor(wfh_chart$sd_type,
+                              levels = c("4SD", "3SD", "2SD", "1SD", "0", "-1SD",
+                                         "-2SD", "-3SD", "-4SD"))
   #
   #
   #
   return(wfh_chart)
 }
-
-
 #
 #
 #
-xx <- get_wfh_zchart()
+wfh_zchart <- get_wfh_zchart()
+write.csv(wfh_zchart, "data-raw/charts/wfh_zchart.csv", row.names = FALSE)
 
 
 ################################################################################
@@ -172,7 +177,8 @@ get_wfh_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   #
   #
-  wfh_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value", names(temp)[6]:names(temp)[ncol(temp)])
+  wfh_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value",
+                             names(temp)[6]:names(temp)[ncol(temp)])
   names(wfh_chart) <- c("sex", "lh", "l", "m", "s", "p_type", "p_value")
   wfh_chart$p_type <- factor(wfh_chart$p_type,
                              levels = c("0.10th", "1st", "3rd", "5th", "10th",
@@ -183,12 +189,11 @@ get_wfh_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   return(wfh_chart)
 }
-
-
 #
 #
 #
-xx <- get_wfh_pchart()
+wfh_pchart <- get_wfh_pchart()
+write.csv(wfh_pchart, "data-raw/charts/wfh_pchart.csv", row.names = FALSE)
 
 
 ################################################################################

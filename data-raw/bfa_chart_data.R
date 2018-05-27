@@ -43,12 +43,12 @@ get_bfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   return(bfa_chart)
 }
+#
+#
+#
+bfa_zchart <- get_bfa_zchart()
+write.csv(bfa_zchart, "data-raw/charts/bfa_zchart.csv")
 
-
-#
-#
-#
-xx <- get_bfa_zchart()
 
 
 ################################################################################
@@ -166,12 +166,11 @@ get_bfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   return(bfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_bfa_pchart()
+bfa_pchart <- get_bfa_pchart()
+write.csv(bfa_pchart, "data-raw/charts/bfa_pchart.csv", row.names = FALSE)
 
 
 ################################################################################

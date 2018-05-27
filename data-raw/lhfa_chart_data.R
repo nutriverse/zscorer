@@ -31,24 +31,28 @@ get_lhfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   #
   #
-  names(temp) <- c("sex", "month", "day", "-4SD", "-3SD", "-2SD", "-1SD", "0", "1SD", "2SD", "3SD", "4SD")
+  names(temp) <- c("sex", "month", "day", "-4SD", "-3SD", "-2SD", "-1SD",
+                   "0", "1SD", "2SD", "3SD", "4SD")
   #
   #
   #
-  lhfa_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value", names(temp)[4]:names(temp)[ncol(temp)])
+  lhfa_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value",
+                              names(temp)[4]:names(temp)[ncol(temp)])
   names(lhfa_chart) <- c("sex", "month", "day", "sd_type", "sd_value")
-  lhfa_chart$sd_type <- factor(lhfa_chart$sd_type, levels = c("4SD", "3SD", "2SD", "1SD", "0", "-1SD", "-2SD", "-3SD", "-4SD"))
+  lhfa_chart$sd_type <- factor(lhfa_chart$sd_type,
+                               levels = c("4SD", "3SD", "2SD", "1SD", "0",
+                                          "-1SD", "-2SD", "-3SD", "-4SD"))
   #
   #
   #
   return(lhfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_lhfa_zchart()
+lhfa_zchart <- get_lhfa_zchart()
+write.csv(lhfa_zchart, "data-raw/charts/lhfa_zchart.csv", row.names = FALSE)
+#devtools::use_data(lhfa_zchart, overwrite = TRUE)
 
 
 ################################################################################
@@ -166,12 +170,12 @@ get_lhfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   return(lhfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_lhfa_pchart()
+lhfa_pchart <- get_lhfa_pchart()
+write.csv(lhfa_pchart, "data-raw/charts/lhfa_pchart.csv", row.names = FALSE)
+#devtools::use_data(lhfa_pchart, overwrite = TRUE)
 
 
 ################################################################################

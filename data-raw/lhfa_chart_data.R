@@ -62,10 +62,11 @@ p <- ggplot(xx[xx$sex == "boys" & xx$month < 24 & !xx$sd_type %in% c("-4SD", "4S
 
 p + geom_line(size = 1, aes(colour = sd_type)) +
   labs(x = "Month", y = "Length/Height (cms)", colour = "z-score") +
-  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
-  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
+  scale_color_manual(guide = FALSE, values = c("red", "orange", "darkgreen", "orange", "red")) +
+  scale_x_discrete(limits = 0:25) +
+  scale_y_continuous(breaks = seq(45, 100, 5)) +
+  geom_dl(aes(label = sd_type, colour = sd_type, size = 0.5), method = list(dl.trans(x = x + 0.2), "last.points")) +
   theme_gray()
-
 
 ################################################################################
 #

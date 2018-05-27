@@ -31,24 +31,27 @@ get_wfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   #
   #
-  names(temp) <- c("sex", "month", "day", "-4SD", "-3SD", "-2SD", "-1SD", "0", "1SD", "2SD", "3SD", "4SD")
+  names(temp) <- c("sex", "month", "day", "-4SD", "-3SD", "-2SD", "-1SD",
+                   "0", "1SD", "2SD", "3SD", "4SD")
   #
   #
   #
-  wfa_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value", names(temp)[4]:names(temp)[ncol(temp)])
+  wfa_chart <- tidyr::gather(data = temp, key = "sd_type", value = "sd_value",
+                             names(temp)[4]:names(temp)[ncol(temp)])
   names(wfa_chart) <- c("sex", "month", "day", "sd_type", "sd_value")
-  wfa_chart$sd_type <- factor(wfa_chart$sd_type, levels = c("4SD", "3SD", "2SD", "1SD", "0", "-1SD", "-2SD", "-3SD", "-4SD"))
+  wfa_chart$sd_type <- factor(wfa_chart$sd_type,
+                              levels = c("4SD", "3SD", "2SD", "1SD", "0",
+                                         "-1SD", "-2SD", "-3SD", "-4SD"))
   #
   #
   #
   return(wfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_wfa_zchart()
+wfa_zchart <- get_wfa_zchart()
+write.csv(wfa_zchart, "data-raw/charts/wfa_zchart.csv", row.names = FALSE)
 
 
 ################################################################################
@@ -155,7 +158,8 @@ get_wfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   #
   #
-  wfa_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value", names(temp)[7]:names(temp)[ncol(temp)])
+  wfa_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value",
+                             names(temp)[7]:names(temp)[ncol(temp)])
   names(wfa_chart) <- c("sex", "month", "day", "l", "m", "s", "p_type", "p_value")
   wfa_chart$p_type <- factor(wfa_chart$p_type,
                              levels = c("0.10th", "1st", "3rd", "5th", "10th",
@@ -166,12 +170,11 @@ get_wfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/"
   #
   return(wfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_wfa_pchart()
+wfa_pchart <- get_wfa_pchart()
+write.csv(wfa_pchart, "data-raw/charts/wfa_pchart.csv", row.names = FALSE)
 
 
 ################################################################################

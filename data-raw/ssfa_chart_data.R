@@ -43,12 +43,11 @@ get_ssfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   return(ssfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_ssfa_zchart()
+ssfa_zchart <- get_ssfa_zchart()
+write.csv(ssfa_zchart, "data-raw/charts/ssfa_zcharts.csv", row.names = FALSE)
 
 
 ################################################################################
@@ -155,7 +154,8 @@ get_ssfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   #
   #
-  ssfa_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value", names(temp)[7]:names(temp)[ncol(temp)])
+  ssfa_chart <- tidyr::gather(data = temp, key = "p_type", value = "p_value",
+                              names(temp)[7]:names(temp)[ncol(temp)])
   names(ssfa_chart) <- c("sex", "month", "day", "l", "m", "s", "p_type", "p_value")
   ssfa_chart$p_type <- factor(ssfa_chart$p_type,
                               levels = c("0.10th", "1st", "3rd", "5th", "10th",
@@ -166,12 +166,11 @@ get_ssfa_pchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
   #
   return(ssfa_chart)
 }
-
-
 #
 #
 #
-xx <- get_ssfa_pchart()
+ssfa_pchart <- get_ssfa_pchart()
+write.csv(ssfa_pchart, "data-raw/charts/ssfa_pchart.csv", row.names = FALSE)
 
 
 ################################################################################

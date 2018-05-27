@@ -12,6 +12,7 @@
 #'
 #' @docType package
 #' @name zscorer
+#' @importFrom utils read.table
 #'
 #
 ################################################################################

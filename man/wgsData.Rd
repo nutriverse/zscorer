@@ -4,7 +4,7 @@
 \name{wgsData}
 \alias{wgsData}
 \title{wgsData}
-\format{A data frame with 6 columns and 1746 rows.
+\format{A data frame with 6 columns and 2338 rows.
 \describe{
 \item{\code{indicator}}{One of weight-for-age (\code{waz}),
     height-for-age (\code{haz}), or weight-for-height (\code{whz})

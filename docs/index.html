@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">zscorer</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9000</span>
       </span>
     </div>
 
@@ -167,80 +167,52 @@
 <a class="sourceLine" id="cb7-4" data-line-number="4">                    <span class="dt">firstPart =</span> <span class="st">"weight"</span>,</a>
 <a class="sourceLine" id="cb7-5" data-line-number="5">                    <span class="dt">secondPart =</span> <span class="st">"age"</span>,</a>
 <a class="sourceLine" id="cb7-6" data-line-number="6">                    <span class="dt">index =</span> <span class="st">"wfa"</span>)</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="kw">head</span>(waz, <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;   [1] -0.75605549 -1.39021503 -1.05597853  1.41575096 -2.67757242</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;   [6]  1.49238050 -0.12987704 -0.02348159 -1.50647344 -1.54381630</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;  [11] -2.87495712 -0.43497240 -1.03899540 -1.69281855 -1.31245898</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt;  [16] -2.21003260 -0.01189226 -0.90917762 -0.67839855 -0.94746695</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt;  [21] -2.49960425 -0.95659644 -1.65442686 -1.25052760  0.67335751</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt;  [26]  0.30156301  0.24261346 -2.78670709 -1.15820651 -1.15477183</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt;  [31] -1.35540820 -0.59134959 -4.14967218 -0.45748752 -0.74331669</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt;  [36] -1.69725836 -1.05745067 -0.18869508 -0.42095770 -2.21030414</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">#&gt;  [41] -1.30536715 -3.63778143 -0.60662526 -0.54360470 -1.59171780</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt;  [46] -1.74745738 -0.34803338  0.69896149 -0.74467130  0.18924572</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co">#&gt;  [51] -1.48108856 -1.95753145 -1.31191261  0.30155484 -0.75789033</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co">#&gt;  [56] -1.22636337 -1.27478781 -0.14553210 -1.30480818 -1.96209188</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="co">#&gt;  [61] -1.92834685 -1.04554156 -1.39728978 -1.48108856 -0.74937250</span></a>
-<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="co">#&gt;  [66] -1.12503757 -2.77630042 -0.19882637  0.04219576 -0.52194533</span></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22"><span class="co">#&gt;  [71] -1.46503158  0.85408718 -1.63719475  0.31409860 -0.81222767</span></a>
-<a class="sourceLine" id="cb7-23" data-line-number="23"><span class="co">#&gt;  [76] -1.00226314 -0.44722087 -1.17228171 -2.15312212 -1.81820158</span></a>
-<a class="sourceLine" id="cb7-24" data-line-number="24"><span class="co">#&gt;  [81] -1.13196874 -2.86880551 -0.73555123 -2.43022105 -2.87277187</span></a>
-<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="co">#&gt;  [86] -0.94346572 -2.74866250 -2.55061273 -1.96711064 -3.36531123</span></a>
-<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="co">#&gt;  [91]  0.74108076  0.23397040 -1.16961511 -1.54368475 -0.50193697</span></a>
-<a class="sourceLine" id="cb7-27" data-line-number="27"><span class="co">#&gt;  [96] -2.80497696 -1.89582784 -1.71342724 -1.87269440 -1.64834830</span></a>
-<a class="sourceLine" id="cb7-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb7-29" data-line-number="29"><span class="co"># height-for-age z-score</span></a>
-<a class="sourceLine" id="cb7-30" data-line-number="30">haz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getCohortWGS.html">getCohortWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
-<a class="sourceLine" id="cb7-31" data-line-number="31">                    <span class="dt">sexObserved =</span> <span class="st">"sex"</span>,</a>
-<a class="sourceLine" id="cb7-32" data-line-number="32">                    <span class="dt">firstPart =</span> <span class="st">"height"</span>,</a>
-<a class="sourceLine" id="cb7-33" data-line-number="33">                    <span class="dt">secondPart =</span> <span class="st">"age"</span>,</a>
-<a class="sourceLine" id="cb7-34" data-line-number="34">                    <span class="dt">index =</span> <span class="st">"hfa"</span>)</a>
-<a class="sourceLine" id="cb7-35" data-line-number="35"><span class="kw">head</span>(haz, <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb7-36" data-line-number="36"><span class="co">#&gt;   [1] -1.2258169 -2.3475886 -2.9518041 -0.2812852 -4.2056663 -0.5387678</span></a>
-<a class="sourceLine" id="cb7-37" data-line-number="37"><span class="co">#&gt;   [7] -2.4020719 -1.0317699 -2.7410884 -4.7037571 -2.5670550 -2.1144960</span></a>
-<a class="sourceLine" id="cb7-38" data-line-number="38"><span class="co">#&gt;  [13] -2.2323505 -2.3155458 -2.7516165 -2.7930694  0.1121349 -1.9001797</span></a>
-<a class="sourceLine" id="cb7-39" data-line-number="39"><span class="co">#&gt;  [19] -2.9543730 -1.9671042 -3.8716522  0.8667206 -2.8252069 -2.1412285</span></a>
-<a class="sourceLine" id="cb7-40" data-line-number="40"><span class="co">#&gt;  [25] -2.7994643  0.5496459 -1.4372002 -3.7979410 -2.5661752 -1.8301183</span></a>
-<a class="sourceLine" id="cb7-41" data-line-number="41"><span class="co">#&gt;  [31] -1.6548589 -2.7110333 -3.6399642 -1.7955069 -1.6775100 -1.0317699</span></a>
-<a class="sourceLine" id="cb7-42" data-line-number="42"><span class="co">#&gt;  [37] -0.4356881 -1.2660152  0.4990326 -4.6085660 -3.1662351 -1.0695930</span></a>
-<a class="sourceLine" id="cb7-43" data-line-number="43"><span class="co">#&gt;  [43] -1.8477936 -2.5502314 -1.8301183 -2.2755493 -3.2816532  0.4876774</span></a>
-<a class="sourceLine" id="cb7-44" data-line-number="44"><span class="co">#&gt;  [49] -2.4396410 -0.4794744 -2.4504293 -3.2053429 -3.7694306 -0.2775228</span></a>
-<a class="sourceLine" id="cb7-45" data-line-number="45"><span class="co">#&gt;  [55] -0.3653868 -2.5815827 -1.7775775 -0.9547536 -2.9599613 -3.1402709</span></a>
-<a class="sourceLine" id="cb7-46" data-line-number="46"><span class="co">#&gt;  [61] -2.3778709 -2.1873064 -2.5585381 -2.1806622 -3.2376529 -2.2634845</span></a>
-<a class="sourceLine" id="cb7-47" data-line-number="47"><span class="co">#&gt;  [67] -4.2000053 -0.2809011 -3.5180432 -0.2437781 -1.0543764  0.1812499</span></a>
-<a class="sourceLine" id="cb7-48" data-line-number="48"><span class="co">#&gt;  [73] -2.4859766 -1.6141514 -2.9928210 -2.4559038 -1.9683112 -1.2081507</span></a>
-<a class="sourceLine" id="cb7-49" data-line-number="49"><span class="co">#&gt;  [79] -2.3460874 -2.1919714 -2.6264961 -4.6629238 -2.2110628 -3.9605986</span></a>
-<a class="sourceLine" id="cb7-50" data-line-number="50"><span class="co">#&gt;  [85] -3.1007498 -4.5234491 -1.4755486 -0.3554714 -2.5744381 -1.8393933</span></a>
-<a class="sourceLine" id="cb7-51" data-line-number="51"><span class="co">#&gt;  [91] -1.4619629  2.2883058 -2.7007990 -2.4477333 -1.4001563 -2.8679887</span></a>
-<a class="sourceLine" id="cb7-52" data-line-number="52"><span class="co">#&gt;  [97] -2.9823031 -3.3465111 -4.0111758 -3.2849746</span></a>
-<a class="sourceLine" id="cb7-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb7-54" data-line-number="54"><span class="co"># weight-for-height z-score</span></a>
-<a class="sourceLine" id="cb7-55" data-line-number="55">whz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getCohortWGS.html">getCohortWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
-<a class="sourceLine" id="cb7-56" data-line-number="56">                    <span class="dt">sexObserved =</span> <span class="st">"sex"</span>,</a>
-<a class="sourceLine" id="cb7-57" data-line-number="57">                    <span class="dt">firstPart =</span> <span class="st">"weight"</span>,</a>
-<a class="sourceLine" id="cb7-58" data-line-number="58">                    <span class="dt">secondPart =</span> <span class="st">"height"</span>,</a>
-<a class="sourceLine" id="cb7-59" data-line-number="59">                    <span class="dt">index =</span> <span class="st">"wfh"</span>)</a>
-<a class="sourceLine" id="cb7-60" data-line-number="60"><span class="kw">head</span>(whz, <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb7-61" data-line-number="61"><span class="co">#&gt;   [1]  0.05572347 -0.01974903  0.57469112  2.06231749 -0.14080044</span></a>
-<a class="sourceLine" id="cb7-62" data-line-number="62"><span class="co">#&gt;   [6]  2.49047246  1.83315197  0.93614891  0.18541943  2.11599287</span></a>
-<a class="sourceLine" id="cb7-63" data-line-number="63"><span class="co">#&gt;  [11] -1.96943887  1.06351047  0.35315830 -0.61151003 -0.01049441</span></a>
-<a class="sourceLine" id="cb7-64" data-line-number="64"><span class="co">#&gt;  [16] -0.75038993 -0.08000322  0.31277573  1.56456175  0.22152087</span></a>
-<a class="sourceLine" id="cb7-65" data-line-number="65"><span class="co">#&gt;  [21] -0.08798757 -2.14197877 -0.30804823  0.00778227  3.21041413</span></a>
-<a class="sourceLine" id="cb7-66" data-line-number="66"><span class="co">#&gt;  [26]  0.07434468  1.40966986 -0.81485050  0.63816647 -0.33540392</span></a>
-<a class="sourceLine" id="cb7-67" data-line-number="67"><span class="co">#&gt;  [31] -0.61955533  1.35716952 -2.77364671  1.00831095  0.32842063</span></a>
-<a class="sourceLine" id="cb7-68" data-line-number="68"><span class="co">#&gt;  [36] -1.66705281 -1.21157702  0.89024472 -0.89865037  0.82166393</span></a>
-<a class="sourceLine" id="cb7-69" data-line-number="69"><span class="co">#&gt;  [41]  0.64442137 -4.39847850  0.38411140  1.48299847 -0.93068495</span></a>
-<a class="sourceLine" id="cb7-70" data-line-number="70"><span class="co">#&gt;  [46] -0.88558228  1.69551410  0.65143649  0.61269397  0.59813891</span></a>
-<a class="sourceLine" id="cb7-71" data-line-number="71"><span class="co">#&gt;  [51] -0.16870101 -0.46773224  1.13627735  0.54232333 -0.80009135</span></a>
-<a class="sourceLine" id="cb7-72" data-line-number="72"><span class="co">#&gt;  [56]  0.47707364 -0.25223237  0.66626720  0.66470505 -0.56540523</span></a>
-<a class="sourceLine" id="cb7-73" data-line-number="73"><span class="co">#&gt;  [61] -0.89349250  0.37679942 -0.24183183 -0.41797799  1.97179223</span></a>
-<a class="sourceLine" id="cb7-74" data-line-number="74"><span class="co">#&gt;  [66]  0.34774287 -0.12696756 -0.02952866  2.29889761 -0.56117231</span></a>
-<a class="sourceLine" id="cb7-75" data-line-number="75"><span class="co">#&gt;  [71] -1.31702435  1.14195630 -0.07450720  1.74085848  1.53381730</span></a>
-<a class="sourceLine" id="cb7-76" data-line-number="76"><span class="co">#&gt;  [76]  0.59110113  0.95232463 -0.81485050 -1.04399868 -0.91463927</span></a>
-<a class="sourceLine" id="cb7-77" data-line-number="77"><span class="co">#&gt;  [81]  0.16190475  0.12223112  0.90273984  0.01878726 -1.87000837</span></a>
-<a class="sourceLine" id="cb7-78" data-line-number="78"><span class="co">#&gt;  [86]  2.12145198 -2.71413265 -3.48161993 -0.77282038 -3.16923427</span></a>
-<a class="sourceLine" id="cb7-79" data-line-number="79"><span class="co">#&gt;  [91]  2.52441543 -1.38629620  0.67083591 -0.49272967  0.50468135</span></a>
-<a class="sourceLine" id="cb7-80" data-line-number="80"><span class="co">#&gt;  [96] -1.84875292 -0.07768210  0.58570137  1.40004194  0.44765879</span></a></code></pre>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="kw">head</span>(waz, <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;  [1] -0.75605549 -1.39021503 -1.05597853  1.41575096 -2.67757242</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;  [6]  1.49238050 -0.12987704 -0.02348159 -1.50647344 -1.54381630</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; [11] -2.87495712 -0.43497240 -1.03899540 -1.69281855 -1.31245898</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; [16] -2.21003260 -0.01189226 -0.90917762 -0.67839855 -0.94746695</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; [21] -2.49960425 -0.95659644 -1.65442686 -1.25052760  0.67335751</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; [26]  0.30156301  0.24261346 -2.78670709 -1.15820651 -1.15477183</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; [31] -1.35540820 -0.59134959 -4.14967218 -0.45748752 -0.74331669</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; [36] -1.69725836 -1.05745067 -0.18869508 -0.42095770 -2.21030414</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">#&gt; [41] -1.30536715 -3.63778143 -0.60662526 -0.54360470 -1.59171780</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt; [46] -1.74745738 -0.34803338  0.69896149 -0.74467130  0.18924572</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co"># height-for-age z-score</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">haz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getCohortWGS.html">getCohortWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">                    <span class="dt">sexObserved =</span> <span class="st">"sex"</span>,</a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">                    <span class="dt">firstPart =</span> <span class="st">"height"</span>,</a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">                    <span class="dt">secondPart =</span> <span class="st">"age"</span>,</a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">                    <span class="dt">index =</span> <span class="st">"hfa"</span>)</a>
+<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="kw">head</span>(haz, <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="co">#&gt;  [1] -1.2258169 -2.3475886 -2.9518041 -0.2812852 -4.2056663 -0.5387678</span></a>
+<a class="sourceLine" id="cb7-27" data-line-number="27"><span class="co">#&gt;  [7] -2.4020719 -1.0317699 -2.7410884 -4.7037571 -2.5670550 -2.1144960</span></a>
+<a class="sourceLine" id="cb7-28" data-line-number="28"><span class="co">#&gt; [13] -2.2323505 -2.3155458 -2.7516165 -2.7930694  0.1121349 -1.9001797</span></a>
+<a class="sourceLine" id="cb7-29" data-line-number="29"><span class="co">#&gt; [19] -2.9543730 -1.9671042 -3.8716522  0.8667206 -2.8252069 -2.1412285</span></a>
+<a class="sourceLine" id="cb7-30" data-line-number="30"><span class="co">#&gt; [25] -2.7994643  0.5496459 -1.4372002 -3.7979410 -2.5661752 -1.8301183</span></a>
+<a class="sourceLine" id="cb7-31" data-line-number="31"><span class="co">#&gt; [31] -1.6548589 -2.7110333 -3.6399642 -1.7955069 -1.6775100 -1.0317699</span></a>
+<a class="sourceLine" id="cb7-32" data-line-number="32"><span class="co">#&gt; [37] -0.4356881 -1.2660152  0.4990326 -4.6085660 -3.1662351 -1.0695930</span></a>
+<a class="sourceLine" id="cb7-33" data-line-number="33"><span class="co">#&gt; [43] -1.8477936 -2.5502314 -1.8301183 -2.2755493 -3.2816532  0.4876774</span></a>
+<a class="sourceLine" id="cb7-34" data-line-number="34"><span class="co">#&gt; [49] -2.4396410 -0.4794744</span></a>
+<a class="sourceLine" id="cb7-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb7-36" data-line-number="36"><span class="co"># weight-for-height z-score</span></a>
+<a class="sourceLine" id="cb7-37" data-line-number="37">whz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getCohortWGS.html">getCohortWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
+<a class="sourceLine" id="cb7-38" data-line-number="38">                    <span class="dt">sexObserved =</span> <span class="st">"sex"</span>,</a>
+<a class="sourceLine" id="cb7-39" data-line-number="39">                    <span class="dt">firstPart =</span> <span class="st">"weight"</span>,</a>
+<a class="sourceLine" id="cb7-40" data-line-number="40">                    <span class="dt">secondPart =</span> <span class="st">"height"</span>,</a>
+<a class="sourceLine" id="cb7-41" data-line-number="41">                    <span class="dt">index =</span> <span class="st">"wfh"</span>)</a>
+<a class="sourceLine" id="cb7-42" data-line-number="42"><span class="kw">head</span>(whz, <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb7-43" data-line-number="43"><span class="co">#&gt;  [1]  0.05572347 -0.01974903  0.57469112  2.06231749 -0.14080044</span></a>
+<a class="sourceLine" id="cb7-44" data-line-number="44"><span class="co">#&gt;  [6]  2.49047246  1.83315197  0.93614891  0.18541943  2.11599287</span></a>
+<a class="sourceLine" id="cb7-45" data-line-number="45"><span class="co">#&gt; [11] -1.96943887  1.06351047  0.35315830 -0.61151003 -0.01049441</span></a>
+<a class="sourceLine" id="cb7-46" data-line-number="46"><span class="co">#&gt; [16] -0.75038993 -0.08000322  0.31277573  1.56456175  0.22152087</span></a>
+<a class="sourceLine" id="cb7-47" data-line-number="47"><span class="co">#&gt; [21] -0.08798757 -2.14197877 -0.30804823  0.00778227  3.21041413</span></a>
+<a class="sourceLine" id="cb7-48" data-line-number="48"><span class="co">#&gt; [26]  0.07434468  1.40966986 -0.81485050  0.63816647 -0.33540392</span></a>
+<a class="sourceLine" id="cb7-49" data-line-number="49"><span class="co">#&gt; [31] -0.61955533  1.35716952 -2.77364671  1.00831095  0.32842063</span></a>
+<a class="sourceLine" id="cb7-50" data-line-number="50"><span class="co">#&gt; [36] -1.66705281 -1.21157702  0.89024472 -0.89865037  0.82166393</span></a>
+<a class="sourceLine" id="cb7-51" data-line-number="51"><span class="co">#&gt; [41]  0.64442137 -4.39847850  0.38411140  1.48299847 -0.93068495</span></a>
+<a class="sourceLine" id="cb7-52" data-line-number="52"><span class="co">#&gt; [46] -0.88558228  1.69551410  0.65143649  0.61269397  0.59813891</span></a></code></pre>
 <p>Applying the <code><a href="reference/getCohortWGS.html">getCohortWGS()</a></code> function results in a vector of calculated <code>z-scores</code> for all children in the cohort or sample.</p>
 </div>
 <div id="calculating-z-scores-for-all-of-the-three-anthropometric-indices-in-one-function" class="section level3">
@@ -254,7 +226,7 @@
 <a class="sourceLine" id="cb8-5" data-line-number="5">                     <span class="dt">height =</span> <span class="st">"height"</span>,</a>
 <a class="sourceLine" id="cb8-6" data-line-number="6">                     <span class="dt">age =</span> <span class="st">"age"</span>,</a>
 <a class="sourceLine" id="cb8-7" data-line-number="7">                     <span class="dt">index =</span> <span class="st">"all"</span>)</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="kw">head</span>(zScores, <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="kw">head</span>(zScores, <span class="dv">20</span>)</a>
 <a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;            waz        haz         whz</span></a>
 <a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; 1  -0.75605549 -1.2258169  0.05572347</span></a>
 <a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; 2  -1.39021503 -2.3475886 -0.01974903</span></a>
@@ -275,37 +247,7 @@
 <a class="sourceLine" id="cb8-26" data-line-number="26"><span class="co">#&gt; 17 -0.01189226  0.1121349 -0.08000322</span></a>
 <a class="sourceLine" id="cb8-27" data-line-number="27"><span class="co">#&gt; 18 -0.90917762 -1.9001797  0.31277573</span></a>
 <a class="sourceLine" id="cb8-28" data-line-number="28"><span class="co">#&gt; 19 -0.67839855 -2.9543730  1.56456175</span></a>
-<a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co">#&gt; 20 -0.94746695 -1.9671042  0.22152087</span></a>
-<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">#&gt; 21 -2.49960425 -3.8716522 -0.08798757</span></a>
-<a class="sourceLine" id="cb8-31" data-line-number="31"><span class="co">#&gt; 22 -0.95659644  0.8667206 -2.14197877</span></a>
-<a class="sourceLine" id="cb8-32" data-line-number="32"><span class="co">#&gt; 23 -1.65442686 -2.8252069 -0.30804823</span></a>
-<a class="sourceLine" id="cb8-33" data-line-number="33"><span class="co">#&gt; 24 -1.25052760 -2.1412285  0.00778227</span></a>
-<a class="sourceLine" id="cb8-34" data-line-number="34"><span class="co">#&gt; 25  0.67335751 -2.7994643  3.21041413</span></a>
-<a class="sourceLine" id="cb8-35" data-line-number="35"><span class="co">#&gt; 26  0.30156301  0.5496459  0.07434468</span></a>
-<a class="sourceLine" id="cb8-36" data-line-number="36"><span class="co">#&gt; 27  0.24261346 -1.4372002  1.40966986</span></a>
-<a class="sourceLine" id="cb8-37" data-line-number="37"><span class="co">#&gt; 28 -2.78670709 -3.7979410 -0.81485050</span></a>
-<a class="sourceLine" id="cb8-38" data-line-number="38"><span class="co">#&gt; 29 -1.15820651 -2.5661752  0.63816647</span></a>
-<a class="sourceLine" id="cb8-39" data-line-number="39"><span class="co">#&gt; 30 -1.15477183 -1.8301183 -0.33540392</span></a>
-<a class="sourceLine" id="cb8-40" data-line-number="40"><span class="co">#&gt; 31 -1.35540820 -1.6548589 -0.61955533</span></a>
-<a class="sourceLine" id="cb8-41" data-line-number="41"><span class="co">#&gt; 32 -0.59134959 -2.7110333  1.35716952</span></a>
-<a class="sourceLine" id="cb8-42" data-line-number="42"><span class="co">#&gt; 33 -4.14967218 -3.6399642 -2.77364671</span></a>
-<a class="sourceLine" id="cb8-43" data-line-number="43"><span class="co">#&gt; 34 -0.45748752 -1.7955069  1.00831095</span></a>
-<a class="sourceLine" id="cb8-44" data-line-number="44"><span class="co">#&gt; 35 -0.74331669 -1.6775100  0.32842063</span></a>
-<a class="sourceLine" id="cb8-45" data-line-number="45"><span class="co">#&gt; 36 -1.69725836 -1.0317699 -1.66705281</span></a>
-<a class="sourceLine" id="cb8-46" data-line-number="46"><span class="co">#&gt; 37 -1.05745067 -0.4356881 -1.21157702</span></a>
-<a class="sourceLine" id="cb8-47" data-line-number="47"><span class="co">#&gt; 38 -0.18869508 -1.2660152  0.89024472</span></a>
-<a class="sourceLine" id="cb8-48" data-line-number="48"><span class="co">#&gt; 39 -0.42095770  0.4990326 -0.89865037</span></a>
-<a class="sourceLine" id="cb8-49" data-line-number="49"><span class="co">#&gt; 40 -2.21030414 -4.6085660  0.82166393</span></a>
-<a class="sourceLine" id="cb8-50" data-line-number="50"><span class="co">#&gt; 41 -1.30536715 -3.1662351  0.64442137</span></a>
-<a class="sourceLine" id="cb8-51" data-line-number="51"><span class="co">#&gt; 42 -3.63778143 -1.0695930 -4.39847850</span></a>
-<a class="sourceLine" id="cb8-52" data-line-number="52"><span class="co">#&gt; 43 -0.60662526 -1.8477936  0.38411140</span></a>
-<a class="sourceLine" id="cb8-53" data-line-number="53"><span class="co">#&gt; 44 -0.54360470 -2.5502314  1.48299847</span></a>
-<a class="sourceLine" id="cb8-54" data-line-number="54"><span class="co">#&gt; 45 -1.59171780 -1.8301183 -0.93068495</span></a>
-<a class="sourceLine" id="cb8-55" data-line-number="55"><span class="co">#&gt; 46 -1.74745738 -2.2755493 -0.88558228</span></a>
-<a class="sourceLine" id="cb8-56" data-line-number="56"><span class="co">#&gt; 47 -0.34803338 -3.2816532  1.69551410</span></a>
-<a class="sourceLine" id="cb8-57" data-line-number="57"><span class="co">#&gt; 48  0.69896149  0.4876774  0.65143649</span></a>
-<a class="sourceLine" id="cb8-58" data-line-number="58"><span class="co">#&gt; 49 -0.74467130 -2.4396410  0.61269397</span></a>
-<a class="sourceLine" id="cb8-59" data-line-number="59"><span class="co">#&gt; 50  0.18924572 -0.4794744  0.59813891</span></a></code></pre>
+<a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co">#&gt; 20 -0.94746695 -1.9671042  0.22152087</span></a></code></pre>
 <p>Applying the <code><a href="reference/getAllWGS.html">getAllWGS()</a></code> function results in a data frame of calculated <code>z-scores</code> for all children in the cohort or sample for all the anthropometric indices.</p>
 </div>
 </div>

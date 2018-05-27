@@ -48,6 +48,6 @@ growth charts for length/height-for-age percentiles.
 }
 \examples{
 # Get length/height-for-age percentile expanded tables for charting
-get_lhfa_pchart
+get_lhfa_pchart()
 
 }

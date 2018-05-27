@@ -40,6 +40,6 @@ growth charts for length/height-for-age z-scores.
 }
 \examples{
 # Get length/height-for-age z-score expanded tables for charting
-get_lhfa_zchart
+get_lhfa_zchart()
 
 }

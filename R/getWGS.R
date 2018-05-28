@@ -11,10 +11,12 @@
 #' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
 #' @return z-score of the anthropometric index selected
 #'
-#' @section The function fails messily when \code{secondPart} is outside of the range
+#' @section Warning:
+#' The function fails messily when \code{secondPart} is outside of the range
 #' given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months
 #' for age). It is up to you to check the ranges of your data.
 #'
+#' @section Reminders:
 #' The reference data for W/H assumes supine length is used for children with a
 #' standing height below 85cm
 #'
@@ -26,7 +28,8 @@
 #'
 #' The function requires reference data \code{wgsData} included in this package
 #'
-#' @section Note: This is a legacy function from the first CRAN release of `zscorer`
+#' @section Note:
+#' This is a legacy function from the first CRAN release of \code{zscorer}
 #' which focused mainly on the calculation of z-scores for weight-for-age,
 #' weight-for-height and height-for-age. This function has been kept in the package
 #' to ensure that existing analysis workflows implemented using the function

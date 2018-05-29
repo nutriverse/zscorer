@@ -1,7 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zscorer: Weight-for-age, height-for-age and weight-for-height z-score calculator <img src="man/figures/zscorer.png" align="right" />
+# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and
+
+triceps skinfold-for-age z-score calculator
+<img src="man/figures/zscorer.png" align="right" />
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -19,12 +22,14 @@ Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?br
 [![DOI](https://zenodo.org/badge/119683584.svg)](https://zenodo.org/badge/latestdoi/119683584)
 
 `zscorer` facilitates the calculation of `z-scores` (i.e. the number of
-standard deviations from the mean) for the three key anthropometric
-indices used to assess early childhood growth: `weight-for-age (WFA)`,
-`height-for-age (HFA)` and `weight-for-height (WFH)`. `zscorer` refers
-to the results of the **WHO Multicentre Growth Reference Study** as
-standard for calculating the `z-scores` hence it comes packaged with
-this reference data.
+standard deviations from the mean) for key anthropometric indices used
+to assess early childhood growth: `weight-for-age (WFA)`,
+`height-for-age (HFA)`, `weight-for-height (WFH)`, `BMI-for-age (BFA)`,
+`arm circumference-for-age (ACFA)`, `head circumference-for-age (HCFA)`,
+`subscapular skinfold-for-age (SSFA)` and `triceps skinfold-for-age
+(TSFA)`. `zscorer` refers to the results of the **WHO Multicentre Growth
+Reference Study** as standard for calculating the `z-scores` hence it
+comes as a dataset in this package.
 
 `zscorer` can be used to calculate the appropriate `z-score` for the
 corresponding anthropometric index for a single child to assess growth
@@ -45,7 +50,7 @@ or you can install the development version of `zscorer` from GitHub
 with:
 
 ``` r
-# install.packages("devtools")
+if(require(devtools) { install.packages("devtools") }
 devtools::install_github("nutriverse/zscorer")
 ```
 

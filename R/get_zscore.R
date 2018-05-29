@@ -1,14 +1,22 @@
 ################################################################################
 #
-#' getWGS
+#' get_zscore
 #'
-#' Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+#' Calculate z-scores for length/height-for-age (HAZ), weight-for-age (WAZ),
+#' weight-for-height/length (WHZ), BMI-for-age (BAZ), head circumference-for-age
+#' (HCAZ), arm circumference-for-age (ACAZ), subscapular skinfold-for-age (SSAZ)
+#' and triceps skinfold-for-age (TSAZ) using the WHO Growth Reference (2006)
 #' for a single child data.
 #'
 #' @param sexObserved Sex of child (1 = Male; 2 = Female)
-#' @param firstPart Weight (in kg for WHZ and WAZ) or height (in cm for HAZ)
-#' @param secondPart Age (in months for HAZ and WAZ) or height (in cm for WHZ)
-#' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
+#' @param firstPart Weight (in kg for WHZ and WAZ) or height (in cm for HAZ) or
+#'     BMI (in kg/m squared for BAZ) or head circumference (in cm for HCAZ) or
+#'     arm circumference (in cm for ACAZ) or subscapular skinfold (in cm for SSAZ)
+#'     or triceps skinfold (in cm for TSAZ)
+#' @param secondPart Age (in months for HAZ, WAZ, BAZ, HCAZ, ACAZ, SSAZ and TSAZ)
+#'     or height (in cm for WHZ)
+#' @param index One of "wfh", "hfa", "wfa", "bfa", "hcfa", "acfa", "ssfa", "tsfa"
+#'     (specifies the required index)
 #' @return z-score of the anthropometric index selected
 #'
 #' @section Warning:
@@ -28,32 +36,25 @@
 #'
 #' The function requires reference data \code{wgsData} included in this package
 #'
-#' @section Note:
-#' This is a legacy function from the first CRAN release of \code{zscorer}
-#' which focused mainly on the calculation of z-scores for weight-for-age,
-#' weight-for-height and height-for-age. This function has been kept in the package
-#' to ensure that existing analysis workflows implemented using the function
-#' continue to work.
-#'
 #' @examples
-#'   # apply \code{getWGS()} to a make believe 52 month old male child with weight of
+#'   # apply \code{get_zscore()} to a make believe 52 month old male child with weight of
 #'   # 14.6 kg and height of 98.0 cm
-#'   waz <- getWGS(sexObserved = 1,     # 1 = Male / 2 = Female
-#'                 firstPart = 14.6,    # Weight in kilograms
-#'                 secondPart = 52,     # Age in whole months
-#'                 index = "wfa")       # Anthropometric index (weight-for-age)
+#'   waz <- get_zscore(sexObserved = 1,     # 1 = Male / 2 = Female
+#'                     firstPart = 14.6,    # Weight in kilograms
+#'                     secondPart = 52,     # Age in whole months
+#'                     index = "wfa")       # Anthropometric index (weight-for-age)
 #'   waz
 #'
-#'   haz <- getWGS(sexObserved = 1,
-#'                 firstPart = 98,      # Height in centimetres
-#'                 secondPart = 52,
-#'                 index = "hfa")       # Anthropometric index (height-for-age)
+#'   haz <- get_zscore(sexObserved = 1,
+#'                     firstPart = 98,      # Height in centimetres
+#'                     secondPart = 52,
+#'                     index = "hfa")       # Anthropometric index (height-for-age)
 #'   haz
 #'
-#'   whz <- getWGS(sexObserved = 1,
-#'                 firstPart = 14.6,
-#'                 secondPart = 98,
-#'                 index = "wfh")       # Anthropometric index (weight-for-height)
+#'   whz <- get_zscore(sexObserved = 1,
+#'                     firstPart = 14.6,
+#'                     secondPart = 98,
+#'                     index = "wfh")       # Anthropometric index (weight-for-height)
 #'   whz
 #'
 #' @export
@@ -61,7 +62,7 @@
 #
 ################################################################################
 
-getWGS <- function(sexObserved, firstPart, secondPart, index) {
+get_zscore <- function(sexObserved, firstPart, secondPart, index) {
 
   if(is.na(sexObserved) | is.na(firstPart) | is.na(secondPart)) { return(NA) }
 

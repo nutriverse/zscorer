@@ -50,6 +50,26 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
       #
       uiOutput(outputId = "height1"),
       #
+      # Head circumference input
+      #
+      uiOutput(outputId = "hc1"),
+      #
+      # MUAC input
+      #
+      uiOutput(outputId = "muac1"),
+      #
+      # Subscapular skinfold input
+      #
+      uiOutput(outputId = "ss1"),
+      #
+      # Triceps skinfold input
+      #
+      uiOutput(outputId = "ts1"),
+      #
+      # Anthropometric index input
+      #
+      uiOutput(outputId = "index1"),
+      #
       # Header 2 - input file with anthropometric data (dataType == 2)
       #
       h5(textOutput("header2")),

@@ -116,7 +116,7 @@
 #'                         weight = "weight",
 #'                         height = "height",
 #'                         age = "age",
-#'                         index = "all")
+#'                         index = c("hfa", "wfa", "wfh"))
 #'   all
 #'
 #' @export
@@ -124,14 +124,15 @@
 #
 ################################################################################
 
-get_zscore_all <- function(data = NULL, sex,
+get_zscore_all <- function(data = NULL, sex, age,
                            weight = NULL, height = NULL, bmi = NULL,
                            hc = NULL, ac = NULL, ss = NULL, ts = NULL,
-                           age, index) {
+                           index = c("wfa", "hfa", "wfh", "bfa",
+                                     "acfa", "hcfa", "ssfa", "tsfa")) {
   #
   # If user selects index of "wfa" or "all"...
   #
-  if(index == "wfa" | index == "all"){
+  if("wfa" %in% index | "all" %in% index){
     #
     # If user does not provide data (is.null(data))...
     #
@@ -180,7 +181,7 @@ get_zscore_all <- function(data = NULL, sex,
   #
   # If user selects index of haz or all...
   #
-  if(index == "hfa" | index == "all"){
+  if("hfa" %in% index | "all" %in% index){
     #
     # If user does not provide data (is.null(data))...
     #
@@ -229,7 +230,7 @@ get_zscore_all <- function(data = NULL, sex,
   #
   # If user selects index of "whz" or "all"...
   #
-  if(index == "wfh" | index == "all"){
+  if("wfh" %in% index | "all" %in% index){
     #
     #
     #
@@ -278,7 +279,7 @@ get_zscore_all <- function(data = NULL, sex,
   #
   # If user selects index of baz or all...
   #
-  if(index == "bfa" | index == "all"){
+  if("bfa" %in% index | "all" %in% index){
     #
     # If user does not provide data (is.null(data))...
     #
@@ -327,7 +328,7 @@ get_zscore_all <- function(data = NULL, sex,
   #
   # If user selects index of acaz or all...
   #
-  if(index == "acfa" | index == "all"){
+  if("acfa" %in% index | "all" %in% index){
     #
     # If user does not provide data (is.null(data))...
     #
@@ -376,7 +377,7 @@ get_zscore_all <- function(data = NULL, sex,
   #
   # If user selects index of hcaz or all...
   #
-  if(index == "hcfa" | index == "all"){
+  if("hcfa" %in% index | "all" %in% index){
     #
     # If user does not provide data (is.null(data))...
     #
@@ -425,7 +426,7 @@ get_zscore_all <- function(data = NULL, sex,
   #
   # If user selects index of ssaz or all...
   #
-  if(index == "ssfa" | index == "all"){
+  if("ssfa" %in% index | "all" %in% index){
     #
     # If user does not provide data (is.null(data))...
     #
@@ -474,7 +475,7 @@ get_zscore_all <- function(data = NULL, sex,
   #
   # If user selects index of tsaz or all...
   #
-  if(index == "tsfa" | index == "all"){
+  if("tsfa" %in% index | "all" %in% index){
     #
     # If user does not provide data (is.null(data))...
     #
@@ -523,15 +524,19 @@ get_zscore_all <- function(data = NULL, sex,
   #
   #
   #
-  if(index == "wfa")  { z <- data.frame(waz) }
-  if(index == "hfa")  { z <- data.frame(haz) }
-  if(index == "wfh")  { z <- data.frame(whz) }
-  if(index == "bfa")  { z <- data.frame(baz) }
-  if(index == "hcfa") { z <- data.frame(hcaz) }
-  if(index == "acfa") { z <- data.frame(acaz) }
-  if(index == "ssfa") { z <- data.frame(ssaz) }
-  if(index == "tsfa") { z <- data.frame(tsaz) }
-  if(index == "all") {
+  z <- NULL
+  #
+  #
+  #
+  if("wfa" %in% index)  { z <- data.frame(cbind(z, waz)) }
+  if("hfa" %in% index)  { z <- data.frame(cbind(z, haz)) }
+  if("wfh" %in% index)  { z <- data.frame(cbind(z, whz)) }
+  if("bfa" %in% index)  { z <- data.frame(cbind(z, baz)) }
+  if("hcfa" %in% index) { z <- data.frame(cbind(z, hcaz)) }
+  if("acfa" %in% index) { z <- data.frame(cbind(z, acaz)) }
+  if("ssfa" %in% index) { z <- data.frame(cbind(z, ssaz)) }
+  if("tsfa" %in% index) { z <- data.frame(cbind(z, tsaz)) }
+  if("all" %in% index) {
     z <- data.frame(cbind(waz, haz, whz, baz, hcaz, acaz, ssaz, tsaz))
     names(z) <- c("waz", "haz", "whz", "baz", "hcaz", "acaz", "ssaz", "tsaz")
   }

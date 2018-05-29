@@ -4,8 +4,9 @@
 \alias{get_centiles_all}
 \title{get_centiles_all}
 \usage{
-get_centiles_all(data = NULL, sex, weight = NULL, height = NULL,
-  bmi = NULL, hc = NULL, ac = NULL, ss = NULL, ts = NULL, age, index)
+get_centiles_all(data = NULL, sex, age, weight = NULL, height = NULL,
+  bmi = NULL, hc = NULL, ac = NULL, ss = NULL, ts = NULL,
+  index = c("hfa", "wfa", "wfh", "bfa", "acfa", "hcfa", "ssfa", "tsfa"))
 }
 \arguments{
 \item{data}{Data frame containing corresponding data on \code{sex}, \code{age},
@@ -22,6 +23,10 @@ to the parameters required.}
 child (default) or character value (if \code{data} is specified) indicating
 variable name in \code{data} containing information on sex of
 child/children (1 = male; 2 = female).}
+
+\item{age}{Either numeric values for age in whole months (default) or character
+value (if \code{data} is specified) indicating variable name in \code{data}
+containing information on age of child/children.}
 
 \item{weight}{Either numeric values for weight in kg with at least 1 decimal
 place (default) or character value (if \code{data} is specified) indicating
@@ -53,10 +58,6 @@ character value (if \code{data} is specified) indicating variable name in
 character value (if \code{data} is specified) indicating variable name in
 \code{data} containing information on triceps skinfold of child/children.}
 
-\item{age}{Either numeric values for age in whole months (default) or character
-value (if \code{data} is specified) indicating variable name in \code{data}
-containing information on age of child/children.}
-
 \item{index}{One of "wfh", "hfa", "wfa", "bfa", "acfa", "hcfa", "ssfa", "tsfa"
 (specifies the required index) or "all" to calculate all eight indices}
 }
@@ -78,6 +79,20 @@ for a cohort of children.
 The function fails messily when \code{secondPart} is outside of the range
 given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months
 for age). It is up to you to check the ranges of your data.
+}
+
+\section{Reminders}{
+
+The reference data for W/H assumes supine length is used for children with a
+standing height below 85cm
+
+Heights should be specified in cm to the nearest mm (i.e. to 1 d.p.)
+
+Ages should be specified in whole months
+
+Weights should be specified in kg to available precision
+
+The function requires reference data \code{wgsData} included in this package
 }
 
 \examples{
@@ -125,7 +140,7 @@ for age). It is up to you to check the ranges of your data.
                           weight = "weight",
                           height = "height",
                           age = "age",
-                          index = "all")
+                          index = c("wfa", "hfa", "wfh"))
   all
 
 }

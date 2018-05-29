@@ -1,13 +1,14 @@
 Package: zscorer
 Type: Package
 Title: Child Anthropometry z-Score Calculator
-Version: 0.2.0
+Version: 0.2.0.9000
 Authors@R: c(
     person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
     person("Ernest", "Guevarra", email = "ernestgmd@gmail.com", role = c("aut", "cre")))
-Description: A tool for calculating z-scores for weight-for- age, 
-    length/height-for-age, and weight-for-length/height, based on the WHO Child 
-    Growth Standards.
+Description: A tool for calculating z-scores and centiles for weight-for-age, 
+    length/height-for-age, weight-for-length/height, BMI-for-age, 
+    head circumference-for-age, age circumference-for-age, subscapular skinfold-for-age, 
+    triceps skinfold-for-age based on the WHO Child Growth Standards. 
 Depends: R (>= 2.10)
 Imports: tidyr
 Suggests: testthat,

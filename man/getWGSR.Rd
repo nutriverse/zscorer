@@ -7,7 +7,7 @@
 getWGSR(sex, firstPart, secondPart, index = NA, standing, thirdPart = NA)
 }
 \arguments{
-\item{sex}{Name of variable specifying the sex of the subject. This must be
+\item{sex}{Sex of the subject. This must be
 coded as 1 = male; 2 = female.}
 
 \item{firstPart}{Name of variable specifying:
@@ -80,6 +80,12 @@ Function to calculate z-scores. Usually called by the \code{addWGSR()} function
 but could be used as a stand-alone command-line calculator if required.
 }
 \examples{
-#
+# Calculate weight-for-height for a male child age 10 months with a weight of
+# 5.7 kgs and a height of 64.2 cms.
+getWGSR(sex = 1,
+        firstPart = 5.7,
+        secondPart = 64.2,
+        index = "wfh",
+        standing = 3)
 
 }

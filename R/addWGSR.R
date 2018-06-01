@@ -83,7 +83,26 @@
 #' @return A data.frame of the survey dataset with the calculated z-scores added.
 #'
 #' @examples
-#' #
+#' # Calculate weight-for-height (wfh) for the anthro3 dataset
+#' addWGSR(data = anthro3,
+#'         sex = "sex",
+#'         firstPart = "weight",
+#'         secondPart = "height",
+#'         index = "wfh")
+#'
+#' # Calculate weight-for-age (wfa) for the anthro3 dataset
+#' addWGSR(data = anthro3,
+#'         sex = "sex",
+#'         firstPart = "weight",
+#'         secondPart = "age",
+#'         index = "wfa")
+#'
+#' # Calculate height-for-age (hfa) for the anthro3 dataset
+#' addWGSR(data = anthro3,
+#'         sex = "sex",
+#'         firstPart = "height",
+#'         secondPart = "age",
+#'         index = "hfa")
 #'
 #' @export
 #'
@@ -133,7 +152,7 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 #' Function to calculate z-scores. Usually called by the \code{addWGSR()} function
 #' but could be used as a stand-alone command-line calculator if required.
 #'
-#' @param sex Name of variable specifying the sex of the subject. This must be
+#' @param sex Sex of the subject. This must be
 #'     coded as 1 = male; 2 = female.
 #' @param firstPart Name of variable specifying:
 #'
@@ -196,7 +215,13 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 #' @return A numeric value or vector of z-scores for the specified \code{index}.
 #'
 #' @examples
-#' #
+#' # Calculate weight-for-height for a male child age 10 months with a weight of
+#' # 5.7 kgs and a height of 64.2 cms.
+#' getWGSR(sex = 1,
+#'         firstPart = 5.7,
+#'         secondPart = 64.2,
+#'         index = "wfh",
+#'         standing = 3)
 #'
 #' @export
 #'
@@ -206,7 +231,7 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 getWGSR <- function(sex, firstPart, secondPart,
                     index = NA, standing, thirdPart = NA) {
   ## Avoid missing and impossible values in 'standing' by coding NA and other values to '3'
-  if(is.na(standing) | !(standing %in% c(1, 2, 3))) {
+  if(is.na(standing) | !standing %in% c(1, 2, 3)) {
     standing = 3
   }
   ## Unknown index specified - return NA

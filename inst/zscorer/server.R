@@ -48,9 +48,9 @@ function(input, output, session) {
     if(input$dataType == 1){
       numericInput(inputId = "weight1",
                    label = "Weight (kg)",
-                   value = 00.0,
-                   min = 0,
-                   max = 50,
+                   value = NULL,
+                   min = 1,
+                   max = 30,
                    step = 0.1)
     }
   })
@@ -64,9 +64,73 @@ function(input, output, session) {
     if(input$dataType == 1){
       numericInput(inputId = "height1",
                    label = "Height (cm)",
-                   value = 00.0,
+                   value = NULL,
                    min = 45,
                    max = 120,
+                   step = 0.1)
+    }
+  })
+  #
+  # Input for head circumference
+  #
+  output$hc1 <- renderUI({
+    #
+    # If user selects "hcfa"
+    #
+    if(input$dataType == 1){
+      numericInput(inputId = "hc1",
+                   label = "Head circumference (cm)",
+                   value = NULL,
+                   min = 30,
+                   max = 60,
+                   step = 0.1)
+    }
+  })
+  #
+  # Input for arm circumference
+  #
+  output$muac1 <- renderUI({
+    #
+    # If user selects "acfa"
+    #
+    if(input$dataType == 1){
+      numericInput(inputId = "muac1",
+                   label = "Mid-upper arm circumference (cm)",
+                   value = NULL,
+                   min = 10,
+                   max = 25,
+                   step = 0.1)
+    }
+  })
+  #
+  # Input for subscapular skinfold
+  #
+  output$ss1 <- renderUI({
+    #
+    # If user selects "ssfa"
+    #
+    if(input$dataType == 1){
+      numericInput(inputId = "ss1",
+                   label = "Subscapular skinfold (mm)",
+                   value = NULL,
+                   min = 3,
+                   max = 20,
+                   step = 0.1)
+    }
+  })
+  #
+  # Input for triceps skinfold
+  #
+  output$ts1 <- renderUI({
+    #
+    # If user selects "tsfa"
+    #
+    if(input$dataType == 1){
+      numericInput(inputId = "ts1",
+                   label = "Triceps skinfold (cm)",
+                   value = NULL,
+                   min = 3,
+                   max = 23,
                    step = 0.1)
     }
   })
@@ -80,11 +144,52 @@ function(input, output, session) {
     if(input$dataType == 1){
       numericInput(inputId = "age1",
                    label = "Age (months)",
-                   value = 00,
+                   value = NULL,
                    min = 0,
                    max = 60,
                    step = 0)
     }
+  })
+  #
+  #
+  #
+  index.list <- reactive({
+    index.list <- NULL
+    if(!is.null(input$weight1)) { index.list <- c(index.list, "wfa") }
+    if(!is.null(input$height1)) { index.list <- c(index.list, "hfa") }
+    if(!is.null(input$hc1))     { index.list <- c(index.list, "hcfa") }
+    if(!is.null(input$muac1))   { index.list <- c(index.list, "acfa") }
+    if(!is.null(input$ss1))     { index.list <- c(index.list, "ssfa") }
+    if(!is.null(input$ts1))     { index.list <- c(index.list, "tsfa") }
+
+    if(!is.null(input$weight1) & !is.null(input$height1)) {
+      index.list <- c(index.list, "wfh", "bfa")
+    }
+
+    full.index.list <- c("wfa", "hfa", "wfh", "bfa", "hcfa", "acfa", "ssfa", "tsfa")
+    names(full.index.list) <- c("Weight-for-age",
+                                "Height-for-age",
+                                "Weight-for-height",
+                                "BMI-for-age",
+                                "Head circumference-for-age",
+                                "MUAC-for-age",
+                                "Subscapular skinfold-for-age",
+                                "Triceps skinfold-for-age")
+
+    sub.index.list <- full.index.list[full.index.list %in% index.list]
+
+    return(sub.index.list)
+  })
+  #
+  # Input for index type
+  #
+  output$index1 <- renderUI({
+    selectInput(inputId = "index1",
+                label = "Select anthropometric index",
+                choices = index.list(),
+                multiple = TRUE,
+                size = 8,
+                selectize = FALSE)
   })
   #
   #

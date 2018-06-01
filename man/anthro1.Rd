@@ -3,7 +3,7 @@
 \docType{data}
 \name{anthro1}
 \alias{anthro1}
-\title{Example dataset for distributions of variables and indices}
+\title{anthro1}
 \format{A data frame with 873 observations and 11 variables
 \describe{
 \item{\code{psu}}{Primary sampling unit}

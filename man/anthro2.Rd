@@ -3,7 +3,7 @@
 \docType{data}
 \name{anthro2}
 \alias{anthro2}
-\title{Example dataset for digit preference function}
+\title{anthro2}
 \format{A data frame with 796 observations and 6 variables
 \describe{
 \item{\code{psu}}{Primary sampling unit}

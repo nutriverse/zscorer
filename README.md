@@ -1,10 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and
-
-triceps skinfold-for-age z-score calculator
-<img src="man/figures/zscorer.png" align="right" />
+# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/zscorer.png" align="right" />
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively

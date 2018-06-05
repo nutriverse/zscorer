@@ -41,4 +41,33 @@ test_that("getWGSR same as getWGS", {
 })
 
 
+testdata <- anthro3
+testdata$age <- testdata$age * 365.25 / 12
+
+whz <- addWGSR(data = testdata,
+               sex = "sex",
+               firstPart = "weight",
+               secondPart = "height",
+               index = "wfh",
+               standing = 3)
+
+waz <- addWGSR(data = testdata,
+               sex = "sex",
+               firstPart = "weight",
+               secondPart = "age",
+               index = "wfa")
+
+haz <- addWGSR(data = testdata,
+               sex = "sex",
+               firstPart = "height",
+               secondPart = "age",
+               index = "hfa",
+               standing = 3)
+
+
+test_that("z-score is numeric", {
+  expect_is(waz, "data.frame")
+  expect_is(haz, "data.frame")
+  expect_is(whz, "data.frame")
+})
 

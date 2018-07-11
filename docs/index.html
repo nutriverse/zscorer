@@ -6,13 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Child Anthropometry z-Score Calculator • zscorer</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Child Anthropometry z-Score Calculator">
-<meta property="og:description" content="A tool for calculating z-scores for weight-for- age, 
-    length/height-for-age, and weight-for-length/height, based on the WHO Child 
-    Growth Standards.">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script><meta property="og:title" content="Child Anthropometry z-Score Calculator">
+<meta property="og:description" content="A tool for calculating z-scores and centiles for weight-for-age, 
+    length/height-for-age, weight-for-length/height, BMI-for-age, 
+    head circumference-for-age, age circumference-for-age, subscapular skinfold-for-age, 
+    triceps skinfold-for-age based on the WHO Child Growth Standards. ">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -37,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">zscorer</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9000</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
       </span>
     </div>
 
@@ -60,7 +61,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/anthropometry.html">WHO Child Growth Standards: Length/height-for-age, weight-for-age, weight-for-length, weight-for-height and body mass index-for-age: Methods and development</a>
+      <a href="articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
   </ul>
 </li>
@@ -91,12 +92,12 @@
     
     
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<div id="zscorer-weight-for-age-height-for-age-and-weight-for-height-z-score-calculator" class="section level1">
+<div id="zscorer-weight-for-age-height-for-age-weight-for-height-bmi-for-age-head-circumference-for-age-arm-circumference-for-age-subscapular-skinfold-for-age-and-triceps-skinfold-for-age-z-score-calculator" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#zscorer-weight-for-age-height-for-age-and-weight-for-height-z-score-calculator" class="anchor"></a>zscorer: Weight-for-age, height-for-age and weight-for-height z-score calculator <img src="reference/figures/zscorer.png" align="right">
+<a href="#zscorer-weight-for-age-height-for-age-weight-for-height-bmi-for-age-head-circumference-for-age-arm-circumference-for-age-subscapular-skinfold-for-age-and-triceps-skinfold-for-age-z-score-calculator" class="anchor"></a>zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="reference/figures/zscorer.png" align="right">
 </h1></div>
 
-<p><code>zscorer</code> facilitates the calculation of <code>z-scores</code> (i.e. the number of standard deviations from the mean) for the three key anthropometric indices used to assess early childhood growth: <code>weight-for-age (WFA)</code>, <code>height-for-age (HFA)</code> and <code>weight-for-height (WFH)</code>. <code>zscorer</code> refers to the results of the <strong>WHO Multicentre Growth Reference Study</strong> as standard for calculating the <code>z-scores</code> hence it comes packaged with this reference data.</p>
+<p><code>zscorer</code> facilitates the calculation of <code>z-scores</code> (i.e. the number of standard deviations from the mean) for key anthropometric indices used to assess early childhood growth: <code>weight-for-age (WFA)</code>, <code>height-for-age (HFA)</code>, <code>weight-for-height (WFH)</code>, <code>BMI-for-age (BFA)</code>, <code>arm circumference-for-age (ACFA)</code>, <code>head circumference-for-age (HCFA)</code>, <code>subscapular skinfold-for-age (SSFA)</code> and <code>triceps skinfold-for-age (TSFA)</code>. <code>zscorer</code> refers to the results of the <strong>WHO Multicentre Growth Reference Study</strong> as standard for calculating the <code>z-scores</code> hence it comes as a dataset in this package.</p>
 <p><code>zscorer</code> can be used to calculate the appropriate <code>z-score</code> for the corresponding anthropometric index for a single child to assess growth and nutritional status against the standard. It can also be used to calculate the <code>z-scores</code> for an entire cohort or sample of children (such as in nutrition surveys) to allow for assessing the nutritional status of the entire child population.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -104,7 +105,7 @@
 <p>You can install <code>zscorer</code> from CRAN:</p>
 <pre class="sourceCode r" id="cb1"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"zscorer"</span>)</a></code></pre>
 <p>or you can install the development version of <code>zscorer</code> from GitHub with:</p>
-<pre class="sourceCode r" id="cb2"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<pre class="sourceCode r" id="cb2"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span>(<span class="kw">require</span>(devtools) { <span class="kw">install.packages</span>(<span class="st">"devtools"</span>) }</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"nutriverse/zscorer"</span>)</a></code></pre>
 <p>then load <code>zscorer</code></p>
 <pre class="sourceCode r" id="cb3"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># load package</span></a>

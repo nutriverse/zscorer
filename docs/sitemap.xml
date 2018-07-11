@@ -4,10 +4,16 @@
     <loc>https://nutriverse.validmeasures.org/zscorer/index.html</loc>
   </url>
   <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/addWGSR.html</loc>
+  </url>
+  <url>
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/anthro1.html</loc>
   </url>
   <url>
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/anthro2.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/anthro3.html</loc>
   </url>
   <url>
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/getAllWGS.html</loc>
@@ -19,10 +25,16 @@
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/getWGS.html</loc>
   </url>
   <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/getWGSR.html</loc>
+  </url>
+  <url>
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/run_zscorer.html</loc>
   </url>
   <url>
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/wgsData.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/wgsrData.html</loc>
   </url>
   <url>
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/zscorer.html</loc>

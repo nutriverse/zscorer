@@ -2,5 +2,5 @@ title: zscorer
 url: https://nutriverse.validmeasures.org/zscorer
 template:
   params:
-    #bootswatch: minty
+    bootswatch: sandstone
     ganalytics: UA-102485058-6

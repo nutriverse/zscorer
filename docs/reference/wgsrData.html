@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>anthro1 — anthro1 • zscorer</title>
+<title>wgsrData — wgsrData • zscorer</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="anthro1 — anthro1" />
+<meta property="og:title" content="wgsrData — wgsrData" />
 
-<meta property="og:description" content="Anthropometric data from a SMART survey in Kabul, Afghanistan." />
+<meta property="og:description" content="This is an expanded version of the wgsData which includes additional
+anthropometric indices found in the World Health Organization (WHO) Growth
+Reference (2006) data" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -122,34 +124,50 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>anthro1</h1>
+    <h1>wgsrData</h1>
     <small class="dont-index">Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/zscorer.R'><code>R/zscorer.R</code></a></small>
-    <div class="hidden name"><code>anthro1.Rd</code></div>
+    <div class="hidden name"><code>wgsrData.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Anthropometric data from a SMART survey in Kabul, Afghanistan.</p>
+    <p>This is an expanded version of the <code>wgsData</code> which includes additional
+anthropometric indices found in the World Health Organization (WHO) Growth
+Reference (2006) data</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>anthro1</span></pre>
+    <pre class="usage"><span class='no'>wgsrData</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 873 observations and 11 variables</p><dl class='dl-horizontal'>
-<dt><code>psu</code></dt><dd><p>Primary sampling unit</p></dd>
-<dt><code>age</code></dt><dd><p>Age of child (months)</p></dd>
-<dt><code>sex</code></dt><dd><p>Gender of child</p></dd>
-<dt><code>weight</code></dt><dd><p>Weight of child (kgs)</p></dd>
-<dt><code>height</code></dt><dd><p>Height of child (cm)</p></dd>
-<dt><code>muac</code></dt><dd><p>Mid-upper arm circumference (mm)</p></dd>
-<dt><code>oedema</code></dt><dd><p>Presence or absence of oedema</p></dd>
-<dt><code>haz</code></dt><dd><p>Height-for-age z-score</p></dd>
-<dt><code>waz</code></dt><dd><p>Weight-for-age z-score</p></dd>
-<dt><code>whz</code></dt><dd><p>Weight-for-height z-score</p></dd>
-<dt><code>flag</code></dt><dd><p>Data quality flag</p></dd>
+    <p>A data frame with 6 columns and 28654 rows.</p><dl class='dl-horizontal'>
+<dt><code>index</code></dt><dd><p>One of BMI-for-age (<code>bfa</code>), head circumference
+    for-age (<code>hca</code>), height-for-age (<code>hfa</code>); length-for-age (<code>lfa</code>),
+    MUAC-for-age (<code>mfa</code>), subscapular skinfold-for-age (<code>ssa</code>),
+    triceps skinfold-for-age (<code>tsa</code>), weight-for-age (<code>wfa</code>),
+    weight-for-length (<code>wfl</code>) or weight-for-height (<code>wfh</code>)
+    anthropometric indicators</p></dd>
+<dt><code>sex</code></dt><dd><p>Sex of child (1 = Male; 2 = Female)</p></dd>
+<dt><code>given</code></dt><dd><p>Variable to which standardisation is to be made. For
+    <code>wfa</code>, <code>hfa</code>, <code>bfa</code>, <code>hca</code>, <code>lfa</code>, <code>mfa</code>,
+    <code>ssa</code> and <code>tsa</code>, <code>given</code> is age in months. For <code>whl</code>,
+    <code>wfh</code>, <code>given</code> is height or length in cm</p></dd>
+<dt><code>l</code></dt><dd><p><code>L</code> component of the LMS method for normalising growth
+    centile standards. <code>L</code> is the trend in the optimal power to obtain
+    normality</p></dd>
+<dt><code>m</code></dt><dd><p><code>M</code> component of the LMS method for normalising growth
+    centile standards. <code>M</code> is the trend in the mean</p></dd>
+<dt><code>s</code></dt><dd><p><code>S</code> component of the LMS method for normalising growth
+    centile standards. <code>S</code> is the trend in the coefficient of variation</p></dd>
 </dl>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p><cite>World Health Organization. WHO Child Growth Standards:
+Length/Height-for-age, Weight-for-age, Weight-for-length, Weight-for-height,
+and Body Mass Index-for age: Methods and Development. 1st ed.
+World Health Organization; 2006.</cite></p>
     
 
   </div>
@@ -158,6 +176,8 @@
     <ul class="nav nav-pills nav-stacked">
       
       <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
           </ul>
 
   </div>

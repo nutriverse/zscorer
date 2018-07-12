@@ -4,7 +4,8 @@ Title: Child Anthropometry z-Score Calculator
 Version: 0.2.0
 Authors@R: c(
     person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
-    person("Ernest", "Guevarra", email = "ernestgmd@gmail.com", role = c("aut", "cre")))
+    person("Ernest", "Guevarra", comment = c(ORCID = "0000-0002-4887-4415"), 
+           email = "ernest@guevarra.io", role = c("aut", "cre")))
 Description: A tool for calculating z-scores and centiles for weight-for-age, 
     length/height-for-age, weight-for-length/height, BMI-for-age, 
     head circumference-for-age, age circumference-for-age, subscapular skinfold-for-age, 

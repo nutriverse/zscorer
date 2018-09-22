@@ -4,7 +4,8 @@
 \alias{getCohortWGS}
 \title{getCohortWGS}
 \usage{
-getCohortWGS(data, FUN = getWGS, sexObserved, firstPart, secondPart, index)
+getCohortWGS(data, FUN = getWGS, sexObserved, firstPart, secondPart,
+  index)
 }
 \arguments{
 \item{data}{Data frame containing the variables needed for calculation}

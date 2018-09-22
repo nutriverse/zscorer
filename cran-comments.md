@@ -1,15 +1,23 @@
+## Release summary
+This is the second CRAN release of `zscorer`. In this release:
+
+* created overall function to calculate all anthropometric indices included in the WHO Growth Standards;
+
+* updated README to illustrate use of main overall function for calculating anthropometric indices;
+
+* added vignettes to describe calculation of anthropometric indices
+
 ## Test environments
-* local OS X install, R 3.4.3
-* ubuntu 12.04 (on travis-ci), R 3.4.2
-* local ubuntu 16.04 install, R 3.4.3
+* local OS X install, R 3.5.1
+* ubuntu 14.04.5 (on travis-ci), release, devel and oldrelease
+* local ubuntu 16.04 install, R 3.5.1
 * win-builder (devel and release)
-* windows (on appveyor), R 3.4.3
+* windows (on appveyor), x64 release and devel, i386 release and devel
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
+0 errors | 0 warnings | 0 notes
 
 ## Reverse dependencies
-This is a new release, so there are no reverse/downstream dependencies.
+`zscorer` doesn't have any downstream / reverse dependencies 
+(see https://github.com/nutriverse/zscorer/tree/master/revdep)

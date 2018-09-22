@@ -4,7 +4,8 @@
 \alias{getWGSR}
 \title{getWGSR}
 \usage{
-getWGSR(sex, firstPart, secondPart, index = NA, standing, thirdPart = NA)
+getWGSR(sex, firstPart, secondPart, index = NA, standing,
+  thirdPart = NA)
 }
 \arguments{
 \item{sex}{Sex of the subject. This must be
@@ -32,7 +33,7 @@ coded as 1 = male; 2 = female.}
     \itemize{
       \item Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A
       \item Height (cm) BMI/A or W/H
-      \item Lenght (cm) for W/L
+      \item Length (cm) for W/L
     }
 
     Give a quoted variable name as in (e.g.) "age".
@@ -43,7 +44,7 @@ coded as 1 = male; 2 = female.}
 
     \describe{
       \item{\code{bfa}}{BMI for age}
-      \item{\code{hca}}{Head circumgerence for age}
+      \item{\code{hca}}{Head circumference for age}
       \item{\code{hfa}}{Height for age}
       \item{\code{lfa}}{Length for age}
       \item{\code{mfa}}{MUAC for age}
@@ -66,7 +67,7 @@ coded as 1 = male; 2 = female.}
     (e.g. "measured = 1"). If no value (or NULL) is specified then height and
     age rules will be applied.}
 
-\item{thirdPart}{Name of varible specifying age (in days) for BMI/A
+\item{thirdPart}{Name of variable specifying age (in days) for BMI/A
 
     Give a quoted variable name as in (e.g.) "age".
 

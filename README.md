@@ -28,12 +28,19 @@ to assess early childhood growth: `weight-for-age (WFA)`,
 Reference Study** as standard for calculating the `z-scores` hence it
 comes as a dataset in this package.
 
-`zscorer` can be used to calculate the appropriate `z-score` for the
-corresponding anthropometric index for a single child to assess growth
-and nutritional status against the standard. It can also be used to
-calculate the `z-scores` for an entire cohort or sample of children
-(such as in nutrition surveys) to allow for assessing the nutritional
-status of the entire child population.
+`zscorer` calculates the `z-score` for the corresponding anthropometric
+index given a dataset of children containing anthropometric measurements
+for height, weight, arm circumference, head circumference, subscapular
+skinfold, and triceps skinfold and additional data on age and sex to
+assess growth and nutritional status of the sample of children against
+the WHO Multicentre Growth Reference Study standard (WGS).
+
+`zscorer` also contains functions that calculates the `zscore` for three
+commonly assessed anthropometric indices in nutrition surveys
+(`weight-for-height`, `height-for-age`, `weight-for-age`) given
+anthropometric measurements of individual children. These are legacy
+functions used in earlier versions of `zscorer` that will soon be
+deprecated.
 
 ## Installation
 
@@ -47,7 +54,7 @@ or you can install the development version of `zscorer` from GitHub
 with:
 
 ``` r
-if(require(devtools) { install.packages("devtools") }
+if(!require(devtools) { install.packages("devtools") }
 devtools::install_github("nutriverse/zscorer")
 ```
 
@@ -59,6 +66,250 @@ library(zscorer)
 ```
 
 ## Usage
+
+### Calculating anthropometric z-scores using the addWGSR() function
+
+The main function in the `zscorer` package is `addWGSR()`.
+
+To demonstrate its usage, we will use the accompanying dataset in
+`zscorer` called `anthro3`. We inspect the dataset as follows:
+
+``` r
+head(anthro3)
+```
+
+which returns:
+
+    #>   psu age sex weight height muac oedema
+    #> 1   1  10   1    5.7   64.2  125      2
+    #> 2   1  10   2    5.8   64.4  121      2
+    #> 3   1   9   2    6.5   62.2  139      2
+    #> 4   1  11   9    6.5   64.9  129      2
+    #> 5   1  24   2    6.5   72.9  120      2
+    #> 6   1  12   2    6.6   69.4  126      2
+
+`anthro3` contains anthropometric data from a Rapid Assessment Method
+(RAM) survey from Burundi.
+
+Anthropometric indices (e.g. weight-for-height z-scores) have not been
+calculated and added to the data.
+
+We will use the `addWGSR()` function to add weight-for-height (wfh)
+z-scores to the example data:
+
+``` r
+svy <- addWGSR(data = anthro3, sex = "sex", firstPart = "weight",
+               secondPart = "height", index = "wfh")
+#> ===========================================================================
+```
+
+A new column named **wfhz** has been added to the dataset:
+
+    #>   psu age sex weight height muac oedema  wfhz
+    #> 1   1  10   1    5.7   64.2  125      2 -2.73
+    #> 2   1  10   2    5.8   64.4  121      2 -2.04
+    #> 3   1   9   2    6.5   62.2  139      2  0.13
+    #> 4   1  11   9    6.5   64.9  129      2    NA
+    #> 5   1  24   2    6.5   72.9  120      2 -3.44
+    #> 6   1  12   2    6.6   69.4  126      2 -2.26
+
+The `wfhz` column contains the weight-for-height (wfh) z-scores
+calculated from the `sex`, `weight`, and `height` columns in the
+`anthro3` dataset. The calculated z-scores are rounded to two decimals
+places unless the `digits` option is used to specify a different
+precision (run `?addWGSR` to see description of various parameters that
+can be specified in the `addWGSR()` function).
+
+The `addWGSR()` function takes up to nine parameters to calculate each
+index separately, depending on the index required. These are described
+in the *Help* files of the `zscorer` package which can be accessed as
+follows:
+
+``` r
+?addWGSR
+```
+
+The **standing** parameter specifies how “stature” (i.e. length or
+height) was measured. If this is not specified, and in some special
+circumstances, height and age rules will be applied when calculating
+z-scores. These rules are described in the table
+below.
+
+ 
+
+| **index**  | **standing** | **age**     | **height**       | **Action**                           |
+| ---------- | ------------ | ----------- | ---------------- | ------------------------------------ |
+| hfa or lfa | standing     | \< 731 days |                  | index = lfa height = height + 0.7 cm |
+| hfa or lfa | supine       | \< 731 days |                  | index = lfa                          |
+| hfa or lfa | unknown      | \< 731 days |                  | index = lfa                          |
+| hfa or lfa | standing     | ≥ 731 days  |                  | index = hfa                          |
+| hfa or lfa | supine       | ≥ 731 days  |                  | index = hfa height = height - 0.7 cm |
+| hfa or lfa | unknown      | ≥ 731 days  |                  | index = hfa                          |
+| wfh or wfl | standing     |             | \< 65 cm         | index = wfl height = height + 0.7 cm |
+| wfh or wfl | standing     |             | ≥ 65 cm          | index = wfh                          |
+| wfh or wfl | supine       |             | ≤ 110 cm         | index = wfl                          |
+| wfh or wfl | supine       |             | more than 110 cm | index = wfh height = height - 0.7 cm |
+| wfh or wfl | unknown      |             | \< 87 cm         | index = wfl                          |
+| wfh or wfl | unknown      |             | ≥ 87 cm          | index = wfh                          |
+| bfa        | standing     | \< 731 days |                  | height = height + 0.7 cm             |
+| bfa        | standing     | ≥ 731 days  |                  | height = height - 0.7 cm             |
+
+ 
+
+The `addWGSR()` function will not produce error messages unless there is
+something very wrong with the data or the specified parameters. If an
+error is encountered in a record then the value **NA** is returned.
+Error conditions are listed in the table
+below.
+
+ 
+
+| **Error condition**                               | **Action**                                                                 |
+| ------------------------------------------------- | -------------------------------------------------------------------------- |
+| Missing or nonsense value in `standing` parameter | Set `standing` to `3` (unknown) and apply appropriate height or age rules. |
+| Unknown `index` specified                         | Return **NA** for z-score.                                                 |
+| Missing `sex`                                     | Return **NA** for z-score.                                                 |
+| Missing `firstPart`                               | Return **NA** for z-score.                                                 |
+| Missing `secondPart`                              | Return **NA** for z-score.                                                 |
+| `sex` is not male (`1`) or female (`2`)           | Return **NA** for z-score.                                                 |
+| `firstPart` is not numeric                        | Return **NA** for z-score.                                                 |
+| `secondPart` is not numeric                       | Return **NA** for z-score.                                                 |
+| Missing `thirdPart` when `index = "bfa"`          | Return **NA** for z-score.                                                 |
+| `thirdPart` is not numeric when `index = "bfa"`   | Return **NA** for z-score.                                                 |
+| `secondPart` is out of range for specified index  | Return **NA** for z-score.                                                 |
+
+ 
+
+We can see this error behaviour using the example data:
+
+``` r
+table(is.na(svy$wfhz))
+#> 
+#> FALSE  TRUE 
+#>   220     1
+```
+
+We can display the problem record:
+
+``` r
+svy[is.na(svy$wfhz), ]
+#>   psu age sex weight height muac oedema wfhz
+#> 4   1  11   9    6.5   64.9  129      2   NA
+```
+
+The problem is due to the value **9** in the `sex` column, which should
+be coded **1** (for male) and **2** (for female). Z-scores are only
+calculated for records with sex specified as either **1** (male) or
+**2** (female). All other values, including **NA**, will return **NA**.
+
+The `addWGSR()` function requires that data are recorded using the
+required units or required codes (see Table Z1).
+
+The `addWGSR()` function will return incorrect values if the data are
+not recorded using the required units. For example, this attempt to add
+weight-for-age z-scores to the example data:
+
+``` r
+svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
+               secondPart = "age", index = "wfa")
+#> ===========================================================================
+```
+
+will give incorrect results:
+
+``` r
+summary(svy$wfaz)
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#>   3.450   7.692   9.840   9.684  11.430  15.900       1
+```
+
+The odd range of values is due to age being recorded in months rather
+than days.
+
+It is simple to convert all ages from months to days:
+
+``` r
+svy$age <- svy$age * (365.25 / 12)
+head(svy)
+#>   psu      age sex weight height muac oedema  wfhz wfaz
+#> 1   1 304.3750   1    5.7   64.2  125      2 -2.73 3.45
+#> 2   1 304.3750   2    5.8   64.4  121      2 -2.04 3.95
+#> 3   1 273.9375   2    6.5   62.2  139      2  0.13 5.12
+#> 4   1 334.8125   9    6.5   64.9  129      2    NA   NA
+#> 5   1 730.5000   2    6.5   72.9  120      2 -3.44 3.82
+#> 6   1 365.2500   2    6.6   69.4  126      2 -2.26 5.01
+```
+
+before calculating and adding weight-for-age z-scores:
+
+``` r
+svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
+               secondPart = "age", index = "wfa")
+#> ===========================================================================
+head(svy)
+#>   psu      age sex weight height muac oedema  wfhz  wfaz
+#> 1   1 304.3750   1    5.7   64.2  125      2 -2.73 -4.13
+#> 2   1 304.3750   2    5.8   64.4  121      2 -2.04 -3.19
+#> 3   1 273.9375   2    6.5   62.2  139      2  0.13 -1.97
+#> 4   1 334.8125   9    6.5   64.9  129      2    NA    NA
+#> 5   1 730.5000   2    6.5   72.9  120      2 -3.44 -4.61
+#> 6   1 365.2500   2    6.6   69.4  126      2 -2.26 -2.56
+summary(svy$wfaz)
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#>  -4.610  -1.873  -1.085  -1.154  -0.480   2.600       1
+```
+
+The muac column in the example dataset is recorded in millimetres (mm).
+We need to convert this to centimetres (cm):
+
+``` r
+svy$muac <- svy$muac / 10
+head(svy)
+#>   psu      age sex weight height muac oedema  wfhz  wfaz
+#> 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13
+#> 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19
+#> 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97
+#> 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA
+#> 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61
+#> 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56
+```
+
+before using the `addWGS()` function to calculate MUAC-for-age z-scores:
+
+``` r
+svy <- addWGSR(svy, sex = "sex", firstPart = "muac",    
+               secondPart = "age", index = "mfa")
+#> ===========================================================================
+head(svy)
+#>   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz
+#> 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97
+#> 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88
+#> 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14
+#> 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA
+#> 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70
+#> 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46
+```
+
+As a last example we will use the `addWGSR()` function to add body mass
+index-for-age (bfa) z-scores to the data to create a new variable called
+bmiAgeZ with a precision of 4 decimal places as:
+
+``` r
+svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
+               secondPart = "height", thirdPart = "age", index = "bfa", 
+               output = "bmiAgeZ", digits = 4)
+#> ===========================================================================
+head(svy)
+#>   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz bmiAgeZ
+#> 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97 -2.6928
+#> 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88 -2.0005
+#> 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14  0.0405
+#> 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA      NA
+#> 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70 -2.8958
+#> 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46 -2.0796
+```
+
+## Usage - legacy functions
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 

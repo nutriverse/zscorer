@@ -54,7 +54,7 @@ addWGSR(data, sex, firstPart, secondPart, thirdPart = NA, index = NA,
 
     \describe{
       \item{\code{bfa}}{BMI for age}
-      \item{\code{hca}}{Head circumgerence for age}
+      \item{\code{hca}}{Head circumference for age}
       \item{\code{hfa}}{Height for age}
       \item{\code{lfa}}{Length for age}
       \item{\code{mfa}}{MUAC for age}

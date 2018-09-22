@@ -37,14 +37,14 @@ addWGSR(data, sex, firstPart, secondPart, thirdPart = NA, index = NA,
     \itemize{
       \item Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A
       \item Height (cm) BMI/A or W/H
-      \item Lenght (cm) for W/L
+      \item Length (cm) for W/L
     }
 
     Give a quoted variable name as in (e.g.) "age".
 
     Be careful with units (age in days; height and length in cm).}
 
-\item{thirdPart}{Name of varible specifying age (in days) for BMI/A
+\item{thirdPart}{Name of variable specifying age (in days) for BMI/A
 
     Give a quoted variable name as in (e.g.) "age".
 
@@ -78,7 +78,7 @@ addWGSR(data, sex, firstPart, secondPart, thirdPart = NA, index = NA,
     age rules will be applied.}
 
 \item{output}{The name of the column containing the specified index to be
-added to the dataset. This ia an optional parameter. If you do not specify
+added to the dataset. This is an optional parameter. If you do not specify
 a value for output then the added column will take the name of the
 specified index with a "z" appended.}
 

@@ -10,7 +10,7 @@
 \item{\code{age}}{Age (months)}
 \item{\code{sex}}{Gender}
 \item{\code{weight}}{Weight (kg)}
-\item{\code{height}}{Jeight (cm)}
+\item{\code{height}}{Height (cm)}
 \item{\code{muac}}{Mid-upper arm circumference (cm)}
 \item{\code{oedema}}{Presence or absence of oedema}
 }}

@@ -3,6 +3,7 @@ pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
   anthropometry: anthropometry.html
+  calculate_zscore: calculate_zscore.html
 urls:
   reference: https://nutriverse.validmeasures.org/zscorer/reference
   article: https://nutriverse.validmeasures.org/zscorer/articles

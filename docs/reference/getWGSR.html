@@ -97,6 +97,9 @@ but could be used as a stand-alone command-line calculator if required." />
     <li>
       <a href="../articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
+    <li>
+      <a href="../articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -135,7 +138,8 @@ but could be used as a stand-alone command-line calculator if required.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>getWGSR</span>(<span class='no'>sex</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='kw'>index</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>standing</span>, <span class='kw'>thirdPart</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
+    <pre class="usage"><span class='fu'>getWGSR</span>(<span class='no'>sex</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='kw'>index</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>standing</span>,
+  <span class='kw'>thirdPart</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,7 +172,7 @@ coded as 1 = male; 2 = female.</p></td>
 <p></p><ul>
 <li><p>Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A</p></li>
 <li><p>Height (cm) BMI/A or W/H</p></li>
-<li><p>Lenght (cm) for W/L</p></li>
+<li><p>Length (cm) for W/L</p></li>
 </ul>
 
 <p>Give a quoted variable name as in (e.g.) "age".</p>
@@ -179,7 +183,7 @@ coded as 1 = male; 2 = female.</p></td>
       <td><p>The index to be calculated and added to <code>data</code>. One of:</p>
 <p></p><dl class='dl-horizontal'>
       <dt><code>bfa</code></dt><dd><p>BMI for age</p></dd>
-      <dt><code>hca</code></dt><dd><p>Head circumgerence for age</p></dd>
+      <dt><code>hca</code></dt><dd><p>Head circumference for age</p></dd>
       <dt><code>hfa</code></dt><dd><p>Height for age</p></dd>
       <dt><code>lfa</code></dt><dd><p>Length for age</p></dd>
       <dt><code>mfa</code></dt><dd><p>MUAC for age</p></dd>
@@ -204,7 +208,7 @@ coded as 1 = male; 2 = female.</p></td>
     </tr>
     <tr>
       <th>thirdPart</th>
-      <td><p>Name of varible specifying age (in days) for BMI/A</p>
+      <td><p>Name of variable specifying age (in days) for BMI/A</p>
 <p>Give a quoted variable name as in (e.g.) "age".</p>
 <p>Be careful with units (age in days).</p></td>
     </tr>

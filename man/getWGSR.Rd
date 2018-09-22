@@ -4,7 +4,8 @@
 \alias{getWGSR}
 \title{getWGSR}
 \usage{
-getWGSR(sex, firstPart, secondPart, index = NA, standing, thirdPart = NA)
+getWGSR(sex, firstPart, secondPart, index = NA, standing,
+  thirdPart = NA)
 }
 \arguments{
 \item{sex}{Sex of the subject. This must be

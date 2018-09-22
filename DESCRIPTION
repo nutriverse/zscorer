@@ -8,8 +8,9 @@ Authors@R: c(
            email = "ernest@guevarra.io", role = c("aut", "cre")))
 Description: A tool for calculating z-scores and centiles for weight-for-age, 
     length/height-for-age, weight-for-length/height, BMI-for-age, 
-    head circumference-for-age, age circumference-for-age, subscapular skinfold-for-age, 
-    triceps skinfold-for-age based on the WHO Child Growth Standards. 
+    head circumference-for-age, age circumference-for-age, 
+    subscapular skinfold-for-age, triceps skinfold-for-age based on the 
+    WHO Child Growth Standards. 
 Depends: R (>= 2.10)
 Imports: tidyr
 Suggests: testthat,

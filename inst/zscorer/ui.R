@@ -12,7 +12,7 @@ library(zscorer)
 #
 #
 #
-navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
+navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
   tabPanel(title = "", value = 1, icon = icon(name = "home", class = "fa-lg"),
     div(class = "outer",
         tags$head(includeCSS("styles.css"))

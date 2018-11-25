@@ -18,28 +18,18 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
         tags$head(includeCSS("styles.css"))
     ),
     sidebarPanel(width = 3,
-      #
-      # Select type of data
-      #
+      ## Select type of data
       radioButtons(inputId = "dataType",
                    label = h5("Type of child data to input"),
                    choices = list("Single child" = 1, "Cohort/sample of children" = 2),
                    selected = 1),
-      #
-      # Horizontal line
-      #
+      ## Horizontal line
       hr(),
-      #
-      # Header 1
-      #
+      ## Header 1
       h5(textOutput("header1")),
-      #
-      # Age input
-      #
+      ## Age input
       uiOutput(outputId = "age1"),
-      #
-      # Weight input
-      #
+      ## sex input
       uiOutput(outputId = "sex1"),
       #
       # Weight input
@@ -52,7 +42,7 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
       #
       # Head circumference input
       #
-      uiOutput(outputId = "hc1"),
+      #uiOutput(outputId = "hc1"),
       #
       # MUAC input
       #
@@ -60,11 +50,11 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
       #
       # Subscapular skinfold input
       #
-      uiOutput(outputId = "ss1"),
+      #uiOutput(outputId = "ss1"),
       #
       # Triceps skinfold input
       #
-      uiOutput(outputId = "ts1"),
+      #uiOutput(outputId = "ts1"),
       #
       # Anthropometric index input
       #

@@ -157,13 +157,13 @@ function(input, output, session) {
     index.list <- NULL
     if(!is.null(input$weight1)) { index.list <- c(index.list, "wfa") }
     if(!is.null(input$height1)) { index.list <- c(index.list, "hfa") }
-    if(!is.null(input$hc1))     { index.list <- c(index.list, "hcfa") }
-    if(!is.null(input$muac1))   { index.list <- c(index.list, "acfa") }
-    if(!is.null(input$ss1))     { index.list <- c(index.list, "ssfa") }
-    if(!is.null(input$ts1))     { index.list <- c(index.list, "tsfa") }
+    #if(!is.null(input$hc1))     { index.list <- c(index.list, "hcfa") }
+    #if(!is.null(input$muac1))   { index.list <- c(index.list, "acfa") }
+    #if(!is.null(input$ss1))     { index.list <- c(index.list, "ssfa") }
+    #if(!is.null(input$ts1))     { index.list <- c(index.list, "tsfa") }
 
     if(!is.null(input$weight1) & !is.null(input$height1)) {
-      index.list <- c(index.list, "wfh", "bfa")
+      index.list <- c(index.list, "wfh")
     }
 
     full.index.list <- c("wfa", "hfa", "wfh", "bfa", "hcfa", "acfa", "ssfa", "tsfa")

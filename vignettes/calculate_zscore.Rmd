@@ -209,6 +209,8 @@ head(svy)
 
 ## Calculating z-scores using the legacy functions
 
+The `zscorer` package comes with the original legacy functions included in its `version 0.1.0`. These functions allow for the calculation of `weight-for-age`,  `height-for-age` and `weight-for-height z-scores` for individual children and for a cohort of children.
+
 ### Calculating z-score for each of the three anthropometric indices for a single child
 
 For this example, we will use the `getWGS()` function and apply it to dummy data of a **52 month** old male child with a weight of **14.6 kg** and a height of **98.0 cm**.

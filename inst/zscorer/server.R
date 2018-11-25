@@ -157,10 +157,9 @@ function(input, output, session) {
     index.list <- NULL
     if(!is.null(input$weight1) & input$dataType == 1) { index.list <- c(index.list, "wfa") }
     if(!is.null(input$height1) & input$dataType == 1) { index.list <- c(index.list, "hfa") }
-    if(!is.null(input$hc2))     { index.list <- c(index.list, "hcfa") }
-    if(!is.null(input$muac2))   { index.list <- c(index.list, "acfa") }
-    if(!is.null(input$ss2))     { index.list <- c(index.list, "ssfa") }
-    if(!is.null(input$ts2))     { index.list <- c(index.list, "tsfa") }
+    if(!is.null(input$weight2) & input$dataType == 2) { index.list <- c(index.list, "wfa") }
+    if(!is.null(input$height2) & input$dataType == 2) { index.list <- c(index.list, "hfa") }
+    if(input$dataType == 2) { index.list <- c(index.list, "hcfa", "acfa", "ssfa", "tsfa") }
 
     if(!is.null(input$weight1) & !is.null(input$height1)) {
       index.list <- c(index.list, "wfh")

@@ -46,7 +46,7 @@ navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
       #
       # MUAC input
       #
-      uiOutput(outputId = "muac1"),
+      #uiOutput(outputId = "muac1"),
       #
       # Subscapular skinfold input
       #

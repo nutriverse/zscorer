@@ -34,8 +34,8 @@ function(input, output, session) {
     if(input$dataType == 1){
       selectInput(inputId = "sex1",
                   label = "Sex",
-                  choices = list("Select" = ., "Male" = 1, "Female" = 2),
-                  selected = .)
+                  choices = list("Select" = "", "Male" = 1, "Female" = 2),
+                  selected = "")
     }
   })
   #

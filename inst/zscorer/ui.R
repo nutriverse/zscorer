@@ -19,12 +19,12 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
     ),
     sidebarPanel(width = 3,
       ## Select type of data
-      radioButtons(inputId = "dataType",
-                   label = h5("Type of child data to input"),
-                   choices = list("Single child" = 1, "Cohort/sample of children" = 2),
-                   selected = 1),
+      #radioButtons(inputId = "dataType",
+      #             label = h5("Type of child data to input"),
+      #             choices = list("Single child" = 1, "Cohort/sample of children" = 2),
+      #             selected = 1),
       ## Horizontal line
-      hr(),
+      #hr(),
       ## Header 1
       h5(textOutput("header1")),
       ## Age input
@@ -35,70 +35,55 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
       uiOutput(outputId = "weight1"),
       ## Height input
       uiOutput(outputId = "height1"),
-      ## Head circumference input
-      #uiOutput(outputId = "hc1"),
-      ## MUAC input
-      #uiOutput(outputId = "muac1"),
-      #
-      # Subscapular skinfold input
-      #
-      #uiOutput(outputId = "ss1"),
-      #
-      # Triceps skinfold input
-      #
-      #uiOutput(outputId = "ts1"),
-      #
-      # Anthropometric index input
-      #
-      uiOutput(outputId = "index1"),
-      #
-      # Header 2 - input file with anthropometric data (dataType == 2)
-      #
+      ## Anthropometric index input
+      conditionalPanel("input.dataType == 2",
+        uiOutput(outputId = "index1")
+      ),
+      ## Header 2 - input file with anthropometric data (dataType == 2)
       h5(textOutput("header2")),
-      #
-      # File input - anthro data
-      #
+      ## File input - anthro data
       uiOutput(outputId = "file1"),
-      #
-      # Sex variable for cohort/sample
-      #
+      ## Sex variable for cohort/sample
       uiOutput(outputId = "sex2"),
-      #
-      # Weight variable for cohort/sample
-      #
+      ## Weight variable for cohort/sample
       uiOutput(outputId = "weight2"),
-      #
-      # Height variable for cohort/sample
-      #
+      ## Height variable for cohort/sample
       uiOutput(outputId = "height2"),
-      #
-      # Age variable for cohort/sample
-      #
+      ## Age variable for cohort/sample
       uiOutput(outputId = "age2"),
-      #
-      # Action button to calculate single child z-scores
-      #
+      ## Action button to calculate single child z-scores
       uiOutput(outputId = "calculate1"),
-      #
-      # Action button to calculate cohort/sample z-scores
-      #
+      ## Action button to calculate cohort/sample z-scores
       uiOutput(outputId = "calculate2")
     ),
     #
     #
     #
     mainPanel(width = 9,
-      wellPanel(uiOutput(outputId = "waz")),
-      wellPanel(uiOutput(outputId = "haz")),
-      wellPanel(uiOutput(outputId = "whz")),
-      #
-      # Data table
-      #
-      DT::dataTableOutput("anthroTable"),
-      #
-      # z-scores table
-      #
-      DT::dataTableOutput("zScoreTable")
+      tabsetPanel(id = "dataType", selected = 1,
+        tabPanel(title = "Single", value = 1,
+          conditionalPanel("input.calculate1",
+            column(width = 4,
+              wellPanel(h4("Weight-for-age z-score"),
+              hr(),
+              uiOutput(outputId = "waz"))),
+            column(width = 4,
+              wellPanel(h4("Height-for-age z-score"),
+              hr(),
+              uiOutput(outputId = "haz"))),
+            column(width = 4,
+              wellPanel(h4("Weight-for-height z-score"),
+              hr(),
+              uiOutput(outputId = "whz")))
+          )
+        ),
+        tabPanel(title = "Cohort", value = 2,
+          conditionalPanel("input.calculate2",
+            ## z-scores table
+            DT::dataTableOutput("zScoreTable")
+          )
+        )
+      )
     )
   ),
   tabPanel(title = "About", value = 2,

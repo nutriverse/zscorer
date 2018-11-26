@@ -346,39 +346,49 @@ function(input, output, session) {
   #
   observeEvent(input$calculate1, {
     #
+    # For single calculations
     #
-    #
-    req(input$sex1, input$weight1, input$age1, input$height1)
-    zScore <- getAllWGS(sex = as.numeric(input$sex1), weight = input$weight1,
-      height = input$height1, age = input$age1, index = "all")
-    #
-    #
-    #
-    output$waz <- renderText({ zScore[ , "waz"] })
-    output$haz <- renderText({ zScore[ , "haz"] })
-    output$whz <- renderText({ zScore[ , "whz"]})
-    #
-    #
-    #
-    output$zScoreTable <- DT::renderDataTable(zScore)
+    if(input$dataType == 1) {
+      #
+      #
+      #
+      req(input$sex1, input$weight1, input$age1, input$height1)
+      zScore <- getAllWGS(sex = as.numeric(input$sex1), weight = input$weight1,
+        height = input$height1, age = input$age1, index = "all")
+      #
+      #
+      #
+      output$waz <- wellPanel(renderText({ zScore[ , "waz"] }))
+      output$haz <- wellPanel(renderText({ zScore[ , "haz"] }))
+      output$whz <- wellPanel(renderText({ zScore[ , "whz"] }))
+      #
+      #
+      #
+      #output$zScoreTable <- DT::renderDataTable(zScore)
+    }
   })
   #
   #
   #
   observeEvent(input$calculate2, {
     #
+    # for cohort calculations
     #
-    #
-    zScoreDF <- getAllWGS(data = anthroDF(),
-                          sex = input$sex2,
-                          weight = input$weight2,
-                          height = input$height2,
-                          age = input$age2,
-                          index = "all")
-    #
-    #
-    #
-    output$zScoreTable <- DT::renderDataTable(zScoreDF,
-      options = list(pageLength = 15))
+    if(input$dataType == 2) {
+      #
+      #
+      #
+      zScoreDF <- getAllWGS(data = anthroDF(),
+                            sex = input$sex2,
+                            weight = input$weight2,
+                            height = input$height2,
+                            age = input$age2,
+                            index = "all")
+      #
+      #
+      #
+      output$zScoreTable <- DT::renderDataTable(zScoreDF,
+        options = list(pageLength = 15))
+    }
   })
 }

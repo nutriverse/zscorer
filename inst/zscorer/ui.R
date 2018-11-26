@@ -31,21 +31,13 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
       uiOutput(outputId = "age1"),
       ## sex input
       uiOutput(outputId = "sex1"),
-      #
-      # Weight input
-      #
+      ## Weight input
       uiOutput(outputId = "weight1"),
-      #
-      # Height input
-      #
+      ## Height input
       uiOutput(outputId = "height1"),
-      #
-      # Head circumference input
-      #
+      ## Head circumference input
       #uiOutput(outputId = "hc1"),
-      #
-      # MUAC input
-      #
+      ## MUAC input
       #uiOutput(outputId = "muac1"),
       #
       # Subscapular skinfold input
@@ -96,6 +88,9 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
     #
     #
     mainPanel(width = 9,
+      uiOutput(outputId = "waz"),
+      uiOutput(outputId = "haz"),
+      uiOutput(outputId = "whz"),
       #
       # Data table
       #

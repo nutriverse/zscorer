@@ -8,6 +8,8 @@ Second relase of `zscorer`. In this release:
 
 * added vignettes to describe calculation of anthropometric indices
 
+* udpate Shiny application
+
 
 # zscorer 0.1.0
 

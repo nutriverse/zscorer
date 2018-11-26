@@ -1,0 +1,25 @@
+Package: zscorer
+Type: Package
+Title: Child Anthropometry z-Score Calculator
+Version: 0.1.0
+Authors@R: c(
+    person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
+    person("Ernest", "Guevarra", email = "ernestgmd@gmail.com", role = c("aut", "cre")))
+Description: A tool for calculating z-scores for weight-for- age, 
+    length/height-for-age, and weight-for-length/height, based on the WHO Child 
+    Growth Standards.
+Depends: R (>= 2.10)
+License: AGPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: testthat, knitr, rmarkdown, shiny, shinythemes
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2018-02-05 04:48:04 UTC; ernest
+Author: Mark Myatt [aut],
+  Ernest Guevarra [aut, cre]
+Maintainer: Ernest Guevarra <ernestgmd@gmail.com>
+Repository: CRAN
+Date/Publication: 2018-02-05 15:24:00 UTC
+Built: R 3.5.0; ; 2018-04-23 15:42:13 UTC; unix

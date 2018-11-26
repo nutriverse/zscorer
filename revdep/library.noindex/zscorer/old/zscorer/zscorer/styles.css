@@ -1,0 +1,106 @@
+div.outer {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Customize fonts */
+body, label, input, button, select {
+  font-family: 'Helvetica Neue', Helvetica;
+  font-weight: 200;
+}
+h1, h2, h3, h4 { font-weight: 400; }
+
+#controls, #plots {
+  /* Appearance */
+  background-color: white;
+  padding: 0 20px 20px 20px;
+  cursor: move;
+  /* Fade out while not hovering */
+  opacity: 0.45;
+  zoom: 0.9;
+  transition: opacity 500ms 1s;
+  border-radius: 5px;
+}
+
+#tables {
+  /* Appearance */
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  cursor: move;
+  /* Fade out while not hovering */
+  opacity: 0.45;
+  zoom: 0.9;
+  transition: opacity 500ms 1s;
+  border-radius: 5px;
+}
+
+#controls:hover {
+  /* Fade in while hovering */
+  opacity: 0.95;
+  transition-delay: 0;
+}
+
+#plots:hover {
+  /* Fade in while hovering */
+  opacity: 0.95;
+  transition-delay: 0;
+}
+
+#tables:hover {
+  /* Fade in while hovering */
+  opacity: 0.95;
+  transition-delay: 0;
+}
+
+/* Position and style citation */
+#cite {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  /*color: #ffffff;*/
+}
+
+/* Position and style citation */
+#citeReverse {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* Position and style overall */
+#overall {
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  font-size: 120px;
+  font-weight: 400;
+}
+
+/* Position and style confidence interval */
+#ci {
+  position: absolute;
+  bottom: 130px;
+  left: 100px;
+  font-size: 32px;
+  font-weight: 200;
+}
+
+/* If not using map tiles, show a white background */
+.leaflet-container {
+  background-color: white !important;
+}
+
+.leaflet {
+  height: 100%;
+  width: 100%;
+}

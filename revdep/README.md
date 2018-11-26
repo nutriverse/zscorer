@@ -1,27 +1,22 @@
-# Setup
+# Platform
 
-## Platform
-
-|setting  |value                        |
+|field    |value                        |
 |:--------|:----------------------------|
 |version  |R version 3.5.1 (2018-07-02) |
+|os       |macOS High Sierra 10.13.6    |
 |system   |x86_64, darwin15.6.0         |
-|ui       |RStudio (1.1.456)            |
+|ui       |RStudio                      |
 |language |(EN)                         |
 |collate  |en_GB.UTF-8                  |
+|ctype    |en_GB.UTF-8                  |
 |tz       |Europe/London                |
-|date     |2018-09-22                   |
+|date     |2018-11-26                   |
 
-## Packages
+# Dependencies
 
-|package |*  |version |date       |source                        |
-|:-------|:--|:-------|:----------|:-----------------------------|
-|zscorer |   |0.2.0   |2018-09-22 |local (nutriverse/zscorer@NA) |
+|package |old   |new   |Δ  |
+|:-------|:-----|:-----|:--|
+|zscorer |0.1.0 |0.2.0 |*  |
 
-# Check results
-
-0 packages
-
-
-
+# Revdeps
 

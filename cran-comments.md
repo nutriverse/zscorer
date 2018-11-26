@@ -7,6 +7,8 @@ This is the second CRAN release of `zscorer`. In this release:
 
 * added vignettes to describe calculation of anthropometric indices
 
+* update Shiny application
+
 ## Test environments
 * local OS X install, R 3.5.1
 * ubuntu 14.04.5 (on travis-ci), release, devel and oldrelease

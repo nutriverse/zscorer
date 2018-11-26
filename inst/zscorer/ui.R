@@ -54,7 +54,9 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
       ## Action button to calculate single child z-scores
       uiOutput(outputId = "calculate1"),
       ## Action button to calculate cohort/sample z-scores
-      uiOutput(outputId = "calculate2")
+      uiOutput(outputId = "calculate2"),
+      ## Action button to download cohort/sample z-scores
+      uiOutput(outputId = "download")
     ),
     #
     #

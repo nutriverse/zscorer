@@ -363,10 +363,29 @@ function(input, output, session) {
       #
       #
       #
-      actionButton(inputId = "calculate2",
-                   label = "Calculate",
-                   class = "btn-primary",
-                   icon = icon(name = "calculator", class = "fa-lg"))
+      div(style="display:inline-block; float:left;",
+        actionButton(inputId = "calculate2",
+                     label = "Calculate",
+                     class = "btn-primary",
+                     icon = icon(name = "calculator", class = "fa-lg"),
+                     width = "100%")
+      )
+    }
+  })
+  #
+  # Calculate action button - cohort/sample - download
+  #
+  output$download <- renderUI({
+    if(input$dataType == 2 & !is.null(input$file1)){
+      #
+      #
+      #
+      div(style="display:inline-block; float:right",
+        downloadButton(outputId = "downloadResults",
+                       label = "Download",
+                       class = "btn-primary",
+                       icon = icon(name = "download", class = "fa-lg"))
+      )
     }
   })
   #
@@ -536,5 +555,16 @@ function(input, output, session) {
       output$zScoreTable <- DT::renderDataTable(zScoreDF,
         options = list(pageLength = 15))
     }
+    #
+    #
+    #
+    output$downloadResults <- downloadHandler(
+      filename <- function() {
+        "zscoreResults.csv"
+      },
+      content <- function(file) {
+        write.csv(zScoreDF, file)
+      }
+    )
   })
 }

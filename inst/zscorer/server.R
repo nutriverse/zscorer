@@ -358,6 +358,10 @@ function(input, output, session) {
       #
       #
       #
+      req(zscore)
+      #
+      #
+      #
       output$waz <- renderText({ zScore[ , "waz"] })
       output$haz <- renderText({ zScore[ , "haz"] })
       output$whz <- renderText({ zScore[ , "whz"] })

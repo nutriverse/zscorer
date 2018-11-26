@@ -352,7 +352,7 @@ function(input, output, session) {
       #
       #
       #
-      req(input$sex1, input$weight1, input$age1, input$height1)
+      req(input$weight1, input$age1, input$height1)
       zScore <- getAllWGS(sex = as.numeric(input$sex1), weight = input$weight1,
         height = input$height1, age = input$age1, index = "all")
       #

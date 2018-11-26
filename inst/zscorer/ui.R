@@ -88,9 +88,9 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
     #
     #
     mainPanel(width = 9,
-      uiOutput(outputId = "waz"),
-      uiOutput(outputId = "haz"),
-      uiOutput(outputId = "whz"),
+      wellPanel(uiOutput(outputId = "waz")),
+      wellPanel(uiOutput(outputId = "haz")),
+      wellPanel(uiOutput(outputId = "whz")),
       #
       # Data table
       #

@@ -358,9 +358,9 @@ function(input, output, session) {
       #
       #
       #
-      output$waz <- wellPanel(renderText({ zScore[ , "waz"] }))
-      output$haz <- wellPanel(renderText({ zScore[ , "haz"] }))
-      output$whz <- wellPanel(renderText({ zScore[ , "whz"] }))
+      output$waz <- renderText({ zScore[ , "waz"] })
+      output$haz <- renderText({ zScore[ , "haz"] })
+      output$whz <- renderText({ zScore[ , "whz"] })
       #
       #
       #

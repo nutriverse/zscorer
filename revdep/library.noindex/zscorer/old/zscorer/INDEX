@@ -1,0 +1,9 @@
+anthro1                 Example dataset for distributions of variables
+                        and indices
+anthro2                 Example dataset for digit preference function
+getAllWGS               getAllWGS
+getCohortWGS            getCohortWGS
+getWGS                  getWGS
+run_zscorer             run_zscorer
+wgsData                 wgsData
+zscorer                 zscorer

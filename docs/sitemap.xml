@@ -28,6 +28,42 @@
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/getWGSR.html</loc>
   </url>
   <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_hcfa_pchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_hcfa_zchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_lhfa_pchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_lhfa_zchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_ssfa_pchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_ssfa_zchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_tsfa_pchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_tsfa_zchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_wfa_pchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_wfa_zchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_wfh_pchart.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.validmeasures.org/zscorer/reference/get_wfh_zchart.html</loc>
+  </url>
+  <url>
     <loc>https://nutriverse.validmeasures.org/zscorer/reference/run_zscorer.html</loc>
   </url>
   <url>

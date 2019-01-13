@@ -31,7 +31,7 @@ deviations from the mean) for key anthropometric indices used to assess early ch
 
 `zscorer` calculates the `z-score` for the corresponding anthropometric index given a dataset of children containing anthropometric measurements for height, weight, arm circumference, head circumference, subscapular skinfold, and triceps skinfold and additional data on age and sex to assess growth and nutritional status of the sample of children against the WHO Multicentre Growth Reference Study standard (WGS).
 
-`zscorer` also contains functions that calculates the `zscore` for three commonly assessed anthropometric indices in nutrition surveys (`weight-for-height`, `height-for-age`, `weight-for-age`) given anthropometric measurements of individual children. These are legacy functions used in earlier versions of `zscorer` that will soon be deprecated.
+`zscorer` also contains functions that calculates the `zscore` for three commonly assessed anthropometric indices in nutrition surveys (`weight-for-height`, `height-for-age`, `weight-for-age`) given anthropometric measurements of individual children. These are legacy functions used in earlier versions of `zscorer` that may soon be deprecated.
 
 ## Installation
 
@@ -43,7 +43,7 @@ install.packages("zscorer")
 or you can install the development version of `zscorer` from GitHub with:
 
 ```{r gh-installation2, eval = FALSE}
-if(!require(devtools) { install.packages("devtools") }
+if(!require(devtools)) install.packages("devtools")
 devtools::install_github("nutriverse/zscorer")
 ```
 

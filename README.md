@@ -39,7 +39,7 @@ the WHO Multicentre Growth Reference Study standard (WGS).
 commonly assessed anthropometric indices in nutrition surveys
 (`weight-for-height`, `height-for-age`, `weight-for-age`) given
 anthropometric measurements of individual children. These are legacy
-functions used in earlier versions of `zscorer` that will soon be
+functions used in earlier versions of `zscorer` that may soon be
 deprecated.
 
 ## Installation
@@ -54,7 +54,7 @@ or you can install the development version of `zscorer` from GitHub
 with:
 
 ``` r
-if(!require(devtools) { install.packages("devtools") }
+if(!require(devtools)) install.packages("devtools")
 devtools::install_github("nutriverse/zscorer")
 ```
 

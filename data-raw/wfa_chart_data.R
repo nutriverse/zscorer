@@ -60,16 +60,16 @@ write.csv(wfa_zchart, "data-raw/charts/wfa_zchart.csv", row.names = FALSE)
 #
 ################################################################################
 
-p <- ggplot(xx[xx$sex == "boys" & xx$month < 24 & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
+p <- ggplot(xx[xx$sex == "boys" & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
             aes(x = month, y = sd_value, group = sd_type))
 
 p + geom_line(size = 1, aes(colour = sd_type)) +
-  labs(x = "Month", y = "Weight (kgs)", colour = "z-score") +
-  scale_color_manual(guide = FALSE, values = c("red", "orange", "darkgreen", "orange", "red")) +
-  scale_x_discrete(limits = 0:25) +
-  scale_y_continuous(breaks = seq(45, 100, 5)) +
-  geom_dl(aes(label = sd_type, colour = sd_type, size = 0.5), method = list(dl.trans(x = x + 0.2), "last.points")) +
-  theme_gray()
+  labs(x = "Age (months)", y = "Weight (kgs)", colour = "z-score") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red"),
+                     name = "Boys z-score") +
+  scale_x_discrete(limits = 0:61) +
+  scale_y_continuous(breaks = seq(0, 35, 1)) +
+  theme_bw()
 
 ################################################################################
 #
@@ -77,14 +77,16 @@ p + geom_line(size = 1, aes(colour = sd_type)) +
 #
 ################################################################################
 
-p <- ggplot(xx[xx$sex == "girls" & xx$month < 24 & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
+p <- ggplot(xx[xx$sex == "girls" & !xx$sd_type %in% c("-4SD", "4SD", "-1SD", "1SD"), ],
             aes(x = month, y = sd_value, group = sd_type))
 
 p + geom_line(size = 1, aes(colour = sd_type)) +
-  labs(x = "Month", y = "Length/Height (cms)", colour = "z-score") +
-  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
-  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
-  theme_gray()
+  labs(x = "Age (months)", y = "Weight (kgs)", colour = "z-score") +
+  scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red"),
+                     name = "Girls z-score") +
+  scale_x_discrete(limits = 0:61) +
+  scale_y_continuous(breaks = seq(0, 35, 1)) +
+  theme_bw()
 
 
 ################################################################################
@@ -190,14 +192,15 @@ p_yloc   <- c(81, 84, 87, 90, 93)
 
 p_labels <- data.frame(labels, p_xloc, p_yloc)
 
-p <- ggplot(xx[xx$sex == "boys" & xx$month < 24 & xx$p_type %in% c("3rd", "15th", "50th", "85th", "97th"), ],
+p <- ggplot(xx[xx$sex == "boys" & xx$p_type %in% c("3rd", "15th", "50th", "85th", "97th"), ],
             aes(x = month, y = p_value, group = p_type))
 
 p + geom_line(size = 1, aes(colour = p_type)) +
-  labs(x = "Month", y = "Length/Height (cms)", colour = "percentile") +
+  labs(x = "Month", y = "Weight (kgs)", colour = "percentile") +
   scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
-  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
-  theme_gray()
+  scale_x_discrete(limits = 0:61) +
+  scale_y_continuous(breaks = seq(0, 35, 1)) +
+  theme_bw()
 
 ################################################################################
 #
@@ -211,7 +214,7 @@ p <- ggplot(xx[xx$sex == "girls" & xx$month < 24 & xx$p_type %in% c("3rd", "15th
 p + geom_line(size = 1, aes(colour = p_type)) +
   labs(x = "Month", y = "Length/Height (cms)", colour = "percentile") +
   scale_color_manual(values = c("red", "orange", "darkgreen", "orange", "red")) +
-  scale_x_discrete(limits = 0:24) + scale_y_continuous(breaks = seq(45, 100, 5)) +
+  scale_x_discrete(limits = 0:61) + scale_y_continuous(breaks = seq(45, 100, 5)) +
   theme_gray()
 
 

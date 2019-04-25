@@ -53,6 +53,7 @@ get_hcfa_zchart <- function(baseurl = "http://www.who.int/childgrowth/standards/
 hcfa_zchart <- get_hcfa_zchart()
 write.csv(hcfa_zchart, "data-raw/charts/hcfa_zchart.csv", row.names = FALSE)
 
+xx <- hcfa_zchart
 
 ################################################################################
 #

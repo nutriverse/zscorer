@@ -21218,8 +21218,7 @@ structure(list(index = structure(c(1L, 1L, 1L, 1L, 1L, 1L, 1L,
 28647L, 28648L, 28649L, 28650L, 28651L, 28652L, 28653L, 28654L
 ), class = "data.frame")
 
-
-devtools::use_data(wgsrData, overwrite = TRUE)
+usethis::use_data(wgsrData, overwrite = TRUE, internal = TRUE)
 
 ################################################################################
 #                                                                              #

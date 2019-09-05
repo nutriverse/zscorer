@@ -3,7 +3,8 @@
 \docType{data}
 \name{anthro2}
 \alias{anthro2}
-\title{anthro2}
+\title{Anthropometric data from a single state from a Demographic and Health Survey
+(DHS) of a West African country.}
 \format{A data frame with 796 observations and 6 variables
 \describe{
 \item{\code{psu}}{Primary sampling unit}

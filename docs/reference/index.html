@@ -8,10 +8,12 @@
 
 <title>Function reference • zscorer</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -30,7 +32,9 @@
 
 
 
+
 <meta property="og:title" content="Function reference" />
+
 
 
 
@@ -70,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -104,7 +108,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nutriverse/zscorer">
@@ -138,154 +141,106 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <h2 id="section-description" class="hasAnchor"><a href="#section-description" class="anchor"></a>Description</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
       <tr>
         
         <td>
-          <p><code><a href="addWGSR.html">addWGSR()</a></code> </p>
+          <p><code><a href="zscorer.html">zscorer</a></code> </p>
         </td>
-        <td><p>addWGSR</p></td>
-      </tr><tr>
+        <td><p>Tool for calculating z-scores for WHZ, HAZ, WAZ using the WHO Growth
+Reference (2006) using data and methods from:</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-calculate-z-scores" class="hasAnchor"><a href="#section-calculate-z-scores" class="anchor"></a>Calculate z-scores</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
         
         <td>
-          <p><code><a href="anthro1.html">anthro1</a></code> </p>
+          <p><code><a href="getWGS.html">getWGS()</a></code> </p>
         </td>
-        <td><p>anthro1</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="anthro2.html">anthro2</a></code> </p>
-        </td>
-        <td><p>anthro2</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="anthro3.html">anthro3</a></code> </p>
-        </td>
-        <td><p>anthro3</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="getAllWGS.html">getAllWGS()</a></code> </p>
-        </td>
-        <td><p>getAllWGS</p></td>
+        <td><p>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a single child data.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="getCohortWGS.html">getCohortWGS()</a></code> </p>
         </td>
-        <td><p>getCohortWGS</p></td>
+        <td><p>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a cohort or sample of children.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="getWGS.html">getWGS()</a></code> </p>
+          <p><code><a href="getAllWGS.html">getAllWGS()</a></code> </p>
         </td>
-        <td><p>getWGS</p></td>
+        <td><p>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a single child data.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="getWGSR.html">getWGSR()</a></code> </p>
         </td>
-        <td><p>getWGSR</p></td>
+        <td><p>Function to calculate z-scores. Usually called by the <code>addWGSR()</code> function
+but could be used as a stand-alone command-line calculator if required.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="get_hcfa_pchart.html">get_hcfa_pchart()</a></code> </p>
+          <p><code><a href="addWGSR.html">addWGSR()</a></code> </p>
         </td>
-        <td><p>get_hcfa_pchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_hcfa_zchart.html">get_hcfa_zchart()</a></code> </p>
-        </td>
-        <td><p>get_hcfa_zchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_lhfa_pchart.html">get_lhfa_pchart()</a></code> </p>
-        </td>
-        <td><p>get_lhfa_pchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_lhfa_zchart.html">get_lhfa_zchart()</a></code> </p>
-        </td>
-        <td><p>get_lhfa_zchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_ssfa_pchart.html">get_ssfa_pchart()</a></code> </p>
-        </td>
-        <td><p>get_ssfa_pchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_ssfa_zchart.html">get_ssfa_zchart()</a></code> </p>
-        </td>
-        <td><p>get_ssfa_zchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_tsfa_pchart.html">get_tsfa_pchart()</a></code> </p>
-        </td>
-        <td><p>get_tsfa_pchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_tsfa_zchart.html">get_tsfa_zchart()</a></code> </p>
-        </td>
-        <td><p>get_tsfa_zchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_wfa_pchart.html">get_wfa_pchart()</a></code> </p>
-        </td>
-        <td><p>get_wfa_pchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_wfa_zchart.html">get_wfa_zchart()</a></code> </p>
-        </td>
-        <td><p>get_wfa_zchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_wfh_pchart.html">get_wfh_pchart()</a></code> </p>
-        </td>
-        <td><p>get_wfh_pchart</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_wfh_zchart.html">get_wfh_zchart()</a></code> </p>
-        </td>
-        <td><p>get_wfh_zchart</p></td>
-      </tr><tr>
+        <td><p>Function to add the WHO Growth Reference z-scores to a data frame</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-running-shiny-app" class="hasAnchor"><a href="#section-running-shiny-app" class="anchor"></a>Running Shiny app</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
         
         <td>
           <p><code><a href="run_zscorer.html">run_zscorer()</a></code> </p>
         </td>
         <td><p>run_zscorer</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="anthro1.html">anthro1</a></code> </p>
+        </td>
+        <td><p>Anthropometric data from a SMART survey in Kabul, Afghanistan.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="anthro2.html">anthro2</a></code> </p>
+        </td>
+        <td><p>Anthropometric data from a single state from a Demographic and Health Survey
+(DHS) of a West African country.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="anthro3.html">anthro3</a></code> </p>
+        </td>
+        <td><p>Anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="wgsData.html">wgsData</a></code> </p>
         </td>
-        <td><p>wgsData</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="wgsrData.html">wgsrData</a></code> </p>
-        </td>
-        <td><p>wgsrData</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="zscorer.html">zscorer</a></code> </p>
-        </td>
-        <td><p>zscorer</p></td>
+        <td><p>World Health Organization (WHO) Growth Reference (2006) data</p></td>
       </tr>
     </tbody>
     </table>
@@ -294,7 +249,10 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-description">Description</a></li>
+      <li><a href="#section-calculate-z-scores">Calculate z-scores</a></li>
+      <li><a href="#section-running-shiny-app">Running Shiny app</a></li>
+      <li><a href="#section-datasets">Datasets</a></li>
     </ul>
   </div>
 </div>

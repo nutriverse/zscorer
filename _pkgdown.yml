@@ -1,6 +1,32 @@
 title: zscorer
-url: https://nutriverse.validmeasures.org/zscorer
+
+url: https://nutriverse.org/zscorer
+
 template:
   params:
     bootswatch: sandstone
     ganalytics: UA-102485058-6
+
+reference:
+- title: Description
+  contents:
+  - zscorer
+
+- title: Calculate z-scores
+  contents:
+  - getWGS
+  - getCohortWGS
+  - getAllWGS
+  - getWGSR
+  - addWGSR
+
+- title: Running Shiny app
+  contents:
+  - run_zscorer
+
+- title: Datasets
+  contents:
+  - anthro1
+  - anthro2
+  - anthro3
+  - wgsData

@@ -1,6 +1,7 @@
 ################################################################################
 #
-#' run_zscorer
+#'
+#' Initialise built-in Shiny application
 #'
 #' @return NULL
 #' @examples

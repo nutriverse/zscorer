@@ -124,7 +124,7 @@ find_child_underweight <- function(df, zscore = "waz",
   if(!is.null(flag)) {
     global.waz <- ifelse(df[[zscore]] < -2, 1, 0)
     global.waz[df[[flag]] %in% c(4, 5, 6, 7)] <- NA
-    moderate.waz <- ifelse(df[[zscore]] >= -3, 1, 0)
+    moderate.waz <- ifelse(df[[zscore]] >= -3 & df[[zscore]] < -2, 1, 0)
     moderate.waz[df[[flag]] %in% c(4, 5, 6, 7)] <- NA
     severe.waz <- ifelse(df[[zscore]] < -3, 1, 0)
     severe.waz[df[[flag]] %in% c(4, 5, 6, 7)] <- NA

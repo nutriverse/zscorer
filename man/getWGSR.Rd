@@ -2,7 +2,8 @@
 % Please edit documentation in R/addWGSR.R
 \name{getWGSR}
 \alias{getWGSR}
-\title{getWGSR}
+\title{Function to calculate z-scores. Usually called by the \code{addWGSR()} function
+but could be used as a stand-alone command-line calculator if required.}
 \usage{
 getWGSR(sex, firstPart, secondPart, index = NA, standing,
   thirdPart = NA)

@@ -6,12 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>getWGSR — getWGSR • zscorer</title>
+<title>Function to calculate z-scores. Usually called by the <code>addWGSR()</code> function
+but could be used as a stand-alone command-line calculator if required. — getWGSR • zscorer</title>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -30,11 +33,13 @@
 
 
 
-<meta property="og:title" content="getWGSR — getWGSR" />
 
+<meta property="og:title" content="Function to calculate z-scores. Usually called by the <code>addWGSR()</code> function
+but could be used as a stand-alone command-line calculator if required. — getWGSR" />
 <meta property="og:description" content="Function to calculate z-scores. Usually called by the addWGSR() function
 but could be used as a stand-alone command-line calculator if required." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -74,7 +79,7 @@ but could be used as a stand-alone command-line calculator if required." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -108,7 +113,6 @@ but could be used as a stand-alone command-line calculator if required." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nutriverse/zscorer">
@@ -128,21 +132,20 @@ but could be used as a stand-alone command-line calculator if required." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>getWGSR</h1>
+    <h1>Function to calculate z-scores. Usually called by the <code>addWGSR()</code> function
+but could be used as a stand-alone command-line calculator if required.</h1>
     <small class="dont-index">Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/addWGSR.R'><code>R/addWGSR.R</code></a></small>
     <div class="hidden name"><code>getWGSR.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
     <p>Function to calculate z-scores. Usually called by the <code><a href='addWGSR.html'>addWGSR()</a></code> function
 but could be used as a stand-alone command-line calculator if required.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>getWGSR</span>(<span class='no'>sex</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='kw'>index</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>standing</span>,
   <span class='kw'>thirdPart</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -215,11 +218,10 @@ coded as 1 = male; 2 = female.</p></td>
 <p>Be careful with units (age in days).</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A numeric value or vector of z-scores for the specified <code>index</code>.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Given a male child 10 months old with a weight of 5.7 kgs, height of 64.2</span>
@@ -249,9 +251,7 @@ coded as 1 = male; 2 = female.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

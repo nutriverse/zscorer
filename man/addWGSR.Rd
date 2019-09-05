@@ -2,7 +2,7 @@
 % Please edit documentation in R/addWGSR.R
 \name{addWGSR}
 \alias{addWGSR}
-\title{addWGSR}
+\title{Function to add the WHO Growth Reference z-scores to a data frame}
 \usage{
 addWGSR(data, sex, firstPart, secondPart, thirdPart = NA, index = NA,
   standing = NULL, output = paste(index, "z", sep = ""), digits = 2)

@@ -6,12 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>getWGS — getWGS • zscorer</title>
+<title>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a single child data. — getWGS • zscorer</title>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -30,11 +33,13 @@
 
 
 
-<meta property="og:title" content="getWGS — getWGS" />
 
+<meta property="og:title" content="Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a single child data. — getWGS" />
 <meta property="og:description" content="Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a single child data." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -74,7 +79,7 @@ for a single child data." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -108,7 +113,6 @@ for a single child data." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nutriverse/zscorer">
@@ -128,20 +132,19 @@ for a single child data." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>getWGS</h1>
+    <h1>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a single child data.</h1>
     <small class="dont-index">Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/getWGS.R'><code>R/getWGS.R</code></a></small>
     <div class="hidden name"><code>getWGS.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
     <p>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a single child data.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>getWGS</span>(<span class='no'>sexObserved</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='no'>index</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -162,18 +165,16 @@ for a single child data.</p>
       <td><p>One of "wfh", "hfa", "wfa" (specifies the required index)</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>z-score of the anthropometric index selected</p>
-    
     <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
 
     
     <p>The function fails messily when <code>secondPart</code> is outside of the range
 given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months
 for age). It is up to you to check the ranges of your data.</p>
-    
     <h2 class="hasAnchor" id="reminders"><a class="anchor" href="#reminders"></a>Reminders</h2>
 
     
@@ -183,7 +184,6 @@ standing height below 85cm</p>
 <p>Ages should be specified in whole months</p>
 <p>Weights should be specified in kg to available precision</p>
 <p>The function requires reference data <code>wgsData</code> included in this package</p>
-    
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     
@@ -192,7 +192,6 @@ which focused mainly on the calculation of z-scores for weight-for-age,
 weight-for-height and height-for-age. This function has been kept in the package
 to ensure that existing analysis workflows implemented using the function
 continue to work.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>  <span class='co'># apply \code{getWGS()} to a make believe 52 month old male child with weight of</span>
@@ -218,15 +217,10 @@ continue to work.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#warning">Warning</a></li>
-
       <li><a href="#reminders">Reminders</a></li>
-
       <li><a href="#note">Note</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

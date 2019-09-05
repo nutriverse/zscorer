@@ -2,7 +2,8 @@
 % Please edit documentation in R/getCohortWGS.R
 \name{getCohortWGS}
 \alias{getCohortWGS}
-\title{getCohortWGS}
+\title{Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a cohort or sample of children.}
 \usage{
 getCohortWGS(data, FUN = getWGS, sexObserved, firstPart, secondPart,
   index)

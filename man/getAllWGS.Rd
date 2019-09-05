@@ -2,7 +2,8 @@
 % Please edit documentation in R/getAllWGS.R
 \name{getAllWGS}
 \alias{getAllWGS}
-\title{getAllWGS}
+\title{Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
+for a single child data.}
 \usage{
 getAllWGS(data = NULL, sex, weight, height, age, index)
 }

@@ -1,11 +1,9 @@
 ################################################################################
 #
-#' addWGSR
 #'
 #' Function to add the WHO Growth Reference z-scores to a data frame
 #'
 #' @param data A survey dataset as a data.frame object
-#'
 #' @param sex Name of variable specifying the sex of the subject. This must be
 #'     coded as 1 = male; 2 = female.
 #'
@@ -147,7 +145,6 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 
 ################################################################################
 #
-#' getWGSR
 #'
 #' Function to calculate z-scores. Usually called by the \code{addWGSR()} function
 #' but could be used as a stand-alone command-line calculator if required.

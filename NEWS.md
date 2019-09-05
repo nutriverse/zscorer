@@ -6,6 +6,8 @@ Third release of `zscorer`. In this release:
 
 * fixed some documentation formatting.
 
+* removed old hex sticker and added new hex sticker
+
 # zscorer 0.2.0
 
 Second relase of `zscorer`. In this release:

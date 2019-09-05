@@ -2,12 +2,12 @@
 % Please edit documentation in R/runApp.R
 \name{run_zscorer}
 \alias{run_zscorer}
-\title{run_zscorer}
+\title{Initialise built-in Shiny application}
 \usage{
 run_zscorer()
 }
 \description{
-run_zscorer
+Initialise built-in Shiny application
 }
 \examples{
 #

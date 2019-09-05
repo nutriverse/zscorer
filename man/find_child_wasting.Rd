@@ -8,7 +8,7 @@ find_child_wasting(df, index = c("whz", "muac"), zscore = "whz",
   muac = "muac", flag = NULL, add = TRUE)
 }
 \arguments{
-\item{df}{A data.frame containing anthropometric z-score indices
+\item{df}{A data.frame containing anthropometric z-score indices for
 `weight-for-height`}
 
 \item{index}{A character vector of anthropometric measurements to use to

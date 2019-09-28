@@ -7,18 +7,27 @@ template:
     bootswatch: sandstone
     ganalytics: UA-102485058-6
 
+home:
+  #strip_header: true
+  links:
+  - text: Read more about the WHO Growth Standards
+    href: https://www.who.int/childgrowth/en/
+
 reference:
 - title: Description
   contents:
   - zscorer
 
-- title: Calculate z-scores
+- title: Calculate anthropometric z-scores
+  contents:
+  - getWGSR
+  - addWGSR
+
+- title: Legacy functions to calculate z-scores
   contents:
   - getWGS
   - getCohortWGS
   - getAllWGS
-  - getWGSR
-  - addWGSR
 
 - title: Running Shiny app
   contents:

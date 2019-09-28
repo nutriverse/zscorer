@@ -108,11 +108,11 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install <code>zscorer</code> from CRAN:</p>
+<p>You can install <code>zscorer</code> from <a href="https://cran.r-project.org">CRAN</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"zscorer"</span>)</a></code></pre></div>
-<p>or you can install the development version of <code>zscorer</code> from GitHub with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(devtools)) <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"nutriverse/zscorer"</span>)</a></code></pre></div>
+<p>or you can install the development version of <code>zscorer</code> from <a href="https://github.com/nutriverse/zscorer">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(remotes)) <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"remotes"</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"nutriverse/zscorer"</span>)</a></code></pre></div>
 <p>then load <code>zscorer</code></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># load package</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(zscorer)</a></code></pre></div>
@@ -424,6 +424,7 @@
 <div id="usage---legacy-functions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage---legacy-functions" class="anchor"></a>Usage - legacy functions</h2>
+<p>To maintain support for earlier versions of the package, the earlier functions used to calculate anthropometric z-scores for <code>weight-for-age</code>, <code>height-for-age</code> and <code>weight-for-height</code> have been kept for now until future deprecation. For current users, it is recommended to use <code><a href="reference/addWGSR.html">addWGSR()</a></code> and <code><a href="reference/getWGSR.html">getWGSR()</a></code> functions.</p>
 <div id="calculating-z-score-for-each-of-the-three-anthropometric-indices-for-a-single-child" class="section level3">
 <h3 class="hasAnchor">
 <a href="#calculating-z-score-for-each-of-the-three-anthropometric-indices-for-a-single-child" class="anchor"></a>Calculating z-score for each of the three anthropometric indices for a single child</h3>
@@ -574,6 +575,8 @@
 <li>Browse source code at <br><a href="https://github.com/nutriverse/zscorer">https://​github.com/​nutriverse/​zscorer</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/nutriverse/zscorer/issues">https://​github.com/​nutriverse/​zscorer/​issues</a>
+</li>
+<li>Read more about the WHO Growth Standards at <br><a href="https://www.who.int/childgrowth/en/">https://​www.who.int/​childgrowth/​en/​</a>
 </li>
 </ul>
 </div>

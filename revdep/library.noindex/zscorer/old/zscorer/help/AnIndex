@@ -1,9 +1,13 @@
 zscorer-package	zscorer
+addWGSR	addWGSR
 anthro1	anthro1
 anthro2	anthro2
+anthro3	anthro3
 getAllWGS	getAllWGS
 getCohortWGS	getCohortWGS
 getWGS	getWGS
+getWGSR	getWGSR
 run_zscorer	run_zscorer
 wgsData	wgsData
+wgsrData	wgsrData
 zscorer	zscorer

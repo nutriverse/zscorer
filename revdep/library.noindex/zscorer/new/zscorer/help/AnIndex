@@ -9,5 +9,4 @@ getWGS	getWGS
 getWGSR	getWGSR
 run_zscorer	run_zscorer
 wgsData	wgsData
-wgsrData	wgsrData
 zscorer	zscorer

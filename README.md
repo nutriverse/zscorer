@@ -44,18 +44,18 @@ deprecated.
 
 ## Installation
 
-You can install `zscorer` from CRAN:
+You can install `zscorer` from [CRAN](https://cran.r-project.org):
 
 ``` r
 install.packages("zscorer")
 ```
 
-or you can install the development version of `zscorer` from GitHub
-with:
+or you can install the development version of `zscorer` from
+[GitHub](https://github.com/nutriverse/zscorer) with:
 
 ``` r
-if(!require(devtools)) install.packages("devtools")
-devtools::install_github("nutriverse/zscorer")
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("nutriverse/zscorer")
 ```
 
 then load `zscorer`
@@ -310,6 +310,13 @@ head(svy)
 ```
 
 ## Usage - legacy functions
+
+To maintain support for earlier versions of the package, the earlier
+functions used to calculate anthropometric z-scores for
+`weight-for-age`, `height-for-age` and `weight-for-height` have been
+kept for now until future deprecation. For current users, it is
+recommended to use `addWGSR()` and `getWGSR()`
+functions.
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 

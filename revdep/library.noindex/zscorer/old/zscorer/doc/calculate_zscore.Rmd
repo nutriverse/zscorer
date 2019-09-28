@@ -1,62 +1,25 @@
 ---
-output: github_document
+title: "Calculating anthropometric z-scores using zscorer"
+author: "Mark Myatt"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Calculating anthropometric z-scores using zscorer}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, echo = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  message = FALSE,
-  warning = FALSE,
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-")
+  comment = "#>"
+)
+
+if(!require(zscorer)) install.packages("zscorer")
+
 ```
 
-# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/zscorer.png" width="200" align="right" />
-
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/zscorer)](https://cran.r-project.org/package=zscorer)
-[![CRAN](https://img.shields.io/cran/l/zscorer.svg)](https://CRAN.R-project.org/package=zscorer)
-[![CRAN](http://cranlogs.r-pkg.org/badges/zscorer)](https://CRAN.R-project.org/package=zscorer)
-[![CRAN](http://cranlogs.r-pkg.org/badges/grand-total/zscorer)](https://CRAN.R-project.org/package=zscorer)
-[![Travis-CI Build Status](https://travis-ci.org/nutriverse/zscorer.svg?branch=master)](https://travis-ci.org/nutriverse/zscorer)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&svg=true)](https://ci.appveyor.com/project/nutriverse/zscorer)
-[![codecov](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer)
-[![DOI](https://zenodo.org/badge/119683584.svg)](https://zenodo.org/badge/latestdoi/119683584)
-
-`zscorer` facilitates the calculation of `z-scores` (i.e. the number of standard
-deviations from the mean) for key anthropometric indices used to assess early childhood growth: `weight-for-age (WFA)`, `height-for-age (HFA)`, `weight-for-height (WFH)`, `BMI-for-age (BFA)`, `arm circumference-for-age (ACFA)`, `head circumference-for-age (HCFA)`, `subscapular skinfold-for-age (SSFA)` and `triceps skinfold-for-age (TSFA)`. `zscorer` refers to the results of the **WHO Multicentre Growth Reference Study** as standard for calculating the `z-scores` hence it comes as a dataset in this package.
-
-`zscorer` calculates the `z-score` for the corresponding anthropometric index given a dataset of children containing anthropometric measurements for height, weight, arm circumference, head circumference, subscapular skinfold, and triceps skinfold and additional data on age and sex to assess growth and nutritional status of the sample of children against the WHO Multicentre Growth Reference Study standard (WGS).
-
-`zscorer` also contains functions that calculates the `zscore` for three commonly assessed anthropometric indices in nutrition surveys (`weight-for-height`, `height-for-age`, `weight-for-age`) given anthropometric measurements of individual children. These are legacy functions used in earlier versions of `zscorer` that may soon be deprecated.
-
-## Installation
-
-You can install `zscorer` from [CRAN](https://cran.r-project.org):
-```{r gh-installation1, eval = FALSE}
-install.packages("zscorer")
-```
-
-or you can install the development version of `zscorer` from [GitHub](https://github.com/nutriverse/zscorer) with:
-
-```{r gh-installation2, eval = FALSE}
-if(!require(remotes)) install.packages("remotes")
-remotes::install_github("nutriverse/zscorer")
-```
-
-then load `zscorer`
-
-```{r gh-installation3, eval = TRUE}
-# load package
-library(zscorer)
-```
-
-## Usage
-
-### Calculating anthropometric z-scores using the addWGSR() function
+# Calculating anthropometric z-scores using `zscorer`
 
 The main function in the `zscorer` package is `addWGSR()`.
 
@@ -244,15 +207,13 @@ svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight",
 head(svy)
 ```
 
-## Usage - legacy functions
+## Calculating z-scores using the legacy functions
 
-To maintain support for earlier versions of the package, the earlier functions used to calculate anthropometric z-scores for `weight-for-age`, `height-for-age` and `weight-for-height` have been kept for now until future deprecation. For current users, it is recommended to use `addWGSR()` and `getWGSR()` functions.
+The `zscorer` package comes with the original legacy functions included in its `version 0.1.0`. These functions allow for the calculation of `weight-for-age`,  `height-for-age` and `weight-for-height z-scores` for individual children and for a cohort of children.
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 
-For this example, we will use the `getWGS()` function and apply it to dummy data 
-of a **52 month** old male child with a weight of **14.6 kg** and a height of 
-**98.0 cm**.
+For this example, we will use the `getWGS()` function and apply it to dummy data of a **52 month** old male child with a weight of **14.6 kg** and a height of **98.0 cm**.
 
 ```{r example1, eval = TRUE}
 # weight-for-age z-score
@@ -282,20 +243,16 @@ whz
 
 Applying the `getWGS()` function results in a calculated `z-score` for one child.
 
-
 ### Calculating z-score for each of the three anthropometric indices for a cohort or sample of children
 
-For this example, we will use the `getCohortWGS()` function and apply it to sample 
-data `anthro1` that came with `zscorer`.
+For this example, we will use the `getCohortWGS()` function and apply it to sample data `anthro1` that came with `zscorer`.
 
 ```{r sample-data1, eval = FALSE}
 # Make a call for the anthro1 dataset
 anthro1
 ```
 
-As you will see, this dataset has the 4 variables you will need to use with
-`getCohortWGS()` to calculate the `z-score` for the corresponding anthropometric
-index. These are `age`, `sex`, `weight` and `height`.
+As you will see, this dataset has the 4 variables you will need to use with `getCohortWGS()` to calculate the `z-score` for the corresponding anthropometric index. These are `age`, `sex`, `weight` and `height`.
 
 ```{r, echo = FALSE, eval = TRUE}
 library(zscorer)
@@ -305,8 +262,7 @@ library(zscorer)
 head(anthro1)
 ```
 
-To calculate the three anthropometric indices for all the children in the sample, 
-we execute the following commands in R:
+To calculate the three anthropometric indices for all the children in the sample, we execute the following commands in R:
 
 ```{r example2, eval = TRUE}
 # weight-for-age z-score
@@ -334,13 +290,11 @@ whz <- getCohortWGS(data = anthro1,
 head(whz, 50)
 ```
 
-Applying the `getCohortWGS()` function results in a vector of calculated `z-scores`
-for all children in the cohort or sample.
+Applying the `getCohortWGS()` function results in a vector of calculated `z-scores` for all children in the cohort or sample.
 
 ### Calculating z-scores for all of the three anthropometric indices in one function
 
-For this example, we will use the `getAllWGS()` function and apply it to sample 
-data `anthro1` that came with `zscorer`.
+For this example, we will use the `getAllWGS()` function and apply it to sample data `anthro1` that came with `zscorer`.
 
 ```{r example3, eval = TRUE}
 # weight-for-age z-score
@@ -353,5 +307,4 @@ zScores <- getAllWGS(data = anthro1,
 head(zScores, 20)
 ```
 
-Applying the `getAllWGS()` function results in a data frame of calculated `z-scores`
-for all children in the cohort or sample for all the anthropometric indices.
+Applying the `getAllWGS()` function results in a data frame of calculated `z-scores` for all children in the cohort or sample for all the anthropometric indices.

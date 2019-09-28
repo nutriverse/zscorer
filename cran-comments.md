@@ -9,6 +9,8 @@ Third release of `zscorer`. In this release:
 
 * improved Shiny app interface
 
+* addressed issues in CRAN checks
+
 ## Test environments
 * local OS X install, R 3.6.1
 * ubuntu 16.04.6 (on travis-ci), release, devel and oldrelease

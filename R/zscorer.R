@@ -14,6 +14,7 @@
 #' @keywords internal
 #' @importFrom utils read.table setTxtProgressBar txtProgressBar
 #' @importFrom stats approx
+#' @importFrom shiny runApp
 #'
 #
 ################################################################################

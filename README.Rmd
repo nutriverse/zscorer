@@ -246,6 +246,8 @@ head(svy)
 
 ## Usage - legacy functions
 
+To maintain support for earlier versions of the package, the earlier functions used to calculate anthropometric z-scores for `weight-for-age`, `height-for-age` and `weight-for-height` have been kept for now until future deprecation. For current users, it is recommended to use `addWGSR()` and `getWGSR()` functions.
+
 ### Calculating z-score for each of the three anthropometric indices for a single child
 
 For this example, we will use the `getWGS()` function and apply it to dummy data 

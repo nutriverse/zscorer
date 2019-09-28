@@ -15,3 +15,4 @@
 ^_pkgdown\.yml$
 ^codecov\.yml$
 ^revdep$
+^CRAN-RELEASE$

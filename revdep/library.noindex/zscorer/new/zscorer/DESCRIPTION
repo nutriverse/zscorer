@@ -1,7 +1,7 @@
 Package: zscorer
 Type: Package
 Title: Child Anthropometry z-Score Calculator
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: c(
     person("Mark", "Myatt", email = "mark@brixtonhealth.com", role = "aut"),
     person("Ernest", "Guevarra", comment = c(ORCID = "0000-0002-4887-4415"), 
@@ -24,8 +24,8 @@ VignetteBuilder: knitr
 RemoteType: local
 RemoteUrl: /Users/ernest/Documents/GitHub/zscorer
 NeedsCompilation: no
-Packaged: 2018-11-26 11:57:56 UTC; ernest
+Packaged: 2019-09-28 14:42:29 UTC; ernest
 Author: Mark Myatt [aut],
   Ernest Guevarra [aut, cre] (<https://orcid.org/0000-0002-4887-4415>)
 Maintainer: Ernest Guevarra <ernestgmd@gmail.com>
-Built: R 3.5.1; ; 2018-11-26 11:57:57 UTC; unix
+Built: R 3.6.1; ; 2019-09-28 14:42:29 UTC; unix

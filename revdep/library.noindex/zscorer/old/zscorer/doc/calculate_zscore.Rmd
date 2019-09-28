@@ -1,0 +1,310 @@
+---
+title: "Calculating anthropometric z-scores using zscorer"
+author: "Mark Myatt"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Calculating anthropometric z-scores using zscorer}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+if(!require(zscorer)) install.packages("zscorer")
+
+```
+
+# Calculating anthropometric z-scores using `zscorer`
+
+The main function in the `zscorer` package is `addWGSR()`.
+
+To demonstrate its usage, we will use the accompanying dataset in `zscorer` called `anthro3`. We inspect the dataset as follows:
+
+```{r usage1, echo = TRUE, eval = FALSE}
+head(anthro3)
+```
+
+which returns:
+
+```{r usage1a, echo = FALSE, eval = TRUE}
+head(anthro3)
+```
+
+`anthro3` contains anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.
+
+Anthropometric indices (e.g. weight-for-height z-scores) have not been calculated and added to the data.
+
+We will use the `addWGSR()` function to add weight-for-height (wfh) z-scores to the example data:
+
+```{r usage2, echo = TRUE, eval = TRUE}
+svy <- addWGSR(data = anthro3, sex = "sex", firstPart = "weight",
+               secondPart = "height", index = "wfh")
+```
+
+A new column named **wfhz** has been added to the dataset:
+
+```{r usage2a, echo = FALSE, eval = TRUE}
+head(svy)
+```
+
+The `wfhz` column contains the weight-for-height (wfh) z-scores calculated from the `sex`, `weight`, and `height` columns in the `anthro3` dataset. The calculated z-scores are rounded to two decimals places unless the `digits` option is used to specify a different precision (run `?addWGSR` to see description of various parameters that can be specified in the `addWGSR()` function). 
+
+The `addWGSR()` function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the *Help* files of the `zscorer` package which can be accessed as follows:
+
+```{r usage2b, echo = TRUE, eval = FALSE}
+?addWGSR
+```
+
+The **standing** parameter specifies how “stature” (i.e. length or height) was measured. If this is not specified, and in some special circumstances, height and age rules will be applied when calculating z-scores. These rules are described in the table below.
+
+&nbsp;
+
++---------------+---------------+---------------+---------------+----------------------------------------+
+| **index**     | **standing**  | **age**       | **height**    | **Action**                             |
++===============+===============+===============+===============+========================================+
+| hfa or lfa    | standing      | < 731 days    |               | index = lfa                            |
+|               |               |               |               | height = height + 0.7 cm               |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| hfa or lfa    | supine        | < 731 days    |               | index = lfa                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| hfa or lfa    | unknown       | < 731 days    |               | index = lfa                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| hfa or lfa    | standing      | ≥ 731 days    |               | index = hfa                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| hfa or lfa    | supine        | ≥ 731 days    |               | index = hfa                            |
+|               |               |               |               | height = height - 0.7 cm               |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| hfa or lfa    | unknown       | ≥ 731 days    |               | index = hfa                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| wfh or wfl    | standing      |               | < 65 cm       | index = wfl                            |
+|               |               |               |               | height = height + 0.7 cm               |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| wfh or wfl    | standing      |               | ≥ 65 cm       | index = wfh                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| wfh or wfl    | supine        |               | ≤ 110 cm      | index = wfl                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| wfh or wfl    | supine        |               | more than     | index = wfh                            |
+|               |               |               | 110 cm        | height = height - 0.7 cm               |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| wfh or wfl    | unknown       |               | < 87 cm       | index = wfl                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| wfh or wfl    | unknown       |               | ≥ 87 cm       | index = wfh                            |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| bfa           | standing      | < 731 days    |               | height = height + 0.7 cm               |
++---------------+---------------+---------------+---------------+----------------------------------------+
+| bfa           | standing      | ≥ 731 days    |               | height = height - 0.7 cm               |
++---------------+---------------+---------------+---------------+----------------------------------------+
+
+&nbsp;
+
+
+The `addWGSR()` function will not produce error messages unless there is something very wrong with the data or the specified parameters. If an error is encountered in a record then the value **NA** is returned. Error conditions are listed in the table below. 
+
+&nbsp;
+
++--------------------------------------------------+----------------------------------------+
+| **Error condition**                              | **Action**                             |
++==================================================+========================================+
+| Missing or nonsense value in `standing` parameter| Set `standing` to `3` (unknown) and    | 
+|                                                  | apply appropriate height or age rules. |
++--------------------------------------------------+----------------------------------------+
+| Unknown `index` specified                        | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| Missing `sex`                                    | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| Missing `firstPart`                              | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| Missing `secondPart`                             | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| `sex` is not male (`1`) or female (`2`)          | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| `firstPart` is not numeric                       | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| `secondPart` is not numeric                      | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| Missing `thirdPart` when `index = "bfa"`         | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| `thirdPart` is not numeric when `index = "bfa"`  | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+| `secondPart` is out of range for specified index | Return **NA** for z-score.             |
++--------------------------------------------------+----------------------------------------+
+ 
+&nbsp;
+
+We can see this error behaviour using the example data:
+
+```{r usage3, echo = TRUE, eval = TRUE}
+table(is.na(svy$wfhz))
+```
+
+We can display the problem record:
+
+```{r usage4, echo = TRUE, eval = TRUE}
+svy[is.na(svy$wfhz), ]
+```
+
+The problem is due to the value **9** in the `sex` column, which should be coded **1** (for male) and **2** (for female). Z-scores are only calculated for records with sex specified as either **1** (male) or **2** (female). All other values, including **NA**, will return **NA**.
+
+The `addWGSR()` function requires that data are recorded using the required units or required codes (see Table Z1).
+
+The `addWGSR()` function will return incorrect values if the data are not recorded using the required units. For example, this attempt to add weight-for-age z-scores to the example data:
+
+```{r usage5, echo = TRUE, eval = TRUE}
+svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
+               secondPart = "age", index = "wfa")
+```
+	
+will give incorrect results:
+
+```{r usage5a, echo = TRUE, eval = TRUE}
+summary(svy$wfaz)
+```
+
+The odd range of values is due to age being recorded in months rather than days.
+
+It is simple to convert all ages from months to days:
+
+```{r usage5b, echo = TRUE, eval = TRUE}
+svy$age <- svy$age * (365.25 / 12)
+head(svy)
+```
+
+before calculating and adding weight-for-age z-scores:
+
+```{r usage5c, echo = TRUE, eval = TRUE}
+svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
+               secondPart = "age", index = "wfa")
+head(svy)
+summary(svy$wfaz)
+```
+
+The muac column in the example dataset is recorded in millimetres (mm). We need to convert this to centimetres (cm): 
+
+```{r usage6, echo = TRUE, eval = TRUE}
+svy$muac <- svy$muac / 10
+head(svy)
+```
+
+before using the `addWGS()` function to calculate MUAC-for-age z-scores:
+
+```{r usage6a, echo = TRUE, eval = TRUE}
+svy <- addWGSR(svy, sex = "sex", firstPart = "muac",	
+               secondPart = "age", index = "mfa")
+head(svy)
+```
+
+As a last example we will use the `addWGSR()` function to add body mass index-for-age (bfa) z-scores to the data to create a new variable called bmiAgeZ with a precision of 4 decimal places as:
+
+```{r usage7, echo = TRUE, eval = TRUE}
+svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
+               secondPart = "height", thirdPart = "age", index = "bfa", 
+               output = "bmiAgeZ", digits = 4)
+head(svy)
+```
+
+## Calculating z-scores using the legacy functions
+
+The `zscorer` package comes with the original legacy functions included in its `version 0.1.0`. These functions allow for the calculation of `weight-for-age`,  `height-for-age` and `weight-for-height z-scores` for individual children and for a cohort of children.
+
+### Calculating z-score for each of the three anthropometric indices for a single child
+
+For this example, we will use the `getWGS()` function and apply it to dummy data of a **52 month** old male child with a weight of **14.6 kg** and a height of **98.0 cm**.
+
+```{r example1, eval = TRUE}
+# weight-for-age z-score
+waz <- getWGS(sexObserved = 1,     # 1 = Male / 2 = Female
+              firstPart = 14.6,    # Weight in kilograms up to 1 decimal place
+              secondPart = 52,     # Age in whole months
+              index = "wfa")       # Anthropometric index (weight-for-age)
+
+waz
+
+# height-for-age z-score
+haz <- getWGS(sexObserved = 1,
+              firstPart = 98,      # Height in centimetres
+              secondPart = 52,
+              index = "hfa")       # Anthropometric index (height-for-age)
+
+haz
+
+# weight-for-height z-score
+whz <- getWGS(sexObserved = 1,
+              firstPart = 14.6,
+              secondPart = 98,
+              index = "wfh")       # Anthropometric index (weight-for-height)
+
+whz
+```
+
+Applying the `getWGS()` function results in a calculated `z-score` for one child.
+
+### Calculating z-score for each of the three anthropometric indices for a cohort or sample of children
+
+For this example, we will use the `getCohortWGS()` function and apply it to sample data `anthro1` that came with `zscorer`.
+
+```{r sample-data1, eval = FALSE}
+# Make a call for the anthro1 dataset
+anthro1
+```
+
+As you will see, this dataset has the 4 variables you will need to use with `getCohortWGS()` to calculate the `z-score` for the corresponding anthropometric index. These are `age`, `sex`, `weight` and `height`.
+
+```{r, echo = FALSE, eval = TRUE}
+library(zscorer)
+```
+
+```{r sample-data2, eval = TRUE}
+head(anthro1)
+```
+
+To calculate the three anthropometric indices for all the children in the sample, we execute the following commands in R:
+
+```{r example2, eval = TRUE}
+# weight-for-age z-score
+waz <- getCohortWGS(data = anthro1,
+                    sexObserved = "sex",
+                    firstPart = "weight",
+                    secondPart = "age",
+                    index = "wfa")
+head(waz, 50)
+
+# height-for-age z-score
+haz <- getCohortWGS(data = anthro1,
+                    sexObserved = "sex",
+                    firstPart = "height",
+                    secondPart = "age",
+                    index = "hfa")
+head(haz, 50)
+
+# weight-for-height z-score
+whz <- getCohortWGS(data = anthro1,
+                    sexObserved = "sex",
+                    firstPart = "weight",
+                    secondPart = "height",
+                    index = "wfh")
+head(whz, 50)
+```
+
+Applying the `getCohortWGS()` function results in a vector of calculated `z-scores` for all children in the cohort or sample.
+
+### Calculating z-scores for all of the three anthropometric indices in one function
+
+For this example, we will use the `getAllWGS()` function and apply it to sample data `anthro1` that came with `zscorer`.
+
+```{r example3, eval = TRUE}
+# weight-for-age z-score
+zScores <- getAllWGS(data = anthro1,
+                     sex = "sex",
+                     weight = "weight",
+                     height = "height",
+                     age = "age",
+                     index = "all")
+head(zScores, 20)
+```
+
+Applying the `getAllWGS()` function results in a data frame of calculated `z-scores` for all children in the cohort or sample for all the anthropometric indices.

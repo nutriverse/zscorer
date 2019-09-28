@@ -64,10 +64,55 @@ haz <- addWGSR(data = testdata,
                index = "hfa",
                standing = 3)
 
+bfa <- addWGSR(data = testdata,
+               sex = "sex",
+               firstPart = "weight",
+               secondPart = "height",
+               thirdPart = "age",
+               index = "bfa",
+               standing = 3)
 
 test_that("z-score is numeric", {
   expect_is(waz, "data.frame")
   expect_is(haz, "data.frame")
   expect_is(whz, "data.frame")
+  expect_is(bfa, "data.frame")
 })
 
+
+testdata <- anthro3
+testdata$age <- testdata$age * 365.25 / 12
+
+whz <- addWGSR(data = testdata,
+               sex = "sex",
+               firstPart = "weight",
+               secondPart = "height",
+               index = "wfb",
+               standing = 3)
+
+test_that("Result is NA when index is wrongly specified", {
+  expect_true(all(is.na(whz$wfbz)))
+})
+
+
+whz <- addWGSR(data = testdata,
+               sex = "age",
+               firstPart = "weight",
+               secondPart = "height",
+               index = "wfb",
+               standing = 3)
+
+test_that("Result is NA when sex is wrongly specified", {
+  expect_true(all(is.na(whz$wfbz)))
+})
+
+bfa <- addWGSR(data = testdata,
+               sex = "sex",
+               firstPart = "weight",
+               secondPart = "height",
+               index = "bfa",
+               standing = 3)
+
+test_that("Result is NA when thirdPart not specified when index is bfa", {
+  expect_true(all(is.na(whz$bfa)))
+})

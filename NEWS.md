@@ -10,7 +10,7 @@ Third release of `zscorer`. In this release:
 
 # zscorer 0.2.0
 
-Second relase of `zscorer`. In this release:
+Second release of `zscorer`. In this release:
 
 * created overall function to calculate all anthropometric indices included in the WHO Growth Standards;
 
@@ -18,7 +18,7 @@ Second relase of `zscorer`. In this release:
 
 * added vignettes to describe calculation of anthropometric indices
 
-* udpate Shiny application
+* update Shiny application
 
 
 # zscorer 0.1.0

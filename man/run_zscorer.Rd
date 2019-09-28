@@ -10,6 +10,6 @@ run_zscorer()
 Initialise built-in Shiny application
 }
 \examples{
-#
+if(interactive()) run_zscorer()
 
 }

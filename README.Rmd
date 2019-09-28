@@ -35,16 +35,16 @@ deviations from the mean) for key anthropometric indices used to assess early ch
 
 ## Installation
 
-You can install `zscorer` from CRAN:
+You can install `zscorer` from [CRAN](https://cran.r-project.org):
 ```{r gh-installation1, eval = FALSE}
 install.packages("zscorer")
 ```
 
-or you can install the development version of `zscorer` from GitHub with:
+or you can install the development version of `zscorer` from [GitHub](https://github.com/nutriverse/zscorer) with:
 
 ```{r gh-installation2, eval = FALSE}
-if(!require(devtools)) install.packages("devtools")
-devtools::install_github("nutriverse/zscorer")
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("nutriverse/zscorer")
 ```
 
 then load `zscorer`

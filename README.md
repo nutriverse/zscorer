@@ -44,18 +44,18 @@ deprecated.
 
 ## Installation
 
-You can install `zscorer` from CRAN:
+You can install `zscorer` from [CRAN](https://cran.r-project.org):
 
 ``` r
 install.packages("zscorer")
 ```
 
-or you can install the development version of `zscorer` from GitHub
-with:
+or you can install the development version of `zscorer` from
+[GitHub](https://github.com/nutriverse/zscorer) with:
 
 ``` r
-if(!require(devtools)) install.packages("devtools")
-devtools::install_github("nutriverse/zscorer")
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("nutriverse/zscorer")
 ```
 
 then load `zscorer`

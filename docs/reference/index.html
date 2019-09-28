@@ -156,7 +156,30 @@ Reference (2006) using data and methods from:</p></td>
     </tbody><tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-calculate-z-scores" class="hasAnchor"><a href="#section-calculate-z-scores" class="anchor"></a>Calculate z-scores</h2>
+          <h2 id="section-calculate-anthropometric-z-scores" class="hasAnchor"><a href="#section-calculate-anthropometric-z-scores" class="anchor"></a>Calculate anthropometric z-scores</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="getWGSR.html">getWGSR()</a></code> </p>
+        </td>
+        <td><p>Calculate WHO Growth Reference z-score for a given anthropometric
+measurement.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="addWGSR.html">addWGSR()</a></code> </p>
+        </td>
+        <td><p>Add the WHO Growth Reference z-scores to a data frame of anthropometric data
+for weight, height or length, MUAC, head circumference, sub-scapular
+skinfold and triceps skinfold.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-legacy-functions-to-calculate-z-scores" class="hasAnchor"><a href="#section-legacy-functions-to-calculate-z-scores" class="anchor"></a>Legacy functions to calculate z-scores</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
@@ -181,19 +204,6 @@ for a cohort or sample of children.</p></td>
         </td>
         <td><p>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a single child data.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="getWGSR.html">getWGSR()</a></code> </p>
-        </td>
-        <td><p>Function to calculate z-scores. Usually called by the <code>addWGSR()</code> function
-but could be used as a stand-alone command-line calculator if required.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="addWGSR.html">addWGSR()</a></code> </p>
-        </td>
-        <td><p>Function to add the WHO Growth Reference z-scores to a data frame</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -207,7 +217,7 @@ but could be used as a stand-alone command-line calculator if required.</p></td>
         <td>
           <p><code><a href="run_zscorer.html">run_zscorer()</a></code> </p>
         </td>
-        <td><p>run_zscorer</p></td>
+        <td><p>Initialise built-in Shiny application</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -250,7 +260,8 @@ but could be used as a stand-alone command-line calculator if required.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#section-description">Description</a></li>
-      <li><a href="#section-calculate-z-scores">Calculate z-scores</a></li>
+      <li><a href="#section-calculate-anthropometric-z-scores">Calculate anthropometric z-scores</a></li>
+      <li><a href="#section-legacy-functions-to-calculate-z-scores">Legacy functions to calculate z-scores</a></li>
       <li><a href="#section-running-shiny-app">Running Shiny app</a></li>
       <li><a href="#section-datasets">Datasets</a></li>
     </ul>

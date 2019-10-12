@@ -9,9 +9,22 @@ UseSpacesForTab: Yes
 NumSpacesForTab: 2
 Encoding: UTF-8
 
+<<<<<<< HEAD
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
+=======
+RnwWeave: knitr
+LaTeX: pdfLaTeX
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+
+BuildType: Package
+PackageUseDevtools: Yes
+PackageInstallArgs: --no-multiarch --with-keep.source
+PackageCheckArgs: --as-cran
+>>>>>>> 7448699573bfdcb1d3f999bf7b983a3cf8e84310

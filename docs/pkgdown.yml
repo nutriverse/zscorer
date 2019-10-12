@@ -1,0 +1,10 @@
+pandoc: 2.3.1
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  anthropometry: anthropometry.html
+  calculate_zscore: calculate_zscore.html
+urls:
+  reference: https://nutriverse.io/zscorer/reference
+  article: https://nutriverse.io/zscorer/articles
+

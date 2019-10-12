@@ -1,0 +1,25 @@
+addWGSR                 Add the WHO Growth Reference z-scores to a data
+                        frame of anthropometric data for weight, height
+                        or length, MUAC, head circumference,
+                        sub-scapular skinfold and triceps skinfold.
+anthro1                 Anthropometric data from a SMART survey in
+                        Kabul, Afghanistan.
+anthro2                 Anthropometric data from a single state from a
+                        Demographic and Health Survey (DHS) of a West
+                        African country.
+anthro3                 Anthropometric data from a Rapid Assessment
+                        Method (RAM) survey from Burundi.
+getAllWGS               Calculate z-scores for WHZ, HAZ, WAZ using the
+                        WHO Growth Reference (2006) for a single child
+                        data.
+getCohortWGS            Calculate z-scores for WHZ, HAZ, WAZ using the
+                        WHO Growth Reference (2006) for a cohort or
+                        sample of children.
+getWGS                  Calculate z-scores for WHZ, HAZ, WAZ using the
+                        WHO Growth Reference (2006) for a single child
+                        data.
+getWGSR                 Calculate WHO Growth Reference z-score for a
+                        given anthropometric measurement.
+run_zscorer             Initialise built-in Shiny application
+wgsData                 World Health Organization (WHO) Growth
+                        Reference (2006) data

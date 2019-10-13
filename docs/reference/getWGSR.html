@@ -83,7 +83,7 @@ anthropometric measurement." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
       </span>
     </div>
 
@@ -110,6 +110,9 @@ anthropometric measurement." />
     </li>
     <li>
       <a href="../articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+    </li>
+    <li>
+      <a href="../articles/legacy_functions.html">Legacy functions</a>
     </li>
   </ul>
 </li>
@@ -208,12 +211,13 @@ anthropometric measurement.</p>
     <tr>
       <th>standing</th>
       <td><p>Variable specifying how stature was measured. If NULL then age
-(for <code>"hfa"</code> or <code>"lfa"</code>) or height rules (for <code>"wfh"</code> or
-<code>"wfl"</code>) will be applied. This must be coded as <code>1 = Standing</code>;
-<code>2 = Supine</code>; <code>3 = Unknown</code>. All other values will be recoded to
-<code>3 = Unknown</code>. Give a quoted variable name as in (e.g.) <code>"measured"</code>
-or a single value (e.g.<code>"measured = 1"</code>). If no value (or NULL) is
-specified then height and age rules will be applied.</p></td>
+  (for <code>"hfa"</code> or <code>"lfa"</code>) or height rules (for <code>"wfh"</code> or
+  <code>"wfl"</code>) will be applied. This must be coded as <code>1 = Standing</code>;
+  <code>2 = Supine</code>; <code>3 = Unknown</code>. All other values will be recoded to
+  <code>3 = Unknown</code>. Give a quoted variable name as in (e.g.) <code>"measured"</code>
+  or a single value (e.g.<code>"measured = 1"</code>). If no value (or NULL) is
+  specified then height and age rules will be applied.
+zz</p></td>
     </tr>
     <tr>
       <th>thirdPart</th>

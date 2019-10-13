@@ -26,12 +26,30 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer)
 [![DOI](https://zenodo.org/badge/119683584.svg)](https://zenodo.org/badge/latestdoi/119683584)
 
-`zscorer` facilitates the calculation of `z-scores` (i.e. the number of standard
-deviations from the mean) for key anthropometric indices used to assess early childhood growth: `weight-for-age (WFA)`, `height-for-age (HFA)`, `weight-for-height (WFH)`, `BMI-for-age (BFA)`, `arm circumference-for-age (ACFA)`, `head circumference-for-age (HCFA)`, `subscapular skinfold-for-age (SSFA)` and `triceps skinfold-for-age (TSFA)`. `zscorer` refers to the results of the **WHO Multicentre Growth Reference Study** as standard for calculating the `z-scores` hence it comes as a dataset in this package.
+`zscorer` facilitates the calculation of a range of anthropometric `z-scores` (i.e. the number of standard
+deviations from the mean) and adds them to survey data:
 
-`zscorer` calculates the `z-score` for the corresponding anthropometric index given a dataset of children containing anthropometric measurements for height, weight, arm circumference, head circumference, subscapular skinfold, and triceps skinfold and additional data on age and sex to assess growth and nutritional status of the sample of children against the WHO Multicentre Growth Reference Study standard (WGS).
+* **Weight-for-length (wfl)** z-scores for children with lengths between 45 and 110 cm
 
-`zscorer` also contains functions that calculates the `zscore` for three commonly assessed anthropometric indices in nutrition surveys (`weight-for-height`, `height-for-age`, `weight-for-age`) given anthropometric measurements of individual children. These are legacy functions used in earlier versions of `zscorer` that may soon be deprecated.
+* **Weight-for-height (wfh)** z-scores for children with heights between 65 and 120 cm
+
+* **Length-for-age (lfa)** z-scores for children aged less than 24 months
+
+* **Height-for-age (hfa)** z-scores for children aged between 24 and 228 months
+
+* **Weight-for-age (wfa)** z-scores for children aged between zero and 120 months
+
+* **Body mass index-for-age (bfa)** z-scores for children aged between zero and 228 months
+
+* **MUAC-for-age (mfa)** z-scores for children aged between 3 and 228 months
+
+* **Triceps skinfold-for-age (tsa)** z-scores for children aged between 3 and 60 months
+
+* **Sub-scapular skinfold-for-age (ssa)** z-scores for children aged between 3 and 60 months
+
+* **Head circumference-for-age (hca)** z-scores for children aged between zero and 60 months
+
+The `z-scores` are calculated using the **WHO Child Growth Standards** [^1],[^2] for children aged between zero and 60 months or the **WHO Growth References** [^3] for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017) [^4] using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The `zscorer` comes packaged with the WHO Growth References data and the MUAC-for-age data.
 
 ## Installation
 
@@ -187,7 +205,7 @@ svy[is.na(svy$wfhz), ]
 
 The problem is due to the value **9** in the `sex` column, which should be coded **1** (for male) and **2** (for female). Z-scores are only calculated for records with sex specified as either **1** (male) or **2** (female). All other values, including **NA**, will return **NA**.
 
-The `addWGSR()` function requires that data are recorded using the required units or required codes (see Table Z1).
+The `addWGSR()` function requires that data are recorded using the required units or required codes (see `?addWGSR` to check units required by the different function parameters).
 
 The `addWGSR()` function will return incorrect values if the data are not recorded using the required units. For example, this attempt to add weight-for-age z-scores to the example data:
 
@@ -355,3 +373,15 @@ head(zScores, 20)
 
 Applying the `getAllWGS()` function results in a data frame of calculated `z-scores`
 for all children in the cohort or sample for all the anthropometric indices.
+
+&nbsp;
+
+[^1]: World Health Organization (WHO). (2006). WHO Child Growth Standards: Length/height-for-age, weight-for-age, weight-for-length, weight-for-height and body mass index-for-age: Methods and development. [https://doi.org/10.1037/e569412006-008](https://doi.org/10.1037/e569412006-008)
+
+[^2]: World Health Organization (WHO). (2007). WHO Child Growth Standards: Head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfod-for-age: methods and development. Geneva: World Health Organization.
+
+[^3]: Onis, M. De, Onyango, A. W., Borghi, E., Siyam, A., & Siekmann, J. (2007). Development of a WHO growth reference for school-aged children and adolescents. 043497(July), 660–667. [https://doi.org/10.2471/BLT](https://doi.org/10.2471/BLT).
+
+[^4]: Mramba, L., Ngari, M., Mwangome, M., Muchai, L., Bauni, E., Walker, A. S., … Berkley, J. A. (2007). A growth reference for mid upper arm circumference for age among school age children and adolescents , and validation for mortality : growth curve construction and longitudinal ? cohort study. 1–8. [https://doi.org/10.1136/bmj.j3423](https://doi.org/10.1136/bmj.j3423)
+
+

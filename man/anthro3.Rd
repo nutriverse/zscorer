@@ -3,7 +3,7 @@
 \docType{data}
 \name{anthro3}
 \alias{anthro3}
-\title{anthro3}
+\title{Anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.}
 \format{A data frame with 221 observations and 7 variables
 \describe{
 \item{\code{psu}}{Primary sampling unit}

@@ -1,6 +1,5 @@
 ################################################################################
 #
-#' getCohortWGS
 #'
 #' Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 #' for a cohort or sample of children.

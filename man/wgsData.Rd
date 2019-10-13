@@ -3,7 +3,7 @@
 \docType{data}
 \name{wgsData}
 \alias{wgsData}
-\title{wgsData}
+\title{World Health Organization (WHO) Growth Reference (2006) data}
 \format{A data frame with 6 columns and 2338 rows.
 \describe{
 \item{\code{indicator}}{One of weight-for-age (\code{waz}),

@@ -3,7 +3,7 @@
 \docType{data}
 \name{anthro1}
 \alias{anthro1}
-\title{anthro1}
+\title{Anthropometric data from a SMART survey in Kabul, Afghanistan.}
 \format{A data frame with 873 observations and 11 variables
 \describe{
 \item{\code{psu}}{Primary sampling unit}

@@ -1,82 +1,72 @@
 ################################################################################
 #
-#' addWGSR
 #'
-#' Function to add the WHO Growth Reference z-scores to a data frame
+#' Add the WHO Growth Reference z-scores to a data frame of anthropometric data
+#' for weight, height or length, MUAC, head circumference, sub-scapular
+#' skinfold and triceps skinfold.
 #'
 #' @param data A survey dataset as a data.frame object
-#'
 #' @param sex Name of variable specifying the sex of the subject. This must be
-#'     coded as 1 = male; 2 = female.
-#'
-#'     Give a quoted variable name as in (e.g.) "sex".
+#'   coded as \code{1 = male} and \code{2 = female}. Give a quoted variable
+#'   name as in (e.g.) \code{"sex"}.
 #'
 #' @param firstPart Name of variable specifying:
+#'   \itemize{
+#'     \item Weight (kg) for BMI/A, W/A, W/H, or W/L
+#'     \item Head circumference (cm) for HC/A
+#'     \item Height (cm) for BMI/A for H/A
+#'     \item Length (cm) for L/A
+#'     \item MUAC (cm) for MUAC/A
+#'     \item Sub-scapular skinfold (mm) for SSF/A
+#'     \item Triceps skinfold (mm) for TSF/A
+#'   }
 #'
-#'     \itemize{
-#'       \item Weight (kg) for BMI/A, W/A, W/H, or W/L
-#'       \item Head circumference (cm) for HC/A
-#'       \item Height (cm) for BMI/A for H/A
-#'       \item Length (cm) for L/A
-#'       \item MUAC (cm) for MUAC/A
-#'       \item Sub-scapular skinfold (mm) for SSF/A
-#'       \item Triceps skinfold (mm) for TSF/A
-#'     }
-#'
-#'     Give a quoted variable name as in (e.g.) "weight".
-#'
-#'     Be careful with units (weight in kg; height, length, head circumference,
-#'     and MUAC in cm, skinfolds in mm).
+#'   Give a quoted variable name as in (e.g.) \code{"weight"}. Be careful with
+#'   units (weight in kg; height, length, head circumference, and MUAC in cm,
+#'   skinfolds in mm).
 #'
 #' @param secondPart Name of variable specifying:
+#'   \itemize{
+#'     \item Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A
+#'     \item Height (cm) BMI/A or W/H
+#'     \item Length (cm) for W/L
+#'   }
 #'
-#'     \itemize{
-#'       \item Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A
-#'       \item Height (cm) BMI/A or W/H
-#'       \item Length (cm) for W/L
-#'     }
+#'   Give a quoted variable name as in (e.g.) \code{"age"}. Be careful with
+#'   units (age in days; height and length in cm).
 #'
-#'     Give a quoted variable name as in (e.g.) "age".
-#'
-#'     Be careful with units (age in days; height and length in cm).
-#'
-#' @param thirdPart Name of variable specifying age (in days) for BMI/A
-#'
-#'     Give a quoted variable name as in (e.g.) "age".
-#'
-#'     Be careful with units (age in days).
+#' @param thirdPart Name of variable specifying age (in days) for BMI/A. Give a
+#'   quoted variable name as in (e.g.) \code{"age"}. Be careful with units
+#'   (age in days).
 #'
 #' @param index The index to be calculated and added to \code{data}. One of:
+#'   \describe{
+#'     \item{\code{bfa}}{BMI for age}
+#'     \item{\code{hca}}{Head circumference for age}
+#'     \item{\code{hfa}}{Height for age}
+#'     \item{\code{lfa}}{Length for age}
+#'     \item{\code{mfa}}{MUAC for age}
+#'     \item{\code{ssa}}{Sub-scapular skinfold for age}
+#'     \item{\code{tsa}}{Triceps skinfold for age}
+#'     \item{\code{wfa}}{Weight for age}
+#'     \item{\code{wfh}}{Weight for height}
+#'     \item{\code{wfl}}{Weight for length}
+#'  }
 #'
-#'     \describe{
-#'       \item{\code{bfa}}{BMI for age}
-#'       \item{\code{hca}}{Head circumference for age}
-#'       \item{\code{hfa}}{Height for age}
-#'       \item{\code{lfa}}{Length for age}
-#'       \item{\code{mfa}}{MUAC for age}
-#'       \item{\code{ssa}}{Sub-scapular skinfold for age}
-#'       \item{\code{tsa}}{Triceps skinfold for age}
-#'       \item{\code{wfa}}{Weight for age}
-#'       \item{\code{wfh}}{Weight for height}
-#'       \item{\code{wfl}}{Weight for length}
-#'     }
-#'
-#'     Give a quoted index name as in (e.g.) "wfh".
+#'  Give a quoted index name as in (e.g.) \code{"wfh"}.
 #'
 #' @param standing Variable specifying how stature was measured. If NULL then age
-#'     (for "hfa" or "lfa") or height rules (for "wfh" or "wfl") will be applied.
-#'
-#'     This must be coded as 1 = Standing; 2 = Supine; 3 = Unknown. All other
-#'     values will be recoded to 3 = Unknown.
-#'
-#'     Give a quoted variable name as in (e.g.) "measured" or a single value
-#'     (e.g. "measured = 1"). If no value (or NULL) is specified then height and
-#'     age rules will be applied.
+#'   (for \code{"hfa"} or \code{"lfa"}) or height rules (for \code{"wfh"} or
+#'   \code{"wfl"}) will be applied. This must be coded as \code{1 = Standing};
+#'   \code{2 = Supine}; \code{3 = Unknown}. All other values will be recoded to
+#'   \code{3 = Unknown}. Give a quoted variable name as in (e.g.) \code{"measured"}
+#'   or a single value (e.g.\code{"measured = 1"}). If no value (or NULL) is
+#'   specified then height and age rules will be applied.
 #'
 #' @param output The name of the column containing the specified index to be
-#'     added to the dataset. This is an optional parameter. If you do not specify
-#'     a value for output then the added column will take the name of the
-#'     specified index with a "z" appended.
+#'   added to the dataset. This is an optional parameter. If you do not specify
+#'   a value for output then the added column will take the name of the specified
+#'   index with a \code{"z"} appended.
 #'
 #' @param digits The number of decimal places for \code{output}. Defaults to 2 d.p.
 #'
@@ -109,14 +99,15 @@
 #
 ################################################################################
 
-addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA,
-                    standing = NULL, output = paste(index, "z", sep = ""), digits = 2) {
-  ## If 'standing' is not specified then create a column in 'data' holding 3
-  ## (unknown) for all rows
+addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA,
+                    index = NA, standing = NULL,
+                    output = paste(index, "z", sep = ""), digits = 2) {
+  ## If 'standing' is not specified then create a column in 'data' holding 3 (unknown) for all rows
   addedStanding <- FALSE
   if(is.null(standing)) {
     ## Random column name for 'standing'
-    standing <- paste(sample(c(letters, LETTERS), size = 16, replace = TRUE), collapse = "")
+    standing <- paste(sample(c(letters, LETTERS), size = 16, replace = TRUE),
+                      collapse = "")
     data[[standing]] <- 3
     addedStanding <- TRUE
   }
@@ -126,12 +117,12 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
   for(i in 1:nrow(data)) {
     z[i] <- ifelse(!is.na(thirdPart),
                    getWGSR(sex = data[[sex]][i], firstPart = data[[firstPart]][i],
-                           secondPart = data[[secondPart]][i], index = index,
-                           standing = data[[standing]][i],
+                           secondPart = data[[secondPart]][i],
+                           index = index, standing = data[[standing]][i],
                            thirdPart = data[[thirdPart]][i]),
                    getWGSR(sex = data[[sex]][i], firstPart = data[[firstPart]][i],
-                           secondPart = data[[secondPart]][i], index = index,
-                           standing = data[[standing]][i]))
+                           secondPart = data[[secondPart]][i],
+                           index = index, standing = data[[standing]][i]))
     setTxtProgressBar(pb, i)
   }
   cat("\n", sep = "")
@@ -147,71 +138,69 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 
 ################################################################################
 #
-#' getWGSR
 #'
-#' Function to calculate z-scores. Usually called by the \code{addWGSR()} function
-#' but could be used as a stand-alone command-line calculator if required.
+#' Calculate WHO Growth Reference z-score for a given anthropometric
+#' measurement.
 #'
-#' @param sex Sex of the subject. This must be
-#'     coded as 1 = male; 2 = female.
+#' This function is usually called by the \code{addWGSR()} function
+#' but could be used as a stand-alone calculator for getting z-score for a given
+#' anthropometric measurement.
+#'
+#' @param sex Sex of the subject. This must be coded as \code{1 = male} and
+#'   \code{2 = female}.
 #' @param firstPart Name of variable specifying:
+#'   \itemize{
+#'     \item Weight (kg) for BMI/A, W/A, W/H, or W/L
+#'     \item Head circumference (cm) for HC/A
+#'     \item Height (cm) for BMI/A for H/A
+#'     \item Length (cm) for L/A
+#'     \item MUAC (cm) for MUAC/A
+#'     \item Sub-scapular skinfold (mm) for SSF/A
+#'     \item Triceps skinfold (mm) for TSF/A
+#'   }
 #'
-#'     \itemize{
-#'       \item Weight (kg) for BMI/A, W/A, W/H, or W/L
-#'       \item Head circumference (cm) for HC/A
-#'       \item Height (cm) for BMI/A for H/A
-#'       \item Length (cm) for L/A
-#'       \item MUAC (cm) for MUAC/A
-#'       \item Sub-scapular skinfold (mm) for SSF/A
-#'       \item Triceps skinfold (mm) for TSF/A
-#'     }
+#'   Give a quoted variable name as in (e.g.) \code{"weight"}. Be careful with
+#'   units (weight in kg; height, length, head circumference, and MUAC in cm,
+#'   skinfolds in mm).
 #'
-#'     Give a quoted variable name as in (e.g.) "weight".
-#'
-#'     Be careful with units (weight in kg; height, length, head circumference,
-#'     and MUAC in cm, skinfolds in mm).
 #' @param secondPart Name of variable specifying:
+#'   \itemize{
+#'     \item Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A
+#'     \item Height (cm) BMI/A or W/H
+#'     \item Length (cm) for W/L
+#'   }
 #'
-#'     \itemize{
-#'       \item Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A
-#'       \item Height (cm) BMI/A or W/H
-#'       \item Length (cm) for W/L
-#'     }
+#'   Give a quoted variable name as in (e.g.) \code{"age"}. Be careful with
+#'   units (age in days; height and length in cm).
 #'
-#'     Give a quoted variable name as in (e.g.) "age".
+#' @param thirdPart Name of variable specifying age (in days) for BMI/A. Give a
+#'   quoted variable name as in (e.g.) \code{"age"}. Be careful with units
+#'   (age in days).
 #'
-#'     Be careful with units (age in days; height and length in cm).
-#' @param thirdPart Name of variable specifying age (in days) for BMI/A
-#'
-#'     Give a quoted variable name as in (e.g.) "age".
-#'
-#'     Be careful with units (age in days).
 #' @param index The index to be calculated and added to \code{data}. One of:
+#'   \describe{
+#'     \item{\code{bfa}}{BMI for age}
+#'     \item{\code{hca}}{Head circumference for age}
+#'     \item{\code{hfa}}{Height for age}
+#'     \item{\code{lfa}}{Length for age}
+#'     \item{\code{mfa}}{MUAC for age}
+#'     \item{\code{ssa}}{Sub-scapular skinfold for age}
+#'     \item{\code{tsa}}{Triceps skinfold for age}
+#'     \item{\code{wfa}}{Weight for age}
+#'     \item{\code{wfh}}{Weight for height}
+#'     \item{\code{wfl}}{Weight for length}
+#'  }
 #'
-#'     \describe{
-#'       \item{\code{bfa}}{BMI for age}
-#'       \item{\code{hca}}{Head circumference for age}
-#'       \item{\code{hfa}}{Height for age}
-#'       \item{\code{lfa}}{Length for age}
-#'       \item{\code{mfa}}{MUAC for age}
-#'       \item{\code{ssa}}{Sub-scapular skinfold for age}
-#'       \item{\code{tsa}}{Triceps skinfold for age}
-#'       \item{\code{wfa}}{Weight for age}
-#'       \item{\code{wfh}}{Weight for height}
-#'       \item{\code{wfl}}{Weight for length}
-#'     }
+#'  Give a quoted index name as in (e.g.) \code{"wfh"}.
 #'
-#'     Give a quoted index name as in (e.g.) "wfh".
 #' @param standing Variable specifying how stature was measured. If NULL then age
-#'     (for "hfa" or "lfa") or height rules (for "wfh" or "wfl") will be applied.
-#'
-#'     This must be coded as 1 = Standing; 2 = Supine; 3 = Unknown. All other
-#'     values will be recoded to 3 = Unknown.
-#'
-#'     Give a quoted variable name as in (e.g.) "measured" or a single value
-#'     (e.g. "measured = 1"). If no value (or NULL) is specified then height and
-#'     age rules will be applied.
-#'
+#'   (for \code{"hfa"} or \code{"lfa"}) or height rules (for \code{"wfh"} or
+#'   \code{"wfl"}) will be applied. This must be coded as \code{1 = Standing};
+#'   \code{2 = Supine}; \code{3 = Unknown}. All other values will be recoded to
+#'   \code{3 = Unknown}. Give a quoted variable name as in (e.g.) \code{"measured"}
+#'   or a single value (e.g.\code{"measured = 1"}). If no value (or NULL) is
+#'   specified then height and age rules will be applied.
+#'zz
 #' @return A numeric value or vector of z-scores for the specified \code{index}.
 #'
 #' @examples
@@ -247,11 +236,12 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 getWGSR <- function(sex, firstPart, secondPart,
                     index = NA, standing, thirdPart = NA) {
   ## Avoid missing and impossible values in 'standing' by coding NA and other values to '3'
-  if(is.na(standing) | !standing %in% c(1, 2, 3)) {
+  if(is.na(standing) | !(standing %in% c(1, 2, 3))) {
     standing = 3
   }
   ## Unknown index specified - return NA
-  if(!index %in% c("bfa", "hca", "hfa", "lfa", "mfa", "ssa", "tsa", "wfa", "wfh", "wfl")) {
+  if(!(index %in% c("bfa", "hca", "hfa", "lfa", "mfa",
+                    "ssa", "tsa", "wfa", "wfh", "wfl"))) {
     return(NA)
   }
   ## Missing data for 'sex', 'firstPart', or 'secondPart' - return NA
@@ -272,6 +262,10 @@ getWGSR <- function(sex, firstPart, secondPart,
   }
   ## 'thirdPart' (age) is not numeric for BMI-for-age - return NA
   if(index == "bfa" & !is.numeric(thirdPart)) {
+    return(NA)
+  }
+  ## 'secondPart' is zero then BMI cannot be calculated
+  if(index == "bfa" & secondPart == 0) {
     return(NA)
   }
   ## Round lengths to nearest 0.1 cm

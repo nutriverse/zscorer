@@ -6,23 +6,29 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>addWGSR — addWGSR • zscorer</title>
+<title>Add the WHO Growth Reference z-scores to a data frame of anthropometric data
+for weight, height or length, MUAC, head circumference, sub-scapular
+skinfold and triceps skinfold. — addWGSR • zscorer</title>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +36,15 @@
 
 
 
-<meta property="og:title" content="addWGSR — addWGSR" />
 
-<meta property="og:description" content="Function to add the WHO Growth Reference z-scores to a data frame" />
+<meta property="og:title" content="Add the WHO Growth Reference z-scores to a data frame of anthropometric data
+for weight, height or length, MUAC, head circumference, sub-scapular
+skinfold and triceps skinfold. — addWGSR" />
+<meta property="og:description" content="Add the WHO Growth Reference z-scores to a data frame of anthropometric data
+for weight, height or length, MUAC, head circumference, sub-scapular
+skinfold and triceps skinfold." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -57,6 +68,7 @@
   gtag('config', 'UA-102485058-6');
 </script>
 
+
   </head>
 
   <body>
@@ -73,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -81,7 +93,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -107,11 +119,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nutriverse/zscorer">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -122,25 +133,28 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>addWGSR</h1>
+    <h1>Add the WHO Growth Reference z-scores to a data frame of anthropometric data
+for weight, height or length, MUAC, head circumference, sub-scapular
+skinfold and triceps skinfold.</h1>
     <small class="dont-index">Source: <a href='https://github.com/nutriverse/zscorer/blob/master/R/addWGSR.R'><code>R/addWGSR.R</code></a></small>
     <div class="hidden name"><code>addWGSR.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-    <p>Function to add the WHO Growth Reference z-scores to a data frame</p>
-    
+    <p>Add the WHO Growth Reference z-scores to a data frame of anthropometric data
+for weight, height or length, MUAC, head circumference, sub-scapular
+skinfold and triceps skinfold.</p>
     </div>
 
     <pre class="usage"><span class='fu'>addWGSR</span>(<span class='no'>data</span>, <span class='no'>sex</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='kw'>thirdPart</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>index</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>standing</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='no'>index</span>, <span class='st'>"z"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>), <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</pre>
-    
+  <span class='kw'>standing</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='no'>index</span>, <span class='st'>"z"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>), <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -151,13 +165,12 @@
     <tr>
       <th>sex</th>
       <td><p>Name of variable specifying the sex of the subject. This must be
-    coded as 1 = male; 2 = female.</p>
-<p>Give a quoted variable name as in (e.g.) "sex".</p></td>
+coded as <code>1 = male</code> and <code>2 = female</code>. Give a quoted variable
+name as in (e.g.) <code>"sex"</code>.</p></td>
     </tr>
     <tr>
       <th>firstPart</th>
-      <td><p>Name of variable specifying:</p>
-<p></p><ul>
+      <td><p>Name of variable specifying:</p><ul>
 <li><p>Weight (kg) for BMI/A, W/A, W/H, or W/L</p></li>
 <li><p>Head circumference (cm) for HC/A</p></li>
 <li><p>Height (cm) for BMI/A for H/A</p></li>
@@ -167,73 +180,71 @@
 <li><p>Triceps skinfold (mm) for TSF/A</p></li>
 </ul>
 
-<p>Give a quoted variable name as in (e.g.) "weight".</p>
-<p>Be careful with units (weight in kg; height, length, head circumference,
-    and MUAC in cm, skinfolds in mm).</p></td>
+<p>Give a quoted variable name as in (e.g.) <code>"weight"</code>. Be careful with
+  units (weight in kg; height, length, head circumference, and MUAC in cm,
+  skinfolds in mm).</p></td>
     </tr>
     <tr>
       <th>secondPart</th>
-      <td><p>Name of variable specifying:</p>
-<p></p><ul>
+      <td><p>Name of variable specifying:</p><ul>
 <li><p>Age (days) for H/A, HC/A, L/A, MUAC/A, SSF/A, or TSF/A</p></li>
 <li><p>Height (cm) BMI/A or W/H</p></li>
 <li><p>Length (cm) for W/L</p></li>
 </ul>
 
-<p>Give a quoted variable name as in (e.g.) "age".</p>
-<p>Be careful with units (age in days; height and length in cm).</p></td>
+<p>Give a quoted variable name as in (e.g.) <code>"age"</code>. Be careful with
+  units (age in days; height and length in cm).</p></td>
     </tr>
     <tr>
       <th>thirdPart</th>
-      <td><p>Name of variable specifying age (in days) for BMI/A</p>
-<p>Give a quoted variable name as in (e.g.) "age".</p>
-<p>Be careful with units (age in days).</p></td>
+      <td><p>Name of variable specifying age (in days) for BMI/A. Give a
+quoted variable name as in (e.g.) <code>"age"</code>. Be careful with units
+(age in days).</p></td>
     </tr>
     <tr>
       <th>index</th>
-      <td><p>The index to be calculated and added to <code>data</code>. One of:</p>
-<p></p><dl class='dl-horizontal'>
-      <dt><code>bfa</code></dt><dd><p>BMI for age</p></dd>
-      <dt><code>hca</code></dt><dd><p>Head circumference for age</p></dd>
-      <dt><code>hfa</code></dt><dd><p>Height for age</p></dd>
-      <dt><code>lfa</code></dt><dd><p>Length for age</p></dd>
-      <dt><code>mfa</code></dt><dd><p>MUAC for age</p></dd>
-      <dt><code>ssa</code></dt><dd><p>Sub-scapular skinfold for age</p></dd>
-      <dt><code>tsa</code></dt><dd><p>Triceps skinfold for age</p></dd>
-      <dt><code>wfa</code></dt><dd><p>Weight for age</p></dd>
-      <dt><code>wfh</code></dt><dd><p>Weight for height</p></dd>
-      <dt><code>wfl</code></dt><dd><p>Weight for length</p></dd>
-    </dl>
+      <td><p>The index to be calculated and added to <code>data</code>. One of:</p><dl class='dl-horizontal'>
+    <dt><code>bfa</code></dt><dd><p>BMI for age</p></dd>
+    <dt><code>hca</code></dt><dd><p>Head circumference for age</p></dd>
+    <dt><code>hfa</code></dt><dd><p>Height for age</p></dd>
+    <dt><code>lfa</code></dt><dd><p>Length for age</p></dd>
+    <dt><code>mfa</code></dt><dd><p>MUAC for age</p></dd>
+    <dt><code>ssa</code></dt><dd><p>Sub-scapular skinfold for age</p></dd>
+    <dt><code>tsa</code></dt><dd><p>Triceps skinfold for age</p></dd>
+    <dt><code>wfa</code></dt><dd><p>Weight for age</p></dd>
+    <dt><code>wfh</code></dt><dd><p>Weight for height</p></dd>
+    <dt><code>wfl</code></dt><dd><p>Weight for length</p></dd>
+ 
+</dl>
 
-<p>Give a quoted index name as in (e.g.) "wfh".</p></td>
+<p>Give a quoted index name as in (e.g.) <code>"wfh"</code>.</p></td>
     </tr>
     <tr>
       <th>standing</th>
       <td><p>Variable specifying how stature was measured. If NULL then age
-    (for "hfa" or "lfa") or height rules (for "wfh" or "wfl") will be applied.</p>
-<p>This must be coded as 1 = Standing; 2 = Supine; 3 = Unknown. All other
-    values will be recoded to 3 = Unknown.</p>
-<p>Give a quoted variable name as in (e.g.) "measured" or a single value
-    (e.g. "measured = 1"). If no value (or NULL) is specified then height and
-    age rules will be applied.</p></td>
+(for <code>"hfa"</code> or <code>"lfa"</code>) or height rules (for <code>"wfh"</code> or
+<code>"wfl"</code>) will be applied. This must be coded as <code>1 = Standing</code>;
+<code>2 = Supine</code>; <code>3 = Unknown</code>. All other values will be recoded to
+<code>3 = Unknown</code>. Give a quoted variable name as in (e.g.) <code>"measured"</code>
+or a single value (e.g.<code>"measured = 1"</code>). If no value (or NULL) is
+specified then height and age rules will be applied.</p></td>
     </tr>
     <tr>
       <th>output</th>
       <td><p>The name of the column containing the specified index to be
 added to the dataset. This is an optional parameter. If you do not specify
-a value for output then the added column will take the name of the
-specified index with a "z" appended.</p></td>
+a value for output then the added column will take the name of the specified
+index with a <code>"z"</code> appended.</p></td>
     </tr>
     <tr>
       <th>digits</th>
       <td><p>The number of decimal places for <code>output</code>. Defaults to 2 d.p.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A data.frame of the survey dataset with the calculated z-scores added.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Calculate weight-for-height (wfh) for the anthro3 dataset</span>
@@ -923,14 +934,13 @@ specified index with a "z" appended.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -938,13 +948,16 @@ specified index with a "z" appended.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -1,33 +1,32 @@
 ################################################################################
 #
-#' zscorer
 #'
 #' Tool for calculating z-scores for WHZ, HAZ, WAZ using the WHO Growth
 #' Reference (2006) using data and methods from:
 #'
-#' \cite{World Health Organization. WHO Child Growth Standards: Length/Height-for-age,
+#' @references World Health Organization. WHO Child Growth Standards: Length/Height-for-age,
 #' Weight-for-age, Weight-for-length, Weight-for-height, and Body Mass Index-for age:
 #' Methods and Development. 1st ed. World Health Organization; 2006.
-#' ISBN ISBN 92 4 154693 X}
+#' ISBN ISBN 92 4 154693 X
 #'
 #' @docType package
 #' @name zscorer
+#' @keywords internal
 #' @importFrom utils read.table setTxtProgressBar txtProgressBar
 #' @importFrom stats approx
+#' @importFrom shiny runApp
 #'
 #
 ################################################################################
-NULL
+"_PACKAGE"
 
 ## quiets concerns of R CMD check re: the variable bindings that appear in zscorer
-if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "wgsrData",
-                                                        "indicator",
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData","indicator",
                                                         "sex", "given"))
+
 
 ################################################################################
 #
-#' wgsData
-#'
 #' World Health Organization (WHO) Growth Reference (2006) data
 #'
 #' @format A data frame with 6 columns and 2338 rows.
@@ -47,6 +46,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "wgsrData",
 #' \item{\code{s}}{\code{S} component of the LMS method for normalising growth
 #'     centile standards. \code{S} is the trend in the coefficient of variation}
 #' }
+#'
 #' @source \cite{World Health Organization. WHO Child Growth Standards:
 #' Length/Height-for-age, Weight-for-age, Weight-for-length, Weight-for-height,
 #' and Body Mass Index-for age: Methods and Development. 1st ed.
@@ -59,46 +59,6 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "wgsrData",
 
 ################################################################################
 #
-#' wgsrData
-#'
-#' This is an expanded version of the \code{wgsData} which includes additional
-#' anthropometric indices found in the World Health Organization (WHO) Growth
-#' Reference (2006) data
-#'
-#' @format A data frame with 6 columns and 28654 rows.
-#' \describe{
-#' \item{\code{index}}{One of BMI-for-age (\code{bfa}), head circumference
-#'     for-age (\code{hca}), height-for-age (\code{hfa}); length-for-age (\code{lfa}),
-#'     MUAC-for-age (\code{mfa}), subscapular skinfold-for-age (\code{ssa}),
-#'     triceps skinfold-for-age (\code{tsa}), weight-for-age (\code{wfa}),
-#'     weight-for-length (\code{wfl}) or weight-for-height (\code{wfh})
-#'     anthropometric indicators}
-#' \item{\code{sex}}{Sex of child (1 = Male; 2 = Female)}
-#' \item{\code{given}}{Variable to which standardisation is to be made. For
-#'     \code{wfa}, \code{hfa}, \code{bfa}, \code{hca}, \code{lfa}, \code{mfa},
-#'     \code{ssa} and \code{tsa}, \code{given} is age in months. For \code{whl},
-#'     \code{wfh}, \code{given} is height or length in cm}
-#' \item{\code{l}}{\code{L} component of the LMS method for normalising growth
-#'     centile standards. \code{L} is the trend in the optimal power to obtain
-#'     normality}
-#' \item{\code{m}}{\code{M} component of the LMS method for normalising growth
-#'     centile standards. \code{M} is the trend in the mean}
-#' \item{\code{s}}{\code{S} component of the LMS method for normalising growth
-#'     centile standards. \code{S} is the trend in the coefficient of variation}
-#' }
-#' @source \cite{World Health Organization. WHO Child Growth Standards:
-#' Length/Height-for-age, Weight-for-age, Weight-for-length, Weight-for-height,
-#' and Body Mass Index-for age: Methods and Development. 1st ed.
-#' World Health Organization; 2006.}
-#'
-#
-################################################################################
-"wgsrData"
-
-
-################################################################################
-#
-#' anthro1
 #'
 #' Anthropometric data from a SMART survey in Kabul, Afghanistan.
 #'
@@ -116,12 +76,13 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "wgsrData",
 #' \item{\code{whz}}{Weight-for-height z-score}
 #' \item{\code{flag}}{Data quality flag}
 #' }
+#
+################################################################################
 "anthro1"
 
 
 ################################################################################
 #
-#' anthro2
 #'
 #' Anthropometric data from a single state from a Demographic and Health Survey
 #' (DHS) of a West African country.
@@ -135,12 +96,13 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "wgsrData",
 #' \item{\code{ht}}{height (cm)}
 #' \item{\code{oedema}}{Presence or absence of oedema}
 #' }
+#
+################################################################################
 "anthro2"
 
 
 ################################################################################
 #
-#' anthro3
 #'
 #' Anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.
 #'
@@ -154,4 +116,6 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData", "wgsrData",
 #' \item{\code{muac}}{Mid-upper arm circumference (cm)}
 #' \item{\code{oedema}}{Presence or absence of oedema}
 #' }
+#
+################################################################################
 "anthro3"

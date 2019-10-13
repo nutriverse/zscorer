@@ -1,6 +1,5 @@
 ################################################################################
 #
-#' getAllWGS
 #'
 #' Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 #' for a single child data.
@@ -101,48 +100,30 @@
 ################################################################################
 
 getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
-  #
-  # If user selects index of "wfa" or "all"...
-  #
+  ## If user selects index of "wfa" or "all"...
   if(index == "wfa" | index == "all"){
-    #
-    # If user does not provide data (is.null(data))...
-    #
+    ## If user does not provide data (is.null(data))...
     if(is.null(data)){
-      #
-      # If user provides non-numeric arguments for parameters...
-      #
+      ## If user provides non-numeric arguments for parameters...
       if(!is.numeric(weight) | !is.numeric(sex) | !is.numeric(age)){
-        #
-        # Stop operation
-        #
+        ## Stop operation
         stop("If data provided, sex, weight and age must be numeric. Try again.", call. = TRUE)
       }
-      #
-      #
-      #
+      ##
       waz <- mapply(FUN = getWGS,
                     sexObserved = sex,
                     firstPart = weight,
                     secondPart = age,
                     index = "wfa")
     }
-    #
-    # If !is.null(data)...
-    #
+    ## If !is.null(data)...
     if(!is.null(data)){
-      #
-      # If user provides non-character arguments for paratmers...
-      #
+      ## If user provides non-character arguments for paratmers...
       if(!is.character(sex) | !is.character(weight) | !is.character(age)){
-        #
-        # Stop operation
-        #
+        ## Stop operation
         stop("If data not provided, sex, weight and age must be character values. Try again", call. = TRUE)
       }
-      #
-      #
-      #
+      ##
       waz <- mapply(FUN = getWGS,
                     sexObserved = data [, sex],
                     firstPart = data[ , weight],
@@ -150,48 +131,30 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
                     index = "wfa")
     }
   }
-  #
-  # If user selects index of haz or all...
-  #
+  ## If user selects index of haz or all...
   if(index == "hfa" | index == "all"){
-    #
-    # If user does not provide data (is.null(data))...
-    #
+    ## If user does not provide data (is.null(data))...
     if(is.null(data)){
-      #
-      # If user provides non-numeric arguments for parameters...
-      #
+      ## If user provides non-numeric arguments for parameters...
       if(!is.numeric(sex) | !is.numeric(height) | !is.numeric(age)){
-        #
-        # Stop operation
-        #
+        ## Stop operation
         stop("If data provided, sex, height and age must be numeric. Try again.", call. = TRUE)
       }
-      #
-      #
-      #
+      ##
       haz <- mapply(FUN = getWGS,
                     sexObserved = sex,
                     firstPart = height,
                     secondPart = age,
                     index = "hfa")
     }
-    #
-    #
-    #
+    ##
     if(!is.null(data)){
-      #
-      #
-      #
+      ##
       if(!is.character(sex) | !is.character(height) | !is.character(age)){
-        #
-        #
-        #
+        ##
         stop("If data not provided, sex, height and age must be character values. Try again.", call. = TRUE)
       }
-      #
-      #
-      #
+      ##
       haz <- mapply(FUN = getWGS,
                     sexObserved = data[ , sex],
                     firstPart = data[ , height],
@@ -199,48 +162,30 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
                     index = "hfa")
     }
   }
-  #
-  # If user selects index of "whz" or "all"...
-  #
+  ## If user selects index of "whz" or "all"...
   if(index == "wfh" | index == "all"){
-    #
-    #
-    #
+    ##
     if(is.null(data)){
-      #
-      #
-      #
+      ##
       if(!is.numeric(sex) | !is.numeric(weight) | !is.numeric(height)){
-        #
-        #
-        #
+        ##
         stop("If data provided, sex, weight and height must be numeric. Try again.", call. = TRUE)
       }
-      #
-      #
-      #
+      ##
       whz <- mapply(FUN = getWGS,
                     sexObserved = sex,
                     firstPart = weight,
                     secondPart = height,
                     index = "wfh")
     }
-    #
-    #
-    #
+    ##
     if(!is.null(data)){
-      #
-      #
-      #
+      ##
       if(!is.character(sex) | !is.character(weight) | !is.character(height)){
-        #
-        #
-        #
+        ##
         stop("If data not provided, sex, weight and height must be character values. Try again.", call. = TRUE)
       }
-      #
-      #
-      #
+      ##
       whz <- mapply(FUN = getWGS,
                     sexObserved = data[ , sex],
                     firstPart = data[ , weight],
@@ -248,9 +193,7 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
                     index = "wfh")
     }
   }
-  #
-  #
-  #
+  ##
   if(index == "wfa") { z <- data.frame(waz) }
   if(index == "hfa") { z <- data.frame(haz) }
   if(index == "wfh") { z <- data.frame(whz) }

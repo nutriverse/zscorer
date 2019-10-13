@@ -8,93 +8,84 @@
 #
 library(shiny)
 library(shinythemes)
-#devtools::install_github("nutriverse/zscorer")
 library(zscorer)
 #
 #
 #
-navbarPage(title = "zscorer", id = "chosenTab", #theme = shinytheme("cerulean"),
+navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
   tabPanel(title = "", value = 1, icon = icon(name = "home", class = "fa-lg"),
     div(class = "outer",
         tags$head(includeCSS("styles.css"))
     ),
     sidebarPanel(width = 3,
-      #
-      # Select type of data
-      #
-      radioButtons(inputId = "dataType",
-                   label = h5("Type of child data to input"),
-                   choices = list("Single child" = 1, "Cohort/sample of children" = 2),
-                   selected = 1),
-      #
-      # Horizontal line
-      #
-      hr(),
-      #
-      # Header 1
-      #
+      ## Select type of data
+      #radioButtons(inputId = "dataType",
+      #             label = h5("Type of child data to input"),
+      #             choices = list("Single child" = 1, "Cohort/sample of children" = 2),
+      #             selected = 1),
+      ## Horizontal line
+      #hr(),
+      ## Header 1
       h5(textOutput("header1")),
-      #
-      # Age input
-      #
+      ## Age input
       uiOutput(outputId = "age1"),
-      #
-      # Weight input
-      #
+      ## sex input
       uiOutput(outputId = "sex1"),
-      #
-      # Weight input
-      #
+      ## Weight input
       uiOutput(outputId = "weight1"),
-      #
-      # Height input
-      #
+      ## Height input
       uiOutput(outputId = "height1"),
-      #
-      # Header 2 - input file with anthropometric data (dataType == 2)
-      #
+      ## Anthropometric index input
+      conditionalPanel("input.dataType == 2",
+        uiOutput(outputId = "index1")
+      ),
+      ## Header 2 - input file with anthropometric data (dataType == 2)
       h5(textOutput("header2")),
-      #
-      # File input - anthro data
-      #
+      ## File input - anthro data
       uiOutput(outputId = "file1"),
-      #
-      # Sex variable for cohort/sample
-      #
+      ## Sex variable for cohort/sample
       uiOutput(outputId = "sex2"),
-      #
-      # Weight variable for cohort/sample
-      #
+      ## Weight variable for cohort/sample
       uiOutput(outputId = "weight2"),
-      #
-      # Height variable for cohort/sample
-      #
+      ## Height variable for cohort/sample
       uiOutput(outputId = "height2"),
-      #
-      # Age variable for cohort/sample
-      #
+      ## Age variable for cohort/sample
       uiOutput(outputId = "age2"),
-      #
-      # Action button to calculate single child z-scores
-      #
+      ## Action button to calculate single child z-scores
       uiOutput(outputId = "calculate1"),
-      #
-      # Action button to calculate cohort/sample z-scores
-      #
-      uiOutput(outputId = "calculate2")
+      ## Action button to calculate cohort/sample z-scores
+      uiOutput(outputId = "calculate2"),
+      ## Action button to download cohort/sample z-scores
+      uiOutput(outputId = "download")
     ),
     #
     #
     #
     mainPanel(width = 9,
-      #
-      # Data table
-      #
-      DT::dataTableOutput("anthroTable"),
-      #
-      # z-scores table
-      #
-      DT::dataTableOutput("zScoreTable")
+      tabsetPanel(id = "dataType", selected = 1,
+        tabPanel(title = "Single", value = 1,
+          conditionalPanel("input.calculate1",
+            column(width = 4,
+              wellPanel(h4("Weight-for-age z-score"),
+              hr(),
+              uiOutput(outputId = "waz"))),
+            column(width = 4,
+              wellPanel(h4("Height-for-age z-score"),
+              hr(),
+              uiOutput(outputId = "haz"))),
+            column(width = 4,
+              wellPanel(h4("Weight-for-height z-score"),
+              hr(),
+              uiOutput(outputId = "whz")))
+          )
+        ),
+        tabPanel(title = "Cohort", value = 2,
+          conditionalPanel("input.calculate2",
+            ## z-scores table
+            DT::dataTableOutput("zScoreTable")
+          )
+        )
+      )
     )
   ),
   tabPanel(title = "About", value = 2,

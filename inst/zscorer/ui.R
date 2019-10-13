@@ -105,7 +105,7 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
     mainPanel(width = 9,
       HTML("
         <a id='HEAD1'></a><h3>zscorer: Weight-for-age, height-for-age and weight-for-height z-score
-        calculator</h3><img src='https://validmeasures.nyc3.digitaloceanspaces.com/logos/zscorer.png' style='float:right; margin-left:auto; margin-right:auto' />
+        calculator</h3>
         <br/>
         <p><code>zscorer</code> facilitates the calculation of <strong>z-scores</strong>
         (i.e. the number of standard deviations from the mean) for the three key

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/zscorer.png" align="right" />
+# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/zscorer.png" width="200" align="right" />
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -39,23 +39,23 @@ the WHO Multicentre Growth Reference Study standard (WGS).
 commonly assessed anthropometric indices in nutrition surveys
 (`weight-for-height`, `height-for-age`, `weight-for-age`) given
 anthropometric measurements of individual children. These are legacy
-functions used in earlier versions of `zscorer` that will soon be
+functions used in earlier versions of `zscorer` that may soon be
 deprecated.
 
 ## Installation
 
-You can install `zscorer` from CRAN:
+You can install `zscorer` from [CRAN](https://cran.r-project.org):
 
 ``` r
 install.packages("zscorer")
 ```
 
-or you can install the development version of `zscorer` from GitHub
-with:
+or you can install the development version of `zscorer` from
+[GitHub](https://github.com/nutriverse/zscorer) with:
 
 ``` r
-if(!require(devtools) { install.packages("devtools") }
-devtools::install_github("nutriverse/zscorer")
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("nutriverse/zscorer")
 ```
 
 then load `zscorer`
@@ -310,6 +310,13 @@ head(svy)
 ```
 
 ## Usage - legacy functions
+
+To maintain support for earlier versions of the package, the earlier
+functions used to calculate anthropometric z-scores for
+`weight-for-age`, `height-for-age` and `weight-for-height` have been
+kept for now until future deprecation. For current users, it is
+recommended to use `addWGSR()` and `getWGSR()`
+functions.
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 

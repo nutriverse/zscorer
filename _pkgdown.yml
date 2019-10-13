@@ -1,6 +1,41 @@
 title: zscorer
-url: https://nutriverse.validmeasures.org/zscorer
+
+url: https://nutriverse.io/zscorer
+
 template:
   params:
     bootswatch: sandstone
     ganalytics: UA-102485058-6
+
+home:
+  #strip_header: true
+  links:
+  - text: Read more about the WHO Growth Standards
+    href: https://www.who.int/childgrowth/en/
+
+reference:
+- title: Description
+  contents:
+  - zscorer
+
+- title: Calculate anthropometric z-scores
+  contents:
+  - getWGSR
+  - addWGSR
+
+- title: Legacy functions to calculate z-scores
+  contents:
+  - getWGS
+  - getCohortWGS
+  - getAllWGS
+
+- title: Running Shiny app
+  contents:
+  - run_zscorer
+
+- title: Datasets
+  contents:
+  - anthro1
+  - anthro2
+  - anthro3
+  - wgsData

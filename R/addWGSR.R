@@ -99,14 +99,15 @@
 #
 ################################################################################
 
-addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA,
-                    standing = NULL, output = paste(index, "z", sep = ""), digits = 2) {
-  ## If 'standing' is not specified then create a column in 'data' holding 3
-  ## (unknown) for all rows
+addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA,
+                    index = NA, standing = NULL,
+                    output = paste(index, "z", sep = ""), digits = 2) {
+  ## If 'standing' is not specified then create a column in 'data' holding 3 (unknown) for all rows
   addedStanding <- FALSE
   if(is.null(standing)) {
     ## Random column name for 'standing'
-    standing <- paste(sample(c(letters, LETTERS), size = 16, replace = TRUE), collapse = "")
+    standing <- paste(sample(c(letters, LETTERS), size = 16, replace = TRUE),
+                      collapse = "")
     data[[standing]] <- 3
     addedStanding <- TRUE
   }
@@ -116,12 +117,12 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
   for(i in 1:nrow(data)) {
     z[i] <- ifelse(!is.na(thirdPart),
                    getWGSR(sex = data[[sex]][i], firstPart = data[[firstPart]][i],
-                           secondPart = data[[secondPart]][i], index = index,
-                           standing = data[[standing]][i],
+                           secondPart = data[[secondPart]][i],
+                           index = index, standing = data[[standing]][i],
                            thirdPart = data[[thirdPart]][i]),
                    getWGSR(sex = data[[sex]][i], firstPart = data[[firstPart]][i],
-                           secondPart = data[[secondPart]][i], index = index,
-                           standing = data[[standing]][i]))
+                           secondPart = data[[secondPart]][i],
+                           index = index, standing = data[[standing]][i]))
     setTxtProgressBar(pb, i)
   }
   cat("\n", sep = "")
@@ -199,7 +200,7 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 #'   \code{3 = Unknown}. Give a quoted variable name as in (e.g.) \code{"measured"}
 #'   or a single value (e.g.\code{"measured = 1"}). If no value (or NULL) is
 #'   specified then height and age rules will be applied.
-#'
+#'zz
 #' @return A numeric value or vector of z-scores for the specified \code{index}.
 #'
 #' @examples
@@ -235,11 +236,12 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA, index = NA
 getWGSR <- function(sex, firstPart, secondPart,
                     index = NA, standing, thirdPart = NA) {
   ## Avoid missing and impossible values in 'standing' by coding NA and other values to '3'
-  if(is.na(standing) | !standing %in% c(1, 2, 3)) {
+  if(is.na(standing) | !(standing %in% c(1, 2, 3))) {
     standing = 3
   }
   ## Unknown index specified - return NA
-  if(!index %in% c("bfa", "hca", "hfa", "lfa", "mfa", "ssa", "tsa", "wfa", "wfh", "wfl")) {
+  if(!(index %in% c("bfa", "hca", "hfa", "lfa", "mfa",
+                    "ssa", "tsa", "wfa", "wfh", "wfl"))) {
     return(NA)
   }
   ## Missing data for 'sex', 'firstPart', or 'secondPart' - return NA
@@ -260,6 +262,10 @@ getWGSR <- function(sex, firstPart, secondPart,
   }
   ## 'thirdPart' (age) is not numeric for BMI-for-age - return NA
   if(index == "bfa" & !is.numeric(thirdPart)) {
+    return(NA)
+  }
+  ## 'secondPart' is zero then BMI cannot be calculated
+  if(index == "bfa" & secondPart == 0) {
     return(NA)
   }
   ## Round lengths to nearest 0.1 cm

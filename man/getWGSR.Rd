@@ -54,12 +54,13 @@ getWGSR(sex, firstPart, secondPart, index = NA, standing,
  Give a quoted index name as in (e.g.) \code{"wfh"}.}
 
 \item{standing}{Variable specifying how stature was measured. If NULL then age
-(for \code{"hfa"} or \code{"lfa"}) or height rules (for \code{"wfh"} or
-\code{"wfl"}) will be applied. This must be coded as \code{1 = Standing};
-\code{2 = Supine}; \code{3 = Unknown}. All other values will be recoded to
-\code{3 = Unknown}. Give a quoted variable name as in (e.g.) \code{"measured"}
-or a single value (e.g.\code{"measured = 1"}). If no value (or NULL) is
-specified then height and age rules will be applied.}
+  (for \code{"hfa"} or \code{"lfa"}) or height rules (for \code{"wfh"} or
+  \code{"wfl"}) will be applied. This must be coded as \code{1 = Standing};
+  \code{2 = Supine}; \code{3 = Unknown}. All other values will be recoded to
+  \code{3 = Unknown}. Give a quoted variable name as in (e.g.) \code{"measured"}
+  or a single value (e.g.\code{"measured = 1"}). If no value (or NULL) is
+  specified then height and age rules will be applied.
+zz}
 
 \item{thirdPart}{Name of variable specifying age (in days) for BMI/A. Give a
 quoted variable name as in (e.g.) \code{"age"}. Be careful with units

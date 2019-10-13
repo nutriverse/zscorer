@@ -340,9 +340,9 @@ getWGSR <- function(sex, firstPart, secondPart,
   }
   ## Lookup reference values and calculate z-score
   lkpIndexSex <- wgsrData[wgsrData$index == index & wgsrData$sex == sex, ]
-  L <- approx(lkpIndexSex$given, lkpIndexSex$l, xout = secondPart)$y
-  M <- approx(lkpIndexSex$given, lkpIndexSex$m, xout = secondPart)$y
-  S <- approx(lkpIndexSex$given, lkpIndexSex$s, xout = secondPart)$y
+  L <- approx(lkpIndexSex$given, lkpIndexSex$l, xout = secondPart, ties = "ordered")$y
+  M <- approx(lkpIndexSex$given, lkpIndexSex$m, xout = secondPart, ties = "ordered")$y
+  S <- approx(lkpIndexSex$given, lkpIndexSex$s, xout = secondPart, ties = "ordered")$y
   z <- (((firstPart / M) ^ L) - 1) / (L * S)
   SD3pos <- M * (1 + L * S * (+3))^(1 / L)
   SD2pos <- M * (1 + L * S * (+2))^(1 / L)

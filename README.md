@@ -506,7 +506,7 @@ Applying the `getAllWGS()` function results in a data frame of
 calculated `z-scores` for all children in the cohort or sample for all
 the anthropometric indices.
 
- 
+## References
 
 1.  World Health Organization (WHO). (2006). WHO Child Growth Standards:
     Length/height-for-age, weight-for-age, weight-for-length,

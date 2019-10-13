@@ -32,7 +32,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Mark Myatt \email{mark@brixtonhealth.com}
+  \item Mark Myatt \email{mark@brixtonhealth.com} (0000-0003-1119-1474) [copyright holder]
 }
 
 }

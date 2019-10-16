@@ -60,7 +60,7 @@ are calculated using the MUAC-for-age growth reference developed by
 Mramba et al. (2017) \[4\] using data from the USA and Africa. This
 reference has been validated with African school-age children and
 adolescents. The `zscorer` comes packaged with the WHO Growth References
-data and the MUAC-for-age data.
+data and the MUAC-for-age reference data.
 
 ## Installation
 

@@ -5,7 +5,7 @@
 \title{Calculate WHO Growth Reference z-score for a given anthropometric
 measurement.}
 \usage{
-getWGSR(sex, firstPart, secondPart, index = NA, standing,
+getWGSR(sex, firstPart, secondPart, index = NA, standing = NA,
   thirdPart = NA)
 }
 \arguments{
@@ -98,5 +98,11 @@ getWGSR(sex = 1,
         secondPart = 10,
         index = "hfa",
         standing = 3)
+
+# Calculate MUAC-for-age z-score for a girl
+getWGSR(sex = 1,
+        firstPart = 20,
+        secondPart = 62 * (365.25 / 12),
+        index = "mfa")
 
 }

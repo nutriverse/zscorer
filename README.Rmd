@@ -378,7 +378,7 @@ for all children in the cohort or sample for all the anthropometric indices.
 
 [^1]: World Health Organization (WHO). (2006). WHO Child Growth Standards: Length/height-for-age, weight-for-age, weight-for-length, weight-for-height and body mass index-for-age: Methods and development. [https://doi.org/10.1037/e569412006-008](https://doi.org/10.1037/e569412006-008)
 
-[^2]: World Health Organization (WHO). (2007). WHO Child Growth Standards: Head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfod-for-age: methods and development. Geneva: World Health Organization.
+[^2]: World Health Organization (WHO). (2007). WHO Child Growth Standards: Head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfold-for-age: methods and development. Geneva: World Health Organization.
 
 [^3]: Onis, M. De, Onyango, A. W., Borghi, E., Siyam, A., & Siekmann, J. (2007). Development of a WHO growth reference for school-aged children and adolescents. 043497(July), 660–667. [https://doi.org/10.2471/BLT](https://doi.org/10.2471/BLT).
 

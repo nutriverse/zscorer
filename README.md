@@ -515,7 +515,7 @@ the anthropometric indices.
 
 2.  World Health Organization (WHO). (2007). WHO Child Growth Standards:
     Head circumference-for-age, arm circumference-for-age, triceps
-    skinfold-for-age and subscapular skinfod-for-age: methods and
+    skinfold-for-age and subscapular skinfold-for-age: methods and
     development. Geneva: World Health Organization.
 
 3.  Onis, M. De, Onyango, A. W., Borghi, E., Siyam, A., & Siekmann, J.

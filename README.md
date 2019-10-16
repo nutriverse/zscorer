@@ -523,9 +523,9 @@ the anthropometric indices.
     children and adolescents. 043497(July), 660–667.
     <https://doi.org/10.2471/BLT>.
 
-4.  Mramba, L., Ngari, M., Mwangome, M., Muchai, L., Bauni, E., Walker,
-    A. S., … Berkley, J. A. (2007). A growth reference for mid upper arm
-    circumference for age among school age children and adolescents ,
-    and validation for mortality : growth curve construction and
-    longitudinal ? cohort study. 1–8.
-    <https://doi.org/10.1136/bmj.j3423>
+4.  Mramba L, Ngari M, Mwangome M, Muchai L, Bauni E, Walker AS, et
+    al. A growth reference for mid upper arm circumference for age
+    among school age children and adolescents, and validation for
+    mortality: growth curve construction and longitudinal cohort study.
+    BMJ. 2017;: j3423–8.
+    [doi:10.1136/bmj.j3423](https://doi.org/10.1136/bmj.j3423)

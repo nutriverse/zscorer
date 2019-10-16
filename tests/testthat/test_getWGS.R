@@ -49,5 +49,24 @@ waz <- getWGS(sexObserved = NA,
               index = "wfa")
 
 test_that("NA is produced", {
-  expect_equal(waz, NA)
+  expect_true(is.na(waz))
 })
+
+waz <- getWGS(sexObserved = anthro1$sex[1],
+              firstPart = NA,
+              secondPart = anthro1$age[1],
+              index = "wfa")
+
+test_that("NA is produced", {
+  expect_true(is.na(waz))
+})
+
+waz <- getWGS(sexObserved = anthro1$sex[1],
+              firstPart = anthro1$weight[1],
+              secondPart = NA,
+              index = "wfa")
+
+test_that("NA is produced", {
+  expect_true(is.na(waz))
+})
+

@@ -2,9 +2,9 @@
 
 Fourth release of `zscorer`. In this release:
 
-* fixed an issue when calculating BMI-for-age where measurements are out of range resulting in error rather than providing an NA value.
+* fixed an issue when calculating BMI-for-age where measurements are 0 resulting in error rather than providing an NA value. Now, when values for measurements are 0, the zscore produced is NA.
 
-* updated MUAC for age to allow for calculation for children up to 9 years old based on article by Jay Berkeley and colleagues.
+* updated MUAC for age to allow for calculation for children up to 19 years old based on article by Jay Berkeley and colleagues.
 
 * updated documentation to reflect editions and additions
 

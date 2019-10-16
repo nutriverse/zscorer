@@ -13,6 +13,9 @@ home:
   - text: Read more about the WHO Growth Standards
     href: https://www.who.int/childgrowth/en/
 
+  - text: Read more about MUAC-for-age z-scores development
+    href: https://doi.org/10.1136/bmj.j3423
+
 reference:
 - title: Description
   contents:
@@ -38,4 +41,5 @@ reference:
   - anthro1
   - anthro2
   - anthro3
+  - anthro4
   - wgsData

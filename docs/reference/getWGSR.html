@@ -152,7 +152,7 @@ but could be used as a stand-alone calculator for getting z-score for a given
 anthropometric measurement.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getWGSR</span>(<span class='no'>sex</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='kw'>index</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>standing</span>,
+    <pre class="usage"><span class='fu'>getWGSR</span>(<span class='no'>sex</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='kw'>index</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>standing</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>thirdPart</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -253,6 +253,11 @@ quoted variable name as in (e.g.) <code>"age"</code>. Be careful with units
         <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='fl'>10</span>,
         <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"hfa"</span>,
         <span class='kw'>standing</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] 6.584276</div><div class='input'>
+<span class='co'># Calculate MUAC-for-age z-score for a girl</span>
+<span class='fu'>getWGSR</span>(<span class='kw'>sex</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+        <span class='kw'>firstPart</span> <span class='kw'>=</span> <span class='fl'>20</span>,
+        <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='fl'>62</span> * (<span class='fl'>365.25</span> / <span class='fl'>12</span>),
+        <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"mfa"</span>)</div><div class='output co'>#&gt; [1] 1.992728</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

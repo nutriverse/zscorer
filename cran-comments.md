@@ -1,15 +1,11 @@
 ## Release summary
-Third release of `zscorer`. In this release:
+Fourth release of `zscorer`. In this release:
 
-* fixed a bug when using `zscorer` functions `addWGSR()` and `getWGSR()` inside another package in which `wgsrData` referred to by both functions and which is included as an external dataset is not lazy loaded. `wgsrData` is now added as an internal dataset
+* fixed an issue when calculating BMI-for-age where measurements are 0 resulting in error rather than providing an NA value. Now, when values for measurements are 0, the zscore produced is NA.
 
-* fixed some documentation formatting.
+* updated MUAC for age to allow for calculation for children up to 19 years old based on article by Jay Berkeley and colleagues.
 
-* removed old hex sticker and added new hex sticker
-
-* improved Shiny app interface
-
-* addressed issues in CRAN checks
+* updated documentation to reflect editions and additions
 
 ## Test environments
 * local OS X install, R 3.6.1

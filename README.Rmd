@@ -49,7 +49,7 @@ deviations from the mean) and adds them to survey data:
 
 * **Head circumference-for-age (hca)** z-scores for children aged between zero and 60 months
 
-The `z-scores` are calculated using the **WHO Child Growth Standards** [^1],[^2] for children aged between zero and 60 months or the **WHO Growth References** [^3] for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017) [^4] using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The `zscorer` comes packaged with the WHO Growth References data and the MUAC-for-age data.
+The `z-scores` are calculated using the **WHO Child Growth Standards** [^1],[^2] for children aged between zero and 60 months or the **WHO Growth References** [^3] for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017) [^4] using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The `zscorer` comes packaged with the WHO Growth References data and the MUAC-for-age reference data.
 
 ## Installation
 

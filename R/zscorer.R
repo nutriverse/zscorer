@@ -138,7 +138,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData","indicator",
 #'   Evasius, Walker A Sarah et al. A growth reference for mid upper arm
 #'   circumference for age among school age children and adolescents, and
 #'   validation for mortality: growth curve construction and longitudinal
-#'   cohort study BMJ 2017; 358 :j3423
+#'   cohort study BMJ 2017; 358 :j3423 \url{https://doi.org/10.1136/bmj.j3423}
 #'
 #
 ################################################################################

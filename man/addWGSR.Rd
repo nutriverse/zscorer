@@ -106,4 +106,16 @@ addWGSR(data = anthro3,
         secondPart = "age",
         index = "hfa")
 
+# Calculate MUAC-for-age (mfa) for the anthro4 dataset
+
+## Convert age in anthro4 from months to days
+testData <- anthro4
+testData$age <- testData$agemons * (365.25 / 12)
+
+addWGSR(data = testData,
+        sex = "sex",
+        firstPart = "muac",
+        secondPart = "age",
+        index = "mfa")
+
 }

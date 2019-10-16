@@ -64,6 +64,10 @@ test_that("Result is NA when index is wrongly specified", {
 testdata <- anthro3
 testdata$age <- testdata$age * 365.25 / 12
 
+addRow <- testdata[1, ]
+addRow$height <- 0
+testdata <- data.frame(rbind(testdata, addRow))
+
 whz <- addWGSR(data = testdata,
                sex = "sex",
                firstPart = "weight",
@@ -126,5 +130,9 @@ bfa <- addWGSR(data = testdata,
                standing = 3)
 
 test_that("Result is NA when thirdPart not specified when index is bfa", {
-  expect_true(all(is.na(whz$bfa)))
+  expect_true(all(is.na(bfa$bfaz)))
+})
+
+test_that("Result for height == 0 is NA", {
+  expect_true(is.na(bfa$bfaz[nrow(bfa)]))
 })

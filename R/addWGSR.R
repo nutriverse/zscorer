@@ -94,7 +94,20 @@
 #'         secondPart = "age",
 #'         index = "hfa")
 #'
+#' # Calculate MUAC-for-age (mfa) for the anthro4 dataset
+#'
+#' ## Convert age in anthro4 from months to days
+#' testData <- anthro4
+#' testData$age <- testData$agemons * (365.25 / 12)
+#'
+#' addWGSR(data = testData,
+#'         sex = "sex",
+#'         firstPart = "muac",
+#'         secondPart = "age",
+#'         index = "mfa")
+#'
 #' @export
+#'
 #'
 #
 ################################################################################
@@ -228,13 +241,19 @@ addWGSR <- function(data, sex, firstPart, secondPart, thirdPart = NA,
 #'         index = "hfa",
 #'         standing = 3)
 #'
+#' # Calculate MUAC-for-age z-score for a girl
+#' getWGSR(sex = 1,
+#'         firstPart = 20,
+#'         secondPart = 62 * (365.25 / 12),
+#'         index = "mfa")
+#'
 #' @export
 #'
 #
 ################################################################################
 
 getWGSR <- function(sex, firstPart, secondPart,
-                    index = NA, standing, thirdPart = NA) {
+                    index = NA, standing = NA, thirdPart = NA) {
   ## Avoid missing and impossible values in 'standing' by coding NA and other values to '3'
   if(is.na(standing) | !(standing %in% c(1, 2, 3))) {
     standing = 3

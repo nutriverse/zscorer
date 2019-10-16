@@ -119,3 +119,27 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData","indicator",
 #
 ################################################################################
 "anthro3"
+
+
+################################################################################
+#
+#' A subset of mid-upper arm circumference data from study conducted to create
+#' MUAC-for-age z-scores
+#'
+#' @format A data.frame with 257 observations and 4 variables
+#' \describe{
+#'   \item{\code{pk_serial}}{Unique identifier}
+#'   \item{\code{muac}}{Mid-upper arm circumference in centimetres}
+#'   \item{\code{agemons}}{Age in months}
+#'   \item{\code{sex}}{Sex; 1 = Male; 2 = Female}
+#' }
+#'
+#' @source Mramba Lazarus, Ngari Moses, Mwangome Martha, Muchai Lilian, Bauni
+#'   Evasius, Walker A Sarah et al. A growth reference for mid upper arm
+#'   circumference for age among school age children and adolescents, and
+#'   validation for mortality: growth curve construction and longitudinal
+#'   cohort study BMJ 2017; 358 :j3423 \url{https://doi.org/10.1136/bmj.j3423}
+#'
+#
+################################################################################
+"anthro4"

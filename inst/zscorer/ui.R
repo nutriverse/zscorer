@@ -23,6 +23,14 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
       uiOutput(outputId = "weight1"),
       ## Height input
       uiOutput(outputId = "height1"),
+      ## MUAC input
+      uiOutput(outputId = "muac1"),
+      ## Head circumference input
+      uiOutput(outputId = "hc1"),
+      ## Subscapular skinfold input
+      uiOutput(outputId = "ss1"),
+      ## Triceps skinfold
+      uiOutput(outputId = "ts1"),
       ## Anthropometric index input
       conditionalPanel("input.dataType == 2",
         uiOutput(outputId = "index1")
@@ -51,18 +59,54 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
       tabsetPanel(id = "dataType", selected = 1,
         tabPanel(title = "Single", value = 1,
           conditionalPanel("input.calculate1",
-            column(width = 4,
-              wellPanel(h4("Weight-for-age z-score"),
-              hr(),
-              uiOutput(outputId = "waz"))),
-            column(width = 4,
-              wellPanel(h4("Height-for-age z-score"),
-              hr(),
-              uiOutput(outputId = "haz"))),
-            column(width = 4,
-              wellPanel(h4("Weight-for-height z-score"),
-              hr(),
-              uiOutput(outputId = "whz")))
+            column(width = 3,
+              wellPanel(h5("Weight-for-age z-score"),
+                hr(),
+                uiOutput(outputId = "waz")
+              )
+            ),
+            column(width = 3,
+              wellPanel(h5("Height-for-age z-score"),
+                hr(),
+                uiOutput(outputId = "haz")
+              )
+            ),
+            column(width = 3,
+              wellPanel(h5("Weight-for-height z-score"),
+                hr(),
+                uiOutput(outputId = "whz")
+                )
+            ),
+            column(width = 3,
+              wellPanel(h5("BMI-for-age z-score"),
+                hr(),
+                uiOutput(outputId = "bfaz")
+              )
+            ),
+            column(width = 3,
+              wellPanel(h5("MUAC-for-age z-score"),
+                hr(),
+                uiOutput(outputId = "mfaz")
+              )
+            ),
+            column(width = 3,
+              wellPanel(h5("Head circumference-for-age z-score"),
+                hr(),
+                uiOutput(outputId = "hcz")
+              )
+            ),
+            column(width = 3,
+              wellPanel(h5("Subscapular skinfold-for-age z-score"),
+                hr(),
+                uiOutput(outputId = "ssaz")
+              )
+            ),
+            column(width = 3,
+              wellPanel(h5("Triceps skinfold-for-age z-score"),
+                hr(),
+                uiOutput(outputId = "tsaz")
+              )
+            )
           )
         ),
         tabPanel(title = "Cohort", value = 2,
@@ -87,16 +131,42 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
     ),
     mainPanel(width = 9,
       HTML("
-        <a id='HEAD1'></a><h3>zscorer: Weight-for-age, height-for-age and weight-for-height z-score
-        calculator</h3>
+        <a id='HEAD1'></a><h3>zscorer: Weight-for-age, height-for-age, weight-for-height,
+        BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular
+        skinfold-for-age and triceps skinfold-for-age z-score calculator</h3>
         <br/>
         <p><code>zscorer</code> facilitates the calculation of <strong>z-scores</strong>
-        (i.e. the number of standard deviations from the mean) for the three key
-        anthropometric indices used to assess early childhood growth: <em>weight-for-age (WFA)</em>,
-        <em>height-for-age (HFA)</em> and <em>weight-for-height (WFH)</em>. <code>zscorer</code>
-        refers to the results of the <strong>WHO Multicentre Growth Reference Study</strong>
-        as standard for calculating the <strong>z-scores</strong> hence it comes
-        packaged with this reference data.</p>
+        (i.e. the number of standard deviations from the mean) and adds them to survey data:</p>
+
+        <ul>
+          <li><b>Weight-for-length (wfl)</b> z-scores for children with lengths between 45 and 110 cm
+
+          <li><b>Weight-for-height (wfh)</b> z-scores for children with heights between 65 and 120 cm
+
+          <li><b>Length-for-age (lfa)</b> z-scores for children aged less than 24 months
+
+          <li><b>Height-for-age (hfa)</b> z-scores for children aged between 24 and 228 months
+
+          <li><b>Weight-for-age (wfa)</b> z-scores for children aged between zero and 120 months
+
+          <li><b>Body mass index-for-age (bfa)</b> z-scores for children aged between zero and 228 months
+
+          <li><b>MUAC-for-age (mfa)</b> z-scores for children aged between 3 and 228 months
+
+          <li><b>Triceps skinfold-for-age (tsa)</b> z-scores for children aged between 3 and 60 months
+
+          <li><b>Sub-scapular skinfold-for-age (ssa)</b> z-scores for children aged between 3 and 60 months
+
+          <li><b>Head circumference-for-age (hca)</b> z-scores for children aged between zero and 60 months
+        </ul>
+
+        <p>The <code>z-scores</code> are calculated using the <b>WHO Child Growth Standards</b> for
+        children aged between zero and 60 months or the **WHO Growth References** for school-aged
+        children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228
+        months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017)
+        using data from the USA and Africa. This reference has been validated with African school-age
+        children and adolescents. The <code>zscorer</code> comes packaged with the WHO Growth References
+        data and the MUAC-for-age reference data.
 
         <p><code>zscorer</code> can be used to calculate the appropriate <strong>z-score</strong>
         for the corresponding anthropometric index for a single child to assess growth and
@@ -109,8 +179,15 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
         <a id='HEAD2'></a><h3>Installation</h3>
         <p>You can install <code>zscorer</code> from GitHub with:</p>
         <blockquote>
-        <code># install.packages('devtools')<br/>
-        devtools::install_github('nutriverse/zscorer')<br/>
+        <code># install.packages('remotes')<br/>
+        remotes::install_github('nutriverse/zscorer')<br/>
+        # load package<br/>
+        library(zscorer)</code>
+        </blockquote>
+
+        <p>or from CRAN with:</p>
+        <blockquote>
+        <code>install.packages('zscorer')<br/>
         # load package<br/>
         library(zscorer)</code>
         </blockquote>
@@ -128,7 +205,8 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
         <p>The R scripts on which this package was based on were written by Mark
         Myatt and Ernest Guevarra on the 20th of December 2012.</p>
         <p>Additional scripts that expand on previously written scripts to
-        enhance utility and functionality, has been written by Ernest Guevarra</p>
+        enhance utility and functionality, has been written by Mark Myatt and
+        Ernest Guevarra</p>
         <p>Ernest Guevarra has packaged these scripts into an R standard format
         and is the maintainer of this package</p>
         <p>The <code>zscorer</code> Shiny app built into the package was created
@@ -138,6 +216,7 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
         <a id='HEAD5'></a><h3>License</h3>
         <p>This package and the built in Shiny app is licensed under the AGPL-3
         License.</p>
+        <br/>
       ")
     )
   )

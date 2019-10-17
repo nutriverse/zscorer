@@ -304,15 +304,65 @@ function(input, output, session) {
   ##
   observeEvent(input$calculate1, {
     ## For single calculations
-    if(input$dataType == 1) {
+    if(input$dataType == 1 & !is.null(input$weight1) & !is.null(input$height1)) {
       ##
-      req(input$weight1, input$age1, input$height1)
-      zScore <- getAllWGS(sex = as.numeric(input$sex1), weight = input$weight1,
-        height = input$height1, age = input$age1, index = "all")
+      req(input$sex1, input$weight1, input$age1, input$height1)
+
+      age <- input$age1 * (365.25 / 12)
+
+      waz <- getWGSR(sex = input$sex1, firstPart = input$weight1, secondPart = age, index = "wfa")
+      haz <- getWGSR(sex = input$sex1, firstPart = input$height1, secondPart = age, index = "hfa")
+      whz <- getWGSR(sex = input$sex1, firstPart = input$weight1, secondPart = input$height1, index = "wfh")
+      bfaz <- getWGSR(sex = input$sex1, firstPart = input$weight1, secondPart = input$height1, thirdPart = age, index = "bfa")
+
+      output$waz <- renderText({ waz })
+      output$haz <- renderText({ haz })
+      output$whz <- renderText({ whz })
+      output$bfaz <- renderText({ bfaz })
+    }
+    ##
+    if(input$dataType == 1 & !is.null(input$muac1)) {
       ##
-      output$waz <- renderText({ zScore[ , "waz"] })
-      output$haz <- renderText({ zScore[ , "haz"] })
-      output$whz <- renderText({ zScore[ , "whz"] })
+      req(input$sex1, input$muac1, input$age1)
+
+      age <- input$age1 * (365.25 / 12)
+
+      mfaz <- getWGSR(sex = input$sex1, firstPart = input$muac1, secondPart = age, index = "mfa")
+
+      output$mfaz <- renderText({ mfaz })
+    }
+    ##
+    if(input$dataType == 1 & !is.null(input$hc1)) {
+      ##
+      req(input$sex1, input$hc1, input$age1)
+
+      age <- input$age1 * (365.25 / 12)
+
+      hcz <- getWGSR(sex = input$sex1, firstPart = input$hc1, secondPart = age, index = "hfa")
+
+      output$hcz <- renderText({ hcz })
+    }
+    ##
+    if(input$dataType == 1 & !is.null(input$ss1)) {
+      ##
+      req(input$sex1, input$ss1, input$age1)
+
+      age <- input$age1 * (365.25 / 12)
+
+      ssaz <- getWGSR(sex = input$sex1, firstPart = input$ss1, secondPart = age, index = "ssa")
+
+      output$ssaz <- renderText({ ssaz })
+    }
+    ##
+    if(input$dataType == 1 & !is.null(input$ts1)) {
+      ##
+      req(input$sex1, input$ts1, input$age1)
+
+      age <- input$age1 * (365.25 / 12)
+
+      ssaz <- getWGSR(sex = input$sex1, firstPart = input$ts1, secondPart = age, index = "tsa")
+
+      output$ssaz <- renderText({ tsaz })
     }
   })
   ##

@@ -5,6 +5,8 @@ Fourth release of `zscorer`. In this release:
 
 * updated MUAC for age to allow for calculation for children up to 19 years old based on article by Jay Berkeley and colleagues.
 
+* updated Shiny app
+
 * updated documentation to reflect editions and additions
 
 ## Test environments

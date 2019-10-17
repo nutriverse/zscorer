@@ -3,29 +3,17 @@
 # UI
 #
 ################################################################################
-#
-# Load dependencies
-#
-library(shiny)
-library(shinythemes)
-library(zscorer)
-#
-#
-#
+## Load dependencies
+if(!require(shiny)) install.packages("shiny")
+if(!require(shinythemes)) install.packages("shinythemes")
+if(!require(zscorer)) install.package("zscorer")
+##
 navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
   tabPanel(title = "", value = 1, icon = icon(name = "home", class = "fa-lg"),
     div(class = "outer",
         tags$head(includeCSS("styles.css"))
     ),
     sidebarPanel(width = 3,
-      ## Select type of data
-      #radioButtons(inputId = "dataType",
-      #             label = h5("Type of child data to input"),
-      #             choices = list("Single child" = 1, "Cohort/sample of children" = 2),
-      #             selected = 1),
-      ## Horizontal line
-      #hr(),
-      ## Header 1
       h5(textOutput("header1")),
       ## Age input
       uiOutput(outputId = "age1"),
@@ -58,9 +46,7 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
       ## Action button to download cohort/sample z-scores
       uiOutput(outputId = "download")
     ),
-    #
-    #
-    #
+    ## Main panel
     mainPanel(width = 9,
       tabsetPanel(id = "dataType", selected = 1,
         tabPanel(title = "Single", value = 1,
@@ -89,9 +75,6 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
     )
   ),
   tabPanel(title = "About", value = 2,
-    #div(class = "outer",
-    #    tags$head(includeCSS("styles.css"))
-    #),
     sidebarPanel(width = 3,
       HTML("
         <h4>Contents</h4>

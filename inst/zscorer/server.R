@@ -3,34 +3,22 @@
 # Server function
 #
 ################################################################################
-#
-#
-#
+##
 function(input, output, session) {
   #
   ##############################################################################
-  #
-  # INPUTS
-  #
+  ## INPUTS
   ##############################################################################
-  #
-  # Header text for single child input
-  #
+  ## Header text for single child input
   output$header1 <- renderText({
-    #
-    # If dataType == 1
-    #
+    ## If dataType == 1
     if(input$dataType == 1){
       "Enter child's age, sex and anthropometric measurements"
     }
   })
-  #
-  # Input for sex
-  #
+  ## Input for sex
   output$sex1 <- renderUI({
-    #
-    # If user selects "wfa" or "wfh" and "Single child" options...
-    #
+    ## If user selects "wfa" or "wfh" and "Single child" options...
     if(input$dataType == 1){
       selectInput(inputId = "sex1",
                   label = "Sex",
@@ -38,13 +26,9 @@ function(input, output, session) {
                   selected = "")
     }
   })
-  #
-  # Input for weight
-  #
+  ## Input for weight
   output$weight1 <- renderUI({
-    #
-    # If user selects "wfa" or "wfh" and "Single child" options...
-    #
+    ## If user selects "wfa" or "wfh" and "Single child" options...
     if(input$dataType == 1){
       numericInput(inputId = "weight1",
                    label = "Weight (kg)",
@@ -54,13 +38,9 @@ function(input, output, session) {
                    step = 0.1)
     }
   })
-  #
-  # Input for height
-  #
+  ## Input for height
   output$height1 <- renderUI({
-    #
-    # If user selects "hfa" or "wfh" and "Single child" options...
-    #
+    ## If user selects "hfa" or "wfh" and "Single child" options...
     if(input$dataType == 1){
       numericInput(inputId = "height1",
                    label = "Height (cm)",
@@ -70,13 +50,9 @@ function(input, output, session) {
                    step = 0.1)
     }
   })
-  #
-  # Input for head circumference
-  #
+  ## Input for head circumference
   output$hc1 <- renderUI({
-    #
-    # If user selects "hcfa"
-    #
+    ## If user selects "hcfa"
     if(input$dataType == 1){
       numericInput(inputId = "hc1",
                    label = "Head circumference (cm)",
@@ -86,13 +62,9 @@ function(input, output, session) {
                    step = 0.1)
     }
   })
-  #
-  # Input for arm circumference
-  #
+  ## Input for arm circumference
   output$muac1 <- renderUI({
-    #
-    # If user selects "acfa"
-    #
+    ## If user selects "acfa"
     if(input$dataType == 1){
       numericInput(inputId = "muac1",
                    label = "Mid-upper arm circumference (cm)",
@@ -102,13 +74,9 @@ function(input, output, session) {
                    step = 0.1)
     }
   })
-  #
-  # Input for subscapular skinfold
-  #
+  ## Input for subscapular skinfold
   output$ss1 <- renderUI({
-    #
-    # If user selects "ssfa"
-    #
+    ## If user selects "ssfa"
     if(input$dataType == 1){
       numericInput(inputId = "ss1",
                    label = "Subscapular skinfold (mm)",
@@ -118,13 +86,9 @@ function(input, output, session) {
                    step = 0.1)
     }
   })
-  #
-  # Input for triceps skinfold
-  #
+  ## Input for triceps skinfold
   output$ts1 <- renderUI({
-    #
-    # If user selects "tsfa"
-    #
+    ## If user selects "tsfa"
     if(input$dataType == 1){
       numericInput(inputId = "ts1",
                    label = "Triceps skinfold (cm)",
@@ -134,13 +98,9 @@ function(input, output, session) {
                    step = 0.1)
     }
   })
-  #
-  # Input for age
-  #
+  ## Input for age
   output$age1 <- renderUI({
-    #
-    # If user selects "hfa" or "wfa" and "Single child" options...
-    #
+    ## If user selects "hfa" or "wfa" and "Single child" options...
     if(input$dataType == 1){
       numericInput(inputId = "age1",
                    label = "Age (months)",
@@ -150,25 +110,16 @@ function(input, output, session) {
                    step = 0)
     }
   })
-  #
-  #
-  #
+  ##
   index.list <- reactive({
     index.list <- NULL
     if(!is.null(input$weight1) & input$dataType == 1) { index.list <- c(index.list, "wfa") }
     if(!is.null(input$height1) & input$dataType == 1) { index.list <- c(index.list, "hfa") }
-    #if(!is.null(input$weight2) & input$dataType == 2) { index.list <- c(index.list, "wfa") }
-    #if(!is.null(input$height2) & input$dataType == 2) { index.list <- c(index.list, "hfa") }
     if(input$dataType == 2) { index.list <- c(index.list, "wfh", "wfa", "hfa", "bfa", "hcfa", "acfa", "ssfa", "tsfa") }
-
     if(!is.null(input$weight1) & !is.null(input$height1) & input$dataType == 1) {
       index.list <- c(index.list, "wfh")
     }
-
-    #if(!is.null(input$weight2) & !is.null(input$height2) & input$dataType == 2) {
-    #  index.list <- c(index.list, "wfh")
-    #}
-
+    ##
     full.index.list <- c("wfa", "hfa", "wfh", "bfa", "hcfa", "acfa", "ssfa", "tsfa")
     names(full.index.list) <- c("Weight-for-age",
                                 "Height-for-age",
@@ -178,14 +129,12 @@ function(input, output, session) {
                                 "MUAC-for-age",
                                 "Subscapular skinfold-for-age",
                                 "Triceps skinfold-for-age")
-
+    ##
     sub.index.list <- full.index.list[full.index.list %in% index.list]
-
+    ##
     return(sub.index.list)
   })
-  #
-  # Input for index type
-  #
+  ## Input for index type
   output$index1 <- renderUI({
     selectInput(inputId = "index1",
                 label = "Select anthropometric index",
@@ -194,24 +143,16 @@ function(input, output, session) {
                 size = 8,
                 selectize = FALSE)
   })
-  #
-  #
-  #
+  ##
   output$header2 <- renderText({
-    #
-    # If dataType == 2...
-    #
+    ## If dataType == 2...
     if(input$dataType == 2){
       "Upload anthropometric data from multiple children"
     }
   })
-  #
-  # File input
-  #
+  ## File input
   output$file1 <- renderUI({
-    #
-    # If user selects "Cohort/sample of children" option...
-    #
+    ## If user selects "Cohort/sample of children" option...
     if(input$dataType == 2){
       fileInput(inputId = "file1",
                 label = "Upload children cohort/sample data",
@@ -219,150 +160,98 @@ function(input, output, session) {
                 placeholder = "Select anthro data file")
     }
   })
-  #
-  # Input for sex variable
-  #
+  ## Input for sex variable
   output$sex2 <- renderUI({
-    #
-    # If file1 is present...
-    #
+    ## If file1 is present...
     if(!is.null(input$file1) & input$dataType == 2){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "sex2",
                   label = "Select sex variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("sex", "SEX", "Sex", "Gender", "gender", "GENDER")])
     }
   })
-  #
-  # Input for weight variable
-  #
+  ## Input for weight variable
   output$weight2 <- renderUI({
-    #
-    # If user selects "wfa" or "wfh" and "Cohort/sample data" and file1 is present...
-    #
+    ## If user selects "wfa" or "wfh" and "Cohort/sample data" and file1 is present...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "weight2",
                   label = "Select weight variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("wt", "WT", "Wt", "weight", "Weight", "WEIGHT")])
     }
   })
-  #
-  # Input for height variable
-  #
+  ## Input for height variable
   output$height2 <- renderUI({
-    #
-    # If user selects "hfa" or "wfh" and "Cohort/sample data" and file1 is present...
-    #
+    ## If user selects "hfa" or "wfh" and "Cohort/sample data" and file1 is present...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "height2",
                   label = "Select height variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("ht", "HT", "Ht", "height", "Height", "HEIGHT")])
     }
   })
-  #
-  # Input for age variable
-  #
+  ## Input for age variable
   output$age2 <- renderUI({
-    #
-    # If user selects "hfa" or "wfa" and "Cohort/sample data" and file1 is present...
-    #
+    ## If user selects "hfa" or "wfa" and "Cohort/sample data" and file1 is present...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "age2",
                   label = "Select age variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("age", "AGE")])
     }
   })
-  #
-  # Input for head circumference variable
-  #
+  ## Input for head circumference variable
   output$hc2 <- renderUI({
-    #
-    # If user selects "hcfa" and "Cohort/sample data" and file1 is present...
-    #
+    ## If user selects "hcfa" and "Cohort/sample data" and file1 is present...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "hc2",
                   label = "Select head circumference variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("hc", "headCircumference", "hcircumference", "headCirc", "hcirc")])
     }
   })
-  #
-  # Input for muac variable
-  #
+  ## Input for muac variable
   output$muac2 <- renderUI({
-    #
-    # If user selects "acfa" and "Cohort/sample data" and file1 is present...
-    #
+    ## If user selects "acfa" and "Cohort/sample data" and file1 is present...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "muac2",
                   label = "Select MUAC variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("muac", "MUAC")])
     }
   })
-  #
-  # Input for sub-scapular skinfold variable
-  #
+  ## Input for sub-scapular skinfold variable
   output$ss2 <- renderUI({
-    #
-    # If user selects "ssfa" and "Cohort/sample data" and file1 is present...
-    #
+    ## If user selects "ssfa" and "Cohort/sample data" and file1 is present...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "ss2",
                   label = "Select subscapular skinfold variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("subscapularSkinfold",  "ss")])
     }
   })
-  #
-  # Input for triceps skinfold variable
-  #
+  ## Input for triceps skinfold variable
   output$ts2 <- renderUI({
-    #
-    # If user selects "tsfa" and "Cohort/sample data" and file1 is present...
-    #
+    ## If user selects "tsfa" and "Cohort/sample data" and file1 is present...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Select UI
-      #
+      ## Select UI
       selectInput(inputId = "ts2",
                   label = "Select triceps skinfold variable",
                   choices = names(anthroDF()),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("tricepsSkinfold", "ts")])
     }
   })
-  #
-  # Calculate action button - cohort/sample
-  #
+  ## Calculate action button - cohort/sample
   output$calculate2 <- renderUI({
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      #
-      #
+      ##
       div(style="display:inline-block; float:left;",
         actionButton(inputId = "calculate2",
                      label = "Calculate",
@@ -372,14 +261,10 @@ function(input, output, session) {
       )
     }
   })
-  #
-  # Calculate action button - cohort/sample - download
-  #
+  ## Calculate action button - cohort/sample - download
   output$download <- renderUI({
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      #
-      #
+      ##
       div(style="display:inline-block; float:right",
         downloadButton(outputId = "downloadResults",
                        label = "Download",
@@ -388,14 +273,10 @@ function(input, output, session) {
       )
     }
   })
-  #
-  # Calculate action button - single child
-  #
+  ## Calculate action button - single child
   output$calculate1 <- renderUI({
     if(input$dataType == 1){
-      #
-      #
-      #
+      ##
       actionButton(inputId = "calculate1",
                    label = "Calculate",
                    class = "btn-primary",
@@ -407,17 +288,11 @@ function(input, output, session) {
   # OUTPUTS
   #
   ##############################################################################
-  #
-  # Read file1 data
-  #
+  ## Read file1 data
   anthroDF <- reactive({
-    #
-    # If user selects "Cohort/sample children"...
-    #
+    ## If user selects "Cohort/sample children"...
     if(input$dataType == 2 & !is.null(input$file1)){
-      #
-      # Read anthro data
-      #
+      ## Read anthro data
       read.csv(input$file1$datapath, header = TRUE, sep = ",")
     }
   })
@@ -426,43 +301,27 @@ function(input, output, session) {
   # CALCULATIONS
   #
   ##############################################################################
-  #
-  #
-  #
+  ##
   observeEvent(input$calculate1, {
-    #
-    # For single calculations
-    #
+    ## For single calculations
     if(input$dataType == 1) {
-      #
-      #
-      #
+      ##
       req(input$weight1, input$age1, input$height1)
       zScore <- getAllWGS(sex = as.numeric(input$sex1), weight = input$weight1,
         height = input$height1, age = input$age1, index = "all")
-      #
-      #
-      #
+      ##
       output$waz <- renderText({ zScore[ , "waz"] })
       output$haz <- renderText({ zScore[ , "haz"] })
       output$whz <- renderText({ zScore[ , "whz"] })
     }
   })
-  #
-  #
-  #
+  ##
   observeEvent(input$calculate2, {
-    #
-    #
-    #
+    ##
     zScoreDF <- anthroDF()
-    #
-    # for cohort calculations
-    #
+    ## for cohort calculations
     if(input$dataType == 2) {
-      #
-      # BMI-for-age
-      #
+      ## BMI-for-age
       if("bfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -472,9 +331,7 @@ function(input, output, session) {
                             index = "bfa",
                             output = "bfa")
       }
-      #
-      #
-      #
+      ##
       if("wfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -483,9 +340,7 @@ function(input, output, session) {
                             index = "wfa",
                             output = "wfa")
       }
-      #
-      #
-      #
+      ##
       if("hfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -494,9 +349,7 @@ function(input, output, session) {
                             index = "hfa",
                             output = "hfa")
       }
-      #
-      #
-      #
+      ##
       if("hcfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -505,9 +358,7 @@ function(input, output, session) {
                             index = "hfa",
                             output = "hfa")
       }
-      #
-      #
-      #
+      ##
       if("acfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -516,9 +367,7 @@ function(input, output, session) {
                             index = "mfa",
                             output = "mfa")
       }
-      #
-      #
-      #
+      ##
       if("ssfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -527,9 +376,7 @@ function(input, output, session) {
                             index = "ssfa",
                             output = "ssfa")
       }
-      #
-      #
-      #
+      ##
       if("tsfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -538,9 +385,7 @@ function(input, output, session) {
                             index = "tsfa",
                             output = "tsfa")
       }
-      #
-      #
-      #
+      ##
       if("wfh" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
                             sex = input$sex2,
@@ -549,15 +394,11 @@ function(input, output, session) {
                             index = "wfh",
                             output = "wfh")
       }
-      #
-      #
-      #
+      ##
       output$zScoreTable <- DT::renderDataTable(zScoreDF,
         options = list(pageLength = 15))
     }
-    #
-    #
-    #
+    ##
     output$downloadResults <- downloadHandler(
       filename <- function() {
         "zscoreResults.csv"

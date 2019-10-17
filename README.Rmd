@@ -378,7 +378,7 @@ for all children in the cohort or sample for all the anthropometric indices.
 
 To use the included Shiny app, run the following command in R:
 
-```{r, echo = FALSE, eval = FALSE}
+```{r, echo = TRUE, eval = FALSE}
 run_zscorer()
 ```
 

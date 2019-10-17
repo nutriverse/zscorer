@@ -510,6 +510,10 @@ the anthropometric indices.
 
 To use the included Shiny app, run the following command in R:
 
+``` r
+run_zscorer()
+```
+
 This will initiate the Shiny app using the installed web browser in your
 current device as shown below:
 

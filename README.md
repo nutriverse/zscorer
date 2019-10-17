@@ -506,6 +506,19 @@ Applying the `getAllWGS()` function results in a data frame of
 calculated `z-scores` for all children in the cohort or sample for all
 the anthropometric indices.
 
+## Shiny app
+
+To use the included Shiny app, run the following command in R:
+
+``` r
+run_zscorer()
+```
+
+This will initiate the Shiny app using the installed web browser in your
+current device as shown below:
+
+![](man/figures/zscorerApp.png)<!-- -->
+
 ## References
 
 1.  World Health Organization (WHO). (2006). WHO Child Growth Standards:

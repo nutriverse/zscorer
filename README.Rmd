@@ -374,6 +374,20 @@ head(zScores, 20)
 Applying the `getAllWGS()` function results in a data frame of calculated `z-scores`
 for all children in the cohort or sample for all the anthropometric indices.
 
+## Shiny app
+
+To use the included Shiny app, run the following command in R:
+
+```{r, echo = TRUE, eval = FALSE}
+run_zscorer()
+```
+
+This will initiate the Shiny app using the installed web browser in your current device as shown below:
+
+```{r, echo = FALSE, eval = TRUE}
+knitr::include_graphics("man/figures/zscorerApp.png")
+```
+
 ## References
 
 [^1]: World Health Organization (WHO). (2006). WHO Child Growth Standards: Length/height-for-age, weight-for-age, weight-for-length, weight-for-height and body mass index-for-age: Methods and development. [https://doi.org/10.1037/e569412006-008](https://doi.org/10.1037/e569412006-008)

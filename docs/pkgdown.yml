@@ -5,6 +5,7 @@ articles:
   anthropometry: anthropometry.html
   calculate_zscore: calculate_zscore.html
   legacy_functions: legacy_functions.html
+  using-shiny-app: using-shiny-app.html
 urls:
   reference: https://nutriverse.io/zscorer/reference
   article: https://nutriverse.io/zscorer/articles

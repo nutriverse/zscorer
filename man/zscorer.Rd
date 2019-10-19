@@ -4,8 +4,11 @@
 \name{zscorer}
 \alias{zscorer}
 \alias{zscorer-package}
-\title{Tool for calculating z-scores for WHZ, HAZ, WAZ using the WHO Growth
-Reference (2006) using data and methods from:}
+\title{Tool for calculating z-scores for weight-for-age, height-for-age,
+weight-for-height, BMI-for-age, head circumference-for-age,
+arm circumference-for-age, subscapular skinfold-for-age and
+triceps skinfold-for-age z-score using the WHO Growth
+Reference (2006)}
 \description{
 A tool for calculating z-scores and centiles for weight-for-age, 
     length/height-for-age, weight-for-length/height, BMI-for-age, 

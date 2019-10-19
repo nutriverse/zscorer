@@ -1,8 +1,11 @@
 ################################################################################
 #
 #'
-#' Tool for calculating z-scores for WHZ, HAZ, WAZ using the WHO Growth
-#' Reference (2006) using data and methods from:
+#' Tool for calculating z-scores for weight-for-age, height-for-age,
+#' weight-for-height, BMI-for-age, head circumference-for-age,
+#' arm circumference-for-age, subscapular skinfold-for-age and
+#' triceps skinfold-for-age z-score using the WHO Growth
+#' Reference (2006)
 #'
 #' @references World Health Organization. WHO Child Growth Standards: Length/Height-for-age,
 #' Weight-for-age, Weight-for-length, Weight-for-height, and Body Mass Index-for age:

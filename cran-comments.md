@@ -1,11 +1,13 @@
 ## Release summary
-Fourth release of `zscorer`. In this release:
+Fourth release of `zscorer`. This is a re-submission to address issues noted by CRAN. In this release:
+
+* fixed an issue with wrong URLs in README documentation.
 
 * fixed an issue when calculating BMI-for-age where measurements are 0 resulting in error rather than providing an NA value. Now, when values for measurements are 0, the zscore produced is NA.
 
 * updated MUAC for age to allow for calculation for children up to 19 years old based on article by Jay Berkeley and colleagues.
 
-* updated Shiny app
+* updated Shiny app and added a vignette showing how to use the Shiny app
 
 * updated documentation to reflect editions and additions
 

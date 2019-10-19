@@ -13,106 +13,114 @@ navbarPage(title = "zscorer", id = "chosenTab", theme = shinytheme("sandstone"),
     div(class = "outer",
         tags$head(includeCSS("styles.css"))
     ),
-    sidebarPanel(width = 3,
-      h5(textOutput("header1")),
-      ## Age input
-      uiOutput(outputId = "age1"),
-      ## sex input
-      uiOutput(outputId = "sex1"),
-      ## Weight input
-      uiOutput(outputId = "weight1"),
-      ## Height input
-      uiOutput(outputId = "height1"),
-      ## MUAC input
-      uiOutput(outputId = "muac1"),
-      ## Head circumference input
-      uiOutput(outputId = "hc1"),
-      ## Subscapular skinfold input
-      uiOutput(outputId = "ss1"),
-      ## Triceps skinfold
-      uiOutput(outputId = "ts1"),
-      ## Anthropometric index input
-      conditionalPanel("input.dataType == 2",
-        uiOutput(outputId = "index1")
+    sidebarLayout(
+      sidebarPanel(width = 3,
+        h5(textOutput("header1")),
+        ## Age input
+        uiOutput(outputId = "age1"),
+        ## sex input
+        uiOutput(outputId = "sex1"),
+        ## Weight input
+        uiOutput(outputId = "weight1"),
+        ## Height input
+        uiOutput(outputId = "height1"),
+        ## MUAC input
+        uiOutput(outputId = "muac1"),
+        ## Head circumference input
+        uiOutput(outputId = "hc1"),
+        ## Subscapular skinfold input
+        uiOutput(outputId = "ss1"),
+        ## Triceps skinfold
+        uiOutput(outputId = "ts1"),
+        ## Header 2 - input file with anthropometric data (dataType == 2)
+        h5(textOutput("header2")),
+        ## File input - anthro data
+        uiOutput(outputId = "file1"),
+        ## Anthropometric index input
+        uiOutput(outputId = "index1"),
+        ## Sex variable for cohort/sample
+        uiOutput(outputId = "sex2"),
+        ## Age variable for cohort/sample
+        uiOutput(outputId = "age2"),
+        ## Weight variable for cohort/sample
+        uiOutput(outputId = "weight2"),
+        ## Height variable for cohort/sample
+        uiOutput(outputId = "height2"),
+        ## mauc variable for cohort/sample
+        uiOutput(outputId = "muac2"),
+        ## head circumference variable for cohort/sample
+        uiOutput(outputId = "hc2"),
+        ## subscapular skinfold variable for cohort/sample
+        uiOutput(outputId = "ss2"),
+        ## Age variable for cohort/sample
+        uiOutput(outputId = "ts2"),
+        ## Action button to calculate single child z-scores
+        uiOutput(outputId = "calculate1"),
+        ## Action button to calculate cohort/sample z-scores
+        uiOutput(outputId = "calculate2"),
+        ## Action button to download cohort/sample z-scores
+        uiOutput(outputId = "download")
       ),
-      ## Header 2 - input file with anthropometric data (dataType == 2)
-      h5(textOutput("header2")),
-      ## File input - anthro data
-      uiOutput(outputId = "file1"),
-      ## Sex variable for cohort/sample
-      uiOutput(outputId = "sex2"),
-      ## Weight variable for cohort/sample
-      uiOutput(outputId = "weight2"),
-      ## Height variable for cohort/sample
-      uiOutput(outputId = "height2"),
-      ## Age variable for cohort/sample
-      uiOutput(outputId = "age2"),
-      ## Action button to calculate single child z-scores
-      uiOutput(outputId = "calculate1"),
-      ## Action button to calculate cohort/sample z-scores
-      uiOutput(outputId = "calculate2"),
-      ## Action button to download cohort/sample z-scores
-      uiOutput(outputId = "download")
-    ),
-    ## Main panel
-    mainPanel(width = 9,
-      tabsetPanel(id = "dataType", selected = 1,
-        tabPanel(title = "Single", value = 1,
-          conditionalPanel("input.calculate1",
-            column(width = 3,
-              wellPanel(h5("Weight-for-age z-score"),
-                hr(),
-                uiOutput(outputId = "waz")
-              )
-            ),
-            column(width = 3,
-              wellPanel(h5("Height-for-age z-score"),
-                hr(),
-                uiOutput(outputId = "haz")
-              )
-            ),
-            column(width = 3,
-              wellPanel(h5("Weight-for-height z-score"),
-                hr(),
-                uiOutput(outputId = "whz")
+      ## Main panel
+      mainPanel(width = 9,
+        tabsetPanel(id = "dataType", selected = 1,
+          tabPanel(title = "Single", value = 1,
+            conditionalPanel("input.calculate1",
+              column(width = 3,
+                wellPanel(h5("Weight-for-age z-score"),
+                  hr(),
+                  uiOutput(outputId = "waz")
                 )
-            ),
-            column(width = 3,
-              wellPanel(h5("BMI-for-age z-score"),
-                hr(),
-                uiOutput(outputId = "bfaz")
-              )
-            ),
-            column(width = 3,
-              wellPanel(h5("MUAC-for-age z-score"),
-                hr(),
-                uiOutput(outputId = "mfaz")
-              )
-            ),
-            column(width = 3,
-              wellPanel(h5("Head circumference-for-age z-score"),
-                hr(),
-                uiOutput(outputId = "hcz")
-              )
-            ),
-            column(width = 3,
-              wellPanel(h5("Subscapular skinfold-for-age z-score"),
-                hr(),
-                uiOutput(outputId = "ssaz")
-              )
-            ),
-            column(width = 3,
-              wellPanel(h5("Triceps skinfold-for-age z-score"),
-                hr(),
-                uiOutput(outputId = "tsaz")
+              ),
+              column(width = 3,
+                wellPanel(h5("Height-for-age z-score"),
+                  hr(),
+                  uiOutput(outputId = "haz")
+                )
+              ),
+              column(width = 3,
+                wellPanel(h5("Weight-for-height z-score"),
+                  hr(),
+                  uiOutput(outputId = "whz")
+                  )
+              ),
+              column(width = 3,
+                wellPanel(h5("BMI-for-age z-score"),
+                  hr(),
+                  uiOutput(outputId = "bfaz")
+                )
+              ),
+              column(width = 3,
+                wellPanel(h5("MUAC-for-age z-score"),
+                  hr(),
+                  uiOutput(outputId = "mfaz")
+                )
+              ),
+              column(width = 3,
+                wellPanel(h5("Head circumference-for-age z-score"),
+                  hr(),
+                  uiOutput(outputId = "hcz")
+                )
+              ),
+              column(width = 3,
+                wellPanel(h5("Subscapular skinfold-for-age z-score"),
+                  hr(),
+                  uiOutput(outputId = "ssaz")
+                )
+              ),
+              column(width = 3,
+                wellPanel(h5("Triceps skinfold-for-age z-score"),
+                  hr(),
+                  uiOutput(outputId = "tsaz")
+                )
               )
             )
-          )
-        ),
-        tabPanel(title = "Cohort", value = 2,
-          conditionalPanel("input.calculate2",
-            ## z-scores table
-            DT::dataTableOutput("zScoreTable")
+          ),
+          tabPanel(title = "Cohort", value = 2,
+            conditionalPanel("input.calculate2",
+              ## z-scores table
+              DT::dataTableOutput("zScoreTable")
+            )
           )
         )
       )

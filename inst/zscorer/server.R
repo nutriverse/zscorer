@@ -136,12 +136,14 @@ function(input, output, session) {
   })
   ## Input for index type
   output$index1 <- renderUI({
-    selectInput(inputId = "index1",
-                label = "Select anthropometric index",
-                choices = index.list(),
-                multiple = TRUE,
-                size = 8,
-                selectize = FALSE)
+    if(input$dataType == 2) {
+      selectInput(inputId = "index1",
+                  label = "Select anthropometric index",
+                  choices = index.list(),
+                  multiple = TRUE,
+                  size = 8,
+                  selectize = FALSE)
+    }
   })
   ##
   output$header2 <- renderText({
@@ -167,7 +169,7 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "sex2",
                   label = "Select sex variable",
-                  choices = names(anthroDF()),
+                  choices = c(" ", names(anthroDF())),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("sex", "SEX", "Sex", "Gender", "gender", "GENDER")])
     }
   })
@@ -178,7 +180,7 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "weight2",
                   label = "Select weight variable",
-                  choices = names(anthroDF()),
+                  choices = c(" ", names(anthroDF())),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("wt", "WT", "Wt", "weight", "Weight", "WEIGHT")])
     }
   })
@@ -189,7 +191,7 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "height2",
                   label = "Select height variable",
-                  choices = names(anthroDF()),
+                  choices = c(" ", names(anthroDF())),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("ht", "HT", "Ht", "height", "Height", "HEIGHT")])
     }
   })
@@ -200,7 +202,7 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "age2",
                   label = "Select age variable",
-                  choices = names(anthroDF()),
+                  choices = c(" ", names(anthroDF())),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("age", "AGE")])
     }
   })
@@ -211,7 +213,7 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "hc2",
                   label = "Select head circumference variable",
-                  choices = names(anthroDF()),
+                  choices = c(" ", names(anthroDF())),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("hc", "headCircumference", "hcircumference", "headCirc", "hcirc")])
     }
   })
@@ -222,7 +224,7 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "muac2",
                   label = "Select MUAC variable",
-                  choices = names(anthroDF()),
+                  choices = c(" ", names(anthroDF())),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("muac", "MUAC")])
     }
   })
@@ -233,8 +235,9 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "ss2",
                   label = "Select subscapular skinfold variable",
-                  choices = names(anthroDF()),
-                  selected = names(anthroDF())[names(anthroDF()) %in% c("subscapularSkinfold",  "ss")])
+                  choices = c(" ", names(anthroDF())),
+                  selected = names(anthroDF())[names(anthroDF()) %in% c("subscapularSkinfold", "ss")]
+      )
     }
   })
   ## Input for triceps skinfold variable
@@ -244,7 +247,7 @@ function(input, output, session) {
       ## Select UI
       selectInput(inputId = "ts2",
                   label = "Select triceps skinfold variable",
-                  choices = names(anthroDF()),
+                  choices = c(" ", names(anthroDF())),
                   selected = names(anthroDF())[names(anthroDF()) %in% c("tricepsSkinfold", "ts")])
     }
   })
@@ -362,15 +365,17 @@ function(input, output, session) {
 
       ssaz <- getWGSR(sex = input$sex1, firstPart = input$ts1, secondPart = age, index = "tsa")
 
-      output$ssaz <- renderText({ tsaz })
+      output$tsaz <- renderText({ tsaz })
     }
   })
   ##
   observeEvent(input$calculate2, {
     ##
     zScoreDF <- anthroDF()
+    ## convert age into days
+    zScoreDF[[input$age2]] <- zScoreDF[[input$age2]] * (365.25 / 12)
     ## for cohort calculations
-    if(input$dataType == 2) {
+    ##if(input$dataType == 2) {
       ## BMI-for-age
       if("bfa" %in% input$index1) {
         zScoreDF <- addWGSR(data = zScoreDF,
@@ -405,8 +410,8 @@ function(input, output, session) {
                             sex = input$sex2,
                             firstPart = input$hc2,
                             secondPart = input$age2,
-                            index = "hfa",
-                            output = "hfa")
+                            index = "hca",
+                            output = "hca")
       }
       ##
       if("acfa" %in% input$index1) {
@@ -423,8 +428,8 @@ function(input, output, session) {
                             sex = input$sex2,
                             firstPart = input$ss2,
                             secondPart = input$age2,
-                            index = "ssfa",
-                            output = "ssfa")
+                            index = "ssa",
+                            output = "ssa")
       }
       ##
       if("tsfa" %in% input$index1) {
@@ -432,8 +437,8 @@ function(input, output, session) {
                             sex = input$sex2,
                             firstPart = input$ts2,
                             secondPart = input$age2,
-                            index = "tsfa",
-                            output = "tsfa")
+                            index = "tsa",
+                            output = "tsa")
       }
       ##
       if("wfh" %in% input$index1) {
@@ -447,7 +452,7 @@ function(input, output, session) {
       ##
       output$zScoreTable <- DT::renderDataTable(zScoreDF,
         options = list(pageLength = 15))
-    }
+    #}
     ##
     output$downloadResults <- downloadHandler(
       filename <- function() {

@@ -10,6 +10,8 @@ arm circumference-for-age, subscapular skinfold-for-age and
 triceps skinfold-for-age z-score using the WHO Growth
 Reference (2006)}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 A tool for calculating z-scores and centiles for weight-for-age, 
     length/height-for-age, weight-for-length/height, BMI-for-age, 
     head circumference-for-age, age circumference-for-age, 
@@ -17,25 +19,26 @@ A tool for calculating z-scores and centiles for weight-for-age,
     WHO Child Growth Standards.
 }
 \references{
-World Health Organization. WHO Child Growth Standards: Length/Height-for-age,
-Weight-for-age, Weight-for-length, Weight-for-height, and Body Mass Index-for age:
-Methods and Development. 1st ed. World Health Organization; 2006.
-ISBN ISBN 92 4 154693 X
+World Health Organization. WHO Child Growth Standards:
+Length/Height-for-age, Weight-for-age, Weight-for-length, Weight-for-height,
+and Body Mass Index-for age: Methods and Development. 1st ed. World Health
+Organization; 2006. ISBN ISBN 92 4 154693 X
 }
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://nutriverse/zscorer/}
   \item \url{https://github.com/nutriverse/zscorer}
   \item Report bugs at \url{https://github.com/nutriverse/zscorer/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Ernest Guevarra \email{ernestgmd@gmail.com} (0000-0002-4887-4415)
+\strong{Maintainer}: Ernest Guevarra \email{ernestgmd@gmail.com} (\href{https://orcid.org/0000-0002-4887-4415}{ORCID})
 
 Authors:
 \itemize{
-  \item Mark Myatt \email{mark@brixtonhealth.com} (0000-0003-1119-1474) [copyright holder]
+  \item Mark Myatt \email{mark@brixtonhealth.com} (\href{https://orcid.org/0000-0003-1119-1474}{ORCID}) [copyright holder]
 }
 
 }

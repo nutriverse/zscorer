@@ -16,3 +16,4 @@
 ^codecov\.yml$
 ^revdep$
 ^CRAN-RELEASE$
+^inst/rsconnect$

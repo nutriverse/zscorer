@@ -5,8 +5,7 @@
 \title{Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a cohort or sample of children.}
 \usage{
-getCohortWGS(data, FUN = getWGS, sexObserved, firstPart, secondPart,
-  index)
+getCohortWGS(data, FUN = getWGS, sexObserved, firstPart, secondPart, index)
 }
 \arguments{
 \item{data}{Data frame containing the variables needed for calculation}

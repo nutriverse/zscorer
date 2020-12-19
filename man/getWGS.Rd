@@ -54,7 +54,7 @@ continue to work.
 }
 
 \examples{
-  # apply \\code{getWGS()} to a make believe 52 month old male child with weight of
+  # apply \code{getWGS()} to a make believe 52 month old male child with weight of
   # 14.6 kg and height of 98.0 cm
   waz <- getWGS(sexObserved = 1,     # 1 = Male / 2 = Female
                 firstPart = 14.6,    # Weight in kilograms

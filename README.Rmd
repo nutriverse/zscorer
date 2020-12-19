@@ -15,16 +15,20 @@ knitr::opts_chunk$set(
 
 # zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/zscorer.png" width="200" align="right" />
 
+<!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/zscorer)](https://cran.r-project.org/package=zscorer)
 [![CRAN](https://img.shields.io/cran/l/zscorer.svg)](https://CRAN.R-project.org/package=zscorer)
 [![CRAN](http://cranlogs.r-pkg.org/badges/zscorer)](https://CRAN.R-project.org/package=zscorer)
 [![CRAN](http://cranlogs.r-pkg.org/badges/grand-total/zscorer)](https://CRAN.R-project.org/package=zscorer)
-[![Travis-CI Build Status](https://travis-ci.org/nutriverse/zscorer.svg?branch=master)](https://travis-ci.org/nutriverse/zscorer)
+[![R-CMD-check](https://github.com/nutriverse/zscorer/workflows/R-CMD-check/badge.svg)](https://github.com/nutriverse/zscorer/actions)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&svg=true)](https://ci.appveyor.com/project/nutriverse/zscorer)
+[![test-coverage](https://github.com/nutriverse/zscorer/workflows/test-coverage/badge.svg)](https://github.com/nutriverse/zscorer/actions)
 [![codecov](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer)
 [![DOI](https://zenodo.org/badge/119683584.svg)](https://zenodo.org/badge/latestdoi/119683584)
+[![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
+<!-- badges: end -->
 
 `zscorer` facilitates the calculation of a range of anthropometric `z-scores` (i.e. the number of standard
 deviations from the mean) and adds them to survey data:
@@ -398,4 +402,8 @@ knitr::include_graphics("man/figures/zscorerApp.png")
 
 [^4]: Mramba L, Ngari M, Mwangome M, Muchai L, Bauni E, Walker AS, et al. A growth reference for mid upper arm circumference for age among school age children and adolescents, and validation for mortality: growth curve construction and longitudinal cohort study. BMJ. 2017;: j3423–8. [doi:10.1136/bmj.j3423](https://doi.org/10.1136/bmj.j3423)
 
+## Community guidelines
 
+Feedback, bug reports and feature requests are welcome; file issues or seek support [here](https://github.com/nutriverse/zscorer/issues). If you would like to contribute to the package, please see our [contributing guidelines](https://nutriverse.io/zscorer/CONTRIBUTING.html).
+
+This project is released with a [Contributor Code of Conduct](https://nutriverse/zscorer/CODE_OF_CONDUCT.html). By participating in this project you agree to abide by its terms.

@@ -401,4 +401,8 @@ knitr::include_graphics("man/figures/zscorerApp.png")
 
 [^4]: Mramba L, Ngari M, Mwangome M, Muchai L, Bauni E, Walker AS, et al. A growth reference for mid upper arm circumference for age among school age children and adolescents, and validation for mortality: growth curve construction and longitudinal cohort study. BMJ. 2017;: j3423–8. [doi:10.1136/bmj.j3423](https://doi.org/10.1136/bmj.j3423)
 
+## Community guidelines
 
+Feedback, bug reports and feature requests are welcome; file issues or seek support [here](https://github.com/nutriverse/zscorer/issues). If you would like to contribute to the package, please see our [contributing guidelines](https://nutriverse.io/zscorer/CONTRIBUTING.html).
+
+This project is released with a [Contributor Code of Conduct](https://nutriverse/zscorer/CODE_OF_CONDUCT.html). By participating in this project you agree to abide by its terms.

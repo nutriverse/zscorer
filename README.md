@@ -518,6 +518,18 @@ current device as shown below:
 
 ## References
 
+## Community guidelines
+
+Feedback, bug reports and feature requests are welcome; file issues or
+seek support [here](https://github.com/nutriverse/zscorer/issues). If
+you would like to contribute to the package, please see our
+[contributing
+guidelines](https://nutriverse.io/zscorer/CONTRIBUTING.html).
+
+This project is released with a [Contributor Code of
+Conduct](https://nutriverse/zscorer/CODE_OF_CONDUCT.html). By
+participating in this project you agree to abide by its terms.
+
 1.  World Health Organization. (2006). WHO child growth standards :
     length/height-for-age, weight-for-age, weight-for-length, weight
     -for-height and body mass index-for-age : methods and development.

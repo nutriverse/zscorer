@@ -9,8 +9,8 @@
 #' for a given anthropometric measurement.
 #'
 #' [addWGSR()] adds the WHO Growth Reference z-scores to a data frame of
-#' anthropometric datafor weight, height or length, MUAC, head circumference,
-#' sub-scapular skinfold and triceps skinfold.
+#' anthropometric data for weight, height or length, MUAC, head circumference,
+#' sub-scapular skinfold, triceps skinfold, and body mass index (BMI).
 #'
 #' @param data A survey dataset as a data.frame object
 #' @param sex Name of variable specifying the sex of the subject. This must be

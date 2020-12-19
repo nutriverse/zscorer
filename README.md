@@ -3,6 +3,8 @@
 
 # zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/zscorer.png" width="200" align="right" />
 
+<!-- badges: start -->
+
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
@@ -17,6 +19,8 @@ Status](https://travis-ci.org/nutriverse/zscorer.svg?branch=master)](https://tra
 Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&svg=true)](https://ci.appveyor.com/project/nutriverse/zscorer)
 [![codecov](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer)
 [![DOI](https://zenodo.org/badge/119683584.svg)](https://zenodo.org/badge/latestdoi/119683584)
+[![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
+<!-- badges: end -->
 
 `zscorer` facilitates the calculation of a range of anthropometric
 `z-scores` (i.e. the number of standard deviations from the mean) and
@@ -57,7 +61,7 @@ The `z-scores` are calculated using the **WHO Child Growth Standards**
 Growth References** \[3\] for school-aged children and adolescents.
 MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months
 are calculated using the MUAC-for-age growth reference developed by
-Mramba et al. (2017) \[4\] using data from the USA and Africa. This
+Mramba et al. (2017) \[4\] using data from the USA and Africa. This
 reference has been validated with African school-age children and
 adolescents. The `zscorer` comes packaged with the WHO Growth References
 data and the MUAC-for-age reference data.
@@ -120,7 +124,7 @@ z-scores to the example data:
 ``` r
 svy <- addWGSR(data = anthro3, sex = "sex", firstPart = "weight",
                secondPart = "height", index = "wfh")
-#> ===========================================================================
+#> ================================================================================
 ```
 
 A new column named **wfhz** has been added to the dataset:
@@ -152,8 +156,7 @@ follows:
 The **standing** parameter specifies how “stature” (i.e. length or
 height) was measured. If this is not specified, and in some special
 circumstances, height and age rules will be applied when calculating
-z-scores. These rules are described in the table
-below.
+z-scores. These rules are described in the table below.
 
  
 
@@ -179,8 +182,7 @@ below.
 The `addWGSR()` function will not produce error messages unless there is
 something very wrong with the data or the specified parameters. If an
 error is encountered in a record then the value **NA** is returned.
-Error conditions are listed in the table
-below.
+Error conditions are listed in the table below.
 
  
 
@@ -233,7 +235,7 @@ weight-for-age z-scores to the example data:
 ``` r
 svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
                secondPart = "age", index = "wfa")
-#> ===========================================================================
+#> ================================================================================
 ```
 
 will give incorrect results:
@@ -266,7 +268,7 @@ before calculating and adding weight-for-age z-scores:
 ``` r
 svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
                secondPart = "age", index = "wfa")
-#> ===========================================================================
+#> ================================================================================
 head(svy)
 #>   psu      age sex weight height muac oedema  wfhz  wfaz
 #> 1   1 304.3750   1    5.7   64.2  125      2 -2.73 -4.13
@@ -300,7 +302,7 @@ before using the `addWGS()` function to calculate MUAC-for-age z-scores:
 ``` r
 svy <- addWGSR(svy, sex = "sex", firstPart = "muac",    
                secondPart = "age", index = "mfa")
-#> ===========================================================================
+#> ================================================================================
 head(svy)
 #>   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz
 #> 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97
@@ -319,7 +321,7 @@ bmiAgeZ with a precision of 4 decimal places as:
 svy <- addWGSR(data = svy, sex = "sex", firstPart = "weight", 
                secondPart = "height", thirdPart = "age", index = "bfa", 
                output = "bmiAgeZ", digits = 4)
-#> ===========================================================================
+#> ================================================================================
 head(svy)
 #>   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz bmiAgeZ
 #> 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97 -2.6928
@@ -336,8 +338,7 @@ To maintain support for earlier versions of the package, the earlier
 functions used to calculate anthropometric z-scores for
 `weight-for-age`, `height-for-age` and `weight-for-height` have been
 kept for now until future deprecation. For current users, it is
-recommended to use `addWGSR()` and `getWGSR()`
-functions.
+recommended to use `addWGSR()` and `getWGSR()` functions.
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 
@@ -375,8 +376,7 @@ whz
 ```
 
 Applying the `getWGS()` function results in a calculated `z-score` for
-one
-child.
+one child.
 
 ### Calculating z-score for each of the three anthropometric indices for a cohort or sample of children
 
@@ -414,16 +414,15 @@ waz <- getCohortWGS(data = anthro1,
                     secondPart = "age",
                     index = "wfa")
 head(waz, 50)
-#>  [1] -0.75605549 -1.39021503 -1.05597853  1.41575096 -2.67757242
-#>  [6]  1.49238050 -0.12987704 -0.02348159 -1.50647344 -1.54381630
-#> [11] -2.87495712 -0.43497240 -1.03899540 -1.69281855 -1.31245898
-#> [16] -2.21003260 -0.01189226 -0.90917762 -0.67839855 -0.94746695
-#> [21] -2.49960425 -0.95659644 -1.65442686 -1.25052760  0.67335751
-#> [26]  0.30156301  0.24261346 -2.78670709 -1.15820651 -1.15477183
-#> [31] -1.35540820 -0.59134959 -4.14967218 -0.45748752 -0.74331669
-#> [36] -1.69725836 -1.05745067 -0.18869508 -0.42095770 -2.21030414
-#> [41] -1.30536715 -3.63778143 -0.60662526 -0.54360470 -1.59171780
-#> [46] -1.74745738 -0.34803338  0.69896149 -0.74467130  0.18924572
+#>  [1] -0.75605549 -1.39021503 -1.05597853  1.41575096 -2.67757242  1.49238050
+#>  [7] -0.12987704 -0.02348159 -1.50647344 -1.54381630 -2.87495712 -0.43497240
+#> [13] -1.03899540 -1.69281855 -1.31245898 -2.21003260 -0.01189226 -0.90917762
+#> [19] -0.67839855 -0.94746695 -2.49960425 -0.95659644 -1.65442686 -1.25052760
+#> [25]  0.67335751  0.30156301  0.24261346 -2.78670709 -1.15820651 -1.15477183
+#> [31] -1.35540820 -0.59134959 -4.14967218 -0.45748752 -0.74331669 -1.69725836
+#> [37] -1.05745067 -0.18869508 -0.42095770 -2.21030414 -1.30536715 -3.63778143
+#> [43] -0.60662526 -0.54360470 -1.59171780 -1.74745738 -0.34803338  0.69896149
+#> [49] -0.74467130  0.18924572
 
 # height-for-age z-score
 haz <- getCohortWGS(data = anthro1,
@@ -449,21 +448,19 @@ whz <- getCohortWGS(data = anthro1,
                     secondPart = "height",
                     index = "wfh")
 head(whz, 50)
-#>  [1]  0.05572347 -0.01974903  0.57469112  2.06231749 -0.14080044
-#>  [6]  2.49047246  1.83315197  0.93614891  0.18541943  2.11599287
-#> [11] -1.96943887  1.06351047  0.35315830 -0.61151003 -0.01049441
-#> [16] -0.75038993 -0.08000322  0.31277573  1.56456175  0.22152087
-#> [21] -0.08798757 -2.14197877 -0.30804823  0.00778227  3.21041413
-#> [26]  0.07434468  1.40966986 -0.81485050  0.63816647 -0.33540392
-#> [31] -0.61955533  1.35716952 -2.77364671  1.00831095  0.32842063
-#> [36] -1.66705281 -1.21157702  0.89024472 -0.89865037  0.82166393
-#> [41]  0.64442137 -4.39847850  0.38411140  1.48299847 -0.93068495
-#> [46] -0.88558228  1.69551410  0.65143649  0.61269397  0.59813891
+#>  [1]  0.05572347 -0.01974903  0.57469112  2.06231749 -0.14080044  2.49047246
+#>  [7]  1.83315197  0.93614891  0.18541943  2.11599287 -1.96943887  1.06351047
+#> [13]  0.35315830 -0.61151003 -0.01049441 -0.75038993 -0.08000322  0.31277573
+#> [19]  1.56456175  0.22152087 -0.08798757 -2.14197877 -0.30804823  0.00778227
+#> [25]  3.21041413  0.07434468  1.40966986 -0.81485050  0.63816647 -0.33540392
+#> [31] -0.61955533  1.35716952 -2.77364671  1.00831095  0.32842063 -1.66705281
+#> [37] -1.21157702  0.89024472 -0.89865037  0.82166393  0.64442137 -4.39847850
+#> [43]  0.38411140  1.48299847 -0.93068495 -0.88558228  1.69551410  0.65143649
+#> [49]  0.61269397  0.59813891
 ```
 
 Applying the `getCohortWGS()` function results in a vector of calculated
-`z-scores` for all children in the cohort or
-sample.
+`z-scores` for all children in the cohort or sample.
 
 ### Calculating z-scores for all of the three anthropometric indices in one function
 

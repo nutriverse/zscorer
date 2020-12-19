@@ -116,6 +116,8 @@
 getWGSR <- function(sex,
                     firstPart, secondPart, thirdPart = NA,
                     index = NA, standing = NA) {
+  ## Get WGS reference data
+  wgsrData <- referenceData[["wgs"]]
   ## Avoid missing and impossible values in 'standing' by coding NA and
   ## other values to '3'
   if(is.na(standing) | !(standing %in% c(1, 2, 3))) {
@@ -220,8 +222,6 @@ getWGSR <- function(sex,
   if(secondPart < rangeSecondPart[1] | secondPart > rangeSecondPart[2]) {
     return(NA)
   }
-  ## Get WGS reference data
-  wgsrData <- referenceData[["wgs"]]
   ## Lookup reference values and calculate z-score
   lkpIndexSex <- wgsrData[wgsrData$index == index & wgsrData$sex == sex, ]
   L <- approx(lkpIndexSex$given, lkpIndexSex$l,

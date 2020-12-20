@@ -284,7 +284,7 @@ addCDC <- function(data, sex,
   ## Calculate specified index
   z <- vector(mode = "numeric", length = nrow(data))
   pb <- txtProgressBar(min = 0, max = nrow(data), style = 1)
-  for(i in 1:nrow(data)) {
+  for(i in seq_len(nrow(data))) {
     z[i] <- ifelse(!is.na(thirdPart),
                    getCDC(sex = data[[sex]][i],
                           firstPart = data[[firstPart]][i],

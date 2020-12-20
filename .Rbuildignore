@@ -17,3 +17,4 @@
 ^revdep$
 ^CRAN-RELEASE$
 ^inst/rsconnect$
+^pkgdown$

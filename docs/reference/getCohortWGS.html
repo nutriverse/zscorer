@@ -9,25 +9,36 @@
 <title>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a cohort or sample of children. — getCohortWGS • zscorer</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -40,7 +51,7 @@ for a cohort or sample of children. — getCohortWGS • zscorer</title>
 for a cohort or sample of children. — getCohortWGS" />
 <meta property="og:description" content="Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a cohort or sample of children." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://nutriverse.io/zscorer/logo.png" />
 
 
 
@@ -68,10 +79,10 @@ for a cohort or sample of children." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -82,7 +93,7 @@ for a cohort or sample of children." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
       </span>
     </div>
 
@@ -108,7 +119,7 @@ for a cohort or sample of children." />
       <a href="../articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="../articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="../articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
     </li>
     <li>
       <a href="../articles/legacy_functions.html">Legacy functions</a>
@@ -124,7 +135,19 @@ for a cohort or sample of children." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/nutriverse/zscorer">
+  <a href="https://twitter.com/katilingban">
+    <span class="fab fa fab fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/company/katilingban/">
+    <span class="fab fa fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/nutriverse/zscorer/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -153,8 +176,7 @@ for a cohort or sample of children.</h1>
 for a cohort or sample of children.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getCohortWGS</span>(<span class='no'>data</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='no'>getWGS</span>, <span class='no'>sexObserved</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>,
-  <span class='no'>index</span>)</pre>
+    <pre class="usage"><span class='fu'>getCohortWGS</span><span class='op'>(</span><span class='va'>data</span>, FUN <span class='op'>=</span> <span class='va'>getWGS</span>, <span class='va'>sexObserved</span>, <span class='va'>firstPart</span>, <span class='va'>secondPart</span>, <span class='va'>index</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -200,12 +222,13 @@ standing height below 85cm</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>  <span class='co'># apply getWGS to first child in sample data anthro1</span>
-  <span class='no'>wazAll</span> <span class='kw'>&lt;-</span> <span class='fu'>getCohortWGS</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>anthro1</span>,
-                         <span class='kw'>sexObserved</span> <span class='kw'>=</span> <span class='st'>"sex"</span>,
-                         <span class='kw'>firstPart</span> <span class='kw'>=</span> <span class='st'>"weight"</span>,
-                         <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='st'>"age"</span>,
-                         <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"wfa"</span>)
-  <span class='no'>wazAll</span></div><div class='output co'>#&gt;   [1] -0.756055486 -1.390215032 -1.055978534  1.415750955 -2.677572422
+  <span class='va'>wazAll</span> <span class='op'>&lt;-</span> <span class='fu'>getCohortWGS</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>anthro1</span>,
+                         sexObserved <span class='op'>=</span> <span class='st'>"sex"</span>,
+                         firstPart <span class='op'>=</span> <span class='st'>"weight"</span>,
+                         secondPart <span class='op'>=</span> <span class='st'>"age"</span>,
+                         index <span class='op'>=</span> <span class='st'>"wfa"</span><span class='op'>)</span>
+  <span class='va'>wazAll</span>
+</div><div class='output co'>#&gt;   [1] -0.756055486 -1.390215032 -1.055978534  1.415750955 -2.677572422
 #&gt;   [6]  1.492380502 -0.129877040 -0.023481593 -1.506473442 -1.543816296
 #&gt;  [11] -2.874957122 -0.434972402 -1.038995403 -1.692818549 -1.312458980
 #&gt;  [16] -2.210032596 -0.011892256 -0.909177616 -0.678398553 -0.947466947
@@ -380,12 +403,13 @@ standing height below 85cm</p>
 #&gt; [861] -2.016633344 -2.200605501 -2.491486698 -0.678143030  0.000000000
 #&gt; [866] -1.509367003  0.003316075 -1.835853172 -2.059231383 -0.025358589
 #&gt; [871] -3.428359547 -0.731155305 -1.015223977</div><div class='input'>
-  <span class='no'>hazAll</span> <span class='kw'>&lt;-</span> <span class='fu'>getCohortWGS</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>anthro1</span>,
-                         <span class='kw'>sexObserved</span> <span class='kw'>=</span> <span class='st'>"sex"</span>,
-                         <span class='kw'>firstPart</span> <span class='kw'>=</span> <span class='st'>"height"</span>,
-                         <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='st'>"age"</span>,
-                         <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"hfa"</span>)
-  <span class='no'>hazAll</span></div><div class='output co'>#&gt;   [1] -1.225816946 -2.347588600 -2.951804110 -0.281285163 -4.205666336
+  <span class='va'>hazAll</span> <span class='op'>&lt;-</span> <span class='fu'>getCohortWGS</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>anthro1</span>,
+                         sexObserved <span class='op'>=</span> <span class='st'>"sex"</span>,
+                         firstPart <span class='op'>=</span> <span class='st'>"height"</span>,
+                         secondPart <span class='op'>=</span> <span class='st'>"age"</span>,
+                         index <span class='op'>=</span> <span class='st'>"hfa"</span><span class='op'>)</span>
+  <span class='va'>hazAll</span>
+</div><div class='output co'>#&gt;   [1] -1.225816946 -2.347588600 -2.951804110 -0.281285163 -4.205666336
 #&gt;   [6] -0.538767762 -2.402071937 -1.031769943 -2.741088448 -4.703757107
 #&gt;  [11] -2.567054999 -2.114496047 -2.232350548 -2.315545790 -2.751616526
 #&gt;  [16] -2.793069374  0.112134888 -1.900179710 -2.954372959 -1.967104178
@@ -560,12 +584,13 @@ standing height below 85cm</p>
 #&gt; [861] -2.934280794 -3.222556228 -3.375454301 -1.495970174 -0.244538684
 #&gt; [866] -3.128234411 -0.029708803 -2.428728078 -3.018692131 -2.211949658
 #&gt; [871] -4.084156402 -1.913971036 -1.073637542</div><div class='input'>
-  <span class='no'>whzAll</span> <span class='kw'>&lt;-</span> <span class='fu'>getCohortWGS</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>anthro1</span>,
-                         <span class='kw'>sexObserved</span> <span class='kw'>=</span> <span class='st'>"sex"</span>,
-                         <span class='kw'>firstPart</span> <span class='kw'>=</span> <span class='st'>"weight"</span>,
-                         <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='st'>"height"</span>,
-                         <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"wfh"</span>)
-  <span class='no'>whzAll</span></div><div class='output co'>#&gt;   [1]  0.0557234714 -0.0197490262  0.5746911171  2.0623174908 -0.1408004373
+  <span class='va'>whzAll</span> <span class='op'>&lt;-</span> <span class='fu'>getCohortWGS</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>anthro1</span>,
+                         sexObserved <span class='op'>=</span> <span class='st'>"sex"</span>,
+                         firstPart <span class='op'>=</span> <span class='st'>"weight"</span>,
+                         secondPart <span class='op'>=</span> <span class='st'>"height"</span>,
+                         index <span class='op'>=</span> <span class='st'>"wfh"</span><span class='op'>)</span>
+  <span class='va'>whzAll</span>
+</div><div class='output co'>#&gt;   [1]  0.0557234714 -0.0197490262  0.5746911171  2.0623174908 -0.1408004373
 #&gt;   [6]  2.4904724554  1.8331519688  0.9361489054  0.1854194251  2.1159928654
 #&gt;  [11] -1.9694388656  1.0635104657  0.3531583035 -0.6115100340 -0.0104944116
 #&gt;  [16] -0.7503899336 -0.0800032190  0.3127757304  1.5645617536  0.2215208732
@@ -741,14 +766,10 @@ standing height below 85cm</p>
 #&gt; [866]  0.5874674600  0.1201329986 -0.7092773263 -0.4793195480  1.6312441373
 #&gt; [871] -1.0609871453  0.6494952423 -0.7374493814</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -759,7 +780,7 @@ standing height below 85cm</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

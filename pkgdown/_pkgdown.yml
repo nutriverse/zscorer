@@ -1,0 +1,77 @@
+title: zscorer
+
+url: https://nutriverse.io/zscorer
+
+template:
+  params:
+    bootswatch: yeti
+    ganalytics: UA-102485058-6
+
+navbar:
+  type: inverse
+  structure:
+    left: [home, intro, reference, articles, news]
+    right: [twitter, linkedin, github]
+
+  components:
+    articles:
+      text: Articles
+      menu:
+      - text: "WHO Child Growth Standards: Methods and Development"
+        href: articles/anthropometry.html
+      - text: "Calculating anthropometric z-scores using zscorer"
+        href: articles/calculating_zscore.html
+      - text: "Legacy functions"
+        href: articles/legacy_functions.html
+      - text: "Using zscorer Shiny application"
+        href: articles/using-shiny-app.html
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: https://twitter.com/katilingban
+    linkedin:
+      icon: "fab fa-linkedin fa-lg"
+      href: https://www.linkedin.com/company/katilingban/
+
+home:
+  links:
+  - text: Read more about the WHO Growth Standards
+    href: https://www.who.int/childgrowth/en/
+
+  - text: Read more about MUAC-for-age z-scores development
+    href: https://doi.org/10.1136/bmj.j3423
+
+  - text: Read more about the CDC Growth Standards
+    href: https://www.cdc.gov/growthcharts/background.htm
+
+reference:
+- title: Description
+  contents:
+  - zscorer
+
+- title: Calculate anthropometric z-scores using WHO Growth Standards
+  contents:
+  - getWGSR
+  - addWGSR
+
+- title: Legacy functions to calculate z-scores using WHO Growth Standards
+  contents:
+  - getWGS
+  - getCohortWGS
+  - getAllWGS
+
+- title: Calculate anthropometric z-scores using CDC Growth Standards
+  contents:
+  - getCDC
+  - addCDC
+
+- title: Running Shiny app
+  contents:
+  - run_zscorer
+
+- title: Datasets
+  contents:
+  - anthro1
+  - anthro2
+  - anthro3
+  - anthro4
+  - wgsData

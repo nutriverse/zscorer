@@ -6,17 +6,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Child Anthropometry z-Score Calculator • zscorer</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Child Anthropometry z-Score Calculator">
 <meta property="og:description" content="A tool for calculating z-scores and centiles for weight-for-age, 
     length/height-for-age, weight-for-length/height, BMI-for-age, 
     head circumference-for-age, age circumference-for-age, 
     subscapular skinfold-for-age, triceps skinfold-for-age based on the 
     WHO Child Growth Standards. ">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://nutriverse.io/zscorer/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -28,9 +35,9 @@
   gtag('config', 'UA-102485058-6');
 </script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -41,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
       </span>
     </div>
 
@@ -67,7 +74,7 @@
       <a href="articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
     </li>
     <li>
       <a href="articles/legacy_functions.html">Legacy functions</a>
@@ -83,7 +90,19 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/nutriverse/zscorer">
+  <a href="https://twitter.com/katilingban">
+    <span class="fab fa fab fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/company/katilingban/">
+    <span class="fab fa fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/nutriverse/zscorer/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -100,10 +119,11 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="zscorer-weight-for-age-height-for-age-weight-for-height-bmi-for-age-head-circumference-for-age-arm-circumference-for-age-subscapular-skinfold-for-age-and-triceps-skinfold-for-age-z-score-calculator" class="section level1">
+<div id="zscorer-weight-for-age-height-for-age-weight-for-height-bmi-for-age-head-circumference-for-age-arm-circumference-for-age-subscapular-skinfold-for-age-and-triceps-skinfold-for-age-z-score-calculator-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#zscorer-weight-for-age-height-for-age-weight-for-height-bmi-for-age-head-circumference-for-age-arm-circumference-for-age-subscapular-skinfold-for-age-and-triceps-skinfold-for-age-z-score-calculator" class="anchor"></a>zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="reference/figures/zscorer.png" width="200" align="right">
+<a href="#zscorer-weight-for-age-height-for-age-weight-for-height-bmi-for-age-head-circumference-for-age-arm-circumference-for-age-subscapular-skinfold-for-age-and-triceps-skinfold-for-age-z-score-calculator-" class="anchor"></a>zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="reference/figures/zscorer.png" width="200" align="right">
 </h1></div>
+<!-- badges: start -->
 
 <p><code>zscorer</code> facilitates the calculation of a range of anthropometric <code>z-scores</code> (i.e. the number of standard deviations from the mean) and adds them to survey data:</p>
 <ul>
@@ -118,18 +138,21 @@
 <li><p><strong>Sub-scapular skinfold-for-age (ssa)</strong> z-scores for children aged between 3 and 60 months</p></li>
 <li><p><strong>Head circumference-for-age (hca)</strong> z-scores for children aged between zero and 60 months</p></li>
 </ul>
-<p>The <code>z-scores</code> are calculated using the <strong>WHO Child Growth Standards</strong> [1],[2] for children aged between zero and 60 months or the <strong>WHO Growth References</strong> [3] for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017) [4] using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The <code>zscorer</code> comes packaged with the WHO Growth References data and the MUAC-for-age reference data.</p>
+<p>The <code>z-scores</code> are calculated using the <strong>WHO Child Growth Standards</strong><sup>1,2</sup> for children aged between zero and 60 months or the <strong>WHO Growth References</strong><sup>3</sup> for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017)<sup>4</sup> using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The <code>zscorer</code> comes packaged with the WHO Growth References data and the MUAC-for-age reference data.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install <code>zscorer</code> from <a href="https://cran.r-project.org">CRAN</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"zscorer"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"zscorer"</span><span class="op">)</span></code></pre></div>
 <p>or you can install the development version of <code>zscorer</code> from <a href="https://github.com/nutriverse/zscorer">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(remotes)) <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"nutriverse/zscorer"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"nutriverse/zscorer"</span><span class="op">)</span></code></pre></div>
 <p>then load <code>zscorer</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># load package</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(zscorer)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># load package</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://nutriverse/zscorer/">zscorer</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
@@ -137,34 +160,37 @@
 <div id="calculating-anthropometric-z-scores-using-the-addwgsr-function" class="section level3">
 <h3 class="hasAnchor">
 <a href="#calculating-anthropometric-z-scores-using-the-addwgsr-function" class="anchor"></a>Calculating anthropometric z-scores using the addWGSR() function</h3>
-<p>The main function in the <code>zscorer</code> package is <code><a href="reference/addWGSR.html">addWGSR()</a></code>.</p>
+<p>The main function in the <code>zscorer</code> package is <code><a href="reference/getWGSR.html">addWGSR()</a></code>.</p>
 <p>To demonstrate its usage, we will use the accompanying dataset in <code>zscorer</code> called <code>anthro3</code>. We inspect the dataset as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(anthro3)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">anthro3</span><span class="op">)</span></code></pre></div>
 <p>which returns:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">#&gt;   psu age sex weight height muac oedema</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; 1   1  10   1    5.7   64.2  125      2</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; 2   1  10   2    5.8   64.4  121      2</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; 3   1   9   2    6.5   62.2  139      2</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; 5   1  24   2    6.5   72.9  120      2</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#&gt;   psu age sex weight height muac oedema</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; 1   1  10   1    5.7   64.2  125      2</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; 2   1  10   2    5.8   64.4  121      2</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; 3   1   9   2    6.5   62.2  139      2</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; 5   1  24   2    6.5   72.9  120      2</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2</span></span></code></pre></div>
 <p><code>anthro3</code> contains anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.</p>
 <p>Anthropometric indices (e.g. weight-for-height z-scores) have not been calculated and added to the data.</p>
-<p>We will use the <code><a href="reference/addWGSR.html">addWGSR()</a></code> function to add weight-for-height (wfh) z-scores to the example data:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">svy &lt;-<span class="st"> </span><span class="kw"><a href="reference/addWGSR.html">addWGSR</a></span>(<span class="dt">data =</span> anthro3, <span class="dt">sex =</span> <span class="st">"sex"</span>, <span class="dt">firstPart =</span> <span class="st">"weight"</span>,</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">               <span class="dt">secondPart =</span> <span class="st">"height"</span>, <span class="dt">index =</span> <span class="st">"wfh"</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; ===========================================================================</span></a></code></pre></div>
+<p>We will use the <code><a href="reference/getWGSR.html">addWGSR()</a></code> function to add weight-for-height (wfh) z-scores to the example data:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro3</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>,
+               secondPart <span class="op">=</span> <span class="st">"height"</span>, index <span class="op">=</span> <span class="st">"wfh"</span><span class="op">)</span>
+<span class="co">#&gt; ================================================================================</span></code></pre></div>
 <p>A new column named <strong>wfhz</strong> has been added to the dataset:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">#&gt;   psu age sex weight height muac oedema  wfhz</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; 1   1  10   1    5.7   64.2  125      2 -2.73</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; 2   1  10   2    5.8   64.4  121      2 -2.04</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; 3   1   9   2    6.5   62.2  139      2  0.13</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2    NA</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; 5   1  24   2    6.5   72.9  120      2 -3.44</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2 -2.26</span></a></code></pre></div>
-<p>The <code>wfhz</code> column contains the weight-for-height (wfh) z-scores calculated from the <code>sex</code>, <code>weight</code>, and <code>height</code> columns in the <code>anthro3</code> dataset. The calculated z-scores are rounded to two decimals places unless the <code>digits</code> option is used to specify a different precision (run <code><a href="reference/addWGSR.html">?addWGSR</a></code> to see description of various parameters that can be specified in the <code><a href="reference/addWGSR.html">addWGSR()</a></code> function).</p>
-<p>The <code><a href="reference/addWGSR.html">addWGSR()</a></code> function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the <em>Help</em> files of the <code>zscorer</code> package which can be accessed as follows:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">?addWGSR</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#&gt;   psu age sex weight height muac oedema  wfhz</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; 1   1  10   1    5.7   64.2  125      2 -2.73</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; 2   1  10   2    5.8   64.4  121      2 -2.04</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; 3   1   9   2    6.5   62.2  139      2  0.13</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2    NA</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; 5   1  24   2    6.5   72.9  120      2 -3.44</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2 -2.26</span></span></code></pre></div>
+<p>The <code>wfhz</code> column contains the weight-for-height (wfh) z-scores calculated from the <code>sex</code>, <code>weight</code>, and <code>height</code> columns in the <code>anthro3</code> dataset. The calculated z-scores are rounded to two decimals places unless the <code>digits</code> option is used to specify a different precision (run <code><a href="reference/getWGSR.html">?addWGSR</a></code> to see description of various parameters that can be specified in the <code><a href="reference/getWGSR.html">addWGSR()</a></code> function).</p>
+<p>The <code><a href="reference/getWGSR.html">addWGSR()</a></code> function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the <em>Help</em> files of the <code>zscorer</code> package which can be accessed as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="op">?</span><span class="va">addWGSR</span></code></pre></div>
 <p>The <strong>standing</strong> parameter specifies how “stature” (i.e. length or height) was measured. If this is not specified, and in some special circumstances, height and age rules will be applied when calculating z-scores. These rules are described in the table below.</p>
 <p> </p>
 <table class="table">
@@ -277,7 +303,7 @@
 </tbody>
 </table>
 <p> </p>
-<p>The <code><a href="reference/addWGSR.html">addWGSR()</a></code> function will not produce error messages unless there is something very wrong with the data or the specified parameters. If an error is encountered in a record then the value <strong>NA</strong> is returned. Error conditions are listed in the table below.</p>
+<p>The <code><a href="reference/getWGSR.html">addWGSR()</a></code> function will not produce error messages unless there is something very wrong with the data or the specified parameters. If an error is encountered in a record then the value <strong>NA</strong> is returned. Error conditions are listed in the table below.</p>
 <p> </p>
 <table class="table">
 <colgroup>
@@ -347,226 +373,238 @@
 </table>
 <p> </p>
 <p>We can see this error behaviour using the example data:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(svy<span class="op">$</span>wfhz))</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt; FALSE  TRUE </span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt;   220     1</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfhz</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; FALSE  TRUE </span>
+<span class="co">#&gt;   220     1</span></code></pre></div>
 <p>We can display the problem record:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">svy[<span class="kw"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(svy<span class="op">$</span>wfhz), ]</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">#&gt;   psu age sex weight height muac oedema wfhz</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2   NA</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfhz</span><span class="op">)</span>, <span class="op">]</span>
+<span class="co">#&gt;   psu age sex weight height muac oedema wfhz</span>
+<span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2   NA</span></code></pre></div>
 <p>The problem is due to the value <strong>9</strong> in the <code>sex</code> column, which should be coded <strong>1</strong> (for male) and <strong>2</strong> (for female). Z-scores are only calculated for records with sex specified as either <strong>1</strong> (male) or <strong>2</strong> (female). All other values, including <strong>NA</strong>, will return <strong>NA</strong>.</p>
-<p>The <code><a href="reference/addWGSR.html">addWGSR()</a></code> function requires that data are recorded using the required units or required codes (see <code><a href="reference/addWGSR.html">?addWGSR</a></code> to check units required by the different function parameters).</p>
-<p>The <code><a href="reference/addWGSR.html">addWGSR()</a></code> function will return incorrect values if the data are not recorded using the required units. For example, this attempt to add weight-for-age z-scores to the example data:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">svy &lt;-<span class="st"> </span><span class="kw"><a href="reference/addWGSR.html">addWGSR</a></span>(<span class="dt">data =</span> svy, <span class="dt">sex =</span> <span class="st">"sex"</span>, <span class="dt">firstPart =</span> <span class="st">"weight"</span>, </a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">               <span class="dt">secondPart =</span> <span class="st">"age"</span>, <span class="dt">index =</span> <span class="st">"wfa"</span>)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; ===========================================================================</span></a></code></pre></div>
+<p>The <code><a href="reference/getWGSR.html">addWGSR()</a></code> function requires that data are recorded using the required units or required codes (see <code><a href="reference/getWGSR.html">?addWGSR</a></code> to check units required by the different function parameters).</p>
+<p>The <code><a href="reference/getWGSR.html">addWGSR()</a></code> function will return incorrect values if the data are not recorded using the required units. For example, this attempt to add weight-for-age z-scores to the example data:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, 
+               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span>
+<span class="co">#&gt; ================================================================================</span></code></pre></div>
 <p>will give incorrect results:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(svy<span class="op">$</span>wfaz)</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt;   3.450   7.692   9.840   9.684  11.430  15.900       1</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfaz</span><span class="op">)</span>
+<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span>
+<span class="co">#&gt;   3.450   7.692   9.840   9.684  11.430  15.900       1</span></code></pre></div>
 <p>The odd range of values is due to age being recorded in months rather than days.</p>
 <p>It is simple to convert all ages from months to days:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">svy<span class="op">$</span>age &lt;-<span class="st"> </span>svy<span class="op">$</span>age <span class="op">*</span><span class="st"> </span>(<span class="fl">365.25</span> <span class="op">/</span><span class="st"> </span><span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(svy)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz wfaz</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 3.45</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 3.95</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 5.12</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA   NA</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 3.82</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 5.01</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="va">svy</span><span class="op">$</span><span class="va">age</span> <span class="op">*</span> <span class="op">(</span><span class="fl">365.25</span> <span class="op">/</span> <span class="fl">12</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
+<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz wfaz</span>
+<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 3.45</span>
+<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 3.95</span>
+<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 5.12</span>
+<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA   NA</span>
+<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 3.82</span>
+<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 5.01</span></code></pre></div>
 <p>before calculating and adding weight-for-age z-scores:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">svy &lt;-<span class="st"> </span><span class="kw"><a href="reference/addWGSR.html">addWGSR</a></span>(<span class="dt">data =</span> svy, <span class="dt">sex =</span> <span class="st">"sex"</span>, <span class="dt">firstPart =</span> <span class="st">"weight"</span>, </a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">               <span class="dt">secondPart =</span> <span class="st">"age"</span>, <span class="dt">index =</span> <span class="st">"wfa"</span>)</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt; ===========================================================================</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(svy)</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 -4.13</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 -3.19</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 -1.97</span></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA    NA</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 -4.61</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 -2.56</span></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="kw"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(svy<span class="op">$</span>wfaz)</a>
-<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span></a>
-<a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co">#&gt;  -4.610  -1.873  -1.085  -1.154  -0.480   2.600       1</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, 
+               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span>
+<span class="co">#&gt; ================================================================================</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
+<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span>
+<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 -4.13</span>
+<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 -3.19</span>
+<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 -1.97</span>
+<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA    NA</span>
+<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 -4.61</span>
+<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 -2.56</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfaz</span><span class="op">)</span>
+<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span>
+<span class="co">#&gt;  -4.610  -1.873  -1.085  -1.154  -0.480   2.600       1</span></code></pre></div>
 <p>The muac column in the example dataset is recorded in millimetres (mm). We need to convert this to centimetres (cm):</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">svy<span class="op">$</span>muac &lt;-<span class="st"> </span>svy<span class="op">$</span>muac <span class="op">/</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(svy)</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA</span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61</span></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span><span class="op">$</span><span class="va">muac</span> <span class="op">&lt;-</span> <span class="va">svy</span><span class="op">$</span><span class="va">muac</span> <span class="op">/</span> <span class="fl">10</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
+<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span>
+<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13</span>
+<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19</span>
+<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97</span>
+<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA</span>
+<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61</span>
+<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56</span></code></pre></div>
 <p>before using the <code>addWGS()</code> function to calculate MUAC-for-age z-scores:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">svy &lt;-<span class="st"> </span><span class="kw"><a href="reference/addWGSR.html">addWGSR</a></span>(svy, <span class="dt">sex =</span> <span class="st">"sex"</span>, <span class="dt">firstPart =</span> <span class="st">"muac"</span>,    </a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">               <span class="dt">secondPart =</span> <span class="st">"age"</span>, <span class="dt">index =</span> <span class="st">"mfa"</span>)</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co">#&gt; ===========================================================================</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(svy)</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz</span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97</span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88</span></a>
-<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14</span></a>
-<a class="sourceLine" id="cb16-9" data-line-number="9"><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA</span></a>
-<a class="sourceLine" id="cb16-10" data-line-number="10"><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70</span></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46</span></a></code></pre></div>
-<p>As a last example we will use the <code><a href="reference/addWGSR.html">addWGSR()</a></code> function to add body mass index-for-age (bfa) z-scores to the data to create a new variable called bmiAgeZ with a precision of 4 decimal places as:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">svy &lt;-<span class="st"> </span><span class="kw"><a href="reference/addWGSR.html">addWGSR</a></span>(<span class="dt">data =</span> svy, <span class="dt">sex =</span> <span class="st">"sex"</span>, <span class="dt">firstPart =</span> <span class="st">"weight"</span>, </a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">               <span class="dt">secondPart =</span> <span class="st">"height"</span>, <span class="dt">thirdPart =</span> <span class="st">"age"</span>, <span class="dt">index =</span> <span class="st">"bfa"</span>, </a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">               <span class="dt">output =</span> <span class="st">"bmiAgeZ"</span>, <span class="dt">digits =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&gt; ===========================================================================</span></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(svy)</a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz bmiAgeZ</span></a>
-<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97 -2.6928</span></a>
-<a class="sourceLine" id="cb17-8" data-line-number="8"><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88 -2.0005</span></a>
-<a class="sourceLine" id="cb17-9" data-line-number="9"><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14  0.0405</span></a>
-<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA      NA</span></a>
-<a class="sourceLine" id="cb17-11" data-line-number="11"><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70 -2.8958</span></a>
-<a class="sourceLine" id="cb17-12" data-line-number="12"><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46 -2.0796</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGSR.html">addWGSR</a></span><span class="op">(</span><span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"muac"</span>,    
+               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"mfa"</span><span class="op">)</span>
+<span class="co">#&gt; ================================================================================</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
+<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz</span>
+<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97</span>
+<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88</span>
+<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14</span>
+<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA</span>
+<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70</span>
+<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46</span></code></pre></div>
+<p>As a last example we will use the <code><a href="reference/getWGSR.html">addWGSR()</a></code> function to add body mass index-for-age (bfa) z-scores to the data to create a new variable called bmiAgeZ with a precision of 4 decimal places as:</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, 
+               secondPart <span class="op">=</span> <span class="st">"height"</span>, thirdPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"bfa"</span>, 
+               output <span class="op">=</span> <span class="st">"bmiAgeZ"</span>, digits <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
+<span class="co">#&gt; ================================================================================</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
+<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz bmiAgeZ</span>
+<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97 -2.6928</span>
+<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88 -2.0005</span>
+<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14  0.0405</span>
+<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA      NA</span>
+<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70 -2.8958</span>
+<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46 -2.0796</span></code></pre></div>
 </div>
 </div>
 <div id="usage---legacy-functions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage---legacy-functions" class="anchor"></a>Usage - legacy functions</h2>
-<p>To maintain support for earlier versions of the package, the earlier functions used to calculate anthropometric z-scores for <code>weight-for-age</code>, <code>height-for-age</code> and <code>weight-for-height</code> have been kept for now until future deprecation. For current users, it is recommended to use <code><a href="reference/addWGSR.html">addWGSR()</a></code> and <code><a href="reference/getWGSR.html">getWGSR()</a></code> functions.</p>
+<p>To maintain support for earlier versions of the package, the earlier functions used to calculate anthropometric z-scores for <code>weight-for-age</code>, <code>height-for-age</code> and <code>weight-for-height</code> have been kept for now until future deprecation. For current users, it is recommended to use <code><a href="reference/getWGSR.html">addWGSR()</a></code> and <code><a href="reference/getWGSR.html">getWGSR()</a></code> functions.</p>
 <div id="calculating-z-score-for-each-of-the-three-anthropometric-indices-for-a-single-child" class="section level3">
 <h3 class="hasAnchor">
 <a href="#calculating-z-score-for-each-of-the-three-anthropometric-indices-for-a-single-child" class="anchor"></a>Calculating z-score for each of the three anthropometric indices for a single child</h3>
 <p>For this example, we will use the <code><a href="reference/getWGS.html">getWGS()</a></code> function and apply it to dummy data of a <strong>52 month</strong> old male child with a weight of <strong>14.6 kg</strong> and a height of <strong>98.0 cm</strong>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># weight-for-age z-score</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">waz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getWGS.html">getWGS</a></span>(<span class="dt">sexObserved =</span> <span class="dv">1</span>,     <span class="co"># 1 = Male / 2 = Female</span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">              <span class="dt">firstPart =</span> <span class="fl">14.6</span>,    <span class="co"># Weight in kilograms up to 1 decimal place</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">              <span class="dt">secondPart =</span> <span class="dv">52</span>,     <span class="co"># Age in whole months</span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">              <span class="dt">index =</span> <span class="st">"wfa"</span>)       <span class="co"># Anthropometric index (weight-for-age)</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">waz</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="co">#&gt; [1] -1.187651</span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="co"># height-for-age z-score</span></a>
-<a class="sourceLine" id="cb18-11" data-line-number="11">haz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getWGS.html">getWGS</a></span>(<span class="dt">sexObserved =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb18-12" data-line-number="12">              <span class="dt">firstPart =</span> <span class="dv">98</span>,      <span class="co"># Height in centimetres</span></a>
-<a class="sourceLine" id="cb18-13" data-line-number="13">              <span class="dt">secondPart =</span> <span class="dv">52</span>,</a>
-<a class="sourceLine" id="cb18-14" data-line-number="14">              <span class="dt">index =</span> <span class="st">"hfa"</span>)       <span class="co"># Anthropometric index (height-for-age)</span></a>
-<a class="sourceLine" id="cb18-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb18-16" data-line-number="16">haz</a>
-<a class="sourceLine" id="cb18-17" data-line-number="17"><span class="co">#&gt; [1] -1.741175</span></a>
-<a class="sourceLine" id="cb18-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb18-19" data-line-number="19"><span class="co"># weight-for-height z-score</span></a>
-<a class="sourceLine" id="cb18-20" data-line-number="20">whz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getWGS.html">getWGS</a></span>(<span class="dt">sexObserved =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb18-21" data-line-number="21">              <span class="dt">firstPart =</span> <span class="fl">14.6</span>,</a>
-<a class="sourceLine" id="cb18-22" data-line-number="22">              <span class="dt">secondPart =</span> <span class="dv">98</span>,</a>
-<a class="sourceLine" id="cb18-23" data-line-number="23">              <span class="dt">index =</span> <span class="st">"wfh"</span>)       <span class="co"># Anthropometric index (weight-for-height)</span></a>
-<a class="sourceLine" id="cb18-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb18-25" data-line-number="25">whz</a>
-<a class="sourceLine" id="cb18-26" data-line-number="26"><span class="co">#&gt; [1] -0.1790878</span></a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># weight-for-age z-score</span>
+<span class="va">waz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGS.html">getWGS</a></span><span class="op">(</span>sexObserved <span class="op">=</span> <span class="fl">1</span>,     <span class="co"># 1 = Male / 2 = Female</span>
+              firstPart <span class="op">=</span> <span class="fl">14.6</span>,    <span class="co"># Weight in kilograms up to 1 decimal place</span>
+              secondPart <span class="op">=</span> <span class="fl">52</span>,     <span class="co"># Age in whole months</span>
+              index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span>       <span class="co"># Anthropometric index (weight-for-age)</span>
+
+<span class="va">waz</span>
+<span class="co">#&gt; [1] -1.187651</span>
+
+<span class="co"># height-for-age z-score</span>
+<span class="va">haz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGS.html">getWGS</a></span><span class="op">(</span>sexObserved <span class="op">=</span> <span class="fl">1</span>,
+              firstPart <span class="op">=</span> <span class="fl">98</span>,      <span class="co"># Height in centimetres</span>
+              secondPart <span class="op">=</span> <span class="fl">52</span>,
+              index <span class="op">=</span> <span class="st">"hfa"</span><span class="op">)</span>       <span class="co"># Anthropometric index (height-for-age)</span>
+
+<span class="va">haz</span>
+<span class="co">#&gt; [1] -1.741175</span>
+
+<span class="co"># weight-for-height z-score</span>
+<span class="va">whz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGS.html">getWGS</a></span><span class="op">(</span>sexObserved <span class="op">=</span> <span class="fl">1</span>,
+              firstPart <span class="op">=</span> <span class="fl">14.6</span>,
+              secondPart <span class="op">=</span> <span class="fl">98</span>,
+              index <span class="op">=</span> <span class="st">"wfh"</span><span class="op">)</span>       <span class="co"># Anthropometric index (weight-for-height)</span>
+
+<span class="va">whz</span>
+<span class="co">#&gt; [1] -0.1790878</span></code></pre></div>
 <p>Applying the <code><a href="reference/getWGS.html">getWGS()</a></code> function results in a calculated <code>z-score</code> for one child.</p>
 </div>
 <div id="calculating-z-score-for-each-of-the-three-anthropometric-indices-for-a-cohort-or-sample-of-children" class="section level3">
 <h3 class="hasAnchor">
 <a href="#calculating-z-score-for-each-of-the-three-anthropometric-indices-for-a-cohort-or-sample-of-children" class="anchor"></a>Calculating z-score for each of the three anthropometric indices for a cohort or sample of children</h3>
 <p>For this example, we will use the <code><a href="reference/getCohortWGS.html">getCohortWGS()</a></code> function and apply it to sample data <code>anthro1</code> that came with <code>zscorer</code>.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Make a call for the anthro1 dataset</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">anthro1</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Make a call for the anthro1 dataset</span>
+<span class="va">anthro1</span></code></pre></div>
 <p>As you will see, this dataset has the 4 variables you will need to use with <code><a href="reference/getCohortWGS.html">getCohortWGS()</a></code> to calculate the <code>z-score</code> for the corresponding anthropometric index. These are <code>age</code>, <code>sex</code>, <code>weight</code> and <code>height</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(anthro1)</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co">#&gt;   psu age sex weight height muac oedema   haz   waz   whz flag</span></a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co">#&gt; 1   1   6   1    7.3   65.0  146      2 -1.23 -0.76  0.06    0</span></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co">#&gt; 2   1  42   2   12.5   89.5  156      2 -2.35 -1.39 -0.02    0</span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="co">#&gt; 3   1  23   1   10.6   78.1  149      2 -2.95 -1.06  0.57    0</span></a>
-<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="co">#&gt; 4   1  18   1   12.8   81.5  160      2 -0.28  1.42  2.06    0</span></a>
-<a class="sourceLine" id="cb20-7" data-line-number="7"><span class="co">#&gt; 5   1  52   1   12.1   87.3  152      2 -4.21 -2.68 -0.14    0</span></a>
-<a class="sourceLine" id="cb20-8" data-line-number="8"><span class="co">#&gt; 6   1  36   2   16.9   93.0  190      2 -0.54  1.49  2.49    0</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">anthro1</span><span class="op">)</span>
+<span class="co">#&gt;   psu age sex weight height muac oedema   haz   waz   whz flag</span>
+<span class="co">#&gt; 1   1   6   1    7.3   65.0  146      2 -1.23 -0.76  0.06    0</span>
+<span class="co">#&gt; 2   1  42   2   12.5   89.5  156      2 -2.35 -1.39 -0.02    0</span>
+<span class="co">#&gt; 3   1  23   1   10.6   78.1  149      2 -2.95 -1.06  0.57    0</span>
+<span class="co">#&gt; 4   1  18   1   12.8   81.5  160      2 -0.28  1.42  2.06    0</span>
+<span class="co">#&gt; 5   1  52   1   12.1   87.3  152      2 -4.21 -2.68 -0.14    0</span>
+<span class="co">#&gt; 6   1  36   2   16.9   93.0  190      2 -0.54  1.49  2.49    0</span></code></pre></div>
 <p>To calculate the three anthropometric indices for all the children in the sample, we execute the following commands in R:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># weight-for-age z-score</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">waz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getCohortWGS.html">getCohortWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">                    <span class="dt">sexObserved =</span> <span class="st">"sex"</span>,</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">                    <span class="dt">firstPart =</span> <span class="st">"weight"</span>,</a>
-<a class="sourceLine" id="cb21-5" data-line-number="5">                    <span class="dt">secondPart =</span> <span class="st">"age"</span>,</a>
-<a class="sourceLine" id="cb21-6" data-line-number="6">                    <span class="dt">index =</span> <span class="st">"wfa"</span>)</a>
-<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(waz, <span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt;  [1] -0.75605549 -1.39021503 -1.05597853  1.41575096 -2.67757242</span></a>
-<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co">#&gt;  [6]  1.49238050 -0.12987704 -0.02348159 -1.50647344 -1.54381630</span></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; [11] -2.87495712 -0.43497240 -1.03899540 -1.69281855 -1.31245898</span></a>
-<a class="sourceLine" id="cb21-11" data-line-number="11"><span class="co">#&gt; [16] -2.21003260 -0.01189226 -0.90917762 -0.67839855 -0.94746695</span></a>
-<a class="sourceLine" id="cb21-12" data-line-number="12"><span class="co">#&gt; [21] -2.49960425 -0.95659644 -1.65442686 -1.25052760  0.67335751</span></a>
-<a class="sourceLine" id="cb21-13" data-line-number="13"><span class="co">#&gt; [26]  0.30156301  0.24261346 -2.78670709 -1.15820651 -1.15477183</span></a>
-<a class="sourceLine" id="cb21-14" data-line-number="14"><span class="co">#&gt; [31] -1.35540820 -0.59134959 -4.14967218 -0.45748752 -0.74331669</span></a>
-<a class="sourceLine" id="cb21-15" data-line-number="15"><span class="co">#&gt; [36] -1.69725836 -1.05745067 -0.18869508 -0.42095770 -2.21030414</span></a>
-<a class="sourceLine" id="cb21-16" data-line-number="16"><span class="co">#&gt; [41] -1.30536715 -3.63778143 -0.60662526 -0.54360470 -1.59171780</span></a>
-<a class="sourceLine" id="cb21-17" data-line-number="17"><span class="co">#&gt; [46] -1.74745738 -0.34803338  0.69896149 -0.74467130  0.18924572</span></a>
-<a class="sourceLine" id="cb21-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb21-19" data-line-number="19"><span class="co"># height-for-age z-score</span></a>
-<a class="sourceLine" id="cb21-20" data-line-number="20">haz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getCohortWGS.html">getCohortWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
-<a class="sourceLine" id="cb21-21" data-line-number="21">                    <span class="dt">sexObserved =</span> <span class="st">"sex"</span>,</a>
-<a class="sourceLine" id="cb21-22" data-line-number="22">                    <span class="dt">firstPart =</span> <span class="st">"height"</span>,</a>
-<a class="sourceLine" id="cb21-23" data-line-number="23">                    <span class="dt">secondPart =</span> <span class="st">"age"</span>,</a>
-<a class="sourceLine" id="cb21-24" data-line-number="24">                    <span class="dt">index =</span> <span class="st">"hfa"</span>)</a>
-<a class="sourceLine" id="cb21-25" data-line-number="25"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(haz, <span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb21-26" data-line-number="26"><span class="co">#&gt;  [1] -1.2258169 -2.3475886 -2.9518041 -0.2812852 -4.2056663 -0.5387678</span></a>
-<a class="sourceLine" id="cb21-27" data-line-number="27"><span class="co">#&gt;  [7] -2.4020719 -1.0317699 -2.7410884 -4.7037571 -2.5670550 -2.1144960</span></a>
-<a class="sourceLine" id="cb21-28" data-line-number="28"><span class="co">#&gt; [13] -2.2323505 -2.3155458 -2.7516165 -2.7930694  0.1121349 -1.9001797</span></a>
-<a class="sourceLine" id="cb21-29" data-line-number="29"><span class="co">#&gt; [19] -2.9543730 -1.9671042 -3.8716522  0.8667206 -2.8252069 -2.1412285</span></a>
-<a class="sourceLine" id="cb21-30" data-line-number="30"><span class="co">#&gt; [25] -2.7994643  0.5496459 -1.4372002 -3.7979410 -2.5661752 -1.8301183</span></a>
-<a class="sourceLine" id="cb21-31" data-line-number="31"><span class="co">#&gt; [31] -1.6548589 -2.7110333 -3.6399642 -1.7955069 -1.6775100 -1.0317699</span></a>
-<a class="sourceLine" id="cb21-32" data-line-number="32"><span class="co">#&gt; [37] -0.4356881 -1.2660152  0.4990326 -4.6085660 -3.1662351 -1.0695930</span></a>
-<a class="sourceLine" id="cb21-33" data-line-number="33"><span class="co">#&gt; [43] -1.8477936 -2.5502314 -1.8301183 -2.2755493 -3.2816532  0.4876774</span></a>
-<a class="sourceLine" id="cb21-34" data-line-number="34"><span class="co">#&gt; [49] -2.4396410 -0.4794744</span></a>
-<a class="sourceLine" id="cb21-35" data-line-number="35"></a>
-<a class="sourceLine" id="cb21-36" data-line-number="36"><span class="co"># weight-for-height z-score</span></a>
-<a class="sourceLine" id="cb21-37" data-line-number="37">whz &lt;-<span class="st"> </span><span class="kw"><a href="reference/getCohortWGS.html">getCohortWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
-<a class="sourceLine" id="cb21-38" data-line-number="38">                    <span class="dt">sexObserved =</span> <span class="st">"sex"</span>,</a>
-<a class="sourceLine" id="cb21-39" data-line-number="39">                    <span class="dt">firstPart =</span> <span class="st">"weight"</span>,</a>
-<a class="sourceLine" id="cb21-40" data-line-number="40">                    <span class="dt">secondPart =</span> <span class="st">"height"</span>,</a>
-<a class="sourceLine" id="cb21-41" data-line-number="41">                    <span class="dt">index =</span> <span class="st">"wfh"</span>)</a>
-<a class="sourceLine" id="cb21-42" data-line-number="42"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(whz, <span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb21-43" data-line-number="43"><span class="co">#&gt;  [1]  0.05572347 -0.01974903  0.57469112  2.06231749 -0.14080044</span></a>
-<a class="sourceLine" id="cb21-44" data-line-number="44"><span class="co">#&gt;  [6]  2.49047246  1.83315197  0.93614891  0.18541943  2.11599287</span></a>
-<a class="sourceLine" id="cb21-45" data-line-number="45"><span class="co">#&gt; [11] -1.96943887  1.06351047  0.35315830 -0.61151003 -0.01049441</span></a>
-<a class="sourceLine" id="cb21-46" data-line-number="46"><span class="co">#&gt; [16] -0.75038993 -0.08000322  0.31277573  1.56456175  0.22152087</span></a>
-<a class="sourceLine" id="cb21-47" data-line-number="47"><span class="co">#&gt; [21] -0.08798757 -2.14197877 -0.30804823  0.00778227  3.21041413</span></a>
-<a class="sourceLine" id="cb21-48" data-line-number="48"><span class="co">#&gt; [26]  0.07434468  1.40966986 -0.81485050  0.63816647 -0.33540392</span></a>
-<a class="sourceLine" id="cb21-49" data-line-number="49"><span class="co">#&gt; [31] -0.61955533  1.35716952 -2.77364671  1.00831095  0.32842063</span></a>
-<a class="sourceLine" id="cb21-50" data-line-number="50"><span class="co">#&gt; [36] -1.66705281 -1.21157702  0.89024472 -0.89865037  0.82166393</span></a>
-<a class="sourceLine" id="cb21-51" data-line-number="51"><span class="co">#&gt; [41]  0.64442137 -4.39847850  0.38411140  1.48299847 -0.93068495</span></a>
-<a class="sourceLine" id="cb21-52" data-line-number="52"><span class="co">#&gt; [46] -0.88558228  1.69551410  0.65143649  0.61269397  0.59813891</span></a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># weight-for-age z-score</span>
+<span class="va">waz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getCohortWGS.html">getCohortWGS</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro1</span>,
+                    sexObserved <span class="op">=</span> <span class="st">"sex"</span>,
+                    firstPart <span class="op">=</span> <span class="st">"weight"</span>,
+                    secondPart <span class="op">=</span> <span class="st">"age"</span>,
+                    index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">waz</span>, <span class="fl">50</span><span class="op">)</span>
+<span class="co">#&gt;  [1] -0.75605549 -1.39021503 -1.05597853  1.41575096 -2.67757242  1.49238050</span>
+<span class="co">#&gt;  [7] -0.12987704 -0.02348159 -1.50647344 -1.54381630 -2.87495712 -0.43497240</span>
+<span class="co">#&gt; [13] -1.03899540 -1.69281855 -1.31245898 -2.21003260 -0.01189226 -0.90917762</span>
+<span class="co">#&gt; [19] -0.67839855 -0.94746695 -2.49960425 -0.95659644 -1.65442686 -1.25052760</span>
+<span class="co">#&gt; [25]  0.67335751  0.30156301  0.24261346 -2.78670709 -1.15820651 -1.15477183</span>
+<span class="co">#&gt; [31] -1.35540820 -0.59134959 -4.14967218 -0.45748752 -0.74331669 -1.69725836</span>
+<span class="co">#&gt; [37] -1.05745067 -0.18869508 -0.42095770 -2.21030414 -1.30536715 -3.63778143</span>
+<span class="co">#&gt; [43] -0.60662526 -0.54360470 -1.59171780 -1.74745738 -0.34803338  0.69896149</span>
+<span class="co">#&gt; [49] -0.74467130  0.18924572</span>
+
+<span class="co"># height-for-age z-score</span>
+<span class="va">haz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getCohortWGS.html">getCohortWGS</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro1</span>,
+                    sexObserved <span class="op">=</span> <span class="st">"sex"</span>,
+                    firstPart <span class="op">=</span> <span class="st">"height"</span>,
+                    secondPart <span class="op">=</span> <span class="st">"age"</span>,
+                    index <span class="op">=</span> <span class="st">"hfa"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">haz</span>, <span class="fl">50</span><span class="op">)</span>
+<span class="co">#&gt;  [1] -1.2258169 -2.3475886 -2.9518041 -0.2812852 -4.2056663 -0.5387678</span>
+<span class="co">#&gt;  [7] -2.4020719 -1.0317699 -2.7410884 -4.7037571 -2.5670550 -2.1144960</span>
+<span class="co">#&gt; [13] -2.2323505 -2.3155458 -2.7516165 -2.7930694  0.1121349 -1.9001797</span>
+<span class="co">#&gt; [19] -2.9543730 -1.9671042 -3.8716522  0.8667206 -2.8252069 -2.1412285</span>
+<span class="co">#&gt; [25] -2.7994643  0.5496459 -1.4372002 -3.7979410 -2.5661752 -1.8301183</span>
+<span class="co">#&gt; [31] -1.6548589 -2.7110333 -3.6399642 -1.7955069 -1.6775100 -1.0317699</span>
+<span class="co">#&gt; [37] -0.4356881 -1.2660152  0.4990326 -4.6085660 -3.1662351 -1.0695930</span>
+<span class="co">#&gt; [43] -1.8477936 -2.5502314 -1.8301183 -2.2755493 -3.2816532  0.4876774</span>
+<span class="co">#&gt; [49] -2.4396410 -0.4794744</span>
+
+<span class="co"># weight-for-height z-score</span>
+<span class="va">whz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getCohortWGS.html">getCohortWGS</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro1</span>,
+                    sexObserved <span class="op">=</span> <span class="st">"sex"</span>,
+                    firstPart <span class="op">=</span> <span class="st">"weight"</span>,
+                    secondPart <span class="op">=</span> <span class="st">"height"</span>,
+                    index <span class="op">=</span> <span class="st">"wfh"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">whz</span>, <span class="fl">50</span><span class="op">)</span>
+<span class="co">#&gt;  [1]  0.05572347 -0.01974903  0.57469112  2.06231749 -0.14080044  2.49047246</span>
+<span class="co">#&gt;  [7]  1.83315197  0.93614891  0.18541943  2.11599287 -1.96943887  1.06351047</span>
+<span class="co">#&gt; [13]  0.35315830 -0.61151003 -0.01049441 -0.75038993 -0.08000322  0.31277573</span>
+<span class="co">#&gt; [19]  1.56456175  0.22152087 -0.08798757 -2.14197877 -0.30804823  0.00778227</span>
+<span class="co">#&gt; [25]  3.21041413  0.07434468  1.40966986 -0.81485050  0.63816647 -0.33540392</span>
+<span class="co">#&gt; [31] -0.61955533  1.35716952 -2.77364671  1.00831095  0.32842063 -1.66705281</span>
+<span class="co">#&gt; [37] -1.21157702  0.89024472 -0.89865037  0.82166393  0.64442137 -4.39847850</span>
+<span class="co">#&gt; [43]  0.38411140  1.48299847 -0.93068495 -0.88558228  1.69551410  0.65143649</span>
+<span class="co">#&gt; [49]  0.61269397  0.59813891</span></code></pre></div>
 <p>Applying the <code><a href="reference/getCohortWGS.html">getCohortWGS()</a></code> function results in a vector of calculated <code>z-scores</code> for all children in the cohort or sample.</p>
 </div>
 <div id="calculating-z-scores-for-all-of-the-three-anthropometric-indices-in-one-function" class="section level3">
 <h3 class="hasAnchor">
 <a href="#calculating-z-scores-for-all-of-the-three-anthropometric-indices-in-one-function" class="anchor"></a>Calculating z-scores for all of the three anthropometric indices in one function</h3>
 <p>For this example, we will use the <code><a href="reference/getAllWGS.html">getAllWGS()</a></code> function and apply it to sample data <code>anthro1</code> that came with <code>zscorer</code>.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># weight-for-age z-score</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">zScores &lt;-<span class="st"> </span><span class="kw"><a href="reference/getAllWGS.html">getAllWGS</a></span>(<span class="dt">data =</span> anthro1,</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3">                     <span class="dt">sex =</span> <span class="st">"sex"</span>,</a>
-<a class="sourceLine" id="cb22-4" data-line-number="4">                     <span class="dt">weight =</span> <span class="st">"weight"</span>,</a>
-<a class="sourceLine" id="cb22-5" data-line-number="5">                     <span class="dt">height =</span> <span class="st">"height"</span>,</a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">                     <span class="dt">age =</span> <span class="st">"age"</span>,</a>
-<a class="sourceLine" id="cb22-7" data-line-number="7">                     <span class="dt">index =</span> <span class="st">"all"</span>)</a>
-<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(zScores, <span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb22-9" data-line-number="9"><span class="co">#&gt;            waz        haz         whz</span></a>
-<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="co">#&gt; 1  -0.75605549 -1.2258169  0.05572347</span></a>
-<a class="sourceLine" id="cb22-11" data-line-number="11"><span class="co">#&gt; 2  -1.39021503 -2.3475886 -0.01974903</span></a>
-<a class="sourceLine" id="cb22-12" data-line-number="12"><span class="co">#&gt; 3  -1.05597853 -2.9518041  0.57469112</span></a>
-<a class="sourceLine" id="cb22-13" data-line-number="13"><span class="co">#&gt; 4   1.41575096 -0.2812852  2.06231749</span></a>
-<a class="sourceLine" id="cb22-14" data-line-number="14"><span class="co">#&gt; 5  -2.67757242 -4.2056663 -0.14080044</span></a>
-<a class="sourceLine" id="cb22-15" data-line-number="15"><span class="co">#&gt; 6   1.49238050 -0.5387678  2.49047246</span></a>
-<a class="sourceLine" id="cb22-16" data-line-number="16"><span class="co">#&gt; 7  -0.12987704 -2.4020719  1.83315197</span></a>
-<a class="sourceLine" id="cb22-17" data-line-number="17"><span class="co">#&gt; 8  -0.02348159 -1.0317699  0.93614891</span></a>
-<a class="sourceLine" id="cb22-18" data-line-number="18"><span class="co">#&gt; 9  -1.50647344 -2.7410884  0.18541943</span></a>
-<a class="sourceLine" id="cb22-19" data-line-number="19"><span class="co">#&gt; 10 -1.54381630 -4.7037571  2.11599287</span></a>
-<a class="sourceLine" id="cb22-20" data-line-number="20"><span class="co">#&gt; 11 -2.87495712 -2.5670550 -1.96943887</span></a>
-<a class="sourceLine" id="cb22-21" data-line-number="21"><span class="co">#&gt; 12 -0.43497240 -2.1144960  1.06351047</span></a>
-<a class="sourceLine" id="cb22-22" data-line-number="22"><span class="co">#&gt; 13 -1.03899540 -2.2323505  0.35315830</span></a>
-<a class="sourceLine" id="cb22-23" data-line-number="23"><span class="co">#&gt; 14 -1.69281855 -2.3155458 -0.61151003</span></a>
-<a class="sourceLine" id="cb22-24" data-line-number="24"><span class="co">#&gt; 15 -1.31245898 -2.7516165 -0.01049441</span></a>
-<a class="sourceLine" id="cb22-25" data-line-number="25"><span class="co">#&gt; 16 -2.21003260 -2.7930694 -0.75038993</span></a>
-<a class="sourceLine" id="cb22-26" data-line-number="26"><span class="co">#&gt; 17 -0.01189226  0.1121349 -0.08000322</span></a>
-<a class="sourceLine" id="cb22-27" data-line-number="27"><span class="co">#&gt; 18 -0.90917762 -1.9001797  0.31277573</span></a>
-<a class="sourceLine" id="cb22-28" data-line-number="28"><span class="co">#&gt; 19 -0.67839855 -2.9543730  1.56456175</span></a>
-<a class="sourceLine" id="cb22-29" data-line-number="29"><span class="co">#&gt; 20 -0.94746695 -1.9671042  0.22152087</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># weight-for-age z-score</span>
+<span class="va">zScores</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getAllWGS.html">getAllWGS</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro1</span>,
+                     sex <span class="op">=</span> <span class="st">"sex"</span>,
+                     weight <span class="op">=</span> <span class="st">"weight"</span>,
+                     height <span class="op">=</span> <span class="st">"height"</span>,
+                     age <span class="op">=</span> <span class="st">"age"</span>,
+                     index <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">zScores</span>, <span class="fl">20</span><span class="op">)</span>
+<span class="co">#&gt;            waz        haz         whz</span>
+<span class="co">#&gt; 1  -0.75605549 -1.2258169  0.05572347</span>
+<span class="co">#&gt; 2  -1.39021503 -2.3475886 -0.01974903</span>
+<span class="co">#&gt; 3  -1.05597853 -2.9518041  0.57469112</span>
+<span class="co">#&gt; 4   1.41575096 -0.2812852  2.06231749</span>
+<span class="co">#&gt; 5  -2.67757242 -4.2056663 -0.14080044</span>
+<span class="co">#&gt; 6   1.49238050 -0.5387678  2.49047246</span>
+<span class="co">#&gt; 7  -0.12987704 -2.4020719  1.83315197</span>
+<span class="co">#&gt; 8  -0.02348159 -1.0317699  0.93614891</span>
+<span class="co">#&gt; 9  -1.50647344 -2.7410884  0.18541943</span>
+<span class="co">#&gt; 10 -1.54381630 -4.7037571  2.11599287</span>
+<span class="co">#&gt; 11 -2.87495712 -2.5670550 -1.96943887</span>
+<span class="co">#&gt; 12 -0.43497240 -2.1144960  1.06351047</span>
+<span class="co">#&gt; 13 -1.03899540 -2.2323505  0.35315830</span>
+<span class="co">#&gt; 14 -1.69281855 -2.3155458 -0.61151003</span>
+<span class="co">#&gt; 15 -1.31245898 -2.7516165 -0.01049441</span>
+<span class="co">#&gt; 16 -2.21003260 -2.7930694 -0.75038993</span>
+<span class="co">#&gt; 17 -0.01189226  0.1121349 -0.08000322</span>
+<span class="co">#&gt; 18 -0.90917762 -1.9001797  0.31277573</span>
+<span class="co">#&gt; 19 -0.67839855 -2.9543730  1.56456175</span>
+<span class="co">#&gt; 20 -0.94746695 -1.9671042  0.22152087</span></code></pre></div>
 <p>Applying the <code><a href="reference/getAllWGS.html">getAllWGS()</a></code> function results in a data frame of calculated <code>z-scores</code> for all children in the cohort or sample for all the anthropometric indices.</p>
 </div>
 </div>
@@ -574,36 +612,43 @@
 <h2 class="hasAnchor">
 <a href="#shiny-app" class="anchor"></a>Shiny app</h2>
 <p>To use the included Shiny app, run the following command in R:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw"><a href="reference/run_zscorer.html">run_zscorer</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/run_zscorer.html">run_zscorer</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This will initiate the Shiny app using the installed web browser in your current device as shown below:</p>
-<p><img src="reference/figures/zscorerApp.png"><!-- --></p>
+<p><img src="reference/figures/zscorerApp.png" width="2450"></p>
+</div>
+<div id="community-guidelines" class="section level2">
+<h2 class="hasAnchor">
+<a href="#community-guidelines" class="anchor"></a>Community guidelines</h2>
+<p>Feedback, bug reports and feature requests are welcome; file issues or seek support <a href="https://github.com/nutriverse/zscorer/issues">here</a>. If you would like to contribute to the package, please see our <a href="https://nutriverse.io/zscorer/CONTRIBUTING.html">contributing guidelines</a>.</p>
+<p>This project is released with a <a href="https://nutriverse/zscorer/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
-<ol>
-<li><p>World Health Organization. (2006). WHO child growth standards : length/height-for-age, weight-for-age, weight-for-length, weight -for-height and body mass index-for-age : methods and development. World Health Organization. <a href="https://apps.who.int/iris/handle/10665/43413" class="uri">https://apps.who.int/iris/handle/10665/43413</a></p></li>
-<li><p>World Health Organization. (2007). WHO child growth standards : head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfold-for-age : methods and development. World Health Organization. <a href="https://apps.who.int/iris/handle/10665/43706" class="uri">https://apps.who.int/iris/handle/10665/43706</a></p></li>
-<li><p>de Onis M. Development of a WHO growth reference for school-aged children and adolescents. Bull World Health Org. 2007;85: 660–667. <a href="https://doi.org/10.2471/blt.07.043497">doi:10.2471/BLT.07.043497</a></p></li>
-<li><p>Mramba L, Ngari M, Mwangome M, Muchai L, Bauni E, Walker AS, et al. A growth reference for mid upper arm circumference for age among school age children and adolescents, and validation for mortality: growth curve construction and longitudinal cohort study. BMJ. 2017;: j3423–8. <a href="https://doi.org/10.1136/bmj.j3423">doi:10.1136/bmj.j3423</a></p></li>
-</ol>
+<p><sup>1</sup> World Health Organization. (2006). WHO child growth standards : length/height-for-age, weight-for-age, weight-for-length, weight -for-height and body mass index-for-age : methods and development. World Health Organization. <a href="https://apps.who.int/iris/handle/10665/43413" class="uri">https://apps.who.int/iris/handle/10665/43413</a></p>
+<p><sup>2</sup> World Health Organization. (2007). WHO child growth standards : head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfold-for-age : methods and development. World Health Organization. <a href="https://apps.who.int/iris/handle/10665/43706" class="uri">https://apps.who.int/iris/handle/10665/43706</a></p>
+<p><sup>3</sup> de Onis M. Development of a WHO growth reference for school-aged children and adolescents. Bull World Health Org. 2007;85: 660–667. <a href="https://doi.org/10.2471/blt.07.043497">doi:10.2471/BLT.07.043497</a></p>
+<p><sup>4</sup> Mramba L, Ngari M, Mwangome M, Muchai L, Bauni E, Walker AS, et al. A growth reference for mid upper arm circumference for age among school age children and adolescents, and validation for mortality: growth curve construction and longitudinal cohort study. BMJ. 2017;: j3423–8. <a href="https://doi.org/10.1136/bmj.j3423">doi:10.1136/bmj.j3423</a></p>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=zscorer">https://​cloud.r-project.org/​package=zscorer</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/nutriverse/zscorer">https://​github.com/​nutriverse/​zscorer</a>
+<li>Browse source code at <br><a href="https://github.com/nutriverse/zscorer/">https://​github.com/​nutriverse/​zscorer/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/nutriverse/zscorer/issues">https://​github.com/​nutriverse/​zscorer/​issues</a>
 </li>
 <li>Read more about the WHO Growth Standards at <br><a href="https://www.who.int/childgrowth/en/">https://​www.who.int/​childgrowth/​en/​</a>
 </li>
 <li>Read more about MUAC-for-age z-scores development at <br><a href="https://doi.org/10.1136/bmj.j3423">https://​doi.org/​10.1136/​bmj.j3423</a>
+</li>
+<li>Read more about the CDC Growth Standards at <br><a href="https://www.cdc.gov/growthcharts/background.htm">https://​www.cdc.gov/​growthcharts/​background.htm</a>
 </li>
 </ul>
 </div>
@@ -613,11 +658,18 @@
 <li><a href="https://www.r-project.org/Licenses/AGPL-3">AGPL-3</a></li>
 </ul>
 </div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Mark Myatt <br><small class="roles"> Author, copyright holder </small> <a href="https://orcid.org/0000-0003-1119-1474" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
-<li>Ernest Guevarra <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4887-4415" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
+<li>Mark Myatt <br><small class="roles"> Author, copyright holder </small> <a href="https://orcid.org/0000-0003-1119-1474" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Ernest Guevarra <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4887-4415" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -630,10 +682,12 @@
 <li><a href="https://CRAN.R-project.org/package=zscorer"><img src="https://img.shields.io/cran/l/zscorer.svg" alt="CRAN"></a></li>
 <li><a href="https://CRAN.R-project.org/package=zscorer"><img src="http://cranlogs.r-pkg.org/badges/zscorer" alt="CRAN"></a></li>
 <li><a href="https://CRAN.R-project.org/package=zscorer"><img src="http://cranlogs.r-pkg.org/badges/grand-total/zscorer" alt="CRAN"></a></li>
-<li><a href="https://travis-ci.org/nutriverse/zscorer"><img src="https://travis-ci.org/nutriverse/zscorer.svg?branch=master" alt="Travis-CI Build Status"></a></li>
+<li><a href="https://github.com/nutriverse/zscorer/actions"><img src="https://github.com/nutriverse/zscorer/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://ci.appveyor.com/project/nutriverse/zscorer"><img src="https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
+<li><a href="https://github.com/nutriverse/zscorer/actions"><img src="https://github.com/nutriverse/zscorer/workflows/test-coverage/badge.svg" alt="test-coverage"></a></li>
 <li><a href="https://codecov.io/gh/nutriverse/zscorer"><img src="https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg" alt="codecov"></a></li>
 <li><a href="https://zenodo.org/badge/latestdoi/119683584"><img src="https://zenodo.org/badge/119683584.svg" alt="DOI"></a></li>
+<li><a href="https://www.codefactor.io/repository/github/nutriverse/zscorer"><img src="https://www.codefactor.io/repository/github/nutriverse/zscorer/badge" alt="CodeFactor"></a></li>
 </ul>
 </div>
 </div>
@@ -645,7 +699,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

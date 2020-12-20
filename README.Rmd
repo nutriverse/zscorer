@@ -53,7 +53,7 @@ deviations from the mean) and adds them to survey data:
 
 * **Head circumference-for-age (hca)** z-scores for children aged between zero and 60 months
 
-The `z-scores` are calculated using the **WHO Child Growth Standards** [^1],[^2] for children aged between zero and 60 months or the **WHO Growth References** [^3] for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017) [^4] using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The `zscorer` comes packaged with the WHO Growth References data and the MUAC-for-age reference data.
+The `z-scores` are calculated using the **WHO Child Growth Standards**<sup>1,2</sup> for children aged between zero and 60 months or the **WHO Growth References**<sup>3</sup> for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017)<sup>4</sup> using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The `zscorer` comes packaged with the WHO Growth References data and the MUAC-for-age reference data.
 
 ## Installation
 
@@ -392,18 +392,20 @@ This will initiate the Shiny app using the installed web browser in your current
 knitr::include_graphics("man/figures/zscorerApp.png")
 ```
 
-## References
-
-[^1]: World Health Organization. (2006). WHO child growth standards : length/height-for-age, weight-for-age, weight-for-length, weight -for-height and body mass index-for-age : methods and development. World Health Organization. [https://apps.who.int/iris/handle/10665/43413](https://apps.who.int/iris/handle/10665/43413)
-
-[^2]: World Health Organization. (2007). WHO child growth standards : head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfold-for-age : methods and development. World Health Organization. [https://apps.who.int/iris/handle/10665/43706](https://apps.who.int/iris/handle/10665/43706)
-
-[^3]: de Onis M. Development of a WHO growth reference for school-aged children and adolescents. Bull World Health Org. 2007;85: 660–667. [doi:10.2471/BLT.07.043497](https://doi.org/10.2471/blt.07.043497)
-
-[^4]: Mramba L, Ngari M, Mwangome M, Muchai L, Bauni E, Walker AS, et al. A growth reference for mid upper arm circumference for age among school age children and adolescents, and validation for mortality: growth curve construction and longitudinal cohort study. BMJ. 2017;: j3423–8. [doi:10.1136/bmj.j3423](https://doi.org/10.1136/bmj.j3423)
-
 ## Community guidelines
 
 Feedback, bug reports and feature requests are welcome; file issues or seek support [here](https://github.com/nutriverse/zscorer/issues). If you would like to contribute to the package, please see our [contributing guidelines](https://nutriverse.io/zscorer/CONTRIBUTING.html).
 
 This project is released with a [Contributor Code of Conduct](https://nutriverse/zscorer/CODE_OF_CONDUCT.html). By participating in this project you agree to abide by its terms.
+
+## References
+
+<sup>1</sup> World Health Organization. (2006). WHO child growth standards : length/height-for-age, weight-for-age, weight-for-length, weight -for-height and body mass index-for-age : methods and development. World Health Organization. [https://apps.who.int/iris/handle/10665/43413](https://apps.who.int/iris/handle/10665/43413)
+
+<sup>2</sup> World Health Organization. (2007). WHO child growth standards : head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfold-for-age : methods and development. World Health Organization. [https://apps.who.int/iris/handle/10665/43706](https://apps.who.int/iris/handle/10665/43706)
+
+<sup>3</sup> de Onis M. Development of a WHO growth reference for school-aged children and adolescents. Bull World Health Org. 2007;85: 660–667. [doi:10.2471/BLT.07.043497](https://doi.org/10.2471/blt.07.043497)
+
+<sup>4</sup> Mramba L, Ngari M, Mwangome M, Muchai L, Bauni E, Walker AS, et al. A growth reference for mid upper arm circumference for age among school age children and adolescents, and validation for mortality: growth curve construction and longitudinal cohort study. BMJ. 2017;: j3423–8. [doi:10.1136/bmj.j3423](https://doi.org/10.1136/bmj.j3423)
+
+

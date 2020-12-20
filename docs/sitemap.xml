@@ -4,9 +4,6 @@
     <loc>https://nutriverse.io/zscorer/index.html</loc>
   </url>
   <url>
-    <loc>https://nutriverse.io/zscorer/reference/addWGSR.html</loc>
-  </url>
-  <url>
     <loc>https://nutriverse.io/zscorer/reference/anthro1.html</loc>
   </url>
   <url>
@@ -19,6 +16,9 @@
     <loc>https://nutriverse.io/zscorer/reference/anthro4.html</loc>
   </url>
   <url>
+    <loc>https://nutriverse.io/zscorer/reference/cdc.html</loc>
+  </url>
+  <url>
     <loc>https://nutriverse.io/zscorer/reference/getAllWGS.html</loc>
   </url>
   <url>
@@ -28,13 +28,13 @@
     <loc>https://nutriverse.io/zscorer/reference/getWGS.html</loc>
   </url>
   <url>
-    <loc>https://nutriverse.io/zscorer/reference/getWGSR.html</loc>
-  </url>
-  <url>
     <loc>https://nutriverse.io/zscorer/reference/run_zscorer.html</loc>
   </url>
   <url>
     <loc>https://nutriverse.io/zscorer/reference/wgsData.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/zscorer/reference/wgsr.html</loc>
   </url>
   <url>
     <loc>https://nutriverse.io/zscorer/reference/zscorer.html</loc>

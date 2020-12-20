@@ -9,25 +9,36 @@
 <title>Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a single child data. — getWGS • zscorer</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -40,7 +51,7 @@ for a single child data. — getWGS • zscorer</title>
 for a single child data. — getWGS" />
 <meta property="og:description" content="Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 for a single child data." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://nutriverse.io/zscorer/logo.png" />
 
 
 
@@ -68,10 +79,10 @@ for a single child data." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -82,7 +93,7 @@ for a single child data." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
       </span>
     </div>
 
@@ -108,7 +119,7 @@ for a single child data." />
       <a href="../articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="../articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="../articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
     </li>
     <li>
       <a href="../articles/legacy_functions.html">Legacy functions</a>
@@ -124,7 +135,19 @@ for a single child data." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/nutriverse/zscorer">
+  <a href="https://twitter.com/katilingban">
+    <span class="fab fa fab fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/company/katilingban/">
+    <span class="fab fa fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/nutriverse/zscorer/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -153,7 +176,7 @@ for a single child data.</h1>
 for a single child data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getWGS</span>(<span class='no'>sexObserved</span>, <span class='no'>firstPart</span>, <span class='no'>secondPart</span>, <span class='no'>index</span>)</pre>
+    <pre class="usage"><span class='fu'>getWGS</span><span class='op'>(</span><span class='va'>sexObserved</span>, <span class='va'>firstPart</span>, <span class='va'>secondPart</span>, <span class='va'>index</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -209,34 +232,30 @@ continue to work.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>  <span class='co'># apply \code{getWGS()} to a make believe 52 month old male child with weight of</span>
   <span class='co'># 14.6 kg and height of 98.0 cm</span>
-  <span class='no'>waz</span> <span class='kw'>&lt;-</span> <span class='fu'>getWGS</span>(<span class='kw'>sexObserved</span> <span class='kw'>=</span> <span class='fl'>1</span>,     <span class='co'># 1 = Male / 2 = Female</span>
-                <span class='kw'>firstPart</span> <span class='kw'>=</span> <span class='fl'>14.6</span>,    <span class='co'># Weight in kilograms</span>
-                <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='fl'>52</span>,     <span class='co'># Age in whole months</span>
-                <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"wfa"</span>)       <span class='co'># Anthropometric index (weight-for-age)</span>
-  <span class='no'>waz</span></div><div class='output co'>#&gt; [1] -1.187651</div><div class='input'>
-  <span class='no'>haz</span> <span class='kw'>&lt;-</span> <span class='fu'>getWGS</span>(<span class='kw'>sexObserved</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-                <span class='kw'>firstPart</span> <span class='kw'>=</span> <span class='fl'>98</span>,      <span class='co'># Height in centimetres</span>
-                <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='fl'>52</span>,
-                <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"hfa"</span>)       <span class='co'># Anthropometric index (height-for-age)</span>
-  <span class='no'>haz</span></div><div class='output co'>#&gt; [1] -1.741175</div><div class='input'>
-  <span class='no'>whz</span> <span class='kw'>&lt;-</span> <span class='fu'>getWGS</span>(<span class='kw'>sexObserved</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-                <span class='kw'>firstPart</span> <span class='kw'>=</span> <span class='fl'>14.6</span>,
-                <span class='kw'>secondPart</span> <span class='kw'>=</span> <span class='fl'>98</span>,
-                <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"wfh"</span>)       <span class='co'># Anthropometric index (weight-for-height)</span>
-  <span class='no'>whz</span></div><div class='output co'>#&gt; [1] -0.1790878</div><div class='input'>
+  <span class='va'>waz</span> <span class='op'>&lt;-</span> <span class='fu'>getWGS</span><span class='op'>(</span>sexObserved <span class='op'>=</span> <span class='fl'>1</span>,     <span class='co'># 1 = Male / 2 = Female</span>
+                firstPart <span class='op'>=</span> <span class='fl'>14.6</span>,    <span class='co'># Weight in kilograms</span>
+                secondPart <span class='op'>=</span> <span class='fl'>52</span>,     <span class='co'># Age in whole months</span>
+                index <span class='op'>=</span> <span class='st'>"wfa"</span><span class='op'>)</span>       <span class='co'># Anthropometric index (weight-for-age)</span>
+  <span class='va'>waz</span>
+</div><div class='output co'>#&gt; [1] -1.187651</div><div class='input'>
+  <span class='va'>haz</span> <span class='op'>&lt;-</span> <span class='fu'>getWGS</span><span class='op'>(</span>sexObserved <span class='op'>=</span> <span class='fl'>1</span>,
+                firstPart <span class='op'>=</span> <span class='fl'>98</span>,      <span class='co'># Height in centimetres</span>
+                secondPart <span class='op'>=</span> <span class='fl'>52</span>,
+                index <span class='op'>=</span> <span class='st'>"hfa"</span><span class='op'>)</span>       <span class='co'># Anthropometric index (height-for-age)</span>
+  <span class='va'>haz</span>
+</div><div class='output co'>#&gt; [1] -1.741175</div><div class='input'>
+  <span class='va'>whz</span> <span class='op'>&lt;-</span> <span class='fu'>getWGS</span><span class='op'>(</span>sexObserved <span class='op'>=</span> <span class='fl'>1</span>,
+                firstPart <span class='op'>=</span> <span class='fl'>14.6</span>,
+                secondPart <span class='op'>=</span> <span class='fl'>98</span>,
+                index <span class='op'>=</span> <span class='st'>"wfh"</span><span class='op'>)</span>       <span class='co'># Anthropometric index (weight-for-height)</span>
+  <span class='va'>whz</span>
+</div><div class='output co'>#&gt; [1] -0.1790878</div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#warning">Warning</a></li>
-      <li><a href="#reminders">Reminders</a></li>
-      <li><a href="#note">Note</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -247,7 +266,7 @@ continue to work.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

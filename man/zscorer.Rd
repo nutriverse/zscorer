@@ -4,19 +4,13 @@
 \name{zscorer}
 \alias{zscorer}
 \alias{zscorer-package}
-\title{Tool for calculating z-scores for weight-for-age, height-for-age,
+\title{Anthropometric z-score Calculator}
+\description{
+Tool for calculating z-scores for weight-for-age, height-for-age,
 weight-for-height, BMI-for-age, head circumference-for-age,
 arm circumference-for-age, subscapular skinfold-for-age and
 triceps skinfold-for-age z-score using the WHO Growth
-Reference (2006)}
-\description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
-
-A tool for calculating z-scores and centiles for weight-for-age, 
-    length/height-for-age, weight-for-length/height, BMI-for-age, 
-    head circumference-for-age, age circumference-for-age, 
-    subscapular skinfold-for-age, triceps skinfold-for-age based on the 
-    WHO Child Growth Standards.
+Reference (2006)
 }
 \references{
 World Health Organization. WHO Child Growth Standards:

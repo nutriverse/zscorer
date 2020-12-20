@@ -12,7 +12,7 @@ names(wfa) <- c("sex", "given", "l", "m", "s")
 wfa <- data.frame(index = "wfa", wfa)
 
 ## Length-for-age
-lfa <- x[x$denom == "age" & x$X_AGEMOS1 <= 35.5, c("SEX", "X_AGEMOS1", "X_LLG1", "X_MLG1", "X_SLG1")]
+lfa <- x[x$denom == "age" & x$X_AGEMOS1 <= 35.5, c("SEX", "X_AGECAT", "X_LLG1", "X_MLG1", "X_SLG1")]
 names(lfa) <- c("sex", "given", "l", "m", "s")
 lfa <- data.frame(index = "lfa", lfa)
 
@@ -22,7 +22,7 @@ names(wfl) <- c("sex", "given", "l", "m", "s")
 wfl <- data.frame(index = "wfl", wfl)
 
 ## Head circumference-for-age
-hca <- x[x$denom == "age" & x$X_AGEMOS1 <= 35.5, c("SEX", "X_AGEMOS1", "X_LHC1", "X_MHC1", "X_SHC1")]
+hca <- x[x$denom == "age" & x$X_AGEMOS1 <= 35.5, c("SEX", "X_AGECAT", "X_LHC1", "X_MHC1", "X_SHC1")]
 names(hca) <- c("sex", "given", "l", "m", "s")
 hca <- data.frame(index = "hca", hca)
 

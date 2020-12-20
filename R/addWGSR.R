@@ -107,7 +107,7 @@
 #'         secondPart = 62 * (365.25 / 12),
 #'         index = "mfa")
 #'
-#' @rdname wgsr
+#' @rdname wgs
 #' @export
 #'
 #
@@ -280,7 +280,7 @@ getWGSR <- function(sex,
 #'         secondPart = "age",
 #'         index = "mfa")
 #'
-#' @rdname wgsr
+#' @rdname wgs
 #' @export
 #'
 #

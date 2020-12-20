@@ -15,8 +15,10 @@ Description: A tool for calculating z-scores and centiles for weight-for-age,
     subscapular skinfold-for-age, triceps skinfold-for-age based on the 
     WHO Child Growth Standards. 
 Depends: R (>= 2.10)
-Imports: shiny
-Suggests: testthat,
+Imports: 
+   shiny
+Suggests: 
+    testthat,
     knitr,
     rmarkdown,
     shinythemes,

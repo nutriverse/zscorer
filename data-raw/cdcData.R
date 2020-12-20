@@ -27,7 +27,7 @@ names(hca) <- c("sex", "given", "l", "m", "s")
 hca <- data.frame(index = "hca", hca)
 
 ## Weight-for-height
-wfh <- x[x$denom == "height" & !is.na(x$X_LHT1), c("SEX", "X_HT1", "X_LWHT1", "X_MWHT1", "X_SWHT1")]
+wfh <- x[x$denom == "height" & !is.na(x$X_HT1), c("SEX", "X_HT1", "X_LWHT1", "X_MWHT1", "X_SWHT1")]
 names(wfh) <- c("sex", "given", "l", "m", "s")
 wfh <- data.frame(index = "wfh", wfh)
 

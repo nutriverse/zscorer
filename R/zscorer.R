@@ -1,6 +1,8 @@
 ################################################################################
 #
 #'
+#' Anthropometric z-score Calculator
+#'
 #' Tool for calculating z-scores for weight-for-age, height-for-age,
 #' weight-for-height, BMI-for-age, head circumference-for-age,
 #' arm circumference-for-age, subscapular skinfold-for-age and

@@ -9,8 +9,8 @@
 #' for a given anthropometric measurement.
 #'
 #' [addWGSR()] adds the WHO Growth Reference z-scores to a data frame of
-#' anthropometric datafor weight, height or length, MUAC, head circumference,
-#' sub-scapular skinfold and triceps skinfold.
+#' anthropometric data for weight, height or length, MUAC, head circumference,
+#' sub-scapular skinfold, triceps skinfold, and body mass index (BMI).
 #'
 #' @param data A survey dataset as a data.frame object
 #' @param sex Name of variable specifying the sex of the subject. This must be
@@ -303,7 +303,7 @@ addWGSR <- function(data, sex,
   ## Calculate specified index
   z <- vector(mode = "numeric", length = nrow(data))
   pb <- txtProgressBar(min = 0, max = nrow(data), style = 1)
-  for(i in 1:nrow(data)) {
+  for(i in seq_len(nrow(data))) {
     z[i] <- ifelse(!is.na(thirdPart),
                    getWGSR(sex = data[[sex]][i],
                            firstPart = data[[firstPart]][i],

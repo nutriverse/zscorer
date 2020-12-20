@@ -8,25 +8,36 @@
 
 <title>Contributing • zscorer</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="pkgdown.css" rel="stylesheet">
@@ -36,6 +47,7 @@
 
 
 <meta property="og:title" content="Contributing" />
+<meta property="og:image" content="https://nutriverse.io/zscorer/logo.png" />
 
 
 
@@ -63,10 +75,10 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-title-body">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -77,7 +89,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
       </span>
     </div>
 
@@ -103,7 +115,13 @@
       <a href="articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+    </li>
+    <li>
+      <a href="articles/legacy_functions.html">Legacy functions</a>
+    </li>
+    <li>
+      <a href="articles/using-shiny-app.html">Using zscorer Shiny application</a>
     </li>
   </ul>
 </li>
@@ -113,7 +131,19 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/nutriverse/zscorer">
+  <a href="https://twitter.com/katilingban">
+    <span class="fab fa fab fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/company/katilingban/">
+    <span class="fab fa fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/nutriverse/zscorer/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -136,33 +166,42 @@
 
 <div id="contributing" class="section level1">
 
-<p>When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with <a href="mailto:ernestgmd@gmail.com">Ernest Guevarra</a> repository before making a change.</p>
-<p>Please note we have a <a href="https://github.com/validmeasures/wash/blob/master/.github/CODE_OF_CONDUCT.md">code of conduct</a>, please follow it in all your interactions with the project.</p>
-<p><br></p>
-<div id="how-to-make-a-clean-pull-request" class="section level2">
+<div id="bugs" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-to-make-a-clean-pull-request" class="anchor"></a>How to make a clean pull request</h2>
+<a href="#bugs" class="anchor"></a>Bugs</h2>
 <ul>
-<li><p>Create a personal fork of this project on Github.</p></li>
-<li><p>Clone the fork on your local machine. Your remote repo on Github is called <code>origin</code>.</p></li>
-<li><p>Add the original repository as a remote called <code>upstream</code>.</p></li>
-<li><p>If you created your fork a while ago be sure to pull upstream changes into your local repository.</p></li>
-<li><p>Create a new branch to work on! Branch from <code>development</code>.</p></li>
-<li><p>Implement/fix your feature, comment your code.</p></li>
-<li><p>Follow the code style of the project, including indentation.</p></li>
-<li><p>Add or change the documentation as needed.</p></li>
-<li><p>Squash your commits into a single commit with git’s <a href="https://help.github.com/articles/interactive-rebase">interactive rebase</a>. Create a new branch if necessary.</p></li>
-<li><p>Push your branch to your fork on Github, the remote <code>origin</code>.</p></li>
-<li><p>From your fork open a pull request in the correct branch using the specified <a href="https://github.com/validmeasures/bbw/blob/master/.github/PULL_REQUEST_TEMPLATE.md">Pull Request Template</a>. Target this project’s <code>development</code> branch.</p></li>
-<li><p>Update the <code>README.md</code> with details of changes to the interface particularly changes in how indicators are defined or addition of new indicators.</p></li>
-<li><p>Increase the version numbers in any examples files and the <code>README.md</code> to the new version that this <code>Pull Request</code> would represent. The versioning scheme we use is <a href="http://semver.org/">SemVer</a>.</p></li>
-<li><p>You may then request <a href="mailto:ernestgmd@gmail.com">Ernest Guevarra</a> to merge your <code>Pull Request</code> for you.</p></li>
-<li><p>Once the pull request is approved and merged you can pull the changes from <code>upstream</code> to your local repo and delete your extra branch(es).</p></li>
-<li><p>And last but not least: Always write your commit messages in the present tense. Your commit message should describe what the commit, when applied, does to the code – not what you did to the code.</p></li>
+<li>Submit an issue on the <a href="https://github.com/nutriverse/zscorer/issues">issues page</a>
+</li>
+</ul>
+</div>
+<div id="code-contributions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-contributions" class="anchor"></a>Code contributions</h2>
+<ul>
+<li><p>Fork this repository to your Github account</p></li>
+<li><p>Clone your version on your account down to your machine from your account</p></li>
+</ul>
+<pre><code>git clone https://github.com/&lt;yourgithubusername&gt;/zscorer.git</code></pre>
+<ul>
+<li>Make sure to track progress upstream i.e., on our version of <code>zscorer</code> at <code>nutriverse/oxcgrt</code>, by doing</li>
+</ul>
+<pre><code>git remote add upstream https://github.com/nutriverse/zcorer.git</code></pre>
+<ul>
+<li><p>Before making changes make sure to pull changes in from <code>upstream</code> by doing either <code>git fetch upstream</code> then merge later or <code>git pull upstream</code> to fetch and merge in one step</p></li>
+<li><p>Make your changes on a new feature branch</p></li>
+<li><p>Please write a test or tests for your changes if they affect code and not just documentation</p></li>
+<li><p>Push up changes to your account</p></li>
+<li><p>Submit a pull request at <code>nutriverse/zscorer</code></p></li>
 </ul>
 </div>
 </div>
 
+  </div>
+
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -175,7 +214,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

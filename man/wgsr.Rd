@@ -98,8 +98,8 @@ for a given anthropometric measurement.
 }
 \details{
 \code{\link[=addWGSR]{addWGSR()}} adds the WHO Growth Reference z-scores to a data frame of
-anthropometric datafor weight, height or length, MUAC, head circumference,
-sub-scapular skinfold and triceps skinfold.
+anthropometric data for weight, height or length, MUAC, head circumference,
+sub-scapular skinfold, triceps skinfold, and body mass index (BMI).
 }
 \examples{
 # Given a male child 10 months old with a weight of 5.7 kgs, height of 64.2

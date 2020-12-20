@@ -32,35 +32,6 @@
 
 ################################################################################
 #
-#' United States Center for Disease Control (CDC) Growth Charts Data
-#'
-#' @format A data frame with 6 columns and 1673 rows.
-#'
-#' | **Variable** | **Description** |
-#' | :--- | :---- |
-#' | *indicator* | One of weight-for-age (`waz`), height-for-age (`haz`), or |
-#' | | weight-for-height (`whz`) anthropometric indicators |
-#' | *sex* | Sex of child (1 = Male; 2 = Female) |
-#' | *given* | Variable to which standardisation is to be made. For |
-#' | | `waz` and `haz`, `given` is age in months. For `whz`, `given` is height
-#' | | in cm |
-#' | *l* | `L` component of the LMS method for normalising growth |
-#' | | centile standards. `L` is the trend in the optimal power to obtain |
-#' | | normality |
-#' | *m* | `M` component of the LMS method for normalising growth centile |
-#' | | standards. `M` is the trend in the mean |
-#' | *s* | `S` component of the LMS method for normalising growth centile |
-#' | | standards. `S` is the trend in the coefficient of variation |
-#'
-#' @source https://www.cdc.gov/growthcharts/percentile_data_files.htm
-#'
-#
-################################################################################
-"cdcData"
-
-
-################################################################################
-#
 #'
 #' Anthropometric data from a SMART survey in Kabul, Afghanistan.
 #'

@@ -6,19 +6,12 @@
 #'
 #' | **Variable** | **Description** |
 #' | :--- | :---- |
-#' | *indicator* | One of weight-for-age (`waz`), height-for-age (`haz`), or |
-#' | | weight-for-height (`whz`) anthropometric indicators |
+#' | *indicator* | One of weight-for-age (`waz`), height-for-age (`haz`), or weight-for-height (`whz`) anthropometric indicators |
 #' | *sex* | Sex of child (1 = Male; 2 = Female) |
-#' | *given* | Variable to which standardisation is to be made. For `waz` and |
-#' |         | `haz`, `given` is age in months. For `whz`, `given` is height
-#' |         | in cm |
-#' | *l* | `L` component of the LMS method for normalising growth |
-#' |     | centile standards. `L` is the trend in the optimal power to obtain |
-#' |     | normality |
-#' | *m* | `M` component of the LMS method for normalising growth centile |
-#' |     | standards. `M` is the trend in the mean |
-#' | *s* | `S` component of the LMS method for normalising growth centile |
-#' |     | standards. `S` is the trend in the coefficient of variation |
+#' | *given* | Variable to which standardisation is to be made. For `waz` and `haz`, `given` is age in months. For `whz`, `given` is height in cm |
+#' | *l* | `L` component of the LMS method for normalising growth centile standards. `L` is the trend in the optimal power to obtain normality |
+#' | *m* | `M` component of the LMS method for normalising growth centile standards. `M` is the trend in the mean |
+#' | *s* | `S` component of the LMS method for normalising growth centile standards. `S` is the trend in the coefficient of variation |
 #'
 #' @examples
 #' head(wgsData)

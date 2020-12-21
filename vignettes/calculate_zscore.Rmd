@@ -4,7 +4,7 @@ author: "Mark Myatt"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Calculating anthropometric z-scores using zscorer}
+  %\VignetteIndexEntry{Calculating anthropometric z-scores}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

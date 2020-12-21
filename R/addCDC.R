@@ -113,68 +113,68 @@ getCDC <- function(sex,
   cdcData <- referenceData[["cdc"]]
   ## Avoid missing and impossible values in 'standing' by coding NA and
   ## other values to '3'
-  if(is.na(standing) | !(standing %in% c(1, 2, 3))) {
+  if (is.na(standing) | !(standing %in% c(1, 2, 3))) {
     standing = 3
   }
   ## Unknown index specified - return NA
-  if(!(index %in% c("bfa", "hca", "hfa", "lfa",
+  if (!(index %in% c("bfa", "hca", "hfa", "lfa",
                     "wfa", "wfh", "wfl"))) {
     return(NA)
   }
   ## Missing data for 'sex', 'firstPart', or 'secondPart' - return NA
-  if(is.na(sex) | is.na(firstPart) | is.na(secondPart)) {
+  if (is.na(sex) | is.na(firstPart) | is.na(secondPart)) {
     return(NA)
   }
   ## 'sex' must be male (1) or female (2)
-  if(!(sex %in% c(1, 2))) {
+  if (!(sex %in% c(1, 2))) {
     return(NA)
   }
   ## 'firstPart' or 'secondPart' are not numeric - return NA
-  if(!is.numeric(firstPart) | !is.numeric(secondPart)) {
+  if (!is.numeric(firstPart) | !is.numeric(secondPart)) {
     return(NA)
   }
   ## Missing 'thirdPart' (age) is missing for BMI-for-age - return NA
-  if(index == "bfa" & is.na(thirdPart)) {
+  if (index == "bfa" & is.na(thirdPart)) {
     return(NA)
   }
   ## 'thirdPart' (age) is not numeric for BMI-for-age - return NA
-  if(index == "bfa" & !is.numeric(thirdPart)) {
+  if (index == "bfa" & !is.numeric(thirdPart)) {
     return(NA)
   }
   ## 'secondPart' is zero then BMI cannot be calculated
-  if(index == "bfa" & secondPart == 0) {
+  if (index == "bfa" & secondPart == 0) {
     return(NA)
   }
   ## Round lengths to nearest 0.1 cm
-  if(index %in% c("wfh", "wfl")) {
+  if (index %in% c("wfh", "wfl")) {
     secondPart <- round(secondPart, 1)
   }
   ## Round ages to the nearest day
-  if(index %in% c("hca", "hfa", "lfa", "wfa")) {
+  if (index %in% c("hca", "hfa", "lfa", "wfa")) {
     secondPart <- round(secondPart, digits = 0)
   }
-  if(index == "bfa") {
+  if (index == "bfa") {
     thirdPart <- round(thirdPart, 0)
   }
   ## Rules for length-for-age and height-for-age indices
-  if(standing == 1 & (index == "lfa" | index == "hfa") & secondPart < 24) {
+  if (standing == 1 & (index == "lfa" | index == "hfa") & secondPart < 24) {
     index <- "lfa"
     firstPart <- firstPart + 0.8
   }
-  if(standing == 2 & (index == "lfa" | index == "hfa") & secondPart < 24) {
+  if (standing == 2 & (index == "lfa" | index == "hfa") & secondPart < 24) {
     index <- "lfa"
   }
-  if(standing == 3 & (index == "lfa" | index == "hfa") & secondPart < 24) {
+  if (standing == 3 & (index == "lfa" | index == "hfa") & secondPart < 24) {
     index <- "lfa"
   }
-  if(standing == 1 & (index == "lfa" | index == "hfa") & secondPart >= 24) {
+  if (standing == 1 & (index == "lfa" | index == "hfa") & secondPart >= 24) {
     index <- "hfa"
   }
-  if(standing == 2 & (index == "lfa" | index == "hfa") & secondPart >= 24) {
+  if (standing == 2 & (index == "lfa" | index == "hfa") & secondPart >= 24) {
     index <- "hfa"
     firstPart <- firstPart - 0.8
   }
-  if(standing == 3 & (index == "lfa" | index == "hfa") & secondPart >= 24) {
+  if (standing == 3 & (index == "lfa" | index == "hfa") & secondPart >= 24) {
     index <- "hfa"
   }
   ## Rules for weight-for-length and weight-for-height indices
@@ -199,21 +199,26 @@ getCDC <- function(sex,
   #  index = "wfh"
   #}
   ## Rules for BMI-for-age index
-  if(standing == 1 & index == "bfa" & thirdPart < 24) {
+  if (standing == 1 & index == "bfa" & thirdPart < 24) {
     secondPart <- secondPart + 0.8
   }
-  if(standing == 2 & index == "bfa" & thirdPart >= 24) {
+  if (standing == 2 & index == "bfa" & thirdPart >= 24) {
     secondPart <- secondPart - 0.8
   }
   ## Calculate BMI (as 'firstPart') and place age in 'secondPart'
-  if(index == "bfa") {
+  if (index == "bfa") {
     firstPart <- firstPart / (secondPart / 100) ^ 2
     secondPart <- thirdPart
   }
   ## 'secondPart' is out of range for specified 'index' - return NA
   rangeSecondPart <- range(cdcData$given[cdcData$index == index])
-  if(secondPart < rangeSecondPart[1] | secondPart > rangeSecondPart[2]) {
+  if (secondPart < rangeSecondPart[1] | secondPart > rangeSecondPart[2]) {
     return(NA)
+  }
+  ## Adjust age in months based on CDC recommendation for age-based secondPart
+  if (index %in% c("bfa", "hca", "hfa", "lfa", "wfa")) {
+    secondPart <- ifelse(secondPart >= 0 & secondPart < 0.5, 0,
+                         as.integer(secondPart + 0.5) - 0.5)
   }
   ## Lookup reference values and calculate z-score
   lkpIndexSex <- cdcData[cdcData$index == index & cdcData$sex == sex, ]

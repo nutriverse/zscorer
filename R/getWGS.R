@@ -30,13 +30,13 @@
 #' @section Note:
 #' This is a legacy function from the first CRAN release of \code{zscorer}
 #' which focused mainly on the calculation of z-scores for weight-for-age,
-#' weight-for-height and height-for-age. This function has been kept in the package
-#' to ensure that existing analysis workflows implemented using the function
-#' continue to work.
+#' weight-for-height and height-for-age. This function has been kept in the
+#' package to ensure that existing analysis workflows implemented using the
+#' function continue to work.
 #'
 #' @examples
-#'   # apply \code{getWGS()} to a make believe 52 month old male child with weight of
-#'   # 14.6 kg and height of 98.0 cm
+#'   # apply \code{getWGS()} to a make believe 52 month old male child with
+#'   # weight of 14.6 kg and height of 98.0 cm
 #'   waz <- getWGS(sexObserved = 1,     # 1 = Male / 2 = Female
 #'                 firstPart = 14.6,    # Weight in kilograms
 #'                 secondPart = 52,     # Age in whole months
@@ -61,6 +61,18 @@
 ################################################################################
 
 getWGS <- function(sexObserved, firstPart, secondPart, index) {
+  ## Deprecate function
+  .Deprecated(new = "getWGSR",
+              package = "zscorer",
+              msg = paste(
+                      strwrap(
+                        "This function is now under deprecation. Please use
+                        getWGSR instead",
+                        width = 80
+                      ),
+                      collapse = "\n"
+                    ),
+              old = "getWGS")
 
   if(is.na(sexObserved) | is.na(firstPart) | is.na(secondPart)) { return(NA) }
 

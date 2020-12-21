@@ -5,14 +5,13 @@
 #' for a cohort or sample of children.
 #'
 #' @param data Data frame containing the variables needed for calculation
-#' @param FUN Function to apply; default to \code{getWGS()}
 #' @param sexObserved Sex of child (1 = Male; 2 = Female)
 #' @param firstPart Weight (kg; for WHZ and WAZ) or height (cm; for HAZ)
 #' @param secondPart Age (months; for HAZ and WAZ) or height (cm; for WHZ)
 #' @param index One of "wfh", "hfa", "wfa" (specifies the required index)
-#' @return Numeric vector of \code{z-scores} of the anthropometric index selected
+#' @return Numeric vector of `z-scores` of the anthropometric index selected
 #'
-#' The function fails messily when \code{secondPart} is outside of the range
+#' The function fails messily when `secondPart` is outside of the range
 #' given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months
 #' for age). It is up to you to check the ranges of your data.
 #'
@@ -49,12 +48,30 @@
 #'                          secondPart = "height",
 #'                          index = "wfh")
 #'   whzAll
+#'
 #' @export
 #'
 #
 ################################################################################
 
-getCohortWGS <- function(data, FUN = getWGS, sexObserved, firstPart, secondPart, index) {
+getCohortWGS <- function(data,
+                         sexObserved,
+                         firstPart,
+                         secondPart,
+                         index) {
+
+  ## Deprecate
+  .Deprecated(new = "addWGSR",
+              package = "zscorer",
+              msg = paste(
+                strwrap(
+                  "The getCohortWGS function is now under deprecation. Please
+                  use addWGSR instead",
+                  width = 80
+                ),
+                collapse = "\n"
+              ),
+              old = "getCohortWGS")
 
   z <- mapply(FUN = getWGS,
               data[ , sexObserved],

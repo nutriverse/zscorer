@@ -4,32 +4,33 @@
 #' Calculate z-scores for WHZ, HAZ, WAZ using the WHO Growth Reference (2006)
 #' for a single child data.
 #'
-#' @param data Data frame containing corresponding data on \code{sex},
-#'     \code{weight}, \code{height}, and \code{age} of children. Default is NULL.
-#'     If specified, parameters for \code{sex}, \code{weight}, \code{height} and
-#'     \code{age} should be provided as character values of the names of
-#'     variables in \code{data} corresponding to the parameters required.
+#' @param data Data frame containing corresponding data on `sex`, `weight`,
+#'     `height`, and `age` of children. Default is NULL. If specified,
+#'     parameters for `sex`, `weight`, `height` and `age` should be provided as
+#'     character values of the names of variables in `data` corresponding to
+#'     the parameters required.
 #' @param sex Either numeric values (1 = male; 2 = female) indicating sex of
-#'     child (default) or character value (if \code{data} is specified) indicating
-#'     variable name in \code{data} containing information on sex of
-#'     child/children (1 = male; 2 = female).
+#'     child (default) or character value (if `data` is specified) indicating
+#'     variable name in `data` containing information on sex of child/children
+#'     (1 = male; 2 = female).
 #' @param weight Either numeric values for weight in kg with at least 1 decimal
-#'     place (default) or character value (if \code{data} is specified) indicating
-#'     variable name in \code{data} containing information on weight of
+#'     place (default) or character value (if `data` is specified) indicating
+#'     variable name in `data` containing information on weight of
 #'     child/children.
 #' @param height Either numeric values for height in cm with at least 1 decimal
-#'     place (default) or character value (if \code{data} is specified) indicating
-#'     variable name in \code{data} containing information on height of
+#'     place (default) or character value (if `data` is specified) indicating
+#'     variable name in `data` containing information on height of
 #'     child/children.
-#' @param age Either numeric values for age in whole months (default) or character
-#'     value (if \code{data} is specified) indicating variable name in \code{data}
-#'     containing information on age of child/children.
-#' @param index One of "wfh", "hfa", "wfa" (specifies the required index) or "all"
-#'     to calculate all three indices
+#' @param age Either numeric values for age in whole months (default) or
+#'     character value (if `data` is specified) indicating variable name in
+#'     `data` containing information on age of child/children.
+#' @param index One of *"wfh"*, *"hfa"*, *"wfa"* (specifies the required index)
+#'     or *"all"* to calculate all three indices
+#'
 #' @return Either a single numeric value for z-score of the anthropometric index
-#'     selected if data is for single child or a data frame of numeric values for
-#'     z-scores of each anthropometric index if data is for multiple children and
-#'     more than one anthropometric index selected.
+#'     selected if data is for single child or a data frame of numeric values
+#'     for z-scores of each anthropometric index if data is for multiple
+#'     children and more than one anthropometric index selected.
 #'
 #' The function fails messily when \code{secondPart} is outside of the range
 #' given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months
@@ -44,33 +45,33 @@
 #'
 #' Weights should be specified in kg to available precision
 #'
-#' The function requires reference data \code{wgsData} included in this package
+#' The function requires reference data `wgsData` included in this package
 #'
 #' @examples
-#'   # apply \code{getAllWGS()} to a make believe 52 month old male child with weight of
+#'   # apply getAllWGS to a make believe 52 month old male child with weight of
 #'   # 14.6 kg and height of 98.0 cm
-#'   waz <- getAllWGS(sex = 1,          # 1 = Male / 2 = Female
-#'                    weight = 14.6,    # Weight in kilograms
-#'                    height = 98,      # Height in centimetres
-#'                    age = 52,         # Age in whole months
-#'                    index = "wfa")    # Anthropometric index (weight-for-age)
+#'   waz <- getAllWGS(sex = 1,        # 1 = Male / 2 = Female
+#'                    weight = 14.6,  # Weight in kilograms
+#'                    height = 98,    # Height in centimetres
+#'                    age = 52,       # Age in whole months
+#'                    index = "wfa")  # Anthropometric index (weight-for-age)
 #'   waz
 #'
 #'   haz <- getAllWGS(sex = 1,
 #'                    weight = 14.6,
-#'                    height = 98,      # Height in centimetres
+#'                    height = 98,    # Height in centimetres
 #'                    age = 52,
-#'                    index = "hfa")    # Anthropometric index (height-for-age)
+#'                    index = "hfa")  # Anthropometric index (height-for-age)
 #'   haz
 #'
 #'   whz <- getAllWGS(sex = 1,
 #'                    weight = 14.6,
 #'                    height = 98,
 #'                    age = 52,
-#'                    index = "wfh")    # Anthropometric index (weight-for-height)
+#'                    index = "wfh")  # Anthropometric index (weight-for-height)
 #'   whz
 #'
-#'   # apply \code{getAllWGS()} to \code{anthro1} dataset
+#'   # apply getAllWGS to anthro1 dataset
 #'   waz <- getAllWGS(data = anthro1,
 #'                    sex = "sex",
 #'                    weight = "weight",
@@ -100,6 +101,19 @@
 ################################################################################
 
 getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
+  ## Deprecate
+  .Deprecated(new = "addWGSR",
+              package = "zscorer",
+              msg = paste(
+                strwrap(
+                  "The getAllWGS function is now under deprecation. Please
+                  use addWGSR instead",
+                  width = 80
+                ),
+                collapse = "\n"
+              ),
+              old = "getAllWGS")
+
   ## If user selects index of "wfa" or "all"...
   if(index == "wfa" | index == "all"){
     ## If user does not provide data (is.null(data))...
@@ -107,7 +121,17 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
       ## If user provides non-numeric arguments for parameters...
       if(!is.numeric(weight) | !is.numeric(sex) | !is.numeric(age)){
         ## Stop operation
-        stop("If data provided, sex, weight and age must be numeric. Try again.", call. = TRUE)
+        stop(
+          paste(
+            strwrap(
+              "If data provided, sex, weight and age must be numeric.
+              Try again.",
+              width = 80
+            ),
+            collapse = "\n"
+          ),
+          call. = TRUE
+        )
       }
       ##
       waz <- mapply(FUN = getWGS,
@@ -118,10 +142,20 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
     }
     ## If !is.null(data)...
     if(!is.null(data)){
-      ## If user provides non-character arguments for paratmers...
+      ## If user provides non-character arguments for parameters...
       if(!is.character(sex) | !is.character(weight) | !is.character(age)){
         ## Stop operation
-        stop("If data not provided, sex, weight and age must be character values. Try again", call. = TRUE)
+        stop(
+          paste(
+            strwrap(
+              "If data not provided, sex, weight and age must be character
+              values. Try again",
+              width = 80
+            ),
+            collapse = "\n"
+          ),
+          call. = TRUE
+        )
       }
       ##
       waz <- mapply(FUN = getWGS,
@@ -138,7 +172,17 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
       ## If user provides non-numeric arguments for parameters...
       if(!is.numeric(sex) | !is.numeric(height) | !is.numeric(age)){
         ## Stop operation
-        stop("If data provided, sex, height and age must be numeric. Try again.", call. = TRUE)
+        stop(
+          paste(
+            strwrap(
+              "If data provided, sex, height and age must be numeric.
+              Try again.",
+              width = 80,
+            ),
+            collapse = "\n"
+          ),
+          call. = TRUE
+        )
       }
       ##
       haz <- mapply(FUN = getWGS,
@@ -152,7 +196,17 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
       ##
       if(!is.character(sex) | !is.character(height) | !is.character(age)){
         ##
-        stop("If data not provided, sex, height and age must be character values. Try again.", call. = TRUE)
+        stop(
+          paste(
+            strwrap(
+              "If data not provided, sex, height and age must be character
+              values. Try again.",
+              width = 80
+            ),
+            collapse = "\n"
+          ),
+          call. = TRUE
+        )
       }
       ##
       haz <- mapply(FUN = getWGS,
@@ -169,7 +223,17 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
       ##
       if(!is.numeric(sex) | !is.numeric(weight) | !is.numeric(height)){
         ##
-        stop("If data provided, sex, weight and height must be numeric. Try again.", call. = TRUE)
+        stop(
+          paste(
+            strwrap(
+              "If data provided, sex, weight and height must be numeric.
+              Try again.",
+              width = 80,
+            ),
+            collapse = "\n"
+          ),
+          call. = TRUE
+        )
       }
       ##
       whz <- mapply(FUN = getWGS,
@@ -183,7 +247,17 @@ getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
       ##
       if(!is.character(sex) | !is.character(weight) | !is.character(height)){
         ##
-        stop("If data not provided, sex, weight and height must be character values. Try again.", call. = TRUE)
+        stop(
+          paste(
+            strwrap(
+              "If data not provided, sex, weight and height must be character
+              values. Try again.",
+              width = 80,
+            ),
+            collapse = "\n"
+          ),
+          call. = TRUE
+        )
       }
       ##
       whz <- mapply(FUN = getWGS,

@@ -29,3 +29,21 @@
 if(getRversion() >= "2.15.1")  utils::globalVariables(c("wgsData","indicator",
                                                         "sex", "given"))
 
+
+################################################################################
+#
+#'
+#' Deprecated functions in zscorer
+#'
+#' These functions still work but will be removed (defunct) in the next version.
+#'
+#' * [getWGS()]
+#' * [getCohortWGS()]
+#' * [getAllWGS()]
+#'
+#' @name zscorer-deprecated
+#'
+#
+################################################################################
+NULL
+

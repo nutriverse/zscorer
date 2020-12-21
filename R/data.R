@@ -131,3 +131,28 @@
 #
 ################################################################################
 "anthro4"
+
+
+################################################################################
+#
+#' A subset of data from the National Health and Nutrition Examination Survey
+#'
+#' @format A data.frame with 339 observations and 10 variables
+#'
+#' | **Variable** | **Definition** |
+#' | :--- | :--- |
+#' | *cid* | Unique child identifier |
+#' | *sex* | Sex of child. 1 = male; 2 = female |
+#' | *agemos* | Age in months |
+#' | *weight* | Weight in kilograms |
+#' | *height* | Height in centimetres |
+#' | *headcir* | Head circumference in centimetres |
+#' | *waz* | Weight-for-age z-score |
+#' | *bmiz* | BMI-for-age z-score |
+#'
+#' @examples
+#' head(nhanes)
+#'
+#
+################################################################################
+"nhanes"

@@ -217,10 +217,10 @@ getCDC <- function(sex,
     return(NA)
   }
   ## Adjust age in months based on CDC recommendation for age-based secondPart
-  if (index %in% c("bfa", "hca", "hfa", "lfa", "wfa")) {
-    secondPart <- ifelse(secondPart >= 0 & secondPart < 0.5, 0,
-                         as.integer(secondPart + 0.5) - 0.5)
-  }
+  #if (index %in% c("bfa", "hca", "hfa", "lfa", "wfa")) {
+  #  secondPart <- ifelse(secondPart >= 0 & secondPart < 0.5, 0,
+  #                       as.integer(secondPart + 0.5) - 0.5)
+  #}
   ## Lookup reference values and calculate z-score
   lkpIndexSex <- cdcData[cdcData$index == index & cdcData$sex == sex, ]
   L <- approx(lkpIndexSex$given, lkpIndexSex$l,
@@ -230,14 +230,14 @@ getCDC <- function(sex,
   S <- approx(lkpIndexSex$given, lkpIndexSex$s,
               xout = secondPart, ties = "ordered")$y
   z <- (((firstPart / M) ^ L) - 1) / (L * S)
-  SD3pos <- M * (1 + L * S * (+3))^(1 / L)
-  SD2pos <- M * (1 + L * S * (+2))^(1 / L)
-  SD23pos <- SD3pos - SD2pos
-  SD3neg <- M * (1 + L * S * (-3))^(1 / L)
-  SD2neg <- M * (1 + L * S * (-2))^(1 / L)
-  SD23neg <- SD2neg - SD3neg
-  if(z >  3) z <-  3 + ((firstPart - SD3pos) / SD23pos)
-  if(z < -3) z <- -3 + ((firstPart - SD3neg) / SD23neg)
+  #SD3pos <- M * (1 + L * S * (+3))^(1 / L)
+  #SD2pos <- M * (1 + L * S * (+2))^(1 / L)
+  #SD23pos <- SD3pos - SD2pos
+  #SD3neg <- M * (1 + L * S * (-3))^(1 / L)
+  #SD2neg <- M * (1 + L * S * (-2))^(1 / L)
+  #SD23neg <- SD2neg - SD3neg
+  #if(z >  3) z <-  3 + ((firstPart - SD3pos) / SD23pos)
+  #if(z < -3) z <- -3 + ((firstPart - SD3neg) / SD23neg)
   return(z)
 }
 

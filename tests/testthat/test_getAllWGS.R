@@ -82,7 +82,14 @@ test_that("names is waz, haz and whz", {
 
 test_that("produces error", {
   expect_error(getAllWGS(sex = "sex", weight = "weight", height = "height", age = "age", index = "wfa"),
-               "If data provided, sex, weight and age must be numeric. Try again.")
+               paste(
+                 strwrap(
+                   "If data provided, sex, weight and age must be numeric.
+                   Try again.",
+                   width = 80
+                  ),
+                  collapse = "\n"
+               ))
 })
 
 waz <- getAllWGS(sex = anthro1$sex,
@@ -105,12 +112,26 @@ test_that("names is waz", {
 
 test_that("produces error", {
   expect_error(getAllWGS(data = anthro1, sex = anthro1$sex, weight = anthro1$weight, height = anthro1$height, age = anthro1$age, index = "wfa"),
-               "If data not provided, sex, weight and age must be character values. Try again")
+               paste(
+                 strwrap(
+                   "If data not provided, sex, weight and age must be character
+                   values. Try again",
+                   width = 80
+                 ),
+                 collapse = "\n"
+               ))
 })
 
 test_that("produces error", {
   expect_error(getAllWGS(sex = "sex", weight = "weight", height = "height", age = "age", index = "hfa"),
-               "If data provided, sex, height and age must be numeric. Try again.")
+               paste(
+                 strwrap(
+                   "If data provided, sex, height and age must be numeric.
+                   Try again.",
+                   width = 80
+                 ),
+                 collapse = "\n"
+               ))
 })
 
 haz <- getAllWGS(sex = anthro1$sex,
@@ -133,12 +154,26 @@ test_that("names is haz", {
 
 test_that("produces error", {
   expect_error(getAllWGS(data = anthro1, sex = anthro1$sex, weight = anthro1$weight, height = anthro1$height, age = anthro1$age, index = "hfa"),
-               "If data not provided, sex, height and age must be character values. Try again")
+               paste(
+                 strwrap(
+                   "If data not provided, sex, height and age must be character
+                   values. Try again",
+                   width = 80
+                 ),
+                 collapse = "\n"
+               ))
 })
 
 test_that("produces error", {
   expect_error(getAllWGS(sex = "sex", weight = "weight", height = "height", age = "age", index = "wfh"),
-               "If data provided, sex, weight and height must be numeric. Try again.")
+               paste(
+                 strwrap(
+                   "If data provided, sex, weight and height must be numeric.
+                   Try again.",
+                   width = 80
+                 ),
+                 collapse = "\n"
+               ))
 })
 
 whz <- getAllWGS(sex = anthro1$sex,
@@ -149,5 +184,12 @@ whz <- getAllWGS(sex = anthro1$sex,
 
 test_that("produces error", {
   expect_error(getAllWGS(data = anthro1, sex = anthro1$sex, weight = anthro1$weight, height = anthro1$height, age = anthro1$age, index = "wfh"),
-               "If data not provided, sex, weight and height must be character values. Try again")
+               paste(
+                 strwrap(
+                   "If data not provided, sex, weight and height must be character
+                   values. Try again",
+                   width = 80
+                 ),
+                 collapse = "\n"
+               ))
 })

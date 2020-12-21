@@ -23,7 +23,7 @@ Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?br
 <!-- badges: end -->
 
 `zscorer` facilitates the calculation of a range of anthropometric
-`z-scores` (i.e. the number of standard deviations from the mean) and
+*z-scores* (i.e. the number of standard deviations from the mean) and
 adds them to survey data:
 
   - **Weight-for-length (wfl)** z-scores for children with lengths
@@ -56,7 +56,7 @@ adds them to survey data:
   - **Head circumference-for-age (hca)** z-scores for children aged
     between zero and 60 months
 
-The `z-scores` are calculated using the **WHO Child Growth
+The *z-scores* are calculated using the **WHO Child Growth
 Standards**<sup>1,2</sup> for children aged between zero and 60 months
 or the **WHO Growth References**<sup>3</sup> for school-aged children
 and adolescents. MUAC-for-age (mfa) z-scores for children aged between
@@ -93,7 +93,7 @@ library(zscorer)
 
 ### Calculating anthropometric z-scores using the addWGSR() function
 
-The main function in the `zscorer` package is `addWGSR()`.
+The main function in the `zscorer` package is `addWGSR`.
 
 To demonstrate its usage, we will use the accompanying dataset in
 `zscorer` called `anthro3`. We inspect the dataset as follows:
@@ -118,7 +118,7 @@ which returns:
 Anthropometric indices (e.g. weight-for-height z-scores) have not been
 calculated and added to the data.
 
-We will use the `addWGSR()` function to add weight-for-height (wfh)
+We will use the `addWGSR` function to add weight-for-height (wfh)
 z-scores to the example data:
 
 ``` r
@@ -142,9 +142,9 @@ calculated from the `sex`, `weight`, and `height` columns in the
 `anthro3` dataset. The calculated z-scores are rounded to two decimals
 places unless the `digits` option is used to specify a different
 precision (run `?addWGSR` to see description of various parameters that
-can be specified in the `addWGSR()` function).
+can be specified in the `addWGSR` function).
 
-The `addWGSR()` function takes up to nine parameters to calculate each
+The `addWGSR` function takes up to nine parameters to calculate each
 index separately, depending on the index required. These are described
 in the *Help* files of the `zscorer` package which can be accessed as
 follows:

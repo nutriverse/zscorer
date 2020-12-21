@@ -45,6 +45,7 @@
 #'
 #' @param index The index to be calculated. One of:
 #'
+#'   | **Index** | **Definition** |
 #'   | :--- | :--- |
 #'   | `bfa` | BMI for age |
 #'   | `hca` | Head circumference for age |

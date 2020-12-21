@@ -10,8 +10,8 @@ A data frame with 6 columns and 2338 rows.\tabular{ll}{
    \emph{indicator} \tab One of weight-for-age (\code{waz}), height-for-age (\code{haz}), or \cr
     \tab weight-for-height (\code{whz}) anthropometric indicators \cr
    \emph{sex} \tab Sex of child (1 = Male; 2 = Female) \cr
-   \emph{given} \tab Variable to which standardisation is to be made. For \cr
-    \tab \code{waz} and \code{haz}, \code{given} is age in months. For \code{whz}, \code{given} is height \cr
+   \emph{given} \tab Variable to which standardisation is to be made. For \code{waz} and \cr
+    \tab \code{haz}, \code{given} is age in months. For \code{whz}, \code{given} is height \cr
     \tab in cm \cr
    \emph{l} \tab \code{L} component of the LMS method for normalising growth \cr
     \tab centile standards. \code{L} is the trend in the optimal power to obtain \cr
@@ -33,5 +33,9 @@ wgsData
 }
 \description{
 World Health Organization (WHO) Growth Reference (2006) data
+}
+\examples{
+head(wgsData)
+
 }
 \keyword{datasets}

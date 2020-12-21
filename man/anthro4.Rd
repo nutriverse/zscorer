@@ -28,4 +28,8 @@ anthro4
 A subset of mid-upper arm circumference data from study conducted to create
 MUAC-for-age z-scores
 }
+\examples{
+head(anthro4)
+
+}
 \keyword{datasets}

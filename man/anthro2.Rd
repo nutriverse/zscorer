@@ -23,4 +23,8 @@ anthro2
 Anthropometric data from a single state from a Demographic and Health Survey
 (DHS) of a West African country.
 }
+\examples{
+head(anthro2)
+
+}
 \keyword{datasets}

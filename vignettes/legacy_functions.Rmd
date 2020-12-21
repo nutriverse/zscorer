@@ -19,8 +19,6 @@ if(!require(zscorer)) install.packages("zscorer")
 
 ```
 
-# Legacy functions
-
 Earlier versions (pre-release and v0.1.0) of `zscorer` used different functions that calculated only three anthropometric indices: **weight-for-age**, **height-for-age** and **weight-for-height**. Also, these functions used a simplified construct of the WHO Growth Reference in which children's ages were recorded in months compared to days in the standard WHO Growth Reference.
 
 With the developers' recent work on anthropometric data quality processes implemented in R (see [nipnTK](https://nutriverse.io/nipnTK)), a more consistent and standard set of functions were deemed necessary to calculate not just three but all anthropometric indices used in the WHO Growth Standards and to make the children's age in the reference data consistent with the standard using days. This work has now culminated in the current `zscorer` function.

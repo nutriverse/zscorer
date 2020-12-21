@@ -13,10 +13,8 @@ A data.frame with 339 observations and 10 variables\tabular{ll}{
    \emph{weight} \tab Weight in kilograms \cr
    \emph{height} \tab Height in centimetres \cr
    \emph{headcir} \tab Head circumference in centimetres \cr
-   \emph{bmi} \tab Body mass index \cr
    \emph{waz} \tab Weight-for-age z-score \cr
-   \emph{haz} \tab Height-for-age z-score \cr
-   \emph{baz} \tab BMI-for-age z-score \cr
+   \emph{bmiz} \tab BMI-for-age z-score \cr
 }
 }
 \usage{

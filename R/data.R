@@ -147,10 +147,8 @@
 #' | *weight* | Weight in kilograms |
 #' | *height* | Height in centimetres |
 #' | *headcir* | Head circumference in centimetres |
-#' | *bmi* | Body mass index |
 #' | *waz* | Weight-for-age z-score |
-#' | *haz* | Height-for-age z-score |
-#' | *baz* | BMI-for-age z-score |
+#' | *bmiz* | BMI-for-age z-score |
 #'
 #' @examples
 #' head(nhanes)

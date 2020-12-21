@@ -217,10 +217,10 @@ getCDC <- function(sex,
     return(NA)
   }
   ## Adjust age in months based on CDC recommendation for age-based secondPart
-  if (index %in% c("bfa", "hca", "hfa", "lfa", "wfa")) {
-    secondPart <- ifelse(secondPart >= 0 & secondPart < 0.5, 0,
-                         as.integer(secondPart + 0.5) - 0.5)
-  }
+  #if (index %in% c("bfa", "hca", "hfa", "lfa", "wfa")) {
+  #  secondPart <- ifelse(secondPart >= 0 & secondPart < 0.5, 0,
+  #                       as.integer(secondPart + 0.5) - 0.5)
+  #}
   ## Lookup reference values and calculate z-score
   lkpIndexSex <- cdcData[cdcData$index == index & cdcData$sex == sex, ]
   L <- approx(lkpIndexSex$given, lkpIndexSex$l,

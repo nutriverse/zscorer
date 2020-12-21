@@ -7,19 +7,12 @@
 \format{
 A data frame with 6 columns and 2338 rows.\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   \emph{indicator} \tab One of weight-for-age (\code{waz}), height-for-age (\code{haz}), or \cr
-    \tab weight-for-height (\code{whz}) anthropometric indicators \cr
+   \emph{indicator} \tab One of weight-for-age (\code{waz}), height-for-age (\code{haz}), or weight-for-height (\code{whz}) anthropometric indicators \cr
    \emph{sex} \tab Sex of child (1 = Male; 2 = Female) \cr
-   \emph{given} \tab Variable to which standardisation is to be made. For \cr
-    \tab \code{waz} and \code{haz}, \code{given} is age in months. For \code{whz}, \code{given} is height \cr
-    \tab in cm \cr
-   \emph{l} \tab \code{L} component of the LMS method for normalising growth \cr
-    \tab centile standards. \code{L} is the trend in the optimal power to obtain \cr
-    \tab normality \cr
-   \emph{m} \tab \code{M} component of the LMS method for normalising growth centile \cr
-    \tab standards. \code{M} is the trend in the mean \cr
-   \emph{s} \tab \code{S} component of the LMS method for normalising growth centile \cr
-    \tab standards. \code{S} is the trend in the coefficient of variation \cr
+   \emph{given} \tab Variable to which standardisation is to be made. For \code{waz} and \code{haz}, \code{given} is age in months. For \code{whz}, \code{given} is height in cm \cr
+   \emph{l} \tab \code{L} component of the LMS method for normalising growth centile standards. \code{L} is the trend in the optimal power to obtain normality \cr
+   \emph{m} \tab \code{M} component of the LMS method for normalising growth centile standards. \code{M} is the trend in the mean \cr
+   \emph{s} \tab \code{S} component of the LMS method for normalising growth centile standards. \code{S} is the trend in the coefficient of variation \cr
 }
 }
 \source{
@@ -33,5 +26,9 @@ wgsData
 }
 \description{
 World Health Organization (WHO) Growth Reference (2006) data
+}
+\examples{
+head(wgsData)
+
 }
 \keyword{datasets}

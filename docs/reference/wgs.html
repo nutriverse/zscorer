@@ -102,7 +102,7 @@ for a given anthropometric measurement." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -120,7 +120,7 @@ for a given anthropometric measurement." />
       <a href="../articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="../articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="../articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
     </li>
     <li>
       <a href="../articles/legacy_functions.html">Legacy functions</a>
@@ -137,19 +137,19 @@ for a given anthropometric measurement." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://twitter.com/katilingban">
-    <span class="fab fa fab fa-twitter fa-lg"></span>
+    <span class="fab fa-twitter fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://www.linkedin.com/company/katilingban/">
-    <span class="fab fa fab fa-linkedin fa-lg"></span>
+    <span class="fab fa-linkedin fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/nutriverse/zscorer/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -236,18 +236,22 @@ quoted variable name as in (e.g.) <code>"age"</code>. Be careful with units
     </tr>
     <tr>
       <th>index</th>
-      <td><p>The index to be calculated and added to <code>data</code>. One of:</p>
-<p>| :--- | :--- |
-| <code>bfa</code> | BMI for age |
-| <code>hca</code> | Head circumference for age |
-| <code>hfa</code> | Height for age |
-| <code>lfa</code> | Length for age |
-| <code>mfa</code> | MUAC for age |
-| <code>ssa</code> | Sub-scapular skinfold for age |
-| <code>tsa</code> | Triceps skinfold for age |
-| <code>wfa</code> | Weight for age |
-| <code>wfh</code> | Weight for height |
-| <code>wfl</code> | Weight for length |</p>
+      <td><p>The index to be calculated and added to <code>data</code>. One of:</p><table class='table'>
+<tr><td><strong>Index</strong></td><td><strong>Definition</strong></td></tr>
+<tr><td><code>bfa</code></td><td>BMI for age</td></tr>
+<tr><td><code>hca</code></td><td>Head circumference for age</td></tr>
+<tr><td><code>hfa</code></td><td>Height for age</td></tr>
+<tr><td><code>lfa</code></td><td>Length for age</td></tr>
+<tr><td><code>mfa</code></td><td>MUAC for age</td></tr>
+<tr><td><code>ssa</code></td><td>Sub-scapular skinfold for age</td></tr>
+<tr><td><code>tsa</code></td><td>Triceps skinfold for age</td></tr>
+<tr><td><code>wfa</code></td><td>Weight for age</td></tr>
+<tr><td><code>wfh</code></td><td>Weight for height</td></tr>
+<tr><td><code>wfl</code></td><td>Weight for length</td></tr>
+</table>
+
+
+
 <p>Give a quoted index name as in (e.g.) <code>"wfh"</code>.</p></td>
     </tr>
     <tr>

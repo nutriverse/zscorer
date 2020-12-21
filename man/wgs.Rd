@@ -54,19 +54,20 @@ units (age in days; height and length in cm).}
 quoted variable name as in (e.g.) \code{"age"}. Be careful with units
 (age in days).}
 
-\item{index}{The index to be calculated and added to \code{data}. One of:
+\item{index}{The index to be calculated and added to \code{data}. One of:\tabular{ll}{
+   \strong{Index} \tab \strong{Definition} \cr
+   \code{bfa} \tab BMI for age \cr
+   \code{hca} \tab Head circumference for age \cr
+   \code{hfa} \tab Height for age \cr
+   \code{lfa} \tab Length for age \cr
+   \code{mfa} \tab MUAC for age \cr
+   \code{ssa} \tab Sub-scapular skinfold for age \cr
+   \code{tsa} \tab Triceps skinfold for age \cr
+   \code{wfa} \tab Weight for age \cr
+   \code{wfh} \tab Weight for height \cr
+   \code{wfl} \tab Weight for length \cr
+}
 
-| :--- | :--- |
-| \code{bfa} | BMI for age |
-| \code{hca} | Head circumference for age |
-| \code{hfa} | Height for age |
-| \code{lfa} | Length for age |
-| \code{mfa} | MUAC for age |
-| \code{ssa} | Sub-scapular skinfold for age |
-| \code{tsa} | Triceps skinfold for age |
-| \code{wfa} | Weight for age |
-| \code{wfh} | Weight for height |
-| \code{wfl} | Weight for length |
 
 Give a quoted index name as in (e.g.) \code{"wfh"}.}
 

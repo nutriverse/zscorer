@@ -56,7 +56,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -74,7 +74,7 @@
       <a href="articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
     </li>
     <li>
       <a href="articles/legacy_functions.html">Legacy functions</a>
@@ -91,19 +91,19 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://twitter.com/katilingban">
-    <span class="fab fa fab fa-twitter fa-lg"></span>
+    <span class="fab fa-twitter fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://www.linkedin.com/company/katilingban/">
-    <span class="fab fa fab fa-linkedin fa-lg"></span>
+    <span class="fab fa-linkedin fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/nutriverse/zscorer/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -125,7 +125,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><code>zscorer</code> facilitates the calculation of a range of anthropometric <code>z-scores</code> (i.e. the number of standard deviations from the mean) and adds them to survey data:</p>
+<p><code>zscorer</code> facilitates the calculation of a range of anthropometric <em>z-scores</em> (i.e. the number of standard deviations from the mean) and adds them to survey data:</p>
 <ul>
 <li><p><strong>Weight-for-length (wfl)</strong> z-scores for children with lengths between 45 and 110 cm</p></li>
 <li><p><strong>Weight-for-height (wfh)</strong> z-scores for children with heights between 65 and 120 cm</p></li>
@@ -138,7 +138,7 @@
 <li><p><strong>Sub-scapular skinfold-for-age (ssa)</strong> z-scores for children aged between 3 and 60 months</p></li>
 <li><p><strong>Head circumference-for-age (hca)</strong> z-scores for children aged between zero and 60 months</p></li>
 </ul>
-<p>The <code>z-scores</code> are calculated using the <strong>WHO Child Growth Standards</strong><sup>1,2</sup> for children aged between zero and 60 months or the <strong>WHO Growth References</strong><sup>3</sup> for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017)<sup>4</sup> using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The <code>zscorer</code> comes packaged with the WHO Growth References data and the MUAC-for-age reference data.</p>
+<p>The <em>z-scores</em> are calculated using the <strong>WHO Child Growth Standards</strong><sup>1,2</sup> for children aged between zero and 60 months or the <strong>WHO Growth References</strong><sup>3</sup> for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017)<sup>4</sup> using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The <code>zscorer</code> comes packaged with the WHO Growth References data and the MUAC-for-age reference data.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -160,7 +160,7 @@
 <div id="calculating-anthropometric-z-scores-using-the-addwgsr-function" class="section level3">
 <h3 class="hasAnchor">
 <a href="#calculating-anthropometric-z-scores-using-the-addwgsr-function" class="anchor"></a>Calculating anthropometric z-scores using the addWGSR() function</h3>
-<p>The main function in the <code>zscorer</code> package is <code><a href="reference/getWGSR.html">addWGSR()</a></code>.</p>
+<p>The main function in the <code>zscorer</code> package is <code>addWGSR</code>.</p>
 <p>To demonstrate its usage, we will use the accompanying dataset in <code>zscorer</code> called <code>anthro3</code>. We inspect the dataset as follows:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">anthro3</span><span class="op">)</span></code></pre></div>
@@ -174,7 +174,7 @@
 <span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2</span></span></code></pre></div>
 <p><code>anthro3</code> contains anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.</p>
 <p>Anthropometric indices (e.g. weight-for-height z-scores) have not been calculated and added to the data.</p>
-<p>We will use the <code><a href="reference/getWGSR.html">addWGSR()</a></code> function to add weight-for-height (wfh) z-scores to the example data:</p>
+<p>We will use the <code>addWGSR</code> function to add weight-for-height (wfh) z-scores to the example data:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro3</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>,
                secondPart <span class="op">=</span> <span class="st">"height"</span>, index <span class="op">=</span> <span class="st">"wfh"</span><span class="op">)</span>
@@ -187,8 +187,8 @@
 <span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2    NA</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; 5   1  24   2    6.5   72.9  120      2 -3.44</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2 -2.26</span></span></code></pre></div>
-<p>The <code>wfhz</code> column contains the weight-for-height (wfh) z-scores calculated from the <code>sex</code>, <code>weight</code>, and <code>height</code> columns in the <code>anthro3</code> dataset. The calculated z-scores are rounded to two decimals places unless the <code>digits</code> option is used to specify a different precision (run <code><a href="reference/getWGSR.html">?addWGSR</a></code> to see description of various parameters that can be specified in the <code><a href="reference/getWGSR.html">addWGSR()</a></code> function).</p>
-<p>The <code><a href="reference/getWGSR.html">addWGSR()</a></code> function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the <em>Help</em> files of the <code>zscorer</code> package which can be accessed as follows:</p>
+<p>The <code>wfhz</code> column contains the weight-for-height (wfh) z-scores calculated from the <code>sex</code>, <code>weight</code>, and <code>height</code> columns in the <code>anthro3</code> dataset. The calculated z-scores are rounded to two decimals places unless the <code>digits</code> option is used to specify a different precision (run <code><a href="reference/getWGSR.html">?addWGSR</a></code> to see description of various parameters that can be specified in the <code>addWGSR</code> function).</p>
+<p>The <code>addWGSR</code> function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the <em>Help</em> files of the <code>zscorer</code> package which can be accessed as follows:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">?</span><span class="va">addWGSR</span></code></pre></div>
 <p>The <strong>standing</strong> parameter specifies how “stature” (i.e. length or height) was measured. If this is not specified, and in some special circumstances, height and age rules will be applied when calculating z-scores. These rules are described in the table below.</p>

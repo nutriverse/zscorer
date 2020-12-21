@@ -20,7 +20,7 @@ navbar:
       - text: "WHO Child Growth Standards: Methods and Development"
         href: articles/anthropometry.html
       - text: "Calculating anthropometric z-scores using zscorer"
-        href: articles/calculating_zscore.html
+        href: articles/calculate_zscore.html
       - text: "Legacy functions"
         href: articles/legacy_functions.html
       - text: "Using zscorer Shiny application"

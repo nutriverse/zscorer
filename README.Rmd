@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 [![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
 <!-- badges: end -->
 
-`zscorer` facilitates the calculation of a range of anthropometric `z-scores` (i.e. the number of standard
+`zscorer` facilitates the calculation of a range of anthropometric *z-scores* (i.e. the number of standard
 deviations from the mean) and adds them to survey data:
 
 * **Weight-for-length (wfl)** z-scores for children with lengths between 45 and 110 cm
@@ -53,7 +53,7 @@ deviations from the mean) and adds them to survey data:
 
 * **Head circumference-for-age (hca)** z-scores for children aged between zero and 60 months
 
-The `z-scores` are calculated using the **WHO Child Growth Standards**<sup>1,2</sup> for children aged between zero and 60 months or the **WHO Growth References**<sup>3</sup> for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017)<sup>4</sup> using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The `zscorer` comes packaged with the WHO Growth References data and the MUAC-for-age reference data.
+The *z-scores* are calculated using the **WHO Child Growth Standards**<sup>1,2</sup> for children aged between zero and 60 months or the **WHO Growth References**<sup>3</sup> for school-aged children and adolescents. MUAC-for-age (mfa) z-scores for children aged between 60 and 228 months are calculated using the MUAC-for-age growth reference developed by Mramba et al. (2017)<sup>4</sup> using data from the USA and Africa. This reference has been validated with African school-age children and adolescents. The `zscorer` comes packaged with the WHO Growth References data and the MUAC-for-age reference data.
 
 ## Installation
 
@@ -80,7 +80,7 @@ library(zscorer)
 
 ### Calculating anthropometric z-scores using the addWGSR() function
 
-The main function in the `zscorer` package is `addWGSR()`.
+The main function in the `zscorer` package is `addWGSR`.
 
 To demonstrate its usage, we will use the accompanying dataset in `zscorer` called `anthro3`. We inspect the dataset as follows:
 
@@ -98,7 +98,7 @@ head(anthro3)
 
 Anthropometric indices (e.g. weight-for-height z-scores) have not been calculated and added to the data.
 
-We will use the `addWGSR()` function to add weight-for-height (wfh) z-scores to the example data:
+We will use the `addWGSR` function to add weight-for-height (wfh) z-scores to the example data:
 
 ```{r usage2, echo = TRUE, eval = TRUE}
 svy <- addWGSR(data = anthro3, sex = "sex", firstPart = "weight",
@@ -111,9 +111,9 @@ A new column named **wfhz** has been added to the dataset:
 head(svy)
 ```
 
-The `wfhz` column contains the weight-for-height (wfh) z-scores calculated from the `sex`, `weight`, and `height` columns in the `anthro3` dataset. The calculated z-scores are rounded to two decimals places unless the `digits` option is used to specify a different precision (run `?addWGSR` to see description of various parameters that can be specified in the `addWGSR()` function). 
+The `wfhz` column contains the weight-for-height (wfh) z-scores calculated from the `sex`, `weight`, and `height` columns in the `anthro3` dataset. The calculated z-scores are rounded to two decimals places unless the `digits` option is used to specify a different precision (run `?addWGSR` to see description of various parameters that can be specified in the `addWGSR` function). 
 
-The `addWGSR()` function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the *Help* files of the `zscorer` package which can be accessed as follows:
+The `addWGSR` function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the *Help* files of the `zscorer` package which can be accessed as follows:
 
 ```{r usage2b, echo = TRUE, eval = FALSE}
 ?addWGSR

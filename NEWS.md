@@ -1,4 +1,19 @@
-# zscorer 0.3.1
+## zscorer 0.3.1.9000
+
+Fifth release of `zscorer`. This is a GitHub-only development release. In this
+release:
+
+### New features
+
+* added 2000 CDC growth charts reference table
+
+* added 2000 CDC functions to determine weight-for-age, weight-for-height,
+weight-for-length, height-for-age, length-for-age, head circumference-for-age,
+and BMI-for-age
+
+
+
+## zscorer 0.3.1
 
 Fourth release of `zscorer`. In this release:
 
@@ -12,7 +27,7 @@ Fourth release of `zscorer`. In this release:
 
 * updated documentation to reflect editions and additions
 
-# zscorer 0.3.0
+## zscorer 0.3.0
 
 Third release of `zscorer`. In this release:
 
@@ -22,7 +37,7 @@ Third release of `zscorer`. In this release:
 
 * removed old hex sticker and added new hex sticker
 
-# zscorer 0.2.0
+## zscorer 0.2.0
 
 Second release of `zscorer`. In this release:
 
@@ -35,6 +50,6 @@ Second release of `zscorer`. In this release:
 * update Shiny application
 
 
-# zscorer 0.1.0
+## zscorer 0.1.0
 
 Initial release of `zscorer`

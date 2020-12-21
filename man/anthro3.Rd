@@ -22,4 +22,8 @@ anthro3
 \description{
 Anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.
 }
+\examples{
+head(anthro3)
+
+}
 \keyword{datasets}

@@ -98,7 +98,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -116,7 +116,7 @@
       <a href="../articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="../articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="../articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
     </li>
     <li>
       <a href="../articles/legacy_functions.html">Legacy functions</a>
@@ -133,19 +133,19 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://twitter.com/katilingban">
-    <span class="fab fa fab fa-twitter fa-lg"></span>
+    <span class="fab fa-twitter fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://www.linkedin.com/company/katilingban/">
-    <span class="fab fa fab fa-linkedin fa-lg"></span>
+    <span class="fab fa-linkedin fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/nutriverse/zscorer/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -178,19 +178,12 @@
 
     <p>A data frame with 6 columns and 2338 rows.</p><table class='table'>
 <tr><td><strong>Variable</strong></td><td><strong>Description</strong></td></tr>
-<tr><td><em>indicator</em></td><td>One of weight-for-age (<code>waz</code>), height-for-age (<code>haz</code>), or</td></tr>
-<tr><td></td><td>weight-for-height (<code>whz</code>) anthropometric indicators</td></tr>
+<tr><td><em>indicator</em></td><td>One of weight-for-age (<code>waz</code>), height-for-age (<code>haz</code>), or weight-for-height (<code>whz</code>) anthropometric indicators</td></tr>
 <tr><td><em>sex</em></td><td>Sex of child (1 = Male; 2 = Female)</td></tr>
-<tr><td><em>given</em></td><td>Variable to which standardisation is to be made. For</td></tr>
-<tr><td></td><td><code>waz</code> and <code>haz</code>, <code>given</code> is age in months. For <code>whz</code>, <code>given</code> is height</td></tr>
-<tr><td></td><td>in cm</td></tr>
-<tr><td><em>l</em></td><td><code>L</code> component of the LMS method for normalising growth</td></tr>
-<tr><td></td><td>centile standards. <code>L</code> is the trend in the optimal power to obtain</td></tr>
-<tr><td></td><td>normality</td></tr>
-<tr><td><em>m</em></td><td><code>M</code> component of the LMS method for normalising growth centile</td></tr>
-<tr><td></td><td>standards. <code>M</code> is the trend in the mean</td></tr>
-<tr><td><em>s</em></td><td><code>S</code> component of the LMS method for normalising growth centile</td></tr>
-<tr><td></td><td>standards. <code>S</code> is the trend in the coefficient of variation</td></tr>
+<tr><td><em>given</em></td><td>Variable to which standardisation is to be made. For <code>waz</code> and <code>haz</code>, <code>given</code> is age in months. For <code>whz</code>, <code>given</code> is height in cm</td></tr>
+<tr><td><em>l</em></td><td><code>L</code> component of the LMS method for normalising growth centile standards. <code>L</code> is the trend in the optimal power to obtain normality</td></tr>
+<tr><td><em>m</em></td><td><code>M</code> component of the LMS method for normalising growth centile standards. <code>M</code> is the trend in the mean</td></tr>
+<tr><td><em>s</em></td><td><code>S</code> component of the LMS method for normalising growth centile standards. <code>S</code> is the trend in the coefficient of variation</td></tr>
 </table>
 
 
@@ -201,6 +194,16 @@ Length/Height-for-age, Weight-for-age, Weight-for-length, Weight-for-height,
 and Body Mass Index-for age: Methods and Development. 1st ed.
 World Health Organization; 2006.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>wgsData</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   indicator sex given       l      m       s
+#&gt; 1       wfh   1  45.0 -0.3521 2.4410 0.09182
+#&gt; 2       wfh   1  45.1 -0.3521 2.4577 0.09176
+#&gt; 3       wfh   1  45.2 -0.3521 2.4744 0.09170
+#&gt; 4       wfh   1  45.3 -0.3521 2.4911 0.09164
+#&gt; 5       wfh   1  45.4 -0.3521 2.5078 0.09159
+#&gt; 6       wfh   1  45.5 -0.3521 2.5244 0.09153</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

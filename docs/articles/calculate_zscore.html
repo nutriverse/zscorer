@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculating anthropometric z-scores using zscorer • zscorer</title>
+<title>Calculating anthropometric z-scores • zscorer</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Calculating anthropometric z-scores using zscorer">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Calculating anthropometric z-scores">
 <meta property="og:description" content="zscorer">
 <meta property="og:image" content="https://nutriverse.io/zscorer/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -52,7 +52,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -70,7 +70,7 @@
       <a href="../articles/anthropometry.html">WHO Child Growth Standards: Methods and Development</a>
     </li>
     <li>
-      <a href="../articles/calculating_zscore.html">Calculating anthropometric z-scores using zscorer</a>
+      <a href="../articles/calculate_zscore.html">Calculating anthropometric z-scores using zscorer</a>
     </li>
     <li>
       <a href="../articles/legacy_functions.html">Legacy functions</a>
@@ -87,19 +87,19 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://twitter.com/katilingban">
-    <span class="fab fa fab fa-twitter fa-lg"></span>
+    <span class="fab fa-twitter fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://www.linkedin.com/company/katilingban/">
-    <span class="fab fa fab fa-linkedin fa-lg"></span>
+    <span class="fab fa-linkedin fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/nutriverse/zscorer/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -113,14 +113,13 @@
 
       
 
-      </header><script src="calculate_zscore_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="calculate_zscore_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="calculate_zscore_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="calculate_zscore_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Calculating anthropometric z-scores using zscorer</h1>
+      <h1 data-toc-skip>Calculating anthropometric z-scores</h1>
                         <h4 class="author">Mark Myatt</h4>
             
-            <h4 class="date">2020-12-20</h4>
+            <h4 class="date">2020-12-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nutriverse/zscorer/blob/master/vignettes/calculate_zscore.Rmd"><code>vignettes/calculate_zscore.Rmd</code></a></small>
       <div class="hidden name"><code>calculate_zscore.Rmd</code></div>
@@ -129,10 +128,6 @@
 
     
     
-<div id="calculating-anthropometric-z-scores-using-zscorer" class="section level1">
-<h1 class="hasAnchor">
-<a href="#calculating-anthropometric-z-scores-using-zscorer" class="anchor"></a>Calculating anthropometric z-scores using <code>zscorer</code>
-</h1>
 <p>The main function in the <code>zscorer</code> package is <code><a href="../reference/getWGSR.html">addWGSR()</a></code>.</p>
 <p>To demonstrate its usage, we will use the accompanying dataset in <code>zscorer</code> called <code>anthro3</code>. We inspect the dataset as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -441,14 +436,11 @@
 <span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA      NA</span>
 <span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70 -2.8958</span>
 <span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46 -2.0796</span></code></pre></div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 

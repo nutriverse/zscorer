@@ -55,16 +55,17 @@ in \code{data} specifying age (in months) for BMI/A. If name of variable in
 \code{data}, give a quoted variable name as in (e.g.) \code{"age"}. Be careful with
 units (age in months).}
 
-\item{index}{The index to be calculated. One of:
+\item{index}{The index to be calculated. One of:\tabular{ll}{
+   \strong{Index} \tab \strong{Definition} \cr
+   \code{bfa} \tab BMI for age \cr
+   \code{hca} \tab Head circumference for age \cr
+   \code{hfa} \tab Height for age \cr
+   \code{lfa} \tab Length for age \cr
+   \code{wfa} \tab Weight for age \cr
+   \code{wfh} \tab Weight for height \cr
+   \code{wfl} \tab Weight for length \cr
+}
 
-| :--- | :--- |
-| \code{bfa} | BMI for age |
-| \code{hca} | Head circumference for age |
-| \code{hfa} | Height for age |
-| \code{lfa} | Length for age |
-| \code{wfa} | Weight for age |
-| \code{wfh} | Weight for height |
-| \code{wfl} | Weight for length |
 
 Give a quoted index name as in (e.g.) \code{"wfh"}.}
 

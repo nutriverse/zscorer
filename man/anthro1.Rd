@@ -26,4 +26,8 @@ anthro1
 \description{
 Anthropometric data from a SMART survey in Kabul, Afghanistan.
 }
+\examples{
+head(anthro1)
+
+}
 \keyword{datasets}

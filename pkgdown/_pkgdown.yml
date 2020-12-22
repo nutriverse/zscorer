@@ -55,6 +55,7 @@ reference:
 
 - title: Legacy functions to calculate z-scores using WHO Growth Standards
   contents:
+  - zscorer-deprecated
   - getWGS
   - getCohortWGS
   - getAllWGS
@@ -74,4 +75,5 @@ reference:
   - anthro2
   - anthro3
   - anthro4
+  - nhanes
   - wgsData

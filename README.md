@@ -517,6 +517,31 @@ current device as shown below:
 
 <img src="man/figures/zscorerApp.png" width="2450" />
 
+## Citation
+
+If you find the `zscorer` package useful please cite using the suggested
+citation provided by a call to the `citation` function as follows:
+
+``` r
+citation("zscorer")
+#> 
+#> To cite zscorer in publications use:
+#> 
+#>   Mark Myatt and Ernest Guevarra (2019). zscorer: An Anthropometric
+#>   z-score Calculator. R package version 0.3.1. URL
+#>   https://nutriverse.io/zscorer/
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {zscorer: An Anthropometric z-score Calculator},
+#>     author = {{Mark Myatt} and {Ernest Guevarra}},
+#>     year = {2019},
+#>     note = {R package version 0.3.1},
+#>     url = {https://nutriverse.io/zscorer/},
+#>   }
+```
+
 ## Community guidelines
 
 Feedback, bug reports and feature requests are welcome; file issues or

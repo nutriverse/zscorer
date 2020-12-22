@@ -392,6 +392,14 @@ This will initiate the Shiny app using the installed web browser in your current
 knitr::include_graphics("man/figures/zscorerApp.png")
 ```
 
+## Citation
+
+If you find the `zscorer` package useful please cite using the suggested citation provided by a call to the `citation` function as follows:
+
+```{r citation}
+citation("zscorer")
+```
+
 ## Community guidelines
 
 Feedback, bug reports and feature requests are welcome; file issues or seek support [here](https://github.com/nutriverse/zscorer/issues). If you would like to contribute to the package, please see our [contributing guidelines](https://nutriverse.io/zscorer/CONTRIBUTING.html).

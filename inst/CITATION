@@ -1,0 +1,16 @@
+citHeader("To cite zscorer in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "zscorer: An Anthropometric z-score Calculator",
+  author   = c(person("Mark Myatt"),  person("Ernest Guevarra")),
+  year     = "2019",
+  note     = "R package version 0.3.1",
+  url      = "https://nutriverse.io/zscorer/",
+  textVersion = paste(
+    paste("Mark Myatt and Ernest Guevarra (2019).",
+          "zscorer: An Anthropometric z-score Calculator.",
+          "R package version 0.3.1.",
+          "URL https://nutriverse.io/zscorer/")
+  )
+)

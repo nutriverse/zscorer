@@ -30,8 +30,10 @@ knitr::opts_chunk$set(
 [![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
 <!-- badges: end -->
 
-`zscorer` facilitates the calculation of a range of anthropometric *z-scores* (i.e. the number of standard
-deviations from the mean) and adds them to survey data:
+
+## What does `zscorer` do?
+
+The `zscorer` packages facilitates the calculation of a range of anthropometric *z-scores* (i.e. the number of standard deviations from the mean) and adds them to survey data:
 
 * **Weight-for-length (wfl)** z-scores for children with lengths between 45 and 110 cm
 

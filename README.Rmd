@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-")
 ```
 
-# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/logo.png" width="200" align="right" />
+# zscorer: Anthropometric z-score Calculator <img src="man/figures/logo.png" width="200" align="right" />
 
 <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
@@ -30,8 +30,10 @@ knitr::opts_chunk$set(
 [![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
 <!-- badges: end -->
 
-`zscorer` facilitates the calculation of a range of anthropometric *z-scores* (i.e. the number of standard
-deviations from the mean) and adds them to survey data:
+
+## What does `zscorer` do?
+
+The `zscorer` packages facilitates the calculation of a range of anthropometric *z-scores* (i.e. the number of standard deviations from the mean) and adds them to survey data:
 
 * **Weight-for-length (wfl)** z-scores for children with lengths between 45 and 110 cm
 
@@ -76,7 +78,7 @@ then load `zscorer`
 library(zscorer)
 ```
 
-## Usage
+## Usage - WHO Growth Standards functions
 
 ### Calculating anthropometric z-scores using the addWGSR() function
 
@@ -268,7 +270,7 @@ head(svy)
 
 ## Usage - legacy functions
 
-To maintain support for earlier versions of the package, the earlier functions used to calculate anthropometric z-scores for `weight-for-age`, `height-for-age` and `weight-for-height` have been kept for now until future deprecation. For current users, it is recommended to use `addWGSR()` and `getWGSR()` functions.
+To maintain support for earlier versions of the package, the earlier functions used to calculate anthropometric z-scores for `weight-for-age`, `height-for-age` and `weight-for-height` still work but will be removed (defunct) in the next version of `zscorer`. For current and new users, it is recommended to use `addWGSR()` and `getWGSR()` functions instead.
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 
@@ -377,6 +379,13 @@ head(zScores, 20)
 
 Applying the `getAllWGS()` function results in a data frame of calculated `z-scores`
 for all children in the cohort or sample for all the anthropometric indices.
+
+## Usage of CDC 2000 Growth Standards functions
+
+### Calculate z-scores
+
+
+
 
 ## Shiny app
 

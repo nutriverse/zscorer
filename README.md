@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zscorer: Weight-for-age, height-for-age, weight-for-height, BMI-for-age, head circumference-for-age, arm circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age z-score calculator <img src="man/figures/logo.png" width="200" align="right" />
+# zscorer: Anthropometric z-score Calculator <img src="man/figures/logo.png" width="200" align="right" />
 
 <!-- badges: start -->
 
@@ -90,7 +90,7 @@ then load `zscorer`
 library(zscorer)
 ```
 
-## Usage
+## Usage - WHO Growth Standards functions
 
 ### Calculating anthropometric z-scores using the addWGSR() function
 
@@ -337,9 +337,10 @@ head(svy)
 
 To maintain support for earlier versions of the package, the earlier
 functions used to calculate anthropometric z-scores for
-`weight-for-age`, `height-for-age` and `weight-for-height` have been
-kept for now until future deprecation. For current users, it is
-recommended to use `addWGSR()` and `getWGSR()` functions.
+`weight-for-age`, `height-for-age` and `weight-for-height` still work
+but will be removed (defunct) in the next version of `zscorer`. For
+current and new users, it is recommended to use `addWGSR()` and
+`getWGSR()` functions instead.
 
 ### Calculating z-score for each of the three anthropometric indices for a single child
 
@@ -504,6 +505,10 @@ Applying the `getAllWGS()` function results in a data frame of
 calculated `z-scores` for all children in the cohort or sample for all
 the anthropometric indices.
 
+## Usage of CDC 2000 Growth Standards functions
+
+### Calculate z-scores
+
 ## Shiny app
 
 To use the included Shiny app, run the following command in R:
@@ -525,20 +530,18 @@ citation provided by a call to the `citation` function as follows:
 ``` r
 citation("zscorer")
 #> 
-#> To cite zscorer in publications use:
+#> To cite package 'zscorer' in publications use:
 #> 
-#>   Mark Myatt and Ernest Guevarra (2019). zscorer: An Anthropometric
-#>   z-score Calculator. R package version 0.3.1. URL
-#>   https://nutriverse.io/zscorer/
+#>   Mark Myatt and Ernest Guevarra (NA). zscorer: Child Anthropometry
+#>   z-Score Calculator. https://nutriverse/zscorer/,
+#>   https://github.com/nutriverse/zscorer.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
-#>     title = {zscorer: An Anthropometric z-score Calculator},
-#>     author = {{Mark Myatt} and {Ernest Guevarra}},
-#>     year = {2019},
-#>     note = {R package version 0.3.1},
-#>     url = {https://nutriverse.io/zscorer/},
+#>     title = {zscorer: Child Anthropometry z-Score Calculator},
+#>     author = {Mark Myatt and Ernest Guevarra},
+#>     note = {https://nutriverse/zscorer/, https://github.com/nutriverse/zscorer},
 #>   }
 ```
 

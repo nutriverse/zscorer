@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-")
 ```
 
-# zscorer: Anthropometric z-score Calculator <img src="man/figures/logo.png" width="200" align="right" />
+# zscorer: Anthropometric Z-Score Calculator <img src="man/figures/logo.png" width="200" align="right" />
 
 <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
@@ -30,6 +30,7 @@ knitr::opts_chunk$set(
 [![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
 <!-- badges: end -->
 
+Nutritional status, especially in children, has been widely assessed using anthropometric measures in both developing and developed countries. Once a childs' anthropometry has been correctly measured and their age has been recorded, their growth and nutritional status can be assessed using a standardised age- and sex-specific growth reference to calculate z-scores. These z-scores express anthropometric measurements as several standard deviations (SDs) below or above the reference mean or median value. The calculation of anthropometric z-scores is one of the most widely-used analytical technique used in nutrition surveys and nutrition research.
 
 ## What does `zscorer` do?
 

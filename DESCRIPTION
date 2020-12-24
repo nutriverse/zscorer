@@ -1,6 +1,6 @@
 Package: zscorer
 Type: Package
-Title: Child Anthropometry z-Score Calculator
+Title: Child Anthropometry Z-Score Calculator
 Version: 0.3.1.9000
 Authors@R: c(
     person("Mark", "Myatt", email = "mark@brixtonhealth.com",
@@ -9,11 +9,11 @@ Authors@R: c(
     person("Ernest", "Guevarra", 
            comment = c(ORCID = "0000-0002-4887-4415"), 
            email = "ernestgmd@gmail.com", role = c("aut", "cre")))
-Description: A tool for calculating z-scores and centiles for weight-for-age, 
-    length/height-for-age, weight-for-length/height, BMI-for-age, 
-    head circumference-for-age, age circumference-for-age, 
-    subscapular skinfold-for-age, triceps skinfold-for-age based on the 
-    WHO Child Growth Standards. 
+Description: A tool for calculating z-scores for weight-for-age, 
+    length/height-for-age, weight-for-length/height, BMI-for-age, head 
+    circumference-for-age, age circumference-for-age, subscapular 
+    skinfold-for-age, triceps skinfold-for-age based on various growth
+    standards. 
 Depends: R (>= 2.10)
 Imports: 
    shiny
@@ -30,6 +30,6 @@ LazyData: true
 Language: en-GB
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
-URL: https://nutriverse/zscorer/, https://github.com/nutriverse/zscorer
+URL: https://nutriverse.io/zscorer/, https://github.com/nutriverse/zscorer
 BugReports: https://github.com/nutriverse/zscorer/issues
 VignetteBuilder: knitr

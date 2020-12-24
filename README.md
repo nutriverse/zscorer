@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zscorer: Anthropometric z-score Calculator <img src="man/figures/logo.png" width="200" align="right" />
+# zscorer: Anthropometric Z-Score Calculator <img src="man/figures/logo.png" width="200" align="right" />
 
 <!-- badges: start -->
 
@@ -22,6 +22,17 @@ coverage](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg
 [![DOI](https://zenodo.org/badge/119683584.svg)](https://zenodo.org/badge/latestdoi/119683584)
 [![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
 <!-- badges: end -->
+
+Nutritional status, especially in children, has been widely assessed
+using anthropometric measures in both developing and developed
+countries. Once a childs’ anthropometry has been correctly measured and
+their age has been recorded, their growth and nutritional status can be
+assessed using a standardised age- and sex-specific growth reference to
+calculate z-scores. These z-scores express anthropometric measurements
+as several standard deviations (SDs) below or above the reference mean
+or median value. The calculation of anthropometric z-scores is one of
+the most widely-used analytical technique used in nutrition surveys and
+nutrition research.
 
 ## What does `zscorer` do?
 
@@ -532,18 +543,20 @@ citation provided by a call to the `citation` function as follows:
 ``` r
 citation("zscorer")
 #> 
-#> To cite package 'zscorer' in publications use:
+#> To cite zscorer in publications use:
 #> 
-#>   Mark Myatt and Ernest Guevarra (NA). zscorer: Child Anthropometry
-#>   z-Score Calculator. https://nutriverse/zscorer/,
-#>   https://github.com/nutriverse/zscorer.
+#>   Mark Myatt and Ernest Guevarra (2019). zscorer: An Anthropometric
+#>   z-score Calculator. R package version 0.3.1. URL
+#>   https://nutriverse.io/zscorer/
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
-#>     title = {zscorer: Child Anthropometry z-Score Calculator},
-#>     author = {Mark Myatt and Ernest Guevarra},
-#>     note = {https://nutriverse/zscorer/, https://github.com/nutriverse/zscorer},
+#>     title = {zscorer: An Anthropometric z-score Calculator},
+#>     author = {{Mark Myatt} and {Ernest Guevarra}},
+#>     year = {2019},
+#>     note = {R package version 0.3.1},
+#>     url = {https://nutriverse.io/zscorer/},
 #>   }
 ```
 

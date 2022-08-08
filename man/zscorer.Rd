@@ -21,7 +21,7 @@ Organization; 2006. ISBN ISBN 92 4 154693 X
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://nutriverse/zscorer/}
+  \item \url{https://nutriverse.io/zscorer/}
   \item \url{https://github.com/nutriverse/zscorer}
   \item Report bugs at \url{https://github.com/nutriverse/zscorer/issues}
 }

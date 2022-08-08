@@ -28,7 +28,7 @@ License: AGPL-3
 Encoding: UTF-8
 LazyData: true
 Language: en-GB
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Roxygen: list(markdown = TRUE)
 URL: https://nutriverse.io/zscorer/, https://github.com/nutriverse/zscorer
 BugReports: https://github.com/nutriverse/zscorer/issues

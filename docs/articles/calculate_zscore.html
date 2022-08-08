@@ -32,6 +32,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -44,23 +46,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.1.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -86,20 +82,20 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://twitter.com/katilingban">
-    <span class="fab fa fab fa-twitter fa-lg"></span>
+  <a href="https://twitter.com/katilingban" class="external-link">
+    <span class="fab fa-twitter fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://www.linkedin.com/company/katilingban/">
-    <span class="fab fa fab fa-linkedin fa-lg"></span>
+  <a href="https://www.linkedin.com/company/katilingban/" class="external-link">
+    <span class="fab fa-linkedin fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/nutriverse/zscorer/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/nutriverse/zscorer/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -113,54 +109,72 @@
 
       
 
-      </header><script src="calculate_zscore_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="calculate_zscore_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="calculate_zscore_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Calculating anthropometric z-scores</h1>
-                        <h4 class="author">Mark Myatt</h4>
+                        <h4 data-toc-skip class="author">Mark Myatt</h4>
             
-            <h4 class="date">2020-12-22</h4>
+            <h4 data-toc-skip class="date">2022-08-08</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/nutriverse/zscorer/blob/master/vignettes/calculate_zscore.Rmd"><code>vignettes/calculate_zscore.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/nutriverse/zscorer/blob/HEAD/vignettes/calculate_zscore.Rmd" class="external-link"><code>vignettes/calculate_zscore.Rmd</code></a></small>
       <div class="hidden name"><code>calculate_zscore.Rmd</code></div>
 
     </div>
 
     
     
-<p>The main function in the <code>zscorer</code> package is <code><a href="../reference/getWGSR.html">addWGSR()</a></code>.</p>
-<p>To demonstrate its usage, we will use the accompanying dataset in <code>zscorer</code> called <code>anthro3</code>. We inspect the dataset as follows:</p>
+<p>The main function in the <code>zscorer</code> package is
+<code><a href="../reference/wgs.html">addWGSR()</a></code>.</p>
+<p>To demonstrate its usage, we will use the accompanying dataset in
+<code>zscorer</code> called <code>anthro3</code>. We inspect the dataset
+as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">anthro3</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">anthro3</span></span></code></pre></div>
 <p>which returns:</p>
-<pre><code>#&gt;   psu age sex weight height muac oedema
-#&gt; 1   1  10   1    5.7   64.2  125      2
-#&gt; 2   1  10   2    5.8   64.4  121      2
-#&gt; 3   1   9   2    6.5   62.2  139      2
-#&gt; 4   1  11   9    6.5   64.9  129      2
-#&gt; 5   1  24   2    6.5   72.9  120      2
-#&gt; 6   1  12   2    6.6   69.4  126      2</code></pre>
-<p><code>anthro3</code> contains anthropometric data from a Rapid Assessment Method (RAM) survey from Burundi.</p>
-<p>Anthropometric indices (e.g. weight-for-height z-scores) have not been calculated and added to the data.</p>
-<p>We will use the <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function to add weight-for-height (wfh) z-scores to the example data:</p>
+<pre><code><span><span class="co">#&gt;   psu age sex weight height muac oedema</span></span>
+<span><span class="co">#&gt; 1   1  10   1    5.7   64.2  125      2</span></span>
+<span><span class="co">#&gt; 2   1  10   2    5.8   64.4  121      2</span></span>
+<span><span class="co">#&gt; 3   1   9   2    6.5   62.2  139      2</span></span>
+<span><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2</span></span>
+<span><span class="co">#&gt; 5   1  24   2    6.5   72.9  120      2</span></span>
+<span><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2</span></span></code></pre>
+<p><code>anthro3</code> contains anthropometric data from a Rapid
+Assessment Method (RAM) survey from Burundi.</p>
+<p>Anthropometric indices (e.g. weight-for-height z-scores) have not
+been calculated and added to the data.</p>
+<p>We will use the <code><a href="../reference/wgs.html">addWGSR()</a></code> function to add
+weight-for-height (wfh) z-scores to the example data:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro3</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>,
-               secondPart <span class="op">=</span> <span class="st">"height"</span>, index <span class="op">=</span> <span class="st">"wfh"</span><span class="op">)</span>
-<span class="co">#&gt; ================================================================================</span></code></pre></div>
-<p>A new column named <strong>wfhz</strong> has been added to the dataset:</p>
-<pre><code>#&gt;   psu age sex weight height muac oedema  wfhz
-#&gt; 1   1  10   1    5.7   64.2  125      2 -2.73
-#&gt; 2   1  10   2    5.8   64.4  121      2 -2.04
-#&gt; 3   1   9   2    6.5   62.2  139      2  0.13
-#&gt; 4   1  11   9    6.5   64.9  129      2    NA
-#&gt; 5   1  24   2    6.5   72.9  120      2 -3.44
-#&gt; 6   1  12   2    6.6   69.4  126      2 -2.26</code></pre>
-<p>The <code>wfhz</code> column contains the weight-for-height (wfh) z-scores calculated from the <code>sex</code>, <code>weight</code>, and <code>height</code> columns in the <code>anthro3</code> dataset. The calculated z-scores are rounded to two decimals places unless the <code>digits</code> option is used to specify a different precision (run <code><a href="../reference/getWGSR.html">?addWGSR</a></code> to see description of various parameters that can be specified in the <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function).</p>
-<p>The <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function takes up to nine parameters to calculate each index separately, depending on the index required. These are described in the <em>Help</em> files of the <code>zscorer</code> package which can be accessed as follows:</p>
+<code class="sourceCode R"><span><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wgs.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">anthro3</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>,</span>
+<span>               secondPart <span class="op">=</span> <span class="st">"height"</span>, index <span class="op">=</span> <span class="st">"wfh"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ================================================================================</span></span></code></pre></div>
+<p>A new column named <strong>wfhz</strong> has been added to the
+dataset:</p>
+<pre><code><span><span class="co">#&gt;   psu age sex weight height muac oedema  wfhz</span></span>
+<span><span class="co">#&gt; 1   1  10   1    5.7   64.2  125      2 -2.73</span></span>
+<span><span class="co">#&gt; 2   1  10   2    5.8   64.4  121      2 -2.04</span></span>
+<span><span class="co">#&gt; 3   1   9   2    6.5   62.2  139      2  0.13</span></span>
+<span><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2    NA</span></span>
+<span><span class="co">#&gt; 5   1  24   2    6.5   72.9  120      2 -3.44</span></span>
+<span><span class="co">#&gt; 6   1  12   2    6.6   69.4  126      2 -2.26</span></span></code></pre>
+<p>The <code>wfhz</code> column contains the weight-for-height (wfh)
+z-scores calculated from the <code>sex</code>, <code>weight</code>, and
+<code>height</code> columns in the <code>anthro3</code> dataset. The
+calculated z-scores are rounded to two decimals places unless the
+<code>digits</code> option is used to specify a different precision (run
+<code><a href="../reference/wgs.html">?addWGSR</a></code> to see description of various parameters that can
+be specified in the <code><a href="../reference/wgs.html">addWGSR()</a></code> function).</p>
+<p>The <code><a href="../reference/wgs.html">addWGSR()</a></code> function takes up to nine parameters to
+calculate each index separately, depending on the index required. These
+are described in the <em>Help</em> files of the <code>zscorer</code>
+package which can be accessed as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">?</span><span class="va">addWGSR</span></code></pre></div>
-<p>The <strong>standing</strong> parameter specifies how “stature” (i.e. length or height) was measured. If this is not specified, and in some special circumstances, height and age rules will be applied when calculating z-scores. These rules are described in the table below.</p>
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">addWGSR</span></span></code></pre></div>
+<p>The <strong>standing</strong> parameter specifies how “stature”
+(i.e. length or height) was measured. If this is not specified, and in
+some special circumstances, height and age rules will be applied when
+calculating z-scores. These rules are described in the table below.</p>
 <p> </p>
 <table class="table">
 <colgroup>
@@ -279,7 +293,11 @@
 </tbody>
 </table>
 <p> </p>
-<p>The <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function will not produce error messages unless there is something very wrong with the data or the specified parameters. If an error is encountered in a record then the value <strong>NA</strong> is returned. Error conditions are listed in the table below.</p>
+<p>The <code><a href="../reference/wgs.html">addWGSR()</a></code> function will not produce error messages
+unless there is something very wrong with the data or the specified
+parameters. If an error is encountered in a record then the value
+<strong>NA</strong> is returned. Error conditions are listed in the
+table below.</p>
 <p> </p>
 <table class="table">
 <colgroup>
@@ -293,7 +311,8 @@
 <tbody>
 <tr class="odd">
 <td>Missing or nonsense value in <code>standing</code> parameter</td>
-<td>Set <code>standing</code> to <code>3</code> (unknown) and apply appropriate height or age rules.</td>
+<td>Set <code>standing</code> to <code>3</code> (unknown) and apply
+appropriate height or age rules.</td>
 </tr>
 <tr class="even">
 <td>Unknown <code>index</code> specified</td>
@@ -316,7 +335,8 @@
 </tr>
 <tr class="even">
 <td>
-<code>sex</code> is not male (<code>1</code>) or female (<code>2</code>)</td>
+<code>sex</code> is not male (<code>1</code>) or female
+(<code>2</code>)</td>
 <td>Return <strong>NA</strong> for z-score.</td>
 </tr>
 <tr class="odd">
@@ -336,7 +356,8 @@
 </tr>
 <tr class="even">
 <td>
-<code>thirdPart</code> is not numeric when <code>index = "bfa"</code>
+<code>thirdPart</code> is not numeric when
+<code>index = "bfa"</code>
 </td>
 <td>Return <strong>NA</strong> for z-score.</td>
 </tr>
@@ -350,93 +371,107 @@
 <p> </p>
 <p>We can see this error behaviour using the example data:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfhz</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; FALSE  TRUE </span>
-<span class="co">#&gt;   220     1</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfhz</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; FALSE  TRUE </span></span>
+<span><span class="co">#&gt;   220     1</span></span></code></pre></div>
 <p>We can display the problem record:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfhz</span><span class="op">)</span>, <span class="op">]</span>
-<span class="co">#&gt;   psu age sex weight height muac oedema wfhz</span>
-<span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2   NA</span></code></pre></div>
-<p>The problem is due to the value <strong>9</strong> in the <code>sex</code> column, which should be coded <strong>1</strong> (for male) and <strong>2</strong> (for female). Z-scores are only calculated for records with sex specified as either <strong>1</strong> (male) or <strong>2</strong> (female). All other values, including <strong>NA</strong>, will return <strong>NA</strong>.</p>
-<p>The <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function requires that data are recorded using the required units or required codes (see <code><a href="../reference/getWGSR.html">?addWGSR</a></code> to check units required by the different function parameters).</p>
-<p>The <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function will return incorrect values if the data are not recorded using the required units. For example, this attempt to add weight-for-age z-scores to the example data:</p>
+<code class="sourceCode R"><span><span class="va">svy</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfhz</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="co">#&gt;   psu age sex weight height muac oedema wfhz</span></span>
+<span><span class="co">#&gt; 4   1  11   9    6.5   64.9  129      2   NA</span></span></code></pre></div>
+<p>The problem is due to the value <strong>9</strong> in the
+<code>sex</code> column, which should be coded <strong>1</strong> (for
+male) and <strong>2</strong> (for female). Z-scores are only calculated
+for records with sex specified as either <strong>1</strong> (male) or
+<strong>2</strong> (female). All other values, including
+<strong>NA</strong>, will return <strong>NA</strong>.</p>
+<p>The <code><a href="../reference/wgs.html">addWGSR()</a></code> function requires that data are recorded
+using the required units or required codes (see <code><a href="../reference/wgs.html">?addWGSR</a></code> to
+check units required by the different function parameters).</p>
+<p>The <code><a href="../reference/wgs.html">addWGSR()</a></code> function will return incorrect values if
+the data are not recorded using the required units. For example, this
+attempt to add weight-for-age z-scores to the example data:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, 
-               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span>
-<span class="co">#&gt; ================================================================================</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wgs.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, </span>
+<span>               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ================================================================================</span></span></code></pre></div>
 <p>will give incorrect results:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfaz</span><span class="op">)</span>
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span>
-<span class="co">#&gt;   3.450   7.692   9.840   9.684  11.430  15.900       1</span></code></pre></div>
-<p>The odd range of values is due to age being recorded in months rather than days.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfaz</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span></span>
+<span><span class="co">#&gt;   3.450   7.692   9.840   9.684  11.430  15.900       1</span></span></code></pre></div>
+<p>The odd range of values is due to age being recorded in months rather
+than days.</p>
 <p>It is simple to convert all ages from months to days:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="va">svy</span><span class="op">$</span><span class="va">age</span> <span class="op">*</span> <span class="op">(</span><span class="fl">365.25</span> <span class="op">/</span> <span class="fl">12</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
-<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz wfaz</span>
-<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 3.45</span>
-<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 3.95</span>
-<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 5.12</span>
-<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA   NA</span>
-<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 3.82</span>
-<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 5.01</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">svy</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="va">svy</span><span class="op">$</span><span class="va">age</span> <span class="op">*</span> <span class="op">(</span><span class="fl">365.25</span> <span class="op">/</span> <span class="fl">12</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz wfaz</span></span>
+<span><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 3.45</span></span>
+<span><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 3.95</span></span>
+<span><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 5.12</span></span>
+<span><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA   NA</span></span>
+<span><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 3.82</span></span>
+<span><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 5.01</span></span></code></pre></div>
 <p>before calculating and adding weight-for-age z-scores:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, 
-               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span>
-<span class="co">#&gt; ================================================================================</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
-<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span>
-<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 -4.13</span>
-<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 -3.19</span>
-<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 -1.97</span>
-<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA    NA</span>
-<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 -4.61</span>
-<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 -2.56</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfaz</span><span class="op">)</span>
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span>
-<span class="co">#&gt;  -4.610  -1.873  -1.085  -1.154  -0.480   2.600       1</span></code></pre></div>
-<p>The muac column in the example dataset is recorded in millimetres (mm). We need to convert this to centimetres (cm):</p>
+<code class="sourceCode R"><span><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wgs.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, </span>
+<span>               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"wfa"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ================================================================================</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span></span>
+<span><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2  125      2 -2.73 -4.13</span></span>
+<span><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4  121      2 -2.04 -3.19</span></span>
+<span><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2  139      2  0.13 -1.97</span></span>
+<span><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9  129      2    NA    NA</span></span>
+<span><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9  120      2 -3.44 -4.61</span></span>
+<span><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4  126      2 -2.26 -2.56</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">svy</span><span class="op">$</span><span class="va">wfaz</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span></span>
+<span><span class="co">#&gt;  -4.610  -1.873  -1.085  -1.154  -0.480   2.600       1</span></span></code></pre></div>
+<p>The muac column in the example dataset is recorded in millimetres
+(mm). We need to convert this to centimetres (cm):</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span><span class="op">$</span><span class="va">muac</span> <span class="op">&lt;-</span> <span class="va">svy</span><span class="op">$</span><span class="va">muac</span> <span class="op">/</span> <span class="fl">10</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
-<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span>
-<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13</span>
-<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19</span>
-<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97</span>
-<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA</span>
-<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61</span>
-<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56</span></code></pre></div>
-<p>before using the <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function to calculate MUAC-for-age z-scores:</p>
+<code class="sourceCode R"><span><span class="va">svy</span><span class="op">$</span><span class="va">muac</span> <span class="op">&lt;-</span> <span class="va">svy</span><span class="op">$</span><span class="va">muac</span> <span class="op">/</span> <span class="fl">10</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz</span></span>
+<span><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13</span></span>
+<span><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19</span></span>
+<span><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97</span></span>
+<span><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA</span></span>
+<span><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61</span></span>
+<span><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56</span></span></code></pre></div>
+<p>before using the <code><a href="../reference/wgs.html">addWGSR()</a></code> function to calculate
+MUAC-for-age z-scores:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getWGSR.html">addWGSR</a></span><span class="op">(</span><span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"muac"</span>,    
-               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"mfa"</span><span class="op">)</span>
-<span class="co">#&gt; ================================================================================</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
-<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz</span>
-<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97</span>
-<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88</span>
-<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14</span>
-<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA</span>
-<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70</span>
-<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46</span></code></pre></div>
-<p>As a last example we will use the <code><a href="../reference/getWGSR.html">addWGSR()</a></code> function to add body mass index-for-age (bfa) z-scores to the data to create a new variable called bmiAgeZ with a precision of 4 decimal places as:</p>
+<code class="sourceCode R"><span><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wgs.html">addWGSR</a></span><span class="op">(</span><span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"muac"</span>,    </span>
+<span>               secondPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"mfa"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ================================================================================</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz</span></span>
+<span><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97</span></span>
+<span><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88</span></span>
+<span><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14</span></span>
+<span><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA</span></span>
+<span><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70</span></span>
+<span><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46</span></span></code></pre></div>
+<p>As a last example we will use the <code><a href="../reference/wgs.html">addWGSR()</a></code> function to
+add body mass index-for-age (bfa) z-scores to the data to create a new
+variable called bmiAgeZ with a precision of 4 decimal places as:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getWGSR.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, 
-               secondPart <span class="op">=</span> <span class="st">"height"</span>, thirdPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"bfa"</span>, 
-               output <span class="op">=</span> <span class="st">"bmiAgeZ"</span>, digits <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; ================================================================================</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span>
-<span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz bmiAgeZ</span>
-<span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97 -2.6928</span>
-<span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88 -2.0005</span>
-<span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14  0.0405</span>
-<span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA      NA</span>
-<span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70 -2.8958</span>
-<span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46 -2.0796</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">svy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wgs.html">addWGSR</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">svy</span>, sex <span class="op">=</span> <span class="st">"sex"</span>, firstPart <span class="op">=</span> <span class="st">"weight"</span>, </span>
+<span>               secondPart <span class="op">=</span> <span class="st">"height"</span>, thirdPart <span class="op">=</span> <span class="st">"age"</span>, index <span class="op">=</span> <span class="st">"bfa"</span>, </span>
+<span>               output <span class="op">=</span> <span class="st">"bmiAgeZ"</span>, digits <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ================================================================================</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">svy</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   psu      age sex weight height muac oedema  wfhz  wfaz  mfaz bmiAgeZ</span></span>
+<span><span class="co">#&gt; 1   1 304.3750   1    5.7   64.2 12.5      2 -2.73 -4.13 -1.97 -2.6928</span></span>
+<span><span class="co">#&gt; 2   1 304.3750   2    5.8   64.4 12.1      2 -2.04 -3.19 -1.88 -2.0005</span></span>
+<span><span class="co">#&gt; 3   1 273.9375   2    6.5   62.2 13.9      2  0.13 -1.97 -0.14  0.0405</span></span>
+<span><span class="co">#&gt; 4   1 334.8125   9    6.5   64.9 12.9      2    NA    NA    NA      NA</span></span>
+<span><span class="co">#&gt; 5   1 730.5000   2    6.5   72.9 12.0      2 -3.44 -4.61 -2.70 -2.8958</span></span>
+<span><span class="co">#&gt; 6   1 365.2500   2    6.6   69.4 12.6      2 -2.26 -2.56 -1.46 -2.0796</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -448,11 +483,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Mark Myatt, Ernest Guevarra.</p>
+  <p></p>
+<p>Developed by Mark Myatt, Ernest Guevarra.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -460,6 +497,8 @@
 
   
 
+
+  
 
   </body>
 </html>

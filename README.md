@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zscorer: Anthropometric z-score Calculator <img src="man/figures/logo.png" width="200" align="right" />
+# zscorer: Anthropometric Z-Score Calculator <img src="man/figures/logo.png" width="200" align="right" />
 
 <!-- badges: start -->
 
@@ -9,13 +9,11 @@
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/zscorer)](https://cran.r-project.org/package=zscorer)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/zscorer)](https://cran.r-project.org/package=zscorer)
 [![CRAN](https://img.shields.io/cran/l/zscorer.svg)](https://CRAN.R-project.org/package=zscorer)
 [![CRAN](http://cranlogs.r-pkg.org/badges/zscorer)](https://CRAN.R-project.org/package=zscorer)
 [![CRAN](http://cranlogs.r-pkg.org/badges/grand-total/zscorer)](https://CRAN.R-project.org/package=zscorer)
-[![R-CMD-check](https://github.com/nutriverse/zscorer/workflows/R-CMD-check/badge.svg)](https://github.com/nutriverse/zscorer/actions)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/nutriverse/zscorer?branch=master&svg=true)](https://ci.appveyor.com/project/nutriverse/zscorer)
+[![R-CMD-check](https://github.com/nutriverse/zscorer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nutriverse/zscorer/actions/workflows/R-CMD-check.yaml)
 [![test-coverage](https://github.com/nutriverse/zscorer/workflows/test-coverage/badge.svg)](https://github.com/nutriverse/zscorer/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/zscorer?branch=master)
@@ -23,40 +21,51 @@ coverage](https://codecov.io/gh/nutriverse/zscorer/branch/master/graph/badge.svg
 [![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/zscorer/badge)](https://www.codefactor.io/repository/github/nutriverse/zscorer)
 <!-- badges: end -->
 
+Nutritional status, especially in children, has been widely assessed
+using anthropometric measures in both developing and developed
+countries. Once a childs’ anthropometry has been correctly measured and
+their age has been recorded, their growth and nutritional status can be
+assessed using a standardised age- and sex-specific growth reference to
+calculate z-scores. These z-scores express anthropometric measurements
+as several standard deviations (SDs) below or above the reference mean
+or median value. The calculation of anthropometric z-scores is one of
+the most widely-used analytical technique used in nutrition surveys and
+nutrition research.
+
 ## What does `zscorer` do?
 
 The `zscorer` packages facilitates the calculation of a range of
 anthropometric *z-scores* (i.e. the number of standard deviations from
 the mean) and adds them to survey data:
 
-  - **Weight-for-length (wfl)** z-scores for children with lengths
+-   **Weight-for-length (wfl)** z-scores for children with lengths
     between 45 and 110 cm
 
-  - **Weight-for-height (wfh)** z-scores for children with heights
+-   **Weight-for-height (wfh)** z-scores for children with heights
     between 65 and 120 cm
 
-  - **Length-for-age (lfa)** z-scores for children aged less than 24
+-   **Length-for-age (lfa)** z-scores for children aged less than 24
     months
 
-  - **Height-for-age (hfa)** z-scores for children aged between 24 and
+-   **Height-for-age (hfa)** z-scores for children aged between 24 and
     228 months
 
-  - **Weight-for-age (wfa)** z-scores for children aged between zero and
+-   **Weight-for-age (wfa)** z-scores for children aged between zero and
     120 months
 
-  - **Body mass index-for-age (bfa)** z-scores for children aged between
+-   **Body mass index-for-age (bfa)** z-scores for children aged between
     zero and 228 months
 
-  - **MUAC-for-age (mfa)** z-scores for children aged between 3 and 228
+-   **MUAC-for-age (mfa)** z-scores for children aged between 3 and 228
     months
 
-  - **Triceps skinfold-for-age (tsa)** z-scores for children aged
+-   **Triceps skinfold-for-age (tsa)** z-scores for children aged
     between 3 and 60 months
 
-  - **Sub-scapular skinfold-for-age (ssa)** z-scores for children aged
+-   **Sub-scapular skinfold-for-age (ssa)** z-scores for children aged
     between 3 and 60 months
 
-  - **Head circumference-for-age (hca)** z-scores for children aged
+-   **Head circumference-for-age (hca)** z-scores for children aged
     between zero and 60 months
 
 The *z-scores* are calculated using the **WHO Child Growth
@@ -164,7 +173,7 @@ z-scores. These rules are described in the table below.
  
 
 | **index**  | **standing** | **age**     | **height**       | **Action**                           |
-| ---------- | ------------ | ----------- | ---------------- | ------------------------------------ |
+|------------|--------------|-------------|------------------|--------------------------------------|
 | hfa or lfa | standing     | \< 731 days |                  | index = lfa height = height + 0.7 cm |
 | hfa or lfa | supine       | \< 731 days |                  | index = lfa                          |
 | hfa or lfa | unknown      | \< 731 days |                  | index = lfa                          |
@@ -190,7 +199,7 @@ Error conditions are listed in the table below.
  
 
 | **Error condition**                               | **Action**                                                                 |
-| ------------------------------------------------- | -------------------------------------------------------------------------- |
+|---------------------------------------------------|----------------------------------------------------------------------------|
 | Missing or nonsense value in `standing` parameter | Set `standing` to `3` (unknown) and apply appropriate height or age rules. |
 | Unknown `index` specified                         | Return **NA** for z-score.                                                 |
 | Missing `sex`                                     | Return **NA** for z-score.                                                 |
@@ -522,7 +531,7 @@ run_zscorer()
 This will initiate the Shiny app using the installed web browser in your
 current device as shown below:
 
-<img src="man/figures/zscorerApp.png" width="2450" />
+![](man/figures/zscorerApp.png)<!-- -->
 
 ## Citation
 
@@ -534,16 +543,18 @@ citation("zscorer")
 #> 
 #> To cite package 'zscorer' in publications use:
 #> 
-#>   Mark Myatt and Ernest Guevarra (NA). zscorer: Child Anthropometry
-#>   z-Score Calculator. https://nutriverse/zscorer/,
-#>   https://github.com/nutriverse/zscorer.
+#>   Myatt M, Guevarra E (2019). _zscorer: Child Anthropometry z-Score
+#>   Calculator_. R package version 0.3.1,
+#>   <https://CRAN.R-project.org/package=zscorer>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {zscorer: Child Anthropometry z-Score Calculator},
 #>     author = {Mark Myatt and Ernest Guevarra},
-#>     note = {https://nutriverse/zscorer/, https://github.com/nutriverse/zscorer},
+#>     year = {2019},
+#>     note = {R package version 0.3.1},
+#>     url = {https://CRAN.R-project.org/package=zscorer},
 #>   }
 ```
 

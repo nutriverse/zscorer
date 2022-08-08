@@ -32,6 +32,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -44,23 +46,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zscorer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.1.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -86,20 +82,20 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://twitter.com/katilingban">
-    <span class="fab fa fab fa-twitter fa-lg"></span>
+  <a href="https://twitter.com/katilingban" class="external-link">
+    <span class="fab fa-twitter fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://www.linkedin.com/company/katilingban/">
-    <span class="fab fa fab fa-linkedin fa-lg"></span>
+  <a href="https://www.linkedin.com/company/katilingban/" class="external-link">
+    <span class="fab fa-linkedin fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/nutriverse/zscorer/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/nutriverse/zscorer/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -113,58 +109,109 @@
 
       
 
-      </header><script src="using-shiny-app_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="using-shiny-app_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="using-shiny-app_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Using zscorer Shiny application</h1>
-                        <h4 class="author">Ernest Guevarra</h4>
+                        <h4 data-toc-skip class="author">Ernest
+Guevarra</h4>
             
-            <h4 class="date">2020-12-22</h4>
+            <h4 data-toc-skip class="date">2022-08-08</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/nutriverse/zscorer/blob/master/vignettes/using-shiny-app.Rmd"><code>vignettes/using-shiny-app.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/nutriverse/zscorer/blob/HEAD/vignettes/using-shiny-app.Rmd" class="external-link"><code>vignettes/using-shiny-app.Rmd</code></a></small>
       <div class="hidden name"><code>using-shiny-app.Rmd</code></div>
 
     </div>
 
     
     
-<p><code>zscorer</code> comes packaged with a built-in Shiny application. The application is initiated by issuing the following command:</p>
-<p>This opens the installed web browser in the user’s device showing the following:</p>
-<p><img src="../man/figures/zscorerApp.png" width="90%"></p>
-<div id="getting-the-z-score-of-a-single-child" class="section level1">
-<h1 class="hasAnchor">
-<a href="#getting-the-z-score-of-a-single-child" class="anchor"></a>Getting the z-score of a single child</h1>
-<p>The first (and default) functionality of the built-in Shiny application is for calculating the z-scores for a single child. This functionality is accessed by selecting the <code>single</code> option on the tabbed menu available in the top edge of the application interface as shown below:</p>
-<p><img src="../man/figures/single.png" width="30%"></p>
-<p>When this functionality is selected, the sidebar menu provides the following options:</p>
-<p><img src="../man/figures/singleSidebar.png" width="30%"></p>
-<p>In this sidebar menu, the user should enter all the anthropometric measurements available for the child to whom user wants to calculate z-scores of. For the calculation to work, the minimum data needed to be supplied by the user are:</p>
+<p><code>zscorer</code> comes packaged with a built-in Shiny
+application. The application is initiated by issuing the following
+command:</p>
+<p>This opens the installed web browser in the user’s device showing the
+following:</p>
+<p><img src="../reference/figures/zscorerApp.png" width="90%"></p>
+<div class="section level2">
+<h2 id="getting-the-z-score-of-a-single-child">Getting the z-score of a single child<a class="anchor" aria-label="anchor" href="#getting-the-z-score-of-a-single-child"></a>
+</h2>
+<p>The first (and default) functionality of the built-in Shiny
+application is for calculating the z-scores for a single child. This
+functionality is accessed by selecting the <code>single</code> option on
+the tabbed menu available in the top edge of the application interface
+as shown below:</p>
+<p><img src="../reference/figures/single.png" width="30%"></p>
+<p>When this functionality is selected, the sidebar menu provides the
+following options:</p>
+<p><img src="../reference/figures/singleSidebar.png" width="30%"></p>
+<p>In this sidebar menu, the user should enter all the anthropometric
+measurements available for the child to whom user wants to calculate
+z-scores of. For the calculation to work, the minimum data needed to be
+supplied by the user are:</p>
 <ul>
 <li><p><strong>Age</strong>;</p></li>
 <li><p><strong>Sex</strong>; and,</p></li>
-<li><p>At least one anthropometric measurement among <strong>weight (kgs)</strong>, <strong>height (cms)</strong>, <strong>mid-upper arm circumference (cms)</strong>, <strong>head circumference (cms)</strong>, <strong>subscapular skinfold (cms)</strong> or <strong>triceps skinfold (cms)</strong>.</p></li>
+<li><p>At least one anthropometric measurement among <strong>weight
+(kgs)</strong>, <strong>height (cms)</strong>, <strong>mid-upper arm
+circumference (cms)</strong>, <strong>head circumference (cms)</strong>,
+<strong>subscapular skinfold (cms)</strong> or <strong>triceps skinfold
+(cms)</strong>.</p></li>
 </ul>
-<p>Please ensure that any anthropometric measurement is supplied in the appropriate units as indicated above.</p>
-<p>To illustrate, let’s use the dummy data of a <strong>52 month</strong> old <strong>male</strong> child with a weight of <strong>14.6 kg</strong> and a height of <strong>98.0 cm</strong>. This data is typed into the sidebar menu and then click on the <code>Calculate</code> tab as shown below:</p>
-<p><img src="../man/figures/sidebarSingleInput.png" width="30%"></p>
-<p>This produces the following output in the main panel of the application:</p>
-<p><img src="../man/figures/singleResults.png" width="90%"></p>
-<p>Depending on the anthropometric measurements supplied, the corresponding applicable z-score indices will be provided. No z-score result will be provided if the required anthropometric measurement is not supplied. In the example above, MUAC-for-age, head circumference-for-age, subscapular skinfold-for-age and triceps skinfold-for-age are not provide as no MUAC, head circumference, subscapular skinfold or triceps skinfold are provided.</p>
+<p>Please ensure that any anthropometric measurement is supplied in the
+appropriate units as indicated above.</p>
+<p>To illustrate, let’s use the dummy data of a <strong>52
+month</strong> old <strong>male</strong> child with a weight of
+<strong>14.6 kg</strong> and a height of <strong>98.0 cm</strong>. This
+data is typed into the sidebar menu and then click on the
+<code>Calculate</code> tab as shown below:</p>
+<p><img src="../reference/figures/sidebarSingleInput.png" width="30%"></p>
+<p>This produces the following output in the main panel of the
+application:</p>
+<p><img src="../reference/figures/singleResults.png" width="90%"></p>
+<p>Depending on the anthropometric measurements supplied, the
+corresponding applicable z-score indices will be provided. No z-score
+result will be provided if the required anthropometric measurement is
+not supplied. In the example above, MUAC-for-age, head
+circumference-for-age, subscapular skinfold-for-age and triceps
+skinfold-for-age are not provide as no MUAC, head circumference,
+subscapular skinfold or triceps skinfold are provided.</p>
 </div>
-<div id="getting-the-z-score-of-a-cohort-of-children" class="section level1">
-<h1 class="hasAnchor">
-<a href="#getting-the-z-score-of-a-cohort-of-children" class="anchor"></a>Getting the z-score of a cohort of children</h1>
-<p>The second functionality of the built-in Shiny application is for calculating the z-scores for a cohort of children. This functionality is accessed by selecting the <code>cohort</code> option on the tabbed menu available in the top edge of the application interface as shown below:</p>
-<p><img src="../man/figures/cohort.png" width="30%"></p>
-<p>When this functionality is selected, the sidebar menu provides the following options:</p>
-<p><img src="../man/figures/cohortSidebar.png" width="30%"></p>
-<p>In this sidebar menu, the user is expected to upload cohort data of children with their anthropometric data. The user is also expected to select which anthropometric indices to calculate. If no anthropometric indices are selected, no calculations will be performed. A cohort data can be uploaded by clicking on the <code>Browse</code> button and then selecting the file with cohort data to upload. Once uploaded, the sidebar menu will provide the following additional options:</p>
-<p><img src="../man/figures/sidebarCohortOptions.png" width="30%"></p>
-<p>For the <code>zscorer</code> app to be able to calculate z-scores from the cohort data, the variables corresponding to the required information needs to be supplied. By default, the application will search the variable names in the data and pick out typical variable names for the measurements (e.g., <code>ht</code> or <code>height</code> or <code>HT</code> or <code>Height</code> or <code>HEIGHT</code> for height measurements). If the variables are named unconventionally, user will have to select the variable name for the particular measurement from the choices. If the measurements are not in the data, then the variable field should be left empty.</p>
-<p>Once the various parameters have been provided, user should click on the <code>Calculate</code> button which results in the following:</p>
-<p><img src="../man/figures/cohortResults.png" width="90%"></p>
-<p>The dataset provides is presented as a table in the main panel but now with additional fields for the calculated anthropometric indices. The resulting dataset with the calculated anthropometric indices can then be downloaded by clicking on the <code>Download</code> button.</p>
+<div class="section level2">
+<h2 id="getting-the-z-score-of-a-cohort-of-children">Getting the z-score of a cohort of children<a class="anchor" aria-label="anchor" href="#getting-the-z-score-of-a-cohort-of-children"></a>
+</h2>
+<p>The second functionality of the built-in Shiny application is for
+calculating the z-scores for a cohort of children. This functionality is
+accessed by selecting the <code>cohort</code> option on the tabbed menu
+available in the top edge of the application interface as shown
+below:</p>
+<p><img src="../reference/figures/cohort.png" width="30%"></p>
+<p>When this functionality is selected, the sidebar menu provides the
+following options:</p>
+<p><img src="../reference/figures/cohortSidebar.png" width="30%"></p>
+<p>In this sidebar menu, the user is expected to upload cohort data of
+children with their anthropometric data. The user is also expected to
+select which anthropometric indices to calculate. If no anthropometric
+indices are selected, no calculations will be performed. A cohort data
+can be uploaded by clicking on the <code>Browse</code> button and then
+selecting the file with cohort data to upload. Once uploaded, the
+sidebar menu will provide the following additional options:</p>
+<p><img src="../reference/figures/sidebarCohortOptions.png" width="30%"></p>
+<p>For the <code>zscorer</code> app to be able to calculate z-scores
+from the cohort data, the variables corresponding to the required
+information needs to be supplied. By default, the application will
+search the variable names in the data and pick out typical variable
+names for the measurements (e.g., <code>ht</code> or <code>height</code>
+or <code>HT</code> or <code>Height</code> or <code>HEIGHT</code> for
+height measurements). If the variables are named unconventionally, user
+will have to select the variable name for the particular measurement
+from the choices. If the measurements are not in the data, then the
+variable field should be left empty.</p>
+<p>Once the various parameters have been provided, user should click on
+the <code>Calculate</code> button which results in the following:</p>
+<p><img src="../reference/figures/cohortResults.png" width="90%"></p>
+<p>The dataset provides is presented as a table in the main panel but
+now with additional fields for the calculated anthropometric indices.
+The resulting dataset with the calculated anthropometric indices can
+then be downloaded by clicking on the <code>Download</code> button.</p>
 </div>
   </div>
 
@@ -179,11 +226,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Mark Myatt, Ernest Guevarra.</p>
+  <p></p>
+<p>Developed by Mark Myatt, Ernest Guevarra.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -191,6 +240,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -102,17 +102,19 @@
 
 getAllWGS <- function(data = NULL, sex, weight, height, age, index) {
   ## Deprecate
-  .Deprecated(new = "addWGSR",
-              package = "zscorer",
-              msg = paste(
-                strwrap(
-                  "The getAllWGS function is now under deprecation. Please
+  if (!identical(Sys.getenv("TESTTHAT"), "true")) {
+    .Deprecated(new = "addWGSR",
+                package = "zscorer",
+                msg = paste(
+                  strwrap(
+                    "The getAllWGS function is now under deprecation. Please
                   use addWGSR instead",
-                  width = 80
+                    width = 80
+                  ),
+                  collapse = "\n"
                 ),
-                collapse = "\n"
-              ),
-              old = "getAllWGS")
+                old = "getAllWGS")
+  }
 
   ## If user selects index of "wfa" or "all"...
   if(index == "wfa" | index == "all"){

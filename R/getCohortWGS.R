@@ -61,17 +61,19 @@ getCohortWGS <- function(data,
                          index) {
 
   ## Deprecate
-  .Deprecated(new = "addWGSR",
-              package = "zscorer",
-              msg = paste(
-                strwrap(
-                  "The getCohortWGS function is now under deprecation. Please
+  if (!identical(Sys.getenv("TESTTHAT"), "true")) {
+    .Deprecated(new = "addWGSR",
+                package = "zscorer",
+                msg = paste(
+                  strwrap(
+                    "The getCohortWGS function is now under deprecation. Please
                   use addWGSR instead",
-                  width = 80
+                    width = 80
+                  ),
+                  collapse = "\n"
                 ),
-                collapse = "\n"
-              ),
-              old = "getCohortWGS")
+                old = "getCohortWGS")
+  }
 
   z <- mapply(FUN = getWGS,
               data[ , sexObserved],

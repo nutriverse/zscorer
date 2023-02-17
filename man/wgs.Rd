@@ -95,7 +95,7 @@ added.
 \description{
 The first function, \code{\link[=getWGSR]{getWGSR()}}, is usually called by the \code{\link[=addWGSR]{addWGSR()}}
 function but could be used as a stand-alone calculator for getting z-score
-for a given anthropometric measurement.
+for a given anthropometric measurement, or set of measurements
 }
 \details{
 \code{\link[=addWGSR]{addWGSR()}} adds the WHO Growth Reference z-scores to a data frame of

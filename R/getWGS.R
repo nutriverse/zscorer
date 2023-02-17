@@ -62,17 +62,20 @@
 
 getWGS <- function(sexObserved, firstPart, secondPart, index) {
   ## Deprecate function
-  .Deprecated(new = "getWGSR",
-              package = "zscorer",
-              msg = paste(
-                      strwrap(
-                        "This function is now under deprecation. Please use
+  if (!identical(Sys.getenv("TESTTHAT"), "true")) {
+    .Deprecated(new = "getWGSR",
+                package = "zscorer",
+                msg = paste(
+                  strwrap(
+                    "This function is now under deprecation. Please use
                         getWGSR instead",
-                        width = 80
-                      ),
-                      collapse = "\n"
-                    ),
-              old = "getWGS")
+                    width = 80
+                  ),
+                  collapse = "\n"
+                ),
+                old = "getWGS")
+  }
+
 
   if(is.na(sexObserved) | is.na(firstPart) | is.na(secondPart)) { return(NA) }
 
